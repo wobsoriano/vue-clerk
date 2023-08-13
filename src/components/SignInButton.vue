@@ -3,7 +3,7 @@ import type { SignInProps } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
 
 const props = withDefaults(defineProps<SignInProps & {
-  mode: 'modal' | 'redirect'
+  mode?: 'modal' | 'redirect'
 }>(), {
   mode: 'modal',
 })
