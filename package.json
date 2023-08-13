@@ -1,0 +1,63 @@
+{
+  "name": "vue-clerk",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.6.12",
+  "description": "",
+  "author": "Robert Soriano <sorianorobertc@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/wobsoriano/vue-clerk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wobsoriano/vue-clerk.git"
+  },
+  "bugs": "https://github.com/wobsoriano/vue-clerk/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup --onSuccess \"pnpm build:dts\"",
+    "build:dts": "vue-tsc --declaration --emitDeclarationOnly",
+    "lint": "eslint .",
+    "prepublishOnly": "pnpm build",
+    "release": "bumpp && npm publish",
+    "test": "vitest",
+    "update-deps": "taze -w && pnpm i",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vue": ">=3.3.0"
+  },
+  "dependencies": {
+    "@clerk/clerk-js": "^4.55.0",
+    "@clerk/types": "^3.49.0",
+    "@vueuse/core": "^10.3.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.40.2",
+    "bumpp": "^9.1.1",
+    "eslint": "^8.47.0",
+    "taze": "^0.11.2",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6",
+    "unplugin-vue": "^4.2.6",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.1",
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.8.8"
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
+  }
+}
