@@ -2,9 +2,11 @@
 import type { SignInProps } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
 
-const props = defineProps<SignInProps & {
+const props = withDefaults(defineProps<SignInProps & {
   mode: 'modal' | 'redirect'
-}>()
+}>(), {
+  mode: 'modal',
+})
 
 const clerk = useClerk()
 
