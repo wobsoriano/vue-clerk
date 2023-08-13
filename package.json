@@ -31,7 +31,7 @@
     "build:dts": "vue-tsc --declaration --emitDeclarationOnly",
     "lint": "eslint .",
     "prepublishOnly": "pnpm build",
-    "release": "bumpp && npm publish",
+    "release": "changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest",
     "update-deps": "taze -w && pnpm i",
     "typecheck": "tsc --noEmit"
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
-    "bumpp": "^9.1.1",
+    "changelogen": "^0.5.4",
     "eslint": "^8.47.0",
     "taze": "^0.11.2",
     "tsup": "^7.2.0",
