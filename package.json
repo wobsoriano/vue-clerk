@@ -27,6 +27,7 @@
     "dist"
   ],
   "scripts": {
+    "dev": "tsup --watch --onSuccess \"pnpm build:dts && pnpm --filter playground dev\"",
     "build": "tsup --onSuccess \"pnpm build:dts\"",
     "build:dts": "vue-tsc --declaration --emitDeclarationOnly",
     "lint": "eslint .",
