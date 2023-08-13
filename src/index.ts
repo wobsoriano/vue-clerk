@@ -3,6 +3,7 @@ import SignUp from './components/SignUp.vue'
 import SignInButton from './components/SignInButton.vue'
 import SignOutButton from './components/SignOutButton.vue'
 import UserProfile from './components/UserProfile.vue'
+import UserButton from './components/UserButton.vue'
 
 export {
   SignIn,
@@ -10,6 +11,7 @@ export {
   SignInButton,
   SignOutButton,
   UserProfile,
+  UserButton,
 }
 
 export {
