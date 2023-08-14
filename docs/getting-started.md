@@ -24,7 +24,7 @@ VITE_CLERK_PUBLISHABLE_KEY=pk_test_•••••••••••••••
 
 ## Configure plugin
 
-Clerk requires your Vue application to be wrapped in the <ClerkProvider/> component. The <ClerkProvider /> component provides active session and user context to Clerk's hooks and other components.
+Vue Clerk requires your application to have the plugin installed. The Clerk plugin provides active session and user context to Clerk's composables and other components.
 
 ```ts
 import { createApp } from 'vue'
