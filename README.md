@@ -1,9 +1,6 @@
-# library-starter
+# vue-clerk
 
-Features:
-
-- Bundle with [tsup](https://github.com/egoist/tsup)
-- Test with [vitest](https://vitest.dev)
+Vue + Clerk integration. In progress, do not use yet.
 
 ## License
 
