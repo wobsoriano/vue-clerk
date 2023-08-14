@@ -4,17 +4,21 @@ outline: deep
 
 # Getting Started
 
-Learn to install and initialize Clerk in a Vue app.
+Learn how to make Vue Clerk components available in your project.
 
-After following this guide, you should have a working Vue app complete with:
+## Overview
 
-- Fully fledged sign in and sign up flows.
-- Google Social Login.
-- Secure email/password authentication.
+Vue Clerk is a wrapper around ClerkJS. It's a way to integrate Clerk into your Vue application.
 
-## Install
+Vue Clerk provides Vue implementations of [Clerk Components](https://clerk.com/components/sign-in); highly customizable, pre-built components that you can use to build beautiful user management applications. You can find display components for building [sign in](https://clerk.com/components/sign-in), [sign up](https://clerk.com/components/sign-up), [account switching](https://clerk.com/components/user-button) and [user profile management](https://clerk.com/components/user-profile) pages as well as flow [control components](https://clerk.com/docs/component-reference/clerk-loaded) that act as helpers for implementing a seamless authentication experience.
 
-Once you have a Vue application ready, you need to install the Vue + Clerk integration module. This gives you access to the prebuilt components and composables for Vue applications.
+Vue Clerk comes loaded with custom [composables](/composables/use-clerk.html). These composables give you access to the [Clerk object](https://clerk.com/docs/reference/clerkjs/clerk), and a set of useful helper methods for signing in and signing up.
+
+## Setting up Vue Clerk
+
+::: warning
+You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.com/) before you can set up Vue Clerk. For more information, check out our [Set up your application](https://clerk.com/docs/authentication/set-up-your-application) guide.
+:::
 
 ```bash
 npm install vue-clerk
@@ -22,7 +26,7 @@ npm install vue-clerk
 
 ## Set Environment Keys
 
-Below is an example of your `.env.local` file. To get the respective keys go to the API Keys page in the Clerk dashboard.
+Below is an example of your `.env.local` file. To get the respective keys go to the [API Keys page](https://dashboard.clerk.com/last-active?path=api-keys) in the Clerk dashboard.
 
 ```bash
 VITE_CLERK_PUBLISHABLE_KEY=pk_test_••••••••••••••••••••••••••••••••••
@@ -45,44 +49,4 @@ app.use(clerkPlugin, {
 })
 
 app.mount('#app')
-```
-
-## Read Session & User Data
-
-Vue Clerk provides a set of composables and helpers that you can use to access the active session and user data in your Vue application. We have included examples of how to use these helpers to get you started.
-
-### useAuth
-
-The useAuth composable is a convenient way to access the current auth state. This composable provides the minimal information needed for data-loading and helper methods to manage the current active session.
-
-```vue
-<script lang="ts">
-import { useAuth } from 'vue-clerk'
-
-const { isLoaded, userId, sessionId } = useAuth()
-</script>
-
-<template>
-  <div v-if="isLoaded && userId">
-    Hello, {{ userId }} your current active session is {{ sessionId }}
-  </div>
-</template>
-```
-
-### useUser
-
-The useUser composable is a convenient way to access the current user data where you need it. This composable provides the user data and helper methods to manage the current active session.
-
-```vue
-<script lang="ts">
-import { useUser } from 'vue-clerk'
-
-const { isLoaded, isSignedIn, user } = useUser()
-</script>
-
-<template>
-  <div v-if="isLoaded && isSignedIn">
-    Hello, {{ user.firstName }} welcome to Clerk
-  </div>
-</template>
 ```
