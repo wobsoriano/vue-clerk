@@ -37,7 +37,7 @@ import { useUser } from 'vue-clerk'
 const { user } = useUser()
 
 async function updateUser() {
-  await user.update({
+  await user.value.update({
     firstName: 'John',
     lastName: 'Doe',
   })

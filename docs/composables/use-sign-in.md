@@ -50,6 +50,7 @@ const password = ref('')
 
 async function submit() {
   await signIn
+    .value
     .create({
       identifier: email.value,
       password: password.value,
