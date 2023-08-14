@@ -2,7 +2,7 @@ import { vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 import { defineComponent, h } from 'vue'
-import { SignInButton, clerkPlugin } from '../../src/index'
+import { SignInButton } from '../../src/index'
 
 const mockRedirectToSignIn = vi.fn()
 const originalError = console.error
@@ -31,11 +31,7 @@ describe('<SignInButton />', () => {
   })
 
   it('calls clerk.redirectToSignIn when clicked', async () => {
-    render(SignInButton, {
-      global: {
-        plugins: [[clerkPlugin, { publishableKey: 'pk_test_bmF0dXJhbC1maXJlZmx5LTg5LmNsZXJrLmFjY291bnRzLmRldiQ' }]],
-      },
-    })
+    render(SignInButton)
     const btn = screen.getByTestId('sign-in-btn')
     userEvent.click(btn)
     await waitFor(() => {
