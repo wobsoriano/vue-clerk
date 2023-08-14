@@ -30,6 +30,7 @@ export default defineConfig({
         items: [
           { text: 'SignIn', link: '/components/sign-in.md' },
           { text: 'SignUp', link: '/components/sign-up.md' },
+          { text: 'UserProfile', link: '/components/user-profile.md' },
         ],
       },
     ],

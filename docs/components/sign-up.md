@@ -12,7 +12,7 @@ const { isSignedIn } = useAuth()
 
 A beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers.
 
-<SignOutButton v-if="isSignedIn" />
+<SignOutButton v-if="isSignedIn">SIGN OUT TO VIEW COMPONENT</SignOutButton>
 <div v-else class="sign-up-container">
   <SignUp :appearance="{ elements: { card: 'clerk-card' } }" redirect-url="/components/sign-up.html" />
 </div>
