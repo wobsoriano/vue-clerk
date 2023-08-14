@@ -55,8 +55,8 @@ importers:
   playground:
     dependencies:
       h3-clerk:
-        specifier: ^0.2.1
-        version: 0.2.1(h3@1.7.1)
+        specifier: ^0.2.3
+        version: 0.2.3(h3@1.7.1)
       vue-clerk:
         specifier: workspace:*
         version: link:..
@@ -492,8 +492,8 @@ packages:
       '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
 
-  /@clerk/backend@0.26.0:
-    resolution: {integrity: sha512-lFDKVqx2soDvKpynZRtRzb1mg4peE5O5I5H7XIgaGhcchOVPrv+IYR0+rTwlSZkep4xCG12dPIKW+Bjtp6QLKw==}
+  /@clerk/backend@0.27.0:
+    resolution: {integrity: sha512-Sj541JrpqAn1A/UwdyDBxFV3stq2A/Pe/8HdPTG3Cct6briPyavfi46O5s1+L3BSvUcKUY+UbM0+8VsoCNFi4w==}
     engines: {node: '>=14'}
     dependencies:
       '@clerk/types': 3.49.0
@@ -4875,12 +4875,12 @@ packages:
       duplexer: 0.1.2
     dev: true
 
-  /h3-clerk@0.2.1(h3@1.7.1):
-    resolution: {integrity: sha512-caNxkrW6+oVTa5mVC91jBF991SE3VyiHlEGjp43GU/nJHx5spf0S8c1VYGIvBCNBIkGyLMV7iwDoNjp1qh3GTA==}
+  /h3-clerk@0.2.3(h3@1.7.1):
+    resolution: {integrity: sha512-lFHKkAITVjR422YhamNlWgSq77C/O4x+GbHXowNniiocsX2SYUhp3e9GNPpV1tEmS7DyTKsw/NdTGRaPhh1r4w==}
     peerDependencies:
       h3: ^1.7.0
     dependencies:
-      '@clerk/backend': 0.26.0
+      '@clerk/backend': 0.27.0
       h3: 1.7.1
     dev: false
 

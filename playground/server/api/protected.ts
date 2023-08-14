@@ -1,6 +1,6 @@
-import { clerkClient } from 'h3-clerk'
+import { clerkClient, withClerkAuth } from 'h3-clerk'
 
-export default eventHandler(async (event) => {
+export default withClerkAuth(async (event) => {
   const { auth } = event.context
 
   if (!auth.userId) {
@@ -9,4 +9,7 @@ export default eventHandler(async (event) => {
   }
 
   return await clerkClient.users.getUser(auth.userId)
+}, {
+  publishableKey: useRuntimeConfig().public.clerkPublishableKey,
+  secretKey: useRuntimeConfig().clerkSecretKey,
 })
