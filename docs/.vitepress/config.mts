@@ -32,6 +32,11 @@ export default defineConfig({
       text: 'Edit this page on GitHub',
     },
 
+    footer: {
+      message: 'Released under the MIT License.',
+      // copyright: 'Copyright © 2023-present Robert Soriano',
+    },
+
     sidebar: [
       {
         text: 'Introduction',
