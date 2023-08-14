@@ -16,10 +16,10 @@ hero:
 
 features:
   - title: Pre-built Components
-    details: Components for for sign up, sign in, user management, and more.
+    details: Components for sign up, sign in, user management, and more.
+  - title: Composables
+    details: Composables for working with user, session and more.
   - title: Authentication & Users
     details: Passwords, SSO, OTP, MFA and other advanced security features.
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
