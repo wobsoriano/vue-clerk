@@ -4,6 +4,10 @@ import type { LoadedClerk } from '@clerk/types'
 import { useClerkProvide } from '../plugin'
 import { useClerk } from './useClerk'
 
+/**
+ * @internal
+ * Makes sure that Clerk is loaded before mounting components.
+ */
 export function useMountComponent({
   el,
   mountKey,
