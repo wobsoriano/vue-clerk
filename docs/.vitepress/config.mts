@@ -26,12 +26,13 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Embeddable UIs',
+        text: 'UI Components',
         items: [
           { text: 'SignIn', link: '/components/sign-in.md' },
           { text: 'SignUp', link: '/components/sign-up.md' },
           { text: 'SignInButton', link: '/components/sign-in-button.md' },
           { text: 'SignOutButton', link: '/components/sign-out-button.md' },
+          { text: 'UserButton', link: '/components/user-button.md' },
           { text: 'UserProfile', link: '/components/user-profile.md' },
         ],
       },

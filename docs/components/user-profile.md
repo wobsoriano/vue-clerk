@@ -4,6 +4,10 @@ outline: deep
 
 # UserProfile
 
+A full-featured account management component
+
+## Overview
+
 The `<UserProfile/>` component is used to render a beautiful, full-featured account management UI that allows users to manage their profile and security settings.
 
 <img src="https://clerk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fe1ql88v4%2Fproduction%2F86ce587f95cbaa773bdd9ddf8d5dfbb57387de16-528x645.svg%3Ffit%3Dmax%26auto%3Dformat&w=1080&q=75" alt="UserProfile component sample" />

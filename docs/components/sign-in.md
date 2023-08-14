@@ -10,6 +10,10 @@ const { isSignedIn } = useAuth()
 
 # SignIn
 
+Full-featured UI for signing users into your application.
+
+## Overview
+
 The `<SignIn/>` component renders a UI for signing in users. Most of the times, the `<SignIn/>` component is all you need for completing sign ins. It supports any authentication scheme, from Email/password authentication, and Passwordless, to Social Login (OAuth) and Multi-factor verification as well.
 
 <SignOutButton v-if="isSignedIn">SIGN OUT TO VIEW COMPONENT</SignOutButton>

@@ -4,6 +4,10 @@ outline: deep
 
 # SignInButton
 
+Show a button that links to the sign-in URL or opens the sign-in modal
+
+## Overview
+
 `<SignInButton/>` is a button that links to the sign-in page or displays the sign-in modal. By default, it is a `<button>` tag that says Sign in, but it is completely customizable by passing children.
 
 ## Usage

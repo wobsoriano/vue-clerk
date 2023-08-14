@@ -4,6 +4,10 @@ outline: deep
 
 # SignOutButton
 
+Show a button that can be used to sign out the user.
+
+## Overview
+
 `<SignOutButton/>` is a button that will sign a user out. By default, it is a `<button>` tag that says Sign Out, but it is completely customizable by passing children.
 
 ## Usage
@@ -22,4 +26,4 @@ import { SignOutButton } from 'vue-clerk'
 
 |Name|Type|Description|
 |--- |--- |--- |
-|signOutOptions?|SignOutOptions|Object that current has a `sessionId` property. The sessionId can be passed in to sign out a specific session, which is useful for multisession applications.|
+|signOutOptions?|`SignOutOptions`|Object that current has a `sessionId` property. The sessionId can be passed in to sign out a specific session, which is useful for multisession applications.|
