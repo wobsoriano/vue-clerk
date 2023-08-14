@@ -30,8 +30,8 @@ const { isSignedIn } = useAuth()
 <style scoped>
 header {
   display: flex;
-  justify-content:
-  space-between; padding: 20;
+  justify-content: space-between;
+  padding: 20;
 }
 </style>
 ```
