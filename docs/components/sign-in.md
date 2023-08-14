@@ -45,7 +45,7 @@ The `<SignIn/>` component renders a UI for signing in users. Most of the times, 
 ## Usage
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { SignIn } from 'vue-clerk'
 </script>
 

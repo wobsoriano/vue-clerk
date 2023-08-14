@@ -13,7 +13,7 @@ Show a button that can be used to sign out the user.
 ## Usage
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { SignOutButton } from 'vue-clerk'
 </script>
 

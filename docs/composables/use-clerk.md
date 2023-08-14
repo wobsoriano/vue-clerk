@@ -15,7 +15,7 @@ The `useClerk` hook accesses the [Clerk](https://clerk.com/docs/reference/clerkj
 An example of the `useClerk` composable in action is shown below. We get access to the [Clerk](https://clerk.com/docs/reference/clerkjs/clerk) object in order to render a button that opens the [sign in](https://clerk.com/docs/component-reference/sign-in) form as a modal.
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { useClerk } from 'vue-clerk'
 
 const clerk = useClerk()

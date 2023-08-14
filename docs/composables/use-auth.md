@@ -13,7 +13,7 @@ The `useAuth` composable is a convenient way to access the current auth state. T
 ## Usage
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { useAuth } from 'vue-clerk'
 
 const { isLoaded, userId, sessionId } = useAuth()

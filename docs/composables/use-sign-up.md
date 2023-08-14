@@ -21,7 +21,7 @@ Getting access to the [SignUp](https://clerk.com/docs/reference/clerkjs/signup) 
 The following example accesses the `SignUp` object to check the current sign up attempt's status.
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { useSignUp } from 'vue-clerk'
 
 const { isLoaded, signUp } = useSignUp()
@@ -39,7 +39,7 @@ A more involved example follows below. In this example, we show an approach to c
 
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from 'vue'
 import { useSignUp } from 'vue-clerk'
 

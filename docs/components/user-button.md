@@ -13,7 +13,7 @@ The `<UserButton/>` component is used to render the familiar user button UI popu
 ## Usage
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { SignInButton, UserButton, useAuth } from 'vue-clerk'
 
 const { isSignedIn } = useAuth()

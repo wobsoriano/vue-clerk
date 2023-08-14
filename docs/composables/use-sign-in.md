@@ -39,7 +39,7 @@ A more involved example follows below. In this example, we show an approach to c
 
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from 'vue'
 import { useSignIn } from 'vue-clerk'
 

@@ -15,7 +15,7 @@ The `<UserProfile/>` component is used to render a beautiful, full-featured acco
 ## Usage
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { UserProfile, useAuth } from 'vue-clerk'
 
 const { isSignedIn } = useAuth()

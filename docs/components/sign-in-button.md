@@ -13,7 +13,7 @@ Show a button that links to the sign-in URL or opens the sign-in modal
 ## Usage
 
 ```vue
-<script lang="ts">
+<script setup lang="ts">
 import { SignInButton } from 'vue-clerk'
 </script>
 
