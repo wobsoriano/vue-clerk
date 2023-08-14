@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { SignIn, UserProfile, useAuth, useClerk } from 'vue-clerk'
+import { SignIn, SignOutButton, UserProfile, useAuth } from 'vue-clerk'
 
-const clerk = useClerk()
-const { isSignedIn } = useAuth()
+const { isSignedIn, isLoaded } = useAuth()
 </script>
 
 <template>
-  <div>
-    <button v-if="isSignedIn" @click="clerk.signOut()">
-      Logout
-    </button>
-    <SignIn v-if="!isSignedIn" />
-    <UserProfile v-else />
+  <div v-if="isLoaded">
+    <div v-if="isSignedIn">
+      <UserProfile />
+      <SignOutButton />
+    </div>
+    <SignIn v-else />
+  </div>
+  <div v-else>
+    Loading...
   </div>
 </template>
