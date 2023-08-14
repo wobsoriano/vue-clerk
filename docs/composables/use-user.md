@@ -4,6 +4,10 @@ outline: deep
 
 # useUser()
 
+Access the User object inside of your component
+
+## Overview
+
 The useUser composable returns the current user state: `{ isLoaded, isSignedIn, user }`. You can use the `user` object to access the currently active [User](https://clerk.com/docs/reference/clerkjs/user). It can be used to update the user or display information about the user's profile, like their name or email address.
 
 ## Usage

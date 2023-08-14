@@ -22,6 +22,7 @@ export default defineConfig({
         text: 'Composables',
         items: [
           { text: 'useAuth', link: '/composables/use-auth.md' },
+          { text: 'useClerk', link: '/composables/use-clerk.md' },
           { text: 'useUser', link: '/composables/use-user.md' },
         ],
       },

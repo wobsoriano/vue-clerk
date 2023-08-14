@@ -4,7 +4,11 @@ outline: deep
 
 # useAuth()
 
-The useAuth composable is a convenient way to access the current auth state. This composable provides the minimal information needed for data-loading and helper methods to manage the current active session.
+Access the auth state inside your React components.
+
+## Overview
+
+The `useAuth` composable is a convenient way to access the current auth state. This composable provides the minimal information needed for data-loading and helper methods to manage the current active session.
 
 ## Usage
 
