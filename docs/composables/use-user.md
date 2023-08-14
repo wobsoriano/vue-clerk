@@ -55,6 +55,54 @@ async function updateUser() {
 </template>
 ```
 
+### Reload user data
+
+In some circumstances you need retrieve the latest user data after updating your user in your backend. You can use `user.reload()` to reload the data on the frontend.
+
+```vue
+<script lang="ts">
+import { useUser } from 'vue-clerk'
+
+const { user } = useUser()
+
+async function updateUser() {
+  // updated data via an api point
+  const updateMeta = await fetch('/api/updateMetadata')
+  if (!updateMeta.message === 'success')
+    throw new Error('Error updating')
+
+  user.value.reload()
+}
+</script>
+
+<template>
+  <div v-if="user">
+    <button @click="updateUser">
+      Click me to update your metadata
+    </button>
+    <p>user role: {{ user.publicMetadata.role }}</p>
+  </div>
+</template>
+```
+
+## Alternatives
+
+There are times where using a composable might be inconvenient. For such cases, there are alternative ways to get access to the [User](https://clerk.com/docs/reference/clerkjs/user) object.
+
+Vue Clerk provides the `<WithUser/>` component that will allow your wrapped components to get access to the currently signed in user.
+
+```vue
+<script setup lang="ts">
+import { WithUser } from 'vue-clerk'
+</script>
+
+<template>
+  <WithUser v-slot="{ user }">
+    {{ user.firstName ? `Hello, ${user.firstName}` : 'Hello there!' }}
+  </WithUser>
+</template>
+```
+
 ## Props
 
 |Name|Type|Description|

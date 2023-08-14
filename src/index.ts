@@ -4,6 +4,7 @@ import SignInButton from './components/SignInButton.vue'
 import SignOutButton from './components/SignOutButton.vue'
 import UserProfile from './components/UserProfile.vue'
 import UserButton from './components/UserButton.vue'
+import WithUser from './components/WithUser.vue'
 
 export {
   SignIn,
@@ -12,6 +13,7 @@ export {
   SignOutButton,
   UserProfile,
   UserButton,
+  WithUser,
 }
 
 export {
