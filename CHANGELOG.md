@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.0.7
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.6...v0.0.7)
+
+### 🚀 Enhancements
+
+- Add WithClerk HOC ([40463d1](https://github.com/wobsoriano/vue-clerk/commit/40463d1))
+- Add WithSession HOC ([627d288](https://github.com/wobsoriano/vue-clerk/commit/627d288))
+- Add control components ([c7fdac7](https://github.com/wobsoriano/vue-clerk/commit/c7fdac7))
+
+### 📖 Documentation
+
+- Fix user-button style sample ([3fbc9d7](https://github.com/wobsoriano/vue-clerk/commit/3fbc9d7))
+- Remove sessionId in sign in ([78a4690](https://github.com/wobsoriano/vue-clerk/commit/78a4690))
+- Add .value to samples ([9b55ed7](https://github.com/wobsoriano/vue-clerk/commit/9b55ed7))
+- Add initial sign in and up component usage ([0026511](https://github.com/wobsoriano/vue-clerk/commit/0026511))
+- Update index features ([63fa2f8](https://github.com/wobsoriano/vue-clerk/commit/63fa2f8))
+
+### ❤️  Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.0.6
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.5...v0.0.6)
