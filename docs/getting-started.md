@@ -6,6 +6,12 @@ outline: deep
 
 Learn to install and initialize Clerk in a Vue app.
 
+After following this guide, you should have a working Vue app complete with:
+
+- Fully fledged sign in and sign up flows.
+- Google Social Login.
+- Secure email/password authentication.
+
 ## Install
 
 Once you have a Vue application ready, you need to install the Vue + Clerk integration module. This gives you access to the prebuilt components and composables for Vue applications.

@@ -1,6 +1,7 @@
 .cache
 .DS_Store
 .idea
+.env
 *.log
 *.tgz
 coverage

@@ -19,6 +19,20 @@ export default defineConfig({
           { text: 'Runtime API Examples', link: '/api-examples' },
         ],
       },
+      {
+        text: 'Composables',
+        items: [
+          { text: 'useAuth', link: '/composables/use-auth.md' },
+          { text: 'useUser', link: '/composables/use-user.md' },
+        ],
+      },
+      {
+        text: 'Embeddable UIs',
+        items: [
+          { text: 'SignUp', link: '/components/sign-up.md' },
+          { text: 'SignIn', link: '/components/sign-in.md' },
+        ],
+      },
     ],
 
     socialLinks: [
