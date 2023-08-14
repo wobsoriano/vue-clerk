@@ -16,7 +16,6 @@ export default defineConfig({
         text: 'Introduction',
         items: [
           { text: 'Getting Started', link: '/getting-started' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
         ],
       },
       {
@@ -29,8 +28,8 @@ export default defineConfig({
       {
         text: 'Embeddable UIs',
         items: [
-          { text: 'SignUp', link: '/components/sign-up.md' },
           { text: 'SignIn', link: '/components/sign-in.md' },
+          { text: 'SignUp', link: '/components/sign-up.md' },
         ],
       },
     ],

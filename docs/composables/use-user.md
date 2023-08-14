@@ -8,7 +8,7 @@ The useUser composable returns the current user state: `{ isLoaded, isSignedIn, 
 
 ## Usage
 
-## Retrieve user data
+### Retrieve user data
 
 ```vue
 <script lang="ts">
@@ -24,7 +24,7 @@ const { isLoaded, isSignedIn, user } = useUser()
 </template>
 ```
 
-## Update user data
+### Update user data
 
 ```vue
 <script lang="ts">
