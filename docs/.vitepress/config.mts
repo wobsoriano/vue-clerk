@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import pkg from '../../package.json'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -8,7 +9,19 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      // { text: 'Examples', link: '/markdown-examples' },
+      {
+        text: pkg.version,
+        items: [
+          {
+            text: 'Changelog',
+            link: 'https://github.com/wobsoriano/vue-clerk/blob/main/CHANGELOG.md',
+          },
+          // {
+          //   text: 'Contributing',
+          //   link: 'https://github.com/wobsoriano/vue-clerk/blob/main/.github/contributing.md',
+          // },
+        ],
+      },
     ],
 
     sidebar: [
