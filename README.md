@@ -10,7 +10,7 @@ npm install vue-clerk
 
 ## Usage
 
-Vue Clerk requires your application to have the `clerkPlugin` installed.
+Vue Clerk requires your application to have the [`clerkPlugin`](https://vue-clerk.vercel.app/getting-started.html#configure-plugin) installed.
 
 If using Vite, set `VITE_CLERK_PUBLISHABLE_KEY` to your Publishable key in your `.env.local` file to make the environment variable accessible on `process.env` and pass it as the `publishableKey` prop.
 
