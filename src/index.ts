@@ -1,6 +1,7 @@
 import SignIn from './components/SignIn.vue'
 import SignUp from './components/SignUp.vue'
 import SignInButton from './components/SignInButton.vue'
+import SignUpButton from './components/SignUpButton.vue'
 import SignOutButton from './components/SignOutButton.vue'
 import UserProfile from './components/UserProfile.vue'
 import UserButton from './components/UserButton.vue'
@@ -10,6 +11,7 @@ export {
   SignIn,
   SignUp,
   SignInButton,
+  SignUpButton,
   SignOutButton,
   UserProfile,
   UserButton,
