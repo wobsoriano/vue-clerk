@@ -15,7 +15,7 @@ vi.mock('../../src/composables/useClerk', async () => {
   }
 })
 
-describe('<SignInButton />', () => {
+describe('<SignOutButton />', () => {
   beforeAll(() => {
     console.error = vi.fn()
   })
