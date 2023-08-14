@@ -40,6 +40,7 @@ A more involved example follows below. In this example, we show an approach to c
 
 ```vue
 <script lang="ts">
+import { ref } from 'vue'
 import { useSignIn } from 'vue-clerk'
 
 const { isLoaded, signIn, setActive } = useSignIn()
