@@ -35,7 +35,11 @@
     "release": "changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest",
     "update-deps": "taze -w && pnpm i",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "docs:preview": "vitepress preview docs"
   },
   "peerDependencies": {
     "vue": ">=3.3.0"
@@ -54,6 +58,7 @@
     "typescript": "^5.1.6",
     "unplugin-vue": "^4.2.6",
     "vite": "^4.4.9",
+    "vitepress": "1.0.0-rc.4",
     "vitest": "^0.34.1",
     "vue": "^3.3.4",
     "vue-tsc": "^1.8.8"
