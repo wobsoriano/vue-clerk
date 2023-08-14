@@ -46,3 +46,43 @@ app.use(clerkPlugin, {
 
 app.mount('#app')
 ```
+
+## Read Session & User Data
+
+Vue Clerk provides a set of composables and helpers that you can use to access the active session and user data in your Vue application. We have included examples of how to use these helpers to get you started.
+
+### useAuth
+
+The useAuth composable is a convenient way to access the current auth state. This composable provides the minimal information needed for data-loading and helper methods to manage the current active session.
+
+```vue
+<script lang="ts">
+import { useAuth } from 'vue-clerk'
+
+const { isLoaded, userId, sessionId } = useAuth()
+</script>
+
+<template>
+  <div v-if="isLoaded && userId">
+    Hello, {{ userId }} your current active session is {{ sessionId }}
+  </div>
+</template>
+```
+
+### useUser
+
+The useUser composable is a convenient way to access the current user data where you need it. This composable provides the user data and helper methods to manage the current active session.
+
+```vue
+<script lang="ts">
+import { useUser } from 'vue-clerk'
+
+const { isLoaded, isSignedIn, user } = useUser()
+</script>
+
+<template>
+  <div v-if="isLoaded && isSignedIn">
+    Hello, {{ user.firstName }} welcome to Clerk
+  </div>
+</template>
+```
