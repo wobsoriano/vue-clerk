@@ -1,22 +1,16 @@
 <script setup lang="ts">
 import type { SignInProps } from '@clerk/types'
-import { onMounted, onUnmounted, ref } from 'vue'
-import { useClerk } from '../composables/useClerk'
+import { ref } from 'vue'
+import { useMountComponent } from '../composables/useMountComponent'
 
 const props = defineProps<SignInProps>()
-
-const clerk = useClerk()
-
 const el = ref<HTMLDivElement | null>(null)
 
-onMounted(() => {
-  if (el.value)
-    clerk.mountSignIn(el.value, props)
-})
-
-onUnmounted(() => {
-  if (el.value)
-    clerk.unmountSignIn(el.value)
+useMountComponent({
+  el,
+  mountKey: 'mountSignIn',
+  unmountKey: 'unmountSignIn',
+  props,
 })
 </script>
 
