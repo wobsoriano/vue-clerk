@@ -36,3 +36,15 @@ const { isLoaded, userId, sessionId } = useAuth()
   </div>
 </template>
 ```
+
+## Props
+
+|Name|Type|Description|
+|--- |--- |--- |
+|appearance?|`object`|Controls the overall look and feel.|
+|routing?|`RoutingStrategy`|The routing strategy for your pages. Supported values are:<br>- hash : Hash-based routing.<br>- path (default): Path-based routing.<br>- virtual: Virtual based routing.|
+|path?|`string`|The path where the component is mounted when path-based routing is used.<br>-e.g. /sign-in. This prop is ignored in hash and virtual based routing.|
+|redirectUrl?|`string`|Full URL or path to navigate after successful sign in or sign up. The same as setting afterSignInUrl and afterSignUpUrl to the same value.|
+|afterSignInUrl?|`string`|The full URL or path to navigate after a successful sign in.|
+|afterSignUpUrl?|`string`|The full URL or path to navigate after a successful sign up.|
+|signUpUrl?|`string`|Full URL or path to the sign up page. Use this property to provide the target of the "Sign Up" link that's rendered.|
