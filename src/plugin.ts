@@ -32,9 +32,7 @@ export const clerkPlugin: Plugin = {
           for (const [key, value] of Object.entries(payload))
             state[key as keyof typeof state] = value
         })
-      }).catch(() => {
-        // console.log('ssr', e)
-      })
+      }).catch(() => {})
 
     const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, undefined))
 
