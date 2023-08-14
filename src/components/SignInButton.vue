@@ -5,7 +5,7 @@ import { useClerk } from '../composables/useClerk'
 const props = withDefaults(defineProps<SignInProps & {
   mode?: 'modal' | 'redirect'
 }>(), {
-  mode: 'modal',
+  mode: 'redirect',
 })
 
 const clerk = useClerk()
