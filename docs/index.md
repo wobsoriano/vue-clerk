@@ -15,10 +15,10 @@ hero:
       link: https://github.com/wobsoriano/vue-clerk
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Pre-built Components
+    details: Components for for sign up, sign in, user management, and more.
+  - title: Authentication & Users
+    details: Passwords, SSO, OTP, MFA and other advanced security features.
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
