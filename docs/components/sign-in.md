@@ -46,15 +46,11 @@ The `<SignIn/>` component renders a UI for signing in users. Most of the times, 
 
 ```vue
 <script lang="ts">
-import { useAuth } from 'vue-clerk'
-
-const { isLoaded, userId } = useAuth()
+import { SignIn } from 'vue-clerk'
 </script>
 
 <template>
-  <div v-if="isLoaded && userId">
-    Hello, {{ userId }}
-  </div>
+  <SignIn />
 </template>
 ```
 

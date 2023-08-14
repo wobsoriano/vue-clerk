@@ -44,7 +44,15 @@ The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up
 
 ## Usage
 
-TODO
+```vue
+<script lang="ts">
+import { SignUp } from 'vue-clerk'
+</script>
+
+<template>
+  <SignUp />
+</template>
+```
 
 ## Props
 
