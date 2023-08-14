@@ -21,7 +21,7 @@ function clickHandler() {
 </script>
 
 <template>
-  <button @click="clickHandler">
+  <button data-testid="sign-in-btn" @click="clickHandler">
     <slot>
       Sign In
     </slot>
