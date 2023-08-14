@@ -37,6 +37,8 @@ export const clerkPlugin: Plugin = {
 
     const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, undefined))
 
+    app.config.globalProperties.$clerk = clerk
+
     app.provide(ClerkProvideSymbol, {
       clerk,
       state,
@@ -53,4 +55,10 @@ export function useClerkProvide() {
     throw new Error('Clerk provider not found')
 
   return clerk
+}
+
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $clerk: Clerk
+  }
 }
