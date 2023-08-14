@@ -16,6 +16,8 @@ export {
   WithUser,
 }
 
+export * from './controlComponents'
+
 export {
   clerkPlugin,
 } from './plugin'

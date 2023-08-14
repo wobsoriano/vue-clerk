@@ -1,12 +1,12 @@
 import Clerk from '@clerk/clerk-js'
-import type { Resources } from '@clerk/types'
+import type { ClientResource, Resources } from '@clerk/types'
 import { computed, inject, reactive, ref } from 'vue'
 import type { ComputedRef, InjectionKey, Plugin, Ref } from 'vue'
 import { deriveState } from './utils'
 
 export const ClerkProvideSymbol = Symbol('CLERK_PROVIDER') as InjectionKey<{
   clerk: Clerk
-  state: Omit<Resources, 'client'>
+  state: Resources
   isClerkLoaded: Ref<boolean>
   derivedState: ComputedRef<ReturnType<typeof deriveState>>
 }>
@@ -16,7 +16,8 @@ export const clerkPlugin: Plugin = {
     const clerk = new Clerk(publishableKey, options)
 
     const isClerkLoaded = ref(false)
-    const state = reactive<Omit<Resources, 'client'>>({
+    const state = reactive<Resources>({
+      client: {} as ClientResource,
       user: clerk.client as any,
       session: clerk.session,
       organization: clerk.organization,
