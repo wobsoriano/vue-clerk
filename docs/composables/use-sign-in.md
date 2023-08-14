@@ -51,8 +51,8 @@ const password = ref('')
 async function submit() {
   await signIn
     .create({
-      identifier: email,
-      password,
+      identifier: email.value,
+      password: password.value,
     })
     .then((result) => {
       if (result.status === 'complete') {
