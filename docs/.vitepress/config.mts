@@ -3,8 +3,11 @@ import pkg from '../../package.json'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lang: 'en-US',
   title: 'Vue Clerk',
   description: 'Clerk composables and components for Vue',
+  lastUpdated: true,
+  cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -23,6 +26,11 @@ export default defineConfig({
         ],
       },
     ],
+
+    editLink: {
+      pattern: 'https://github.com/wobsoriano/vue-clerk/edit/main/docs/:path',
+      text: 'Edit this page on GitHub',
+    },
 
     sidebar: [
       {
