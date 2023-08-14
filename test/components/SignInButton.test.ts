@@ -82,7 +82,7 @@ describe('<SignInButton />', () => {
     })
   })
 
-  it('renders passed button and calls both click handlers', async () => {
+  it('calls both click handlers', async () => {
     const handler = vi.fn()
 
     const Button = defineComponent(() => {

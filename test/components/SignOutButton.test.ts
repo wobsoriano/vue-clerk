@@ -28,7 +28,7 @@ describe('<SignOutButton />', () => {
     mockSignOut.mockReset()
   })
 
-  it('calls clerk.signOutOne when clicked', async () => {
+  it('calls clerk.signOut when clicked', async () => {
     render(SignOutButton)
     const btn = screen.getByTestId('sign-out-btn')
     userEvent.click(btn)
