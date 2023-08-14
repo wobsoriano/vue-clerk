@@ -92,13 +92,17 @@ There are times where using a composable might be inconvenient. For such cases, 
 Vue Clerk provides the `<WithUser/>` component that will allow your wrapped components to get access to the currently signed in user.
 
 ```vue
-<script setup lang="ts">
+<script>
 import { WithUser } from 'vue-clerk'
+
+export default {
+  components: { WithUser }
+}
 </script>
 
 <template>
   <WithUser v-slot="{ user }">
-    {{ user.firstName ? `Hello, ${user.firstName}` : 'Hello there!' }}
+    {{ user?.firstName ? `Hello, ${user.firstName}` : 'Hello there!' }}
   </WithUser>
 </template>
 ```
