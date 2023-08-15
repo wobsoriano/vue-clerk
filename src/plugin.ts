@@ -12,8 +12,12 @@ export const ClerkProvideSymbol = Symbol('CLERK_PROVIDER') as InjectionKey<{
 }>
 
 export const clerkPlugin: Plugin = {
-  install(app, { publishableKey, options }) {
-    const clerk = new Clerk(publishableKey, options)
+  install(app, {
+    publishableKey,
+    options,
+    instanceOptions,
+  }) {
+    const clerk = new Clerk(publishableKey, instanceOptions)
 
     const isClerkLoaded = ref(false)
     const state = reactive<Resources>({
@@ -25,7 +29,7 @@ export const clerkPlugin: Plugin = {
       lastOrganizationMember: null,
     })
 
-    clerk?.load()
+    clerk?.load(options)
       .then(() => {
         isClerkLoaded.value = true
 
