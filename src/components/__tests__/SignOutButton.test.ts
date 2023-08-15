@@ -2,12 +2,12 @@ import { vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 import { defineComponent, h } from 'vue'
-import { SignOutButton } from '../../src/index'
+import SignOutButton from '../SignOutButton.vue'
 
 const mockSignOut = vi.fn()
 const originalError = console.error
 
-vi.mock('../../src/composables/useClerk', async () => {
+vi.mock('../../composables/useClerk', async () => {
   return {
     useClerk: () => ({
       signOut: mockSignOut,

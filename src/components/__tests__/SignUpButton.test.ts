@@ -2,22 +2,22 @@ import { vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 import { defineComponent, h } from 'vue'
-import { SignInButton } from '../../src/index'
+import SignUpButton from '../SignUpButton.vue'
 
-const mockRedirectToSignIn = vi.fn()
+const mockRedirectToSignUp = vi.fn()
 const originalError = console.error
 
-vi.mock('../../src/composables/useClerk', async () => {
+vi.mock('../../composables/useClerk', async () => {
   return {
     useClerk: () => ({
-      redirectToSignIn: mockRedirectToSignIn,
+      redirectToSignUp: mockRedirectToSignUp,
     }),
   }
 })
 
 const url = 'https://www.clerk.com'
 
-describe('<SignInButton />', () => {
+describe('<SignUpButton />', () => {
   beforeAll(() => {
     console.error = vi.fn()
   })
@@ -27,56 +27,41 @@ describe('<SignInButton />', () => {
   })
 
   beforeEach(() => {
-    mockRedirectToSignIn.mockReset()
+    mockRedirectToSignUp.mockReset()
   })
 
-  it('calls clerk.redirectToSignIn when clicked', async () => {
-    render(SignInButton)
-    const btn = screen.getByTestId('sign-in-btn')
+  it('calls clerk.redirectToSignUp when clicked', async () => {
+    render(SignUpButton)
+    const btn = screen.getByTestId('sign-up-btn')
     userEvent.click(btn)
     await waitFor(() => {
-      expect(mockRedirectToSignIn).toHaveBeenCalled()
+      expect(mockRedirectToSignUp).toHaveBeenCalled()
     })
   })
 
   it('handles redirectUrl prop', async () => {
-    render(SignInButton, {
+    render(SignUpButton, {
       props: {
         redirectUrl: url,
       },
     })
-    const btn = screen.getByTestId('sign-in-btn')
+    const btn = screen.getByTestId('sign-up-btn')
     userEvent.click(btn)
     await waitFor(() => {
-      expect(mockRedirectToSignIn).toHaveBeenCalledWith({ redirectUrl: url })
-    })
-  })
-
-  it('handles afterSignInUrl prop', async () => {
-    render(SignInButton, {
-      props: {
-        afterSignInUrl: url,
-      },
-    })
-    const btn = screen.getByTestId('sign-in-btn')
-    userEvent.click(btn)
-    await waitFor(() => {
-      expect(mockRedirectToSignIn).toHaveBeenCalledWith({
-        afterSignInUrl: url,
-      })
+      expect(mockRedirectToSignUp).toHaveBeenCalledWith({ redirectUrl: url })
     })
   })
 
   it('handles afterSignUpUrl prop', async () => {
-    render(SignInButton, {
+    render(SignUpButton, {
       props: {
         afterSignUpUrl: url,
       },
     })
-    const btn = screen.getByTestId('sign-in-btn')
+    const btn = screen.getByTestId('sign-up-btn')
     userEvent.click(btn)
     await waitFor(() => {
-      expect(mockRedirectToSignIn).toHaveBeenCalledWith({
+      expect(mockRedirectToSignUp).toHaveBeenCalledWith({
         afterSignUpUrl: url,
       })
     })
@@ -86,24 +71,24 @@ describe('<SignInButton />', () => {
     const handler = vi.fn()
 
     const Button = defineComponent(() => {
-      return () => h(SignInButton, {
+      return () => h(SignUpButton, {
         onClick: handler,
       }, () => 'custom button')
     })
 
     render(Button)
 
-    const btn = screen.getByTestId('sign-in-btn')
+    const btn = screen.getByTestId('sign-up-btn')
     userEvent.click(btn)
     await waitFor(() => {
       expect(handler).toHaveBeenCalled()
-      expect(mockRedirectToSignIn).toHaveBeenCalled()
+      expect(mockRedirectToSignUp).toHaveBeenCalled()
     })
   })
 
   it('uses text passed as children', async () => {
     const Button = defineComponent(() => {
-      return () => h(SignInButton, () => 'text')
+      return () => h(SignUpButton, () => 'text')
     })
     render(Button)
     screen.getByText('text')
