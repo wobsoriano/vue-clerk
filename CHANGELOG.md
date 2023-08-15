@@ -1,6 +1,36 @@
 # Changelog
 
 
+## v0.0.8
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.7...v0.0.8)
+
+### 🚀 Enhancements
+
+- Add  property for Options API users ([b4974ca](https://github.com/wobsoriano/vue-clerk/commit/b4974ca))
+- Add SignUpButton ([91eec95](https://github.com/wobsoriano/vue-clerk/commit/91eec95))
+- Allow clerk options to be passed in plugin installation ([9060ca2](https://github.com/wobsoriano/vue-clerk/commit/9060ca2))
+
+### 📖 Documentation
+
+- Update WithUser example ([6771bc5](https://github.com/wobsoriano/vue-clerk/commit/6771bc5))
+- Add link to changelog ([2943475](https://github.com/wobsoriano/vue-clerk/commit/2943475))
+- Add last updated and edit links ([cdc1182](https://github.com/wobsoriano/vue-clerk/commit/cdc1182))
+- Add footer ([eef2c3e](https://github.com/wobsoriano/vue-clerk/commit/eef2c3e))
+- Fix missing setup ([2993363](https://github.com/wobsoriano/vue-clerk/commit/2993363))
+
+### ✅ Tests
+
+- Add test config and initial test ([64302ef](https://github.com/wobsoriano/vue-clerk/commit/64302ef))
+- Add sign out button test ([ea77dab](https://github.com/wobsoriano/vue-clerk/commit/ea77dab))
+- Fix sign out button description name ([6bf1276](https://github.com/wobsoriano/vue-clerk/commit/6bf1276))
+- Update sign in btn test ([cfcf08f](https://github.com/wobsoriano/vue-clerk/commit/cfcf08f))
+- Move test files ([2823d06](https://github.com/wobsoriano/vue-clerk/commit/2823d06))
+
+### ❤️  Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.0.7
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.6...v0.0.7)
