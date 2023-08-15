@@ -12,6 +12,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "declarationDir": "./dist",
+    "declaration": true,
     "types": ["vitest/globals"]
   }
 }
