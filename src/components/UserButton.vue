@@ -2,14 +2,16 @@
 import type { UserButtonProps } from '@clerk/types'
 import { ref } from 'vue'
 import { useMountComponent } from '../composables/useMountComponent'
+import { useClerk } from '../composables/useClerk'
 
 const props = defineProps<UserButtonProps>()
 const el = ref<HTMLDivElement | null>(null)
+const clerk = useClerk()
 
 useMountComponent({
   el,
-  mountKey: 'mountUserButton',
-  unmountKey: 'unmountUserButton',
+  mountFn: clerk.mountUserButton,
+  unmountFn: clerk.unmountUserButton,
   props,
 })
 </script>
