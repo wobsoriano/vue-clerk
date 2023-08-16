@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.0.10
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.9...v0.0.10)
+
+### 🚀 Enhancements
+
+- Add Organization components ([33a6388](https://github.com/wobsoriano/vue-clerk/commit/33a6388))
+
+### 💅 Refactors
+
+- Pass mount and unmount functions to mount composable instead ([e088ef6](https://github.com/wobsoriano/vue-clerk/commit/e088ef6))
+
+### ❤️  Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.0.9
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.8...v0.0.9)
