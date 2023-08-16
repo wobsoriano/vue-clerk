@@ -6,6 +6,9 @@ import SignOutButton from './components/SignOutButton.vue'
 import UserProfile from './components/UserProfile.vue'
 import UserButton from './components/UserButton.vue'
 import WithUser from './components/WithUser.vue'
+import OrganizationProfile from './components/OrganizationProfile.vue'
+import CreateOrganization from './components/CreateOrganization.vue'
+import OrganizationSwitcher from './components/OrganizationSwitcher.vue'
 
 export {
   SignIn,
@@ -16,6 +19,9 @@ export {
   UserProfile,
   UserButton,
   WithUser,
+  OrganizationProfile,
+  CreateOrganization,
+  OrganizationSwitcher,
 }
 
 export * from './controlComponents'
