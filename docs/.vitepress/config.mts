@@ -66,6 +66,13 @@ export default defineConfig({
           { text: 'UserProfile', link: '/components/user-profile.md' },
         ],
       },
+      {
+        text: 'Control Components',
+        items: [
+          { text: 'ClerkLoaded', link: '/components/clerk-loaded.md' },
+          { text: 'ClerkLoading', link: '/components/clerk-loading.md' },
+        ],
+      },
     ],
 
     socialLinks: [
