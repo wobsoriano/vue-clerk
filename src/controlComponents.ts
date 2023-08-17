@@ -3,7 +3,6 @@ import { computed, defineComponent, onMounted } from 'vue'
 import type { HandleOAuthCallbackParams, RedirectOptions } from '@clerk/types'
 import { useAuth } from './composables/useAuth'
 import { useClerkProvide } from './plugin'
-import { useClerk } from './composables/useClerk'
 
 export const SignedIn = defineComponent({
   setup(_props, { slots }) {
@@ -38,8 +37,7 @@ export const ClerkLoading = defineComponent({
 })
 
 export const RedirectToSignIn = defineComponent(<T extends RedirectOptions>(props: T) => {
-  const clerk = useClerk()
-  const { state } = useClerkProvide()
+  const { clerk, state } = useClerkProvide()
 
   const hasActiveSessions = computed(() => state.client?.activeSessions && state.client.activeSessions.length > 0)
 
@@ -60,7 +58,7 @@ export const RedirectToSignIn = defineComponent(<T extends RedirectOptions>(prop
 })
 
 export const RedirectToSignUp = defineComponent(<T extends RedirectOptions>(props: T) => {
-  const clerk = useClerk()
+  const { clerk } = useClerkProvide()
 
   onMounted(() => {
     void clerk.redirectToSignUp(props)
@@ -70,7 +68,7 @@ export const RedirectToSignUp = defineComponent(<T extends RedirectOptions>(prop
 })
 
 export const RedirectToUserProfile = defineComponent(() => {
-  const clerk = useClerk()
+  const { clerk } = useClerkProvide()
 
   onMounted(() => {
     void clerk.redirectToUserProfile()
@@ -80,7 +78,7 @@ export const RedirectToUserProfile = defineComponent(() => {
 })
 
 export const AuthenticateWithRedirectCallback = defineComponent(<T extends HandleOAuthCallbackParams>(props: T) => {
-  const clerk = useClerk()
+  const { clerk } = useClerkProvide()
 
   onMounted(() => {
     void clerk.handleRedirectCallback(props)
