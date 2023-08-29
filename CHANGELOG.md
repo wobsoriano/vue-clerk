@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.0.11
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.10...v0.0.11)
+
+### 🚀 Enhancements
+
+- **deps:** Bump @clerk/clerk-js to 4.56.1 ([34f8a60](https://github.com/wobsoriano/vue-clerk/commit/34f8a60))
+- **deps:** Bump @clerk/types to 3.50.0 ([401345d](https://github.com/wobsoriano/vue-clerk/commit/401345d))
+- **deps:** Bump @vueuse/core to 10.4.1 ([6304803](https://github.com/wobsoriano/vue-clerk/commit/6304803))
+
+### 💅 Refactors
+
+- Reuse provider composable in control components ([723eccf](https://github.com/wobsoriano/vue-clerk/commit/723eccf))
+
+### 📖 Documentation
+
+- Add control component docs ([8fe2771](https://github.com/wobsoriano/vue-clerk/commit/8fe2771))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.0.10
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.9...v0.0.10)
