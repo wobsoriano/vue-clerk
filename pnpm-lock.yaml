@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@clerk/clerk-js':
-        specifier: ^4.56.1
-        version: 4.56.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^4.57.0
+        version: 4.57.0(react-dom@18.2.0)(react@18.2.0)
       '@clerk/types':
         specifier: ^3.50.0
         version: 3.50.0
@@ -661,14 +661,14 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@clerk/clerk-js@4.56.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-DC9w/qHpyZ6zbh3g3zVxzT5Qiqh3dLbsI9nqZKGT0rDo77r1O8Th4vfUxPnMQHgMDc4715+Sz9h+bT6a/nkizw==}
+  /@clerk/clerk-js@4.57.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-BA0hvyclxvACx7EaCAgHm4aMdifLN3CVQv/BoMSHPewMKV6YjBnmWiZ7IE+YMWL4bTzyzDpjNFjPiPhI8BWReA==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@clerk/localizations': 1.25.0(react@18.2.0)
+      '@clerk/localizations': 1.25.2(react@18.2.0)
       '@clerk/shared': 0.22.0(react@18.2.0)
-      '@clerk/types': 3.50.0
+      '@clerk/types': 3.51.0
       '@emotion/cache': 11.10.5
       '@emotion/react': 11.10.5(react@18.2.0)
       '@floating-ui/react': 0.19.0(react-dom@18.2.0)(react@18.2.0)
@@ -702,13 +702,13 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@clerk/localizations@1.25.0(react@18.2.0):
-    resolution: {integrity: sha512-D0rfAP/tl46i6jz6VgizvKlF8xSUJJ+ZWyec88rPTd8yylOSZXxIQUHgaXp8gTgXJtTz84rTyZyFpBJN+vqWcQ==}
+  /@clerk/localizations@1.25.2(react@18.2.0):
+    resolution: {integrity: sha512-7Mt7ZDO8d3t14STdBevj765dhYYvACcZhvlg2gYUiR0WrE0i2pvRVitXp6Au9fJm3pJOfk7clCLZ+yZN7gFlkA==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16'
     dependencies:
-      '@clerk/types': 3.50.0
+      '@clerk/types': 3.51.0
       react: 18.2.0
     dev: false
 
@@ -725,6 +725,13 @@ packages:
 
   /@clerk/types@3.50.0:
     resolution: {integrity: sha512-3TWalDWPTFToXC/W07QUIBN96TA+4dR3YLBvwr9U2Z4RVG9in9HW4CTC6aHTnJ2kVtTcgDkXjDKeVKS1GjPCcA==}
+    engines: {node: '>=14'}
+    dependencies:
+      csstype: 3.1.1
+    dev: false
+
+  /@clerk/types@3.51.0:
+    resolution: {integrity: sha512-JCSG2W1nI+zEIyDTGKfQJkvl2Ve5vpR3AxDsyXQMf/aZyXhBT351W1dPUfUW4K9MpLmZ2sB/1gj3UJFaBw9e7g==}
     engines: {node: '>=14'}
     dependencies:
       csstype: 3.1.1
@@ -1964,6 +1971,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -6963,6 +6971,10 @@ packages:
     resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
     engines: {node: ^14 || ^16 || >=18}
     hasBin: true
+    dev: true
+
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
     dev: true
 
   /natural-compare@1.4.0:

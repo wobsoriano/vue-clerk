@@ -45,7 +45,7 @@
     "vue": ">=3.3.0"
   },
   "dependencies": {
-    "@clerk/clerk-js": "^4.56.1",
+    "@clerk/clerk-js": "^4.57.0",
     "@clerk/types": "^3.50.0",
     "@vueuse/core": "^10.4.1"
   },
