@@ -19,11 +19,14 @@ jobs:
         with:
           node-version: 18.x
 
+      - name: Setup
+        run: npm i -g @antfu/ni
+
       - name: Install
-        run: npm ci
+        run: nci
 
       - name: Lint
-        run: npm run lint
+        run: nr lint
 
   typecheck:
     runs-on: ubuntu-latest
@@ -34,11 +37,14 @@ jobs:
         with:
           node-version: 18.x
 
+      - name: Setup
+        run: npm i -g @antfu/ni
+
       - name: Install
-        run: npm ci
+        run: nci
 
       - name: Typecheck
-        run: npm run typecheck
+        run: nr typecheck
 
   test:
     runs-on: ${{ matrix.os }}
@@ -46,7 +52,7 @@ jobs:
     strategy:
       matrix:
         node: [16.x, 18.x]
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
       fail-fast: false
 
     steps:
@@ -56,8 +62,14 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
+      - name: Setup
+        run: npm i -g @antfu/ni
+
       - name: Install
-        run: npm ci
+        run: nci
+
+      - name: Build
+        run: nr build
 
       - name: Test
-        run: npm run test
+        run: nr test
