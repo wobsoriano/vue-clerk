@@ -67,6 +67,7 @@ function deriveFromClientSideState(state: Resources) {
 }
 
 /**
+ * @param isomorphicClerk
  * @internal
  */
 function clerkLoaded(isomorphicClerk: Clerk) {
@@ -79,6 +80,7 @@ function clerkLoaded(isomorphicClerk: Clerk) {
 }
 
 /**
+ * @param isomorphicClerk
  * @internal
  */
 export function createGetToken(isomorphicClerk: Clerk) {
@@ -92,6 +94,7 @@ export function createGetToken(isomorphicClerk: Clerk) {
 }
 
 /**
+ * @param isomorphicClerk
  * @internal
  */
 export function createSignOut(isomorphicClerk: Clerk) {
