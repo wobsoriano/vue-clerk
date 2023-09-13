@@ -20,7 +20,7 @@ jobs:
           bun-version: latest
 
       - name: Install deps
-        run: bun install
+        run: bun install --no-save
 
       - name: Lint
         run: bun run lint
@@ -35,7 +35,7 @@ jobs:
           bun-version: latest
 
       - name: Install deps
-        run: bun install
+        run: bun install --no-save
 
       - name: Typecheck
         run: bun run typecheck
@@ -56,7 +56,7 @@ jobs:
           bun-version: latest
 
       - name: Install deps
-        run: bun install
+        run: bun install --no-save
 
       - name: Typecheck
         run: bun run test
