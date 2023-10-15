@@ -4,7 +4,7 @@ outline: deep
 
 # useAuth()
 
-Access the auth state inside your React components.
+Access the auth state inside your Vue components.
 
 ## Overview
 
