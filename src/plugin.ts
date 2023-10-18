@@ -1,4 +1,4 @@
-import Clerk from '@clerk/clerk-js'
+import Clerk from '@clerk/clerk-js/headless'
 import type { ClientResource, Resources } from '@clerk/types'
 import { computed, inject, reactive, ref } from 'vue'
 import type { ComputedRef, InjectionKey, Plugin, Ref } from 'vue'
