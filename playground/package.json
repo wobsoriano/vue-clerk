@@ -9,12 +9,12 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "h3-clerk": "^0.3.3",
+    "h3-clerk": "^0.3.4",
     "vue-clerk": "workspace:*"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@types/node": "^18.17.15",
-    "nuxt": "^3.7.3"
+    "@types/node": "^18.18.6",
+    "nuxt": "^3.7.4"
   }
 }
