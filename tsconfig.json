@@ -1,18 +1,18 @@
 {
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "test", "src/components/components"],
   "compilerOptions": {
     "target": "es2018",
-    "module": "esnext",
     "lib": ["esnext", "DOM"],
+    "module": "esnext",
     "moduleResolution": "node",
+    "types": ["vitest/globals"],
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationDir": "./dist",
     "esModuleInterop": true,
     "strict": true,
     "strictNullChecks": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "declarationDir": "./dist",
-    "declaration": true,
-    "types": ["vitest/globals"]
-  }
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "test", "src/components/components"]
 }
