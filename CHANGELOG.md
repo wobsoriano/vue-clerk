@@ -1,6 +1,40 @@
 # Changelog
 
 
+## v0.0.12
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.11...v0.0.12)
+
+### 🚀 Enhancements
+
+- **deps:** Bump @clerk/clerk-js to 4.57.0 ([71177bc](https://github.com/wobsoriano/vue-clerk/commit/71177bc))
+- **deps:** Bump @clerk/types to 3.51.0 ([5605b04](https://github.com/wobsoriano/vue-clerk/commit/5605b04))
+- Use headless version of clerk ([40e65e3](https://github.com/wobsoriano/vue-clerk/commit/40e65e3))
+
+### 📖 Documentation
+
+- Fix typo ([2560f3c](https://github.com/wobsoriano/vue-clerk/commit/2560f3c))
+
+### 📦 Build
+
+- **deps:** Bump @clerk/clerk-js to 4.62.1 ([1c282b9](https://github.com/wobsoriano/vue-clerk/commit/1c282b9))
+- **deps:** Bump @clerk/types to 3.56.1 ([a25efdd](https://github.com/wobsoriano/vue-clerk/commit/a25efdd))
+- **deps:** Bump @vueuse/core to 10.5.0 ([b0f466c](https://github.com/wobsoriano/vue-clerk/commit/b0f466c))
+
+### 🏡 Chore
+
+- Bump local deps ([73bc8c2](https://github.com/wobsoriano/vue-clerk/commit/73bc8c2))
+
+### 🤖 CI
+
+- Remove node 14 ([98dd34e](https://github.com/wobsoriano/vue-clerk/commit/98dd34e))
+- Remove windows ([9229467](https://github.com/wobsoriano/vue-clerk/commit/9229467))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+- Nicolas Hedger
+
 ## v0.0.11
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.10...v0.0.11)
