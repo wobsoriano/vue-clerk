@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   build: {
-    transpile: ['vue-clerk'],
+    // transpile: ['vue-clerk'],
   },
   runtimeConfig: {
     public: {
