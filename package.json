@@ -1,7 +1,7 @@
 {
   "name": "vue-clerk",
   "version": "0.0.12",
-  "packageManager": "pnpm@8.9.2",
+  "packageManager": "pnpm@8.10.2",
   "description": "",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
@@ -50,24 +50,24 @@
     "@vueuse/core": "^10.5.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.43.1",
+    "@antfu/eslint-config": "^1.1.0",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/user-event": "^14.5.1",
-    "@testing-library/vue": "^7.0.0",
+    "@testing-library/vue": "^8.0.0",
     "@vitejs/plugin-vue": "^4.4.0",
     "changelogen": "^0.5.5",
     "eslint": "^8.52.0",
-    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-import": "^2.29.0",
     "jsdom": " ^22.1.0",
-    "taze": "^0.11.4",
+    "taze": "^0.12.0",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "unplugin-vue": "^4.3.5",
     "vite": "^4.5.0",
-    "vitepress": "1.0.0-rc.22",
+    "vitepress": "1.0.0-rc.24",
     "vitest": "^0.34.6",
-    "vue": "^3.3.6",
-    "vue-tsc": "^1.8.19"
+    "vue": "^3.3.7",
+    "vue-tsc": "^1.8.22"
   },
   "eslintConfig": {
     "extends": "@antfu",
