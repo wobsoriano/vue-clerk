@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@clerk/clerk-js':
-        specifier: ^4.62.1
-        version: 4.62.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^4.64.2
+        version: 4.64.2(react-dom@18.2.0)(react@18.2.0)
       '@clerk/types':
         specifier: ^3.56.1
         version: 3.56.1
@@ -721,14 +721,14 @@ packages:
       - react
     dev: false
 
-  /@clerk/clerk-js@4.62.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-r2Z1jcUlwdLUXCfg1Ire7/OUHsd7a2hJOJ+uTBzlVhdWR/a9rSrQ4WBRfZ7YqwAmUbmZmXMhgNtFds1fMa7ziw==}
+  /@clerk/clerk-js@4.64.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-oNk+diFGVzuIUG5O9mCE+h4aeZlLK/JQ62+IVaDXLslq4Mo77fv/qOzLuFqRk28cWb2mQiiyJpvBoQ1NuhZWNQ==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@clerk/localizations': 1.26.6(react@18.2.0)
-      '@clerk/shared': 0.24.5(react@18.2.0)
-      '@clerk/types': 3.56.1
+      '@clerk/localizations': 1.26.8(react@18.2.0)
+      '@clerk/shared': 1.0.2(react@18.2.0)
+      '@clerk/types': 3.57.1
       '@emotion/cache': 11.11.0
       '@emotion/react': 11.11.1(react@18.2.0)
       '@floating-ui/react': 0.25.4(react-dom@18.2.0)(react@18.2.0)
@@ -764,13 +764,13 @@ packages:
       - react
     dev: false
 
-  /@clerk/localizations@1.26.6(react@18.2.0):
-    resolution: {integrity: sha512-QTDySRadqbvAQBj+ewu0D+9Pmj3l1vxhio/YzHOPzvItULcjbFZd9Z0kSr8rZ1I+rQnlBl6NEHrrwIQig5sxVw==}
+  /@clerk/localizations@1.26.8(react@18.2.0):
+    resolution: {integrity: sha512-o+VeKi4AoXJ9yic+eC7fh4uz6pg794qNgMDq46UiDuKZpQEHpj7IvSEqZ61A45820nF0nBTQ9XzTQ2sC0KXaYQ==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16'
     dependencies:
-      '@clerk/types': 3.56.1
+      '@clerk/types': 3.57.1
       react: 18.2.0
     dev: false
 
@@ -802,6 +802,20 @@ packages:
       swr: 2.2.0(react@18.2.0)
     dev: false
 
+  /@clerk/shared@1.0.2(react@18.2.0):
+    resolution: {integrity: sha512-Mf7F9lk43FC65jacqDsyxDvTmV4PI/aC7lGWyCQS+9RDvZ58ElELQ0ILVC/89cQQPL+nOWr+sa499O/U+fA6Gw==}
+    peerDependencies:
+      react: '>=16'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      glob-to-regexp: 0.4.1
+      js-cookie: 3.0.1
+      react: 18.2.0
+      swr: 2.2.0(react@18.2.0)
+    dev: false
+
   /@clerk/types@3.56.1:
     resolution: {integrity: sha512-w/LKUH/PtB0nfQ6xtfh08/HyRLcIhvp1Vl3tx67Rvj7HdgDb5r2a2wbqsVanQZkdhE71WpIG36BRPhNWF4W2Bg==}
     engines: {node: '>=14'}
@@ -811,6 +825,13 @@ packages:
 
   /@clerk/types@3.56.1-snapshot.vf9232b3:
     resolution: {integrity: sha512-pOns/kpuPdfNOa32eUpr0KU5e2ZJqhTGrDMqZT6fLUfn5u80DpN1rUjGD4DmPbarU5jHOO4aj0VZPCkqFAJkrA==}
+    engines: {node: '>=14'}
+    dependencies:
+      csstype: 3.1.1
+    dev: false
+
+  /@clerk/types@3.57.1:
+    resolution: {integrity: sha512-x7eIEwEf3S/vvhBPt6gyojtiKInpM5EF03OUUib3eDwDvuSxAjf55K553yZkclbJ+LOLmIdonuSDaOrKvyhwKw==}
     engines: {node: '>=14'}
     dependencies:
       csstype: 3.1.1
