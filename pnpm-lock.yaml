@@ -12,8 +12,8 @@ importers:
         specifier: ^4.64.2
         version: 4.64.2(react-dom@18.2.0)(react@18.2.0)
       '@clerk/types':
-        specifier: ^3.56.1
-        version: 3.56.1
+        specifier: ^3.57.1
+        version: 3.57.1
       '@vueuse/core':
         specifier: ^10.5.0
         version: 10.5.0(vue@3.3.6)
