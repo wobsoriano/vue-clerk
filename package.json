@@ -11,7 +11,7 @@
     "url": "git+https://github.com/wobsoriano/vue-clerk.git"
   },
   "bugs": "https://github.com/wobsoriano/vue-clerk/issues",
-  "keywords": [],
+  "keywords": ["auth", "clerk"],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -34,7 +34,9 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "headless.d.ts",
+    "plugin.d.ts"
   ],
   "scripts": {
     "dev": "tsup --watch --onSuccess \"pnpm build:dts && pnpm --filter playground dev\"",
