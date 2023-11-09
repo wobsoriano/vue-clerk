@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.0...v0.1.1)
+
+### 🚀 Enhancements
+
+- Export clerk provider composable ([54cfc3f](https://github.com/wobsoriano/vue-clerk/commit/54cfc3f))
+- Export clerk provider composable ([8f636cf](https://github.com/wobsoriano/vue-clerk/commit/8f636cf))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.1.0
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.12...v0.1.0)
