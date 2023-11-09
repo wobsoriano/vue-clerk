@@ -8,3 +8,7 @@ export function useClerk(): LoadedClerk {
   // we expose is as a Clerk instance
   return clerk as unknown as LoadedClerk
 }
+
+export {
+  useClerkProvide,
+}
