@@ -40,6 +40,7 @@ export {
 
 export {
   useClerk,
+  useClerkProvide,
 } from './composables/useClerk'
 
 export {
