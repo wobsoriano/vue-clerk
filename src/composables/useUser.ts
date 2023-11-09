@@ -1,7 +1,7 @@
 import type { UserResource } from '@clerk/types'
 import { toRefs } from '@vueuse/core'
 import { computed } from 'vue'
-import { useClerkProvide } from '../plugin'
+import { useClerkProvide } from './useClerkProvide'
 
 type UseUserReturn =
   | { isLoaded: false; isSignedIn: undefined; user: undefined }

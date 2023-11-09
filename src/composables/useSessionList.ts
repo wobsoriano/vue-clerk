@@ -2,7 +2,7 @@ import type { SessionResource, SetActive, SetSession } from '@clerk/types'
 import { computed } from 'vue'
 
 import { toRefs } from '@vueuse/core'
-import { useClerkProvide } from '../plugin'
+import { useClerkProvide } from './useClerkProvide'
 
 type UseSessionListReturn =
   | { isLoaded: false; sessions: undefined; setSession: undefined; setActive: undefined }
