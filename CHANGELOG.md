@@ -1,6 +1,37 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.12...v0.1.0)
+
+### 🚀 Enhancements
+
+- ⚠️  Add headless support for lesser build size ([3b6d82c](https://github.com/wobsoriano/vue-clerk/commit/3b6d82c))
+
+### 📖 Documentation
+
+- Add headless plugin support ([3d0741f](https://github.com/wobsoriano/vue-clerk/commit/3d0741f))
+- Fix plugin import ([c3d6a24](https://github.com/wobsoriano/vue-clerk/commit/c3d6a24))
+
+### 📦 Build
+
+- **deps:** Set vue peer dep to ^3.2.0 ([a02d4b0](https://github.com/wobsoriano/vue-clerk/commit/a02d4b0))
+- **deps:** Bump @clerk/clerk-js to 4.64.2 ([ced81d9](https://github.com/wobsoriano/vue-clerk/commit/ced81d9))
+- **deps:** Bump @clerk/types to 3.57.1 ([98c814d](https://github.com/wobsoriano/vue-clerk/commit/98c814d))
+
+### 🎨 Styles
+
+- Use flat eslint config ([0602126](https://github.com/wobsoriano/vue-clerk/commit/0602126))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Add headless support for lesser build size ([3b6d82c](https://github.com/wobsoriano/vue-clerk/commit/3b6d82c))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.0.12
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.0.11...v0.0.12)

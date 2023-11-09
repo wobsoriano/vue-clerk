@@ -1,6 +1,6 @@
 {
   "name": "vue-clerk",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "packageManager": "pnpm@8.10.2",
   "description": "",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
@@ -11,7 +11,10 @@
     "url": "git+https://github.com/wobsoriano/vue-clerk.git"
   },
   "bugs": "https://github.com/wobsoriano/vue-clerk/issues",
-  "keywords": ["auth", "clerk"],
+  "keywords": [
+    "auth",
+    "clerk"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
