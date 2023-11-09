@@ -22,12 +22,12 @@ describe('<SignUpButton />', () => {
     console.error = vi.fn()
   })
 
-  afterAll(() => {
-    console.error = originalError
-  })
-
   beforeEach(() => {
     mockRedirectToSignUp.mockReset()
+  })
+
+  afterAll(() => {
+    console.error = originalError
   })
 
   it('calls clerk.redirectToSignUp when clicked', async () => {

@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file */
 import { computed, defineComponent, onMounted } from 'vue'
 import type { HandleOAuthCallbackParams, RedirectOptions } from '@clerk/types'
 import { useAuth } from './composables/useAuth'
