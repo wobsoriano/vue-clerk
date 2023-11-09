@@ -4,7 +4,7 @@ import { computed, reactive, ref } from 'vue'
 import type { App, ComputedRef, Ref } from 'vue'
 import { deriveState } from './utils'
 
-export type VueClerkInjectionKey = {
+export interface VueClerkInjectionKey {
   clerk: Clerk
   state: Resources
   isClerkLoaded: Ref<boolean>
@@ -14,7 +14,7 @@ export type VueClerkInjectionKey = {
 export function createClerkInstance(
   app: App,
   clerk: Clerk,
-  options: Record<string, unknown>
+  options: Record<string, unknown>,
 ) {
   const isClerkLoaded = ref(false)
   const state = reactive<Resources>({

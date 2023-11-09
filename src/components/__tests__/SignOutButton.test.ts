@@ -20,12 +20,12 @@ describe('<SignOutButton />', () => {
     console.error = vi.fn()
   })
 
-  afterAll(() => {
-    console.error = originalError
-  })
-
   beforeEach(() => {
     mockSignOut.mockReset()
+  })
+
+  afterAll(() => {
+    console.error = originalError
   })
 
   it('calls clerk.signOut when clicked', async () => {
