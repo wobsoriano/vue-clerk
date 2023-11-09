@@ -1,5 +1,5 @@
 import type { LoadedClerk } from '@clerk/types'
-import { useClerkProvide } from '../plugin'
+import { useClerkProvide } from './useClerkProvide'
 
 export function useClerk(): LoadedClerk {
   const { clerk } = useClerkProvide()

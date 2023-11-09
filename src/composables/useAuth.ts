@@ -2,7 +2,7 @@ import { } from '@clerk/clerk-js'
 import type { ActJWTClaim, GetToken, MembershipRole, SignOut } from '@clerk/types'
 import { toRefs } from '@vueuse/core'
 import { computed } from 'vue'
-import { useClerkProvide } from '../plugin'
+import { useClerkProvide } from './useClerkProvide'
 import { createGetToken, createSignOut } from '../utils'
 import { invalidStateError } from '../errors'
 

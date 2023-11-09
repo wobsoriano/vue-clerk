@@ -2,7 +2,7 @@
 import { computed, defineComponent, onMounted } from 'vue'
 import type { HandleOAuthCallbackParams, RedirectOptions } from '@clerk/types'
 import { useAuth } from './composables/useAuth'
-import { useClerkProvide } from './plugin'
+import { useClerkProvide } from './composables/useClerkProvide'
 
 export const SignedIn = defineComponent({
   setup(_props, { slots }) {

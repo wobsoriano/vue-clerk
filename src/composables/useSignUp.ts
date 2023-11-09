@@ -1,7 +1,7 @@
 import type { SetActive, SetSession, SignUpResource } from '@clerk/types'
 import { computed } from 'vue'
 import { toRefs } from '@vueuse/core'
-import { useClerkProvide } from '../plugin'
+import { useClerkProvide } from './useClerkProvide'
 
 type UseSignUpReturn =
   | { isLoaded: false; signUp: undefined; setSession: undefined; setActive: undefined }

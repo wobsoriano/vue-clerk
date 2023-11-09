@@ -27,11 +27,6 @@ export {
 export * from './controlComponents'
 
 export {
-  clerkPlugin,
-  useClerkProvide,
-} from './plugin'
-
-export {
   useAuth,
 } from './composables/useAuth'
 

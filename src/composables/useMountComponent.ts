@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { watchPostEffect } from 'vue'
-import { useClerkProvide } from '../plugin'
+import { useClerkProvide } from './useClerkProvide'
 
 /**
  * @param root0

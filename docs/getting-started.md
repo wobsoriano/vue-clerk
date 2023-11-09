@@ -38,7 +38,9 @@ Vue Clerk requires your application to have the plugin installed. The Clerk plug
 
 ```ts
 import { createApp } from 'vue'
-import { clerkPlugin } from 'vue-clerk'
+import { clerkPlugin } from 'vue-clerk/plugin'
+// or for headless mode:
+// import { clerkPlugin } from 'vue-clerk/headless'
 
 import App from './App.vue'
 
