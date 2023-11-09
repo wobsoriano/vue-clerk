@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
-import { clerkPlugin } from '../../../src'
+import { clerkPlugin } from '../../../src/plugin'
 
 export default {
   extends: DefaultTheme,
