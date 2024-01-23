@@ -12,8 +12,8 @@ importers:
         specifier: ^4.68.5
         version: 4.68.5(react-dom@18.2.0)(react@18.2.0)
       '@clerk/types':
-        specifier: ^3.57.1
-        version: 3.57.1
+        specifier: ^3.60.0
+        version: 3.60.0
       '@vueuse/core':
         specifier: ^10.5.0
         version: 10.5.0(vue@3.3.7)
@@ -734,13 +734,6 @@ packages:
 
   /@clerk/types@3.57.0:
     resolution: {integrity: sha512-i+XqgqRbcMn5gMwWGiA3W6lCTSDYdonDAgoJgNyRemQg7Zesnbd4OoJZfqyW6vN3wvD9Bl+gMb7gQ3VquNWUOA==}
-    engines: {node: '>=14'}
-    dependencies:
-      csstype: 3.1.1
-    dev: false
-
-  /@clerk/types@3.57.1:
-    resolution: {integrity: sha512-x7eIEwEf3S/vvhBPt6gyojtiKInpM5EF03OUUib3eDwDvuSxAjf55K553yZkclbJ+LOLmIdonuSDaOrKvyhwKw==}
     engines: {node: '>=14'}
     dependencies:
       csstype: 3.1.1
