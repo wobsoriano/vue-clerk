@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@clerk/clerk-js':
-        specifier: ^4.64.2
-        version: 4.64.2(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^4.68.5
+        version: 4.68.5(react-dom@18.2.0)(react@18.2.0)
       '@clerk/types':
         specifier: ^3.57.1
         version: 3.57.1
@@ -29,7 +29,7 @@ importers:
         version: 14.5.1(@testing-library/dom@9.3.3)
       '@testing-library/vue':
         specifier: ^8.0.0
-        version: 8.0.0(@vue/compiler-sfc@3.3.6)(vue@3.3.7)
+        version: 8.0.0(@vue/compiler-sfc@3.3.7)(vue@3.3.7)
       '@vitejs/plugin-vue':
         specifier: ^4.4.0
         version: 4.4.0(vite@4.5.0)(vue@3.3.7)
@@ -651,19 +651,19 @@ packages:
       - react
     dev: false
 
-  /@clerk/clerk-js@4.64.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-oNk+diFGVzuIUG5O9mCE+h4aeZlLK/JQ62+IVaDXLslq4Mo77fv/qOzLuFqRk28cWb2mQiiyJpvBoQ1NuhZWNQ==}
+  /@clerk/clerk-js@4.68.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8wrU4RKt3YZNmaYpqouRVA3/LNfJhpbPI5UoDLE6GeNA/l0z6H2YsiEfX9eiOuIiCF8kJxwv5pbJgzzLrXS6QQ==}
     peerDependencies:
       react: '>=18'
     dependencies:
-      '@clerk/localizations': 1.26.8(react@18.2.0)
-      '@clerk/shared': 1.0.2(react@18.2.0)
-      '@clerk/types': 3.57.1
+      '@clerk/localizations': 1.26.13(react@18.2.0)
+      '@clerk/shared': 1.3.1(react@18.2.0)
+      '@clerk/types': 3.60.0
       '@emotion/cache': 11.11.0
       '@emotion/react': 11.11.1(react@18.2.0)
       '@floating-ui/react': 0.25.4(react-dom@18.2.0)(react@18.2.0)
-      '@zxcvbn-ts/core': 2.2.1
-      '@zxcvbn-ts/language-common': 3.0.2
+      '@zxcvbn-ts/core': 3.0.4
+      '@zxcvbn-ts/language-common': 3.0.4
       browser-tabs-lock: 1.2.15
       copy-to-clipboard: 3.3.3
       core-js: 3.26.1
@@ -694,13 +694,13 @@ packages:
       - react
     dev: false
 
-  /@clerk/localizations@1.26.8(react@18.2.0):
-    resolution: {integrity: sha512-o+VeKi4AoXJ9yic+eC7fh4uz6pg794qNgMDq46UiDuKZpQEHpj7IvSEqZ61A45820nF0nBTQ9XzTQ2sC0KXaYQ==}
+  /@clerk/localizations@1.26.13(react@18.2.0):
+    resolution: {integrity: sha512-YsH9WVqkZYJ3ffCP1wce3KWrQo8C3BUS5b7grOpwt/H15sK0Y3KyeS3py1QqcfMcYj+gqjcbW9Az8MpdUeP8Rg==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16'
     dependencies:
-      '@clerk/types': 3.57.1
+      '@clerk/types': 3.60.0
       react: 18.2.0
     dev: false
 
@@ -718,8 +718,8 @@ packages:
       swr: 2.2.0(react@18.2.0)
     dev: false
 
-  /@clerk/shared@1.0.2(react@18.2.0):
-    resolution: {integrity: sha512-Mf7F9lk43FC65jacqDsyxDvTmV4PI/aC7lGWyCQS+9RDvZ58ElELQ0ILVC/89cQQPL+nOWr+sa499O/U+fA6Gw==}
+  /@clerk/shared@1.3.1(react@18.2.0):
+    resolution: {integrity: sha512-nzv4+uA90I/eQp55zfK9a1Po9VgCYlzlNhuZnKqyRsPyJ38l4gpIf3B3qSHHdN0+MTx9cWGFrik1CnpftdOBXQ==}
     peerDependencies:
       react: '>=16'
     peerDependenciesMeta:
@@ -741,6 +741,13 @@ packages:
 
   /@clerk/types@3.57.1:
     resolution: {integrity: sha512-x7eIEwEf3S/vvhBPt6gyojtiKInpM5EF03OUUib3eDwDvuSxAjf55K553yZkclbJ+LOLmIdonuSDaOrKvyhwKw==}
+    engines: {node: '>=14'}
+    dependencies:
+      csstype: 3.1.1
+    dev: false
+
+  /@clerk/types@3.60.0:
+    resolution: {integrity: sha512-f1A16wFh5MtikxEo7o6vAVX7FxpqC1YmzA6c4ugwq5MH8J2mvIM/LwNVIHgNpZkn/s/G+BUhBcJJmUXqajDK2Q==}
     engines: {node: '>=14'}
     dependencies:
       csstype: 3.1.1
@@ -2334,7 +2341,7 @@ packages:
       '@testing-library/dom': 9.3.3
     dev: true
 
-  /@testing-library/vue@8.0.0(@vue/compiler-sfc@3.3.6)(vue@3.3.7):
+  /@testing-library/vue@8.0.0(@vue/compiler-sfc@3.3.7)(vue@3.3.7):
     resolution: {integrity: sha512-SP0qEY/SGpdT9+bPuHxYD3P/HCG0ZY8GlGJocVqdLn9EojbdQu69x06trJi1V7RW9tAZai/wwy+ZFcRsTp47kg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -2343,7 +2350,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.2
       '@testing-library/dom': 9.3.3
-      '@vue/compiler-sfc': 3.3.6
+      '@vue/compiler-sfc': 3.3.7
       '@vue/test-utils': 2.4.1(vue@3.3.7)
       vue: 3.3.7(typescript@5.2.2)
     transitivePeerDependencies:
@@ -3196,14 +3203,14 @@ packages:
       - '@vue/composition-api'
       - vue
 
-  /@zxcvbn-ts/core@2.2.1:
-    resolution: {integrity: sha512-Cg1JyRpCDIF+Dh3nauqygmmCYxogNVZDxSn+9PgkPD1HZ2QiJe4elruVJrGmYRS7muGmZ1hNJq8ySQdPv6GHaw==}
+  /@zxcvbn-ts/core@3.0.4:
+    resolution: {integrity: sha512-aQeiT0F09FuJaAqNrxynlAwZ2mW/1MdXakKWNmGM1Qp/VaY6CnB/GfnMS2T8gB2231Esp1/maCWd8vTG4OuShw==}
     dependencies:
       fastest-levenshtein: 1.0.16
     dev: false
 
-  /@zxcvbn-ts/language-common@3.0.2:
-    resolution: {integrity: sha512-GPnf4cuSUZXhx3spjRQLtUoI6/+00f9198gcG8hJDBFR4KYfMvLorAk97MU7qeTkyhzhYLR7yLr/E66vH7ZOaw==}
+  /@zxcvbn-ts/language-common@3.0.4:
+    resolution: {integrity: sha512-viSNNnRYtc7ULXzxrQIVUNwHAPSXRtoIwy/Tq4XQQdIknBzw4vz36lQLF6mvhMlTIlpjoN/Z1GFu/fwiAlUSsw==}
     dev: false
 
   /abab@2.0.6:
