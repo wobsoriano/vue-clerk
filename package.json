@@ -1,7 +1,7 @@
 {
   "name": "vue-clerk",
   "version": "0.1.1",
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@8.14.3",
   "description": "",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
@@ -63,26 +63,26 @@
   "dependencies": {
     "@clerk/clerk-js": "^4.68.5",
     "@clerk/types": "^3.60.0",
-    "@vueuse/core": "^10.5.0"
+    "@vueuse/core": "^10.7.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^1.1.0",
-    "@testing-library/jest-dom": "^6.1.4",
-    "@testing-library/user-event": "^14.5.1",
-    "@testing-library/vue": "^8.0.0",
-    "@vitejs/plugin-vue": "^4.4.0",
+    "@antfu/eslint-config": "^2.6.3",
+    "@testing-library/jest-dom": "^6.2.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@testing-library/vue": "^8.0.1",
+    "@vitejs/plugin-vue": "^5.0.3",
     "changelogen": "^0.5.5",
-    "eslint": "^8.52.0",
-    "eslint-plugin-import": "^2.29.0",
-    "jsdom": " ^22.1.0",
-    "taze": "^0.12.0",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2",
-    "unplugin-vue": "^4.3.5",
-    "vite": "^4.5.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-import": "^2.29.1",
+    "jsdom": "^24.0.0",
+    "taze": "^0.13.1",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "unplugin-vue": "^5.0.2",
+    "vite": "^4.5.2",
     "vitepress": "1.0.0-rc.24",
-    "vitest": "^0.34.6",
-    "vue": "^3.3.7",
-    "vue-tsc": "^1.8.22"
+    "vitest": "^1.2.1",
+    "vue": "^3.4.15",
+    "vue-tsc": "^1.8.27"
   }
 }
