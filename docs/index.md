@@ -22,4 +22,3 @@ features:
   - title: Authentication & Users
     details: Passwords, SSO, OTP, MFA and other advanced security features.
 ---
-

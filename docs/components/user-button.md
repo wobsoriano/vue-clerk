@@ -51,7 +51,6 @@ header {
 |defaultOpen|`boolean`|Controls whether the `<UserButton/>` should open by default during the first render.|
 |userProfileProps?|`userProfileProps`|Specify options for the underlying `<UserProfile />` component.e.g. <span v-pre>`<UserButton userProfileProps={{additionalOAuthScopes: {google: ['foo', 'bar'], github: ['qux']}}} />`</span>|
 
-
 ## Customization
 
 The `<UserButton/>` component can be highly customized through the [appearance prop](https://clerk.com/docs/component-customization/appearance-prop).

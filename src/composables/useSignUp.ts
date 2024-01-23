@@ -4,8 +4,8 @@ import { toRefs } from '@vueuse/core'
 import { useClerkProvide } from './useClerkProvide'
 
 type UseSignUpReturn =
-  | { isLoaded: false; signUp: undefined; setSession: undefined; setActive: undefined }
-  | { isLoaded: true; signUp: SignUpResource; setSession: SetSession; setActive: SetActive }
+  | { isLoaded: false, signUp: undefined, setSession: undefined, setActive: undefined }
+  | { isLoaded: true, signUp: SignUpResource, setSession: SetSession, setActive: SetActive }
 
 export function useSignUp() {
   const { clerk, isClerkLoaded } = useClerkProvide()

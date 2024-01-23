@@ -4,9 +4,9 @@ import { computed } from 'vue'
 import { useClerkProvide } from './useClerkProvide'
 
 type UseUserReturn =
-  | { isLoaded: false; isSignedIn: undefined; user: undefined }
-  | { isLoaded: true; isSignedIn: false; user: null }
-  | { isLoaded: true; isSignedIn: true; user: UserResource }
+  | { isLoaded: false, isSignedIn: undefined, user: undefined }
+  | { isLoaded: true, isSignedIn: false, user: null }
+  | { isLoaded: true, isSignedIn: true, user: UserResource }
 
 export function useUser() {
   const { derivedState } = useClerkProvide()

@@ -5,8 +5,8 @@ import { toRefs } from '@vueuse/core'
 import { useClerkProvide } from './useClerkProvide'
 
 type UseSessionListReturn =
-  | { isLoaded: false; sessions: undefined; setSession: undefined; setActive: undefined }
-  | { isLoaded: true; sessions: SessionResource[]; setSession: SetSession; setActive: SetActive }
+  | { isLoaded: false, sessions: undefined, setSession: undefined, setActive: undefined }
+  | { isLoaded: true, sessions: SessionResource[], setSession: SetSession, setActive: SetActive }
 
 export function useSessionList() {
   const { clerk, isClerkLoaded } = useClerkProvide()

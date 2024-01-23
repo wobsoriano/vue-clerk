@@ -116,5 +116,5 @@ export default {
 |actor|`string`|If user impersonation is being used, this field will contain information about the impersonator.|
 |getToken({ template?: string; })|`string`|Retrieves a signed JWT that is structured according to the corresponding JWT template in your dashboard. If no template parameter is provided, a default Clerk session JWT is returned.|
 |orgId|`string`|A unique identifier for this organization.|
-|orgRole|`string`|The role that the user will have in the organization. Valid values are admin and basic_member|
+|orgRole|`string`|The role that the user will have in the organization. Valid values are admin and basic_member|
 |claims|`object`|All claims for the JWT associated with the current user|

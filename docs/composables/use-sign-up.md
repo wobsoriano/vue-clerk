@@ -37,7 +37,6 @@ const { isLoaded, signUp } = useSignUp()
 
 A more involved example follows below. In this example, we show an approach to create your own custom form for registering users.
 
-
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
