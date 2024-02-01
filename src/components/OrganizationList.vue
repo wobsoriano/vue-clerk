@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { SignInProps } from '@clerk/types'
+import type { OrganizationListProps } from '@clerk/types'
 import { ref } from 'vue'
 import { useMountComponent } from '../composables/useMountComponent'
 import { useClerk } from '../composables/useClerk'
 
-const props = defineProps<SignInProps>()
+const props = defineProps<OrganizationListProps>()
 const el = ref<HTMLDivElement | null>(null)
 const clerk = useClerk()
 
