@@ -10,7 +10,7 @@ Access the SignIn object inside of your components.
 
 The `useSignIn` hook gives you access to the [SignIn](https://clerk.com/docs/reference/clerkjs/signin) object inside your components.
 
-You can use the methods of the `SignIn` object to create your own custom sign in flow, as an alternative to using Clerk's pre-built [<SignIn/>](/components/sign-in.html) component.
+You can use the methods of the `SignIn` object to create your own custom sign in flow, as an alternative to using Clerk's pre-built [<SignIn/>](/authentication/sign-in.html) component.
 
 The `SignIn` object will also contain the state of the sign in attempt that is currently in progress, giving you the chance to examine all the details and act accordingly.
 

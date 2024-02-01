@@ -2,12 +2,6 @@
 outline: deep
 ---
 
-<script setup>
-import { SignUp, SignOutButton, useAuth } from '../../src'
-
-const { isSignedIn } = useAuth()
-</script>
-
 # SignUp
 
 A beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers.
@@ -16,31 +10,7 @@ A beautiful, high-conversion sign-up flow with your choice of required fields an
 
 The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers.
 
-<SignOutButton v-if="isSignedIn">SIGN OUT TO VIEW COMPONENT</SignOutButton>
-<div v-else class="sign-up-container">
-  <SignUp :appearance="{ elements: { card: 'clerk-card' } }" redirect-url="/components/sign-up.html" />
-</div>
-
-<style>
-.sign-up-container {
-  margin-top: 2rem;
-  margin-left: 3rem;
-}
-
-.clerk-card {
-  width: 25rem;
-}
-
-@media (max-width: 480px) {
-  .clerk-card {
-    width: auto;
-  }
-
-  .sign-up-container {
-    margin-left: 0;
-  }
-}
-</style>
+<img src="https://clerk.com/_next/image?url=%2Fdocs%2Fimages%2Fui-components%2Fcomponent-sign_up.svg&w=1080&q=75" />
 
 ## Usage
 

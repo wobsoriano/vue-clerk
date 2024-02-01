@@ -2,12 +2,6 @@
 outline: deep
 ---
 
-<script setup>
-import { SignIn, SignOutButton, useAuth } from '../../src'
-
-const { isSignedIn } = useAuth()
-</script>
-
 # SignIn
 
 Full-featured UI for signing users into your application.
@@ -16,31 +10,7 @@ Full-featured UI for signing users into your application.
 
 The `<SignIn/>` component renders a UI for signing in users. Most of the times, the `<SignIn/>` component is all you need for completing sign ins. It supports any authentication scheme, from Email/password authentication, and Passwordless, to Social Login (OAuth) and Multi-factor verification as well.
 
-<SignOutButton v-if="isSignedIn">SIGN OUT TO VIEW COMPONENT</SignOutButton>
-<div v-else class="sign-in-container">
-  <SignIn :appearance="{ elements: { card: 'clerk-card' } }" redirect-url="/components/sign-in.html" />
-</div>
-
-<style>
-.sign-in-container {
-  margin-top: 2rem;
-  margin-left: 3rem;
-}
-
-.clerk-card {
-  width: 25rem;
-}
-
-@media (max-width: 480px) {
-  .clerk-card {
-    width: auto;
-  }
-
-  .sign-in-container {
-    margin-left: 0;
-  }
-}
-</style>
+<img src="https://clerk.com/_next/image?url=%2Fdocs%2Fimages%2Fui-components%2Fcomponent-sign_in.svg&w=1080&q=75" />
 
 ## Usage
 
