@@ -1,10 +1,13 @@
 import { } from '@clerk/clerk-js'
-import type { ActJWTClaim, GetToken, MembershipRole, SignOut } from '@clerk/types'
+import type { ActJWTClaim, CheckAuthorizationWithCustomPermissions, GetToken, MembershipRole, OrganizationCustomRoleKey, SignOut } from '@clerk/types'
 import { toRefs } from '@vueuse/core'
 import { computed } from 'vue'
 import { createGetToken, createSignOut } from '../utils'
-import { invalidStateError } from '../errors'
+import { invalidStateError, useAuthHasRequiresRoleOrPermission } from '../errors/messages'
 import { useClerkProvide } from './useClerkProvide'
+
+type CheckAuthorizationSignedOut = undefined
+type CheckAuthorizationWithoutOrgOrUser = (params?: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => false
 
 type UseAuthReturn =
   | {
@@ -16,6 +19,7 @@ type UseAuthReturn =
     orgId: undefined
     orgRole: undefined
     orgSlug: undefined
+    has: CheckAuthorizationSignedOut
     signOut: SignOut
     getToken: GetToken
   }
@@ -28,6 +32,7 @@ type UseAuthReturn =
     orgId: null
     orgRole: null
     orgSlug: null
+    has: CheckAuthorizationWithoutOrgOrUser
     signOut: SignOut
     getToken: GetToken
   }
@@ -40,6 +45,7 @@ type UseAuthReturn =
     orgId: null
     orgRole: null
     orgSlug: null
+    has: CheckAuthorizationWithoutOrgOrUser
     signOut: SignOut
     getToken: GetToken
   }
@@ -50,8 +56,9 @@ type UseAuthReturn =
     sessionId: string
     actor: ActJWTClaim | null
     orgId: string
-    orgRole: MembershipRole
+    orgRole: OrganizationCustomRoleKey
     orgSlug: string | null
+    has: CheckAuthorizationWithCustomPermissions
     signOut: SignOut
     getToken: GetToken
   }
@@ -63,7 +70,22 @@ export function useAuth() {
   const signOut: SignOut = createSignOut(clerk)
 
   const result = computed<UseAuthReturn>(() => {
-    const { sessionId, userId, actor, orgId, orgRole, orgSlug } = derivedState.value
+    const { sessionId, userId, actor, orgId, orgRole, orgSlug, orgPermissions } = derivedState.value
+
+    const has = (params: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => {
+      if (!params?.permission && !params?.role)
+        throw new Error(useAuthHasRequiresRoleOrPermission)
+      if (!orgId || !userId || !orgRole || !orgPermissions)
+        return false
+
+      if (params.permission)
+        return orgPermissions.includes(params.permission)
+
+      if (params.role)
+        return orgRole === params.role
+
+      return false
+    }
 
     if (sessionId === undefined && userId === undefined) {
       return {
@@ -75,6 +97,7 @@ export function useAuth() {
         orgId: undefined,
         orgRole: undefined,
         orgSlug: undefined,
+        has: undefined,
         signOut,
         getToken,
       }
@@ -90,6 +113,7 @@ export function useAuth() {
         orgId: null,
         orgRole: null,
         orgSlug: null,
+        has: () => false,
         signOut,
         getToken,
       }
@@ -105,6 +129,7 @@ export function useAuth() {
         orgId,
         orgRole,
         orgSlug: orgSlug || null,
+        has,
         signOut,
         getToken,
       }
@@ -120,6 +145,7 @@ export function useAuth() {
         orgId: null,
         orgRole: null,
         orgSlug: null,
+        has: () => false,
         signOut,
         getToken,
       }

@@ -75,6 +75,7 @@ export default defineConfig({
         items: [
           { text: 'ClerkLoaded', link: '/clerk-loaded.md' },
           { text: 'ClerkLoading', link: '/clerk-loading.md' },
+          { text: 'Protect', link: '/protect.md' },
         ],
       },
       {

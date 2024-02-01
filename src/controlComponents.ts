@@ -1,5 +1,5 @@
-import { computed, defineComponent, onMounted } from 'vue'
-import type { HandleOAuthCallbackParams, RedirectOptions } from '@clerk/types'
+import { computed, defineComponent, h, onMounted } from 'vue'
+import type { CheckAuthorizationWithCustomPermissions, HandleOAuthCallbackParams, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, RedirectOptions } from '@clerk/types'
 import { useAuth } from './composables/useAuth'
 import { useClerkProvide } from './composables/useClerkProvide'
 
@@ -84,4 +84,60 @@ export const AuthenticateWithRedirectCallback = defineComponent(<T extends Handl
   })
 
   return () => null
+})
+
+export type ProtectProps = {
+  condition?: never
+  role: OrganizationCustomRoleKey
+  permission?: never
+} | {
+  condition?: never
+  role?: never
+  permission: OrganizationCustomPermissionKey
+} | {
+  condition: (has: CheckAuthorizationWithCustomPermissions) => boolean
+  role?: never
+  permission?: never
+} | {
+  condition?: never
+  role?: never
+  permission?: never
+}
+
+export const Protect = defineComponent(<T extends ProtectProps>(props: T, { slots }: any) => {
+  const { isLoaded, has, userId } = useAuth()
+
+  return () => {
+    if (!isLoaded.value)
+      return null
+
+    /**
+     * Fallback to UI provided by user or `null` if authorization checks failed
+     */
+    if (!userId.value)
+      return slots.fallback?.()
+
+    /**
+     * Check against the results of `has` called inside the callback
+     */
+    if (typeof props.condition === 'function') {
+      if (props.condition(has.value!))
+        return slots.default?.()
+
+      return slots.fallback?.()
+    }
+
+    if (props.role || props.permission) {
+      if (has.value?.(props))
+        return slots.default?.()
+
+      return slots.fallback?.()
+    }
+
+    /**
+     * If neither of the authorization params are passed behave as the `<SignedIn/>`.
+     * If fallback is present render that instead of rendering nothing.
+     */
+    return slots.default?.()
+  }
 })
