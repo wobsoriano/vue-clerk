@@ -108,12 +108,36 @@ export const Protect = defineComponent(<T extends ProtectProps>(props: T, { slot
   const { isLoaded, has, userId } = useAuth()
 
   return () => {
-    if (isLoaded.value) {
-      if (!userId.value || (typeof props.condition === 'function' && props.condition(has.value!)) || (props.role || props.permission && has.value?.(props)))
-        return slots.default ? slots.default() : null
-      else
-        return slots.fallback ? slots.fallback() : null
+    if (!isLoaded.value)
+      return null
+
+    /**
+     * Fallback to UI provided by user or `null` if authorization checks failed
+     */
+    if (!userId.value)
+      return slots.fallback?.()
+
+    /**
+     * Check against the results of `has` called inside the callback
+     */
+    if (typeof props.condition === 'function') {
+      if (props.condition(has.value!))
+        return slots.default?.()
+
+      return slots.fallback?.()
     }
-    return null
+
+    if (props.role || props.permission) {
+      if (has.value?.(props))
+        return slots.default?.()
+
+      return slots.fallback?.()
+    }
+
+    /**
+     * If neither of the authorization params are passed behave as the `<SignedIn/>`.
+     * If fallback is present render that instead of rendering nothing.
+     */
+    return slots.default?.()
   }
 })
