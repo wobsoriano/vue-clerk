@@ -1,4 +1,4 @@
-import { computed, defineComponent, h, onMounted } from 'vue'
+import { computed, defineComponent, onMounted } from 'vue'
 import type { CheckAuthorizationWithCustomPermissions, HandleOAuthCallbackParams, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, RedirectOptions } from '@clerk/types'
 import { useAuth } from './composables/useAuth'
 import { useClerkProvide } from './composables/useClerkProvide'

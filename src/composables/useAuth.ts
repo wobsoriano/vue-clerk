@@ -1,5 +1,5 @@
 import { } from '@clerk/clerk-js'
-import type { ActJWTClaim, CheckAuthorizationWithCustomPermissions, GetToken, MembershipRole, OrganizationCustomRoleKey, SignOut } from '@clerk/types'
+import type { ActJWTClaim, CheckAuthorizationWithCustomPermissions, GetToken, OrganizationCustomRoleKey, SignOut } from '@clerk/types'
 import { toRefs } from '@vueuse/core'
 import { computed } from 'vue'
 import { createGetToken, createSignOut } from '../utils'

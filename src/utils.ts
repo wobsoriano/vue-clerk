@@ -1,5 +1,5 @@
 import type Clerk from '@clerk/clerk-js'
-import type { ActiveSessionResource, InitialState, MembershipRole, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
+import type { ActiveSessionResource, InitialState, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
 
 export function deriveState(clerkLoaded: boolean, state: Resources, initialState: InitialState | undefined) {
   if (!clerkLoaded && initialState)
