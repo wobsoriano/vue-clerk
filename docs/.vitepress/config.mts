@@ -45,6 +45,47 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Authentication Components',
+        base: '/authentication',
+        items: [
+          { text: 'SignIn', link: '/sign-in.md' },
+          { text: 'SignUp', link: '/sign-up.md' },
+        ],
+      },
+      {
+        text: 'User Components',
+        base: '/user',
+        items: [
+          { text: 'UserButton', link: '/user-button.md' },
+          { text: 'UserProfile', link: '/user-profile.md' },
+        ],
+      },
+      {
+        text: 'Organization Components',
+        base: '/organization',
+        items: [
+          { text: 'OrganizationProfile', link: '/organization-profile.md' },
+          { text: 'OrganizationSwitcher', link: '/organization-switcher.md' },
+          { text: 'OrganizationList', link: '/organization-list.md' },
+        ],
+      },
+      {
+        text: 'Control Components',
+        base: '/control',
+        items: [
+          { text: 'ClerkLoaded', link: '/clerk-loaded.md' },
+          { text: 'ClerkLoading', link: '/clerk-loading.md' },
+        ],
+      },
+      {
+        text: 'Unstyled Components',
+        base: '/unstyled',
+        items: [
+          { text: 'SignInButton', link: '/sign-in-button.md' },
+          { text: 'SignOutButton', link: '/sign-out-button.md' },
+        ],
+      },
+      {
         text: 'Composables',
         items: [
           { text: 'useAuth', link: '/composables/use-auth.md' },
@@ -53,24 +94,6 @@ export default defineConfig({
           { text: 'useSignIn', link: '/composables/use-sign-in.md' },
           { text: 'useSignUp', link: '/composables/use-sign-up.md' },
           { text: 'useUser', link: '/composables/use-user.md' },
-        ],
-      },
-      {
-        text: 'UI Components',
-        items: [
-          { text: 'SignIn', link: '/components/sign-in.md' },
-          { text: 'SignUp', link: '/components/sign-up.md' },
-          { text: 'SignInButton', link: '/components/sign-in-button.md' },
-          { text: 'SignOutButton', link: '/components/sign-out-button.md' },
-          { text: 'UserButton', link: '/components/user-button.md' },
-          { text: 'UserProfile', link: '/components/user-profile.md' },
-        ],
-      },
-      {
-        text: 'Control Components',
-        items: [
-          { text: 'ClerkLoaded', link: '/components/clerk-loaded.md' },
-          { text: 'ClerkLoading', link: '/components/clerk-loading.md' },
         ],
       },
     ],
