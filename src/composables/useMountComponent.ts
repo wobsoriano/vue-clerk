@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import { watchPostEffect } from 'vue'
+import { watchEffect } from 'vue'
 import { useClerkProvide } from './useClerkProvide'
 
 /**
@@ -24,7 +24,7 @@ export function useMountComponent({
 }) {
   const { isClerkLoaded } = useClerkProvide()
 
-  watchPostEffect((onInvalidate) => {
+  watchEffect((onInvalidate) => {
     if (el.value && isClerkLoaded.value)
       mountFn(el.value, props)
 
