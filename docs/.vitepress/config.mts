@@ -102,9 +102,4 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/wobsoriano/vue-clerk' },
     ],
   },
-  vite: {
-    ssr: {
-      noExternal: ['@clerk/clerk-js'],
-    },
-  },
 })
