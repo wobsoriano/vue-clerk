@@ -1,5 +1,5 @@
-import { computed, defineComponent, onMounted } from 'vue'
-import type { HandleOAuthCallbackParams, RedirectOptions } from '@clerk/types'
+import { computed, defineComponent, h, onMounted } from 'vue'
+import type { CheckAuthorizationWithCustomPermissions, HandleOAuthCallbackParams, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, RedirectOptions } from '@clerk/types'
 import { useAuth } from './composables/useAuth'
 import { useClerkProvide } from './composables/useClerkProvide'
 
@@ -84,4 +84,36 @@ export const AuthenticateWithRedirectCallback = defineComponent(<T extends Handl
   })
 
   return () => null
+})
+
+export type ProtectProps = {
+  condition?: never
+  role: OrganizationCustomRoleKey
+  permission?: never
+} | {
+  condition?: never
+  role?: never
+  permission: OrganizationCustomPermissionKey
+} | {
+  condition: (has: CheckAuthorizationWithCustomPermissions) => boolean
+  role?: never
+  permission?: never
+} | {
+  condition?: never
+  role?: never
+  permission?: never
+}
+
+export const Protect = defineComponent(<T extends ProtectProps>(props: T, { slots }: any) => {
+  const { isLoaded, has, userId } = useAuth()
+
+  return () => {
+    if (isLoaded.value) {
+      if (!userId.value || (typeof props.condition === 'function' && props.condition(has.value!)) || (props.role || props.permission && has.value?.(props)))
+        return slots.default ? slots.default() : null
+      else
+        return slots.fallback ? slots.fallback() : null
+    }
+    return null
+  }
 })
