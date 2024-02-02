@@ -2,17 +2,11 @@
 outline: deep
 ---
 
-# ClerkLoaded
-
-Renders when Clerk is loaded.
-
-## Overview
+# `<ClerkLoaded />`
 
 The `<ClerkLoaded>` component guarantees that the [Clerk](https://clerk.com/docs/reference/clerkjs/clerk) object has loaded before rendering its children.
 
 ## Usage
-
-Rendering the `<ClerkLoaded/>` component allows immediate access to the Clerk object without the need to check if it exists.
 
 ```vue
 <script setup>

@@ -2,11 +2,7 @@
 outline: deep
 ---
 
-# ClerkLoading
-
-Renders while Clerk is loading.
-
-## Overview
+# `<ClerkLoading />`
 
 The `<ClerkLoading>` renders its children while Clerk is loading, and is helpful for showing a custom loading state.
 

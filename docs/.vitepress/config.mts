@@ -77,6 +77,8 @@ export default defineConfig({
           { text: 'ClerkLoaded', link: '/clerk-loaded.md' },
           { text: 'ClerkLoading', link: '/clerk-loading.md' },
           { text: 'Protect', link: '/protect.md' },
+          { text: 'SignedIn', link: '/signed-out.md' },
+          { text: 'SignedOut', link: '/signed-in.md' },
         ],
       },
       {
