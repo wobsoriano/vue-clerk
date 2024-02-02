@@ -64,6 +64,7 @@ export default defineConfig({
         text: 'Organization Components',
         base: '/organization',
         items: [
+          { text: 'CreateOrganization', link: '/create-organization.md' },
           { text: 'OrganizationProfile', link: '/organization-profile.md' },
           { text: 'OrganizationSwitcher', link: '/organization-switcher.md' },
           { text: 'OrganizationList', link: '/organization-list.md' },

@@ -2,13 +2,12 @@
 outline: deep
 ---
 
-# OrganizationSwitcher
+# `<OrganizationSwitcher />`
 
-## Overview
+<br />
+<img src="https://clerk.com/_next/image?url=%2Fdocs%2Fimages%2Fui-components%2Fcomponent-org_switcher.svg&w=2048&q=75" />
 
 The `<OrganizationSwitcher />` component is used to enable the ability to switch between available organizations the user may be part of in your application.
-
-<img src="https://clerk.com/_next/image?url=%2Fdocs%2Fimages%2Fui-components%2Fcomponent-org_switcher.svg&w=2048&q=75" />
 
 ## Usage
 
@@ -27,7 +26,7 @@ import { OrganizationSwitcher } from 'vue-clerk'
 |Name|Type|Description|
 |:----|:----|:----|
 |`afterCreateOrganizationUrl`|`string`|Full URL or path to navigate after creating a new organization.|
-|`appearance`|`[Appearance](https://clerk.com/docs/components/customization/overview) \|undefined`|Optional object to style your components. Will only affect Clerk Components and not [Account Portal](https://clerk.com/docs/account-portal/overview) pages.|
+|`appearance`|[`Appearance`](https://clerk.com/docs/components/customization/overview) \| `undefined`|Optional object to style your components. Will only affect Clerk Components and not [Account Portal](https://clerk.com/docs/account-portal/overview) pages.|
 |`createOrganizationUrl`|`string`|Full URL or path where the [`<CreateOrganization />`](/organization/create-organization) component is mounted.|
 |`organizationProfileUrl`|`string`|Full URL or path where the [`<OrganizationProfile />`](/organization/organization-profile) component is mounted.|
 |`createOrganizationMode`|`'modal' \|'navigation'`|Controls whether clicking the "Create organization" button will cause the [`<CreateOrganization />`](/organization/create-organization) component to open as a modal, or if the browser will navigate to the `createOrganizationUrl` where [`<CreateOrganization />`](/organization/create-organization) is mounted as a page.Defaults to: `'modal'`.|
