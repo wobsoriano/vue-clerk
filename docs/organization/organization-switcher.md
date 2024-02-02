@@ -13,7 +13,7 @@ The `<OrganizationSwitcher />` component is used to enable the ability to switch
 ## Usage
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { OrganizationSwitcher } from 'vue-clerk'
 </script>
 

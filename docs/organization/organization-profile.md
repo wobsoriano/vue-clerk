@@ -13,7 +13,7 @@ The `<OrganizationProfile />` component is used to render a beautiful, full-feat
 ## Usage
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { OrganizationProfile } from 'vue-clerk'
 </script>
 

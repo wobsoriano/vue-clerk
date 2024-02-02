@@ -13,7 +13,7 @@ The `<OrganizationList />` component is used to display organization related mem
 ## Usage
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { OrganizationList } from 'vue-clerk'
 </script>
 

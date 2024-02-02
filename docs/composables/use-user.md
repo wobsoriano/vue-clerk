@@ -15,7 +15,7 @@ The useUser composable returns the current user state: `{ isLoaded, isSignedIn, 
 ### Retrieve user data
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { useUser } from 'vue-clerk'
 
 const { isLoaded, isSignedIn, user } = useUser()
@@ -31,7 +31,7 @@ const { isLoaded, isSignedIn, user } = useUser()
 ### Update user data
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { useUser } from 'vue-clerk'
 
 const { user } = useUser()
@@ -60,7 +60,7 @@ async function updateUser() {
 In some circumstances you need retrieve the latest user data after updating your user in your backend. You can use `user.reload()` to reload the data on the frontend.
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { useUser } from 'vue-clerk'
 
 const { user } = useUser()

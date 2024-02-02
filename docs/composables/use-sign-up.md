@@ -21,7 +21,7 @@ Getting access to the [SignUp](https://clerk.com/docs/reference/clerkjs/signup) 
 The following example accesses the `SignUp` object to check the current sign up attempt's status.
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { useSignUp } from 'vue-clerk'
 
 const { isLoaded, signUp } = useSignUp()
@@ -38,7 +38,7 @@ const { isLoaded, signUp } = useSignUp()
 A more involved example follows below. In this example, we show an approach to create your own custom form for registering users.
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue'
 import { useSignUp } from 'vue-clerk'
 

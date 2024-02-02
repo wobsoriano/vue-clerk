@@ -21,7 +21,7 @@ Getting access to the [SignIn](https://clerk.com/docs/reference/clerkjs/signin) 
 The following example accesses the `SignIn` object to check the current sign in attempt's status.
 
 ```vue
-<script lang="ts">
+<script>
 import { useSignIn } from 'vue-clerk'
 
 const { isLoaded, signIn } = useSignIn()
@@ -38,7 +38,7 @@ const { isLoaded, signIn } = useSignIn()
 A more involved example follows below. In this example, we show an approach to create your own custom form for signing in your users.
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue'
 import { useSignIn } from 'vue-clerk'
 

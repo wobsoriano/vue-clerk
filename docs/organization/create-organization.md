@@ -13,7 +13,7 @@ The `<CreateOrganization />` component is used to render an organization creatio
 ## Usage
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { CreateOrganization } from 'vue-clerk'
 </script>
 

@@ -2,18 +2,16 @@
 outline: deep
 ---
 
-# SignInButton
+# `<SignInButton />`
 
-Show a button that links to the sign-in URL or opens the sign-in modal
-
-## Overview
-
-`<SignInButton/>` is a button that links to the sign-in page or displays the sign-in modal. By default, it is a `<button>` tag that says Sign in, but it is completely customizable by passing children.
+The `<SignInButton>` component is a button that links to the sign-in page or displays the sign-in modal.
 
 ## Usage
 
+### Basic Usage
+
 ```vue
-<script setup lang="ts">
+<script setup>
 import { SignInButton } from 'vue-clerk'
 </script>
 
@@ -22,11 +20,30 @@ import { SignInButton } from 'vue-clerk'
 </template>
 ```
 
+### Custom Usage
+
+In some cases you will want to use your own button, or button text. You can do that by wrapping your button up.
+
+```vue
+<script setup>
+import { SignInButton } from 'vue-clerk'
+</script>
+
+<template>
+  <div>
+    <h1>Sign in</h1>
+    <SignInButton>
+      <button>Sign in with Clerk</button>
+    </SignInButton>
+  </div>
+</template>
+```
+
 ## Props
 
 |Name|Type|Description|
-|--- |--- |--- |
-|mode|`"redirect" (default)` | "modal"|If mode is set to "redirect", the button will redirect to the sign-up page. If mode is set to "modal", the button will open a modal instead. Defaults to "redirect".|
-|redirectUrl?|`string`|Full URL or path to navigate to after successful sign in or sign up. Use this instead of setting afterSignInUrl and afterSignUpUrl to the same value. To return to the same URL, set to window.location.href|
-|afterSignInUrl?|`string`|The full URL or path to navigate to after a successful sign in. Defaults to the Sign-in URL on the Paths page of your Dashboard.|
-|afterSignUpUrl?|`string`|The full URL or path to navigate to after a successful sign up. Defaults to the Sign-up URL on the Paths page of your Dashboard.|
+|:----|:----|:----|
+|`redirectUrl`|`string`|Full URL or path to navigate after successful sign in or sign up. The same as setting `afterSignInUrl` and `afterSignUpUrl` to the same value.|
+|`afterSignInUrl`|`string`|The full URL or path to navigate after a successful sign in.|
+|`afterSignUpUrl`|`string`|The full URL or path to navigate after a successful sign up.|
+|`mode`|`'redirect' \|'modal'`|Determines what happens when a user clicks on the `<SignInButton>`. Setting this to `'redirect'` will redirect the user to the sign-in route. Setting this to `'modal'` will open a modal on the current route.Defaults to 'redirect'`|

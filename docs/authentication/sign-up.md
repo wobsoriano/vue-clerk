@@ -2,20 +2,18 @@
 outline: deep
 ---
 
-# SignUp
-
-A beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers.
-
-## Overview
-
-The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers.
+# `<SignUp />`
 
 <img src="https://clerk.com/_next/image?url=%2Fdocs%2Fimages%2Fui-components%2Fcomponent-sign_up.svg&w=1080&q=75" />
 
+The `<SignUp />` component renders a UI for signing up users. The functionality of the `<SignUp />` component is controlled by the instance settings you specify in your [Clerk Dashboard](https://dashboard.clerk.com). You can further customize your `<SignUp />` component by passing additional properties at the time of rendering.
+
 ## Usage
 
+Below is basic implementation of the `<SignUp />` component. You can use this as a starting point for your own implementation
+
 ```vue
-<script lang="ts">
+<script>
 import { SignUp } from 'vue-clerk'
 </script>
 
@@ -27,11 +25,13 @@ import { SignUp } from 'vue-clerk'
 ## Props
 
 |Name|Type|Description|
-|--- |--- |--- |
-|appearance?|`object`|Controls the overall look and feel|
-|routing?|`RoutingStrategy`|The routing strategy for your pages. Supported values are:<br>-hash: Hash based routing.<br>- path (default): Path-based routing.<br>-virtual: Virtual based routing.|
-|path?|`string`|The path where the component is mounted when path-based routing is used.<br>-e.g. /sign-up. This prop is ignored in hash and virtual based routing.|
-|redirectUrl?|`string`|Full URL or path to navigate after successful sign in or sign up. The same as setting afterSignInUrl and afterSignUpUrl to the same value.|
-|afterSignUpUrl?|`string`|The full URL or path to navigate after a successful sign up.|
-|afterSignInUrl?|`string`|The full URL or path to navigate after a successful sign in.|
-|signInUrl?|`string`|Full URL or path to the sign up page. Use this property to provide the target of the "Sign In" link that's rendered at the bottom of the component.|
+|:----|:----|:----|
+|`appearance`|[`Appearance`](https://clerk.com/docs/components/customization/overview) / `undefined`|Optional object to style your components. Will only affect Clerk Components and not [Account Portal](https://clerk.com/docs/account-portal/overview) pages.|
+|`routing`|`'hash' \|'path' \|'virtual'`|The routing strategy for your pages.Note: If you are using environment variables for Next.js or Remix to specify your routes, this will be set to `path`.|
+|`path`|`string`|The path where the component is mounted on when path-based routing is used e.g. /sign-up.|
+|`redirectUrl`|`string`|Full URL or path to navigate to after successful sign in or sign up.The same as setting afterSignInUrl and afterSignUpUrl to the same value.|
+|`afterSignInUrl`|`string`|The full URL or path to navigate to after a successful sign in.|
+|`signInUrl`|`string`|Full URL or path to the sign in page. Use this property to provide the target of the 'Sign In' link that's rendered.|
+|`afterSignUpUrl`|`string`|The full URL or path to navigate after a successful sign up.|
+|`unsafeMetadata`|`object`|An object with the key and value for unsafeMetadata that will be saved to the user after sign up.E.g. `{ "company": "companyID1234" }`|
+|`initialValues`|[`SignUpInitialValues`](https://clerk.com/docs/references/javascript/types/sign-up-initial-values)|The values used to prefill the sign-up fields with.|
