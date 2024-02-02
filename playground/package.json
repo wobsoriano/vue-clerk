@@ -13,8 +13,7 @@
     "vue-clerk": "workspace:*"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
     "@types/node": "^18.19.8",
-    "nuxt": "^3.9.3"
+    "nuxt": "npm:nuxt-nightly@latest"
   }
 }
