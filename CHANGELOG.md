@@ -1,6 +1,31 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.2...v0.1.3)
+
+### 🚀 Enhancements
+
+- Add organization list component ([e5a156f](https://github.com/wobsoriano/vue-clerk/commit/e5a156f))
+- Add <Protect /> component ([a0b2077](https://github.com/wobsoriano/vue-clerk/commit/a0b2077))
+
+### 📖 Documentation
+
+- Add <Protect /> component doc ([b99f1f8](https://github.com/wobsoriano/vue-clerk/commit/b99f1f8))
+
+### 📦 Build
+
+- **deps:** Bump @clerk/clerk-js to 4.68.6 ([4878cde](https://github.com/wobsoriano/vue-clerk/commit/4878cde))
+
+### 🎨 Styles
+
+- Eslint fixes ([f24e435](https://github.com/wobsoriano/vue-clerk/commit/f24e435))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.1.2
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.1...v0.1.2)
