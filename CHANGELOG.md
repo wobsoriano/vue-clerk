@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.4
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.3...v0.1.4)
+
+### 🩹 Fixes
+
+- Component mount check ([f554bf1](https://github.com/wobsoriano/vue-clerk/commit/f554bf1))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.1.3
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.2...v0.1.3)
