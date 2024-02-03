@@ -17,9 +17,9 @@ function clickHandler() {
 </script>
 
 <template>
-  <button data-testid="sign-out-btn" @click="clickHandler">
-    <slot>
+  <slot :handler="clickHandler">
+    <button data-testid="sign-out-btn" @click="clickHandler">
       Sign Out
-    </slot>
-  </button>
+    </button>
+  </slot>
 </template>

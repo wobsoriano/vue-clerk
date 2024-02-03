@@ -2,9 +2,9 @@
 outline: deep
 ---
 
-# `<SignInButton />`
+# `<SignUpButton />`
 
-The `<SignInButton>` component is a button that links to the sign-in page or displays the sign-in modal.
+The `<SignUpButton>` component is a button that links to the sign-up page or displays the sign-up modal.
 
 ## Usage
 
@@ -12,11 +12,14 @@ The `<SignInButton>` component is a button that links to the sign-in page or dis
 
 ```vue
 <script setup>
-import { SignInButton } from 'vue-clerk'
+import { SignUpButton } from 'vue-clerk'
 </script>
 
 <template>
-  <SignInButton />
+  <div>
+    <h1> Sign up </h1>
+    <SignUpButton />
+  </div>
 </template>
 ```
 
@@ -26,17 +29,17 @@ In some cases you will want to use your own button, or button text. You can do t
 
 ```vue
 <script setup>
-import { SignInButton } from 'vue-clerk'
+import { SignUpButton } from 'vue-clerk'
 </script>
 
 <template>
   <div>
-    <h1>Sign in</h1>
-    <SignInButton v-slot="{ handler }">
+    <h1> Sign up </h1>
+    <SignUpButton v-slot="{ handler }">
       <button @click="handler">
-        Sign in with Clerk
+        Sign up
       </button>
-    </SignInButton>
+    </SignUpButton>
   </div>
 </template>
 ```
@@ -54,4 +57,4 @@ import { SignInButton } from 'vue-clerk'
 
 |Name|Description|
 |:----|:----|
-|`default?`|children you want to wrap the `<SignInButton>` in.|
+|`default?`|children you want to wrap the `<SignUpButton>` in.|

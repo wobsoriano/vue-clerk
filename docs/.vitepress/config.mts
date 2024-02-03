@@ -87,6 +87,7 @@ export default defineConfig({
         items: [
           { text: 'SignInButton', link: '/sign-in-button.md' },
           { text: 'SignOutButton', link: '/sign-out-button.md' },
+          { text: 'SignUpButton', link: '/sign-up-button.md' },
         ],
       },
       {

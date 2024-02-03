@@ -25,7 +25,7 @@ import { SignOutButton } from 'vue-clerk'
 
 ### Custom Usage
 
-In some cases you will want to use your own button, or button text. You can do that by wrapping your button up.
+In some cases you will want to use your own button, or button text. You can do that by passing your own button as a child and passing the `handler` to the `click` event.
 
 ```vue
 <script setup>
@@ -35,8 +35,10 @@ import { SignOutButton } from 'vue-clerk'
 <template>
   <div>
     <h1> Sign out </h1>
-    <SignOutButton>
-      <button>Sign out</button>
+    <SignOutButton v-slot="{ handler }">
+      <button @click="handler">
+        Sign out
+      </button>
     </SignOutButton>
   </div>
 </template>
