@@ -76,6 +76,16 @@ export const RedirectToUserProfile = defineComponent(() => {
   return () => null
 })
 
+export const RedirectToOrganizationProfile = defineComponent(() => {
+  const { clerk } = useClerkProvide()
+
+  onMounted(() => {
+    void clerk.redirectToOrganizationProfile()
+  })
+
+  return () => null
+})
+
 export const RedirectToCreateOrganization = defineComponent(() => {
   const { clerk } = useClerkProvide()
 
