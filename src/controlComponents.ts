@@ -76,6 +76,16 @@ export const RedirectToUserProfile = defineComponent(() => {
   return () => null
 })
 
+export const RedirectToCreateOrganization = defineComponent(() => {
+  const { clerk } = useClerkProvide()
+
+  onMounted(() => {
+    void clerk.redirectToCreateOrganization()
+  })
+
+  return () => null
+})
+
 export const AuthenticateWithRedirectCallback = defineComponent((props: HandleOAuthCallbackParams) => {
   const { clerk } = useClerkProvide()
 
