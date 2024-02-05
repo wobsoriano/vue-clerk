@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.6
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.5...v0.1.6)
+
+### 🚀 Enhancements
+
+- Initial organization composable impl ([e710d2d](https://github.com/wobsoriano/vue-clerk/commit/e710d2d))
+
+### 🩹 Fixes
+
+- Export missing components ([76e6655](https://github.com/wobsoriano/vue-clerk/commit/76e6655))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.1.5
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.4...v0.1.5)

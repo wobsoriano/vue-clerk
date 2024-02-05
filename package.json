@@ -1,6 +1,6 @@
 {
   "name": "vue-clerk",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "packageManager": "pnpm@8.14.3",
   "description": "",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
