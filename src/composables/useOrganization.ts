@@ -1,4 +1,4 @@
-import type { ActiveSessionResource, OrganizationResource } from '@clerk/types'
+import type { OrganizationResource } from '@clerk/types'
 import { toRefs } from '@vueuse/core'
 import { computed } from 'vue'
 import { useClerkProvide } from './useClerkProvide'
