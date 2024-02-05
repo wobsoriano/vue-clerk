@@ -60,3 +60,7 @@ export {
 export {
   useSessionList,
 } from './composables/useSessionList'
+
+export {
+  useOrganization,
+} from './composables/useOrganization'
