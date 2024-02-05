@@ -35,7 +35,7 @@ export const ClerkLoading = defineComponent({
   },
 })
 
-export const RedirectToSignIn = defineComponent(<T extends RedirectOptions>(props: T) => {
+export const RedirectToSignIn = defineComponent((props: RedirectOptions) => {
   const { clerk, state } = useClerkProvide()
 
   const hasActiveSessions = computed(() => state.client?.activeSessions && state.client.activeSessions.length > 0)
@@ -56,7 +56,7 @@ export const RedirectToSignIn = defineComponent(<T extends RedirectOptions>(prop
   return () => null
 })
 
-export const RedirectToSignUp = defineComponent(<T extends RedirectOptions>(props: T) => {
+export const RedirectToSignUp = defineComponent((props: RedirectOptions) => {
   const { clerk } = useClerkProvide()
 
   onMounted(() => {
@@ -76,7 +76,27 @@ export const RedirectToUserProfile = defineComponent(() => {
   return () => null
 })
 
-export const AuthenticateWithRedirectCallback = defineComponent(<T extends HandleOAuthCallbackParams>(props: T) => {
+export const RedirectToOrganizationProfile = defineComponent(() => {
+  const { clerk } = useClerkProvide()
+
+  onMounted(() => {
+    void clerk.redirectToOrganizationProfile()
+  })
+
+  return () => null
+})
+
+export const RedirectToCreateOrganization = defineComponent(() => {
+  const { clerk } = useClerkProvide()
+
+  onMounted(() => {
+    void clerk.redirectToCreateOrganization()
+  })
+
+  return () => null
+})
+
+export const AuthenticateWithRedirectCallback = defineComponent((props: HandleOAuthCallbackParams) => {
   const { clerk } = useClerkProvide()
 
   onMounted(() => {

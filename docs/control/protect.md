@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Protect
+# `<Protect />`
 
 The `<Protect>` component is used for authorization. It only renders its children when the current user has the specified permission or role in the organization.
 
