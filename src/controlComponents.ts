@@ -7,7 +7,7 @@ export const SignedIn = defineComponent({
   setup(_props, { slots }) {
     const { userId } = useAuth()
 
-    return () => userId.value ? slots?.default?.() : null
+    return () => userId.value ? slots.default?.() : null
   },
 })
 
@@ -15,7 +15,7 @@ export const SignedOut = defineComponent({
   setup(_props, { slots }) {
     const { userId } = useAuth()
 
-    return () => userId.value === null ? slots?.default?.() : null
+    return () => userId.value === null ? slots.default?.() : null
   },
 })
 
@@ -23,7 +23,7 @@ export const ClerkLoaded = defineComponent({
   setup(_props, { slots }) {
     const { isClerkLoaded } = useClerkProvide()
 
-    return () => isClerkLoaded.value ? slots?.default?.() : null
+    return () => isClerkLoaded.value ? slots.default?.() : null
   },
 })
 
@@ -31,7 +31,7 @@ export const ClerkLoading = defineComponent({
   setup(_props, { slots }) {
     const { isClerkLoaded } = useClerkProvide()
 
-    return () => !isClerkLoaded.value ? slots?.default?.() : null
+    return () => !isClerkLoaded.value ? slots.default?.() : null
   },
 })
 
