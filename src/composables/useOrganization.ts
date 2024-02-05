@@ -2,7 +2,6 @@ import type { ActiveSessionResource, OrganizationResource } from '@clerk/types'
 import { toRefs } from '@vueuse/core'
 import { computed } from 'vue'
 import { useClerkProvide } from './useClerkProvide'
-import { useClerk } from './useClerk'
 
 type UseOrganizationReturn =
   | {
@@ -19,8 +18,7 @@ type UseOrganizationReturn =
   }
 
 export function useOrganization() {
-  const { derivedState } = useClerkProvide()
-  const clerk = useClerk()
+  const { isClerkLoaded, derivedState } = useClerkProvide()
 
   const result = computed<UseOrganizationReturn>(() => {
     const { organization } = derivedState.value
@@ -31,7 +29,7 @@ export function useOrganization() {
     if (organization === null)
       return { isLoaded: true, organization: null }
 
-    return { isLoaded: clerk.loaded, organization }
+    return { isLoaded: isClerkLoaded.value, organization }
   })
 
   return toRefs(result)
