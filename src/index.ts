@@ -9,6 +9,9 @@ import WithUser from './components/WithUser.vue'
 import OrganizationProfile from './components/OrganizationProfile.vue'
 import CreateOrganization from './components/CreateOrganization.vue'
 import OrganizationSwitcher from './components/OrganizationSwitcher.vue'
+import OrganizationList from './components/OrganizationList.vue'
+import WithClerk from './components/WithClerk.vue'
+import WithSession from './components/WithSession.vue'
 
 export {
   SignIn,
@@ -18,10 +21,13 @@ export {
   SignOutButton,
   UserProfile,
   UserButton,
+  WithClerk,
+  WithSession,
   WithUser,
   OrganizationProfile,
   CreateOrganization,
   OrganizationSwitcher,
+  OrganizationList,
 }
 
 export * from './controlComponents'
@@ -54,7 +60,3 @@ export {
 export {
   useSessionList,
 } from './composables/useSessionList'
-
-export {
-  useOrganization,
-} from './composables/useOrganization'
