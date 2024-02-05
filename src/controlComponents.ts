@@ -104,7 +104,7 @@ export type ProtectProps = {
   permission?: never
 }
 
-export const Protect = defineComponent(<T extends ProtectProps>(props: T, { slots }: any) => {
+export const Protect = defineComponent((props: ProtectProps, { slots }) => {
   const { isLoaded, has, userId } = useAuth()
 
   return () => {
@@ -140,4 +140,6 @@ export const Protect = defineComponent(<T extends ProtectProps>(props: T, { slot
      */
     return slots.default?.()
   }
+}, {
+  props: ['condition', 'role', 'permission'],
 })
