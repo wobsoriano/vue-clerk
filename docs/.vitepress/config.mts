@@ -19,12 +19,9 @@ export default defineConfig({
             text: 'Changelog',
             link: 'https://github.com/wobsoriano/vue-clerk/blob/main/CHANGELOG.md',
           },
-          {
-            text: 'Sponsor',
-            link: 'https://github.com/sponsors/wobsoriano',
-          },
         ],
       },
+      { text: 'Sponsor', link: 'https://github.com/sponsors/wobsoriano' },
     ],
 
     editLink: {
