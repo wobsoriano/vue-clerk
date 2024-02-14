@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.1.7
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.6...v0.1.7)
+
+### 🚀 Enhancements
+
+- Add RedirectToCreateOrganization component ([54457e3](https://github.com/wobsoriano/vue-clerk/commit/54457e3))
+- Add RedirectToOrganizationProfile component ([54bb999](https://github.com/wobsoriano/vue-clerk/commit/54bb999))
+
+### 📖 Documentation
+
+- Add more control component docs ([d1bd60e](https://github.com/wobsoriano/vue-clerk/commit/d1bd60e))
+- Add links to more control components ([834d806](https://github.com/wobsoriano/vue-clerk/commit/834d806))
+- Add sponsor link ([9995014](https://github.com/wobsoriano/vue-clerk/commit/9995014))
+
+### 📦 Build
+
+- **deps:** Bump @clerk/clerk-js to 4.69.0 ([5fdb922](https://github.com/wobsoriano/vue-clerk/commit/5fdb922))
+
+### 🏡 Chore
+
+- Remove unused import ([908ceab](https://github.com/wobsoriano/vue-clerk/commit/908ceab))
+- Convert properties to computed refs ([7c0e719](https://github.com/wobsoriano/vue-clerk/commit/7c0e719))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.1.6
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.5...v0.1.6)
