@@ -1,6 +1,6 @@
 import type { SetActive, SetSession, SignUpResource } from '@clerk/types'
 import { computed } from 'vue'
-import { toRefs } from '@vueuse/core'
+import { toComputedRefs } from '../utils'
 import { useClerkProvide } from './useClerkProvide'
 
 type UseSignUpReturn =
@@ -22,5 +22,5 @@ export function useSignUp() {
     }
   })
 
-  return toRefs(result)
+  return toComputedRefs(result)
 }

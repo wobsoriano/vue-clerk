@@ -1,6 +1,6 @@
 import type { OrganizationResource } from '@clerk/types'
-import { toRefs } from '@vueuse/core'
 import { computed } from 'vue'
+import { toComputedRefs } from '../utils'
 import { useClerkProvide } from './useClerkProvide'
 
 type UseOrganizationReturn =
@@ -32,5 +32,5 @@ export function useOrganization() {
     return { isLoaded: isClerkLoaded.value, organization }
   })
 
-  return toRefs(result)
+  return toComputedRefs(result)
 }
