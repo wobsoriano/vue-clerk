@@ -1,6 +1,6 @@
 import type { UserResource } from '@clerk/types'
-import { toRefs } from '@vueuse/core'
 import { computed } from 'vue'
+import { toComputedRefs } from '../utils'
 import { useClerkProvide } from './useClerkProvide'
 
 type UseUserReturn =
@@ -23,5 +23,5 @@ export function useUser() {
     return { isLoaded: true, isSignedIn: true, user }
   })
 
-  return toRefs(result)
+  return toComputedRefs(result)
 }

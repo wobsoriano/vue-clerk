@@ -1,6 +1,6 @@
 import type { ActiveSessionResource } from '@clerk/types'
-import { toRefs } from '@vueuse/core'
 import { computed } from 'vue'
+import { toComputedRefs } from '../utils'
 import { useClerkProvide } from './useClerkProvide'
 
 type UseSessionReturn =
@@ -23,5 +23,5 @@ export function useSession() {
     return { isLoaded: true, isSignedIn: true, session }
   })
 
-  return toRefs(result)
+  return toComputedRefs(result)
 }

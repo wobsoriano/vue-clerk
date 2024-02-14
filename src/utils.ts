@@ -1,4 +1,6 @@
 import type Clerk from '@clerk/clerk-js'
+import type { ComputedRef } from 'vue'
+import { computed } from 'vue'
 import type { ActiveSessionResource, InitialState, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
 
 export function deriveState(clerkLoaded: boolean, state: Resources, initialState: InitialState | undefined) {
@@ -101,4 +103,19 @@ export function createSignOut(isomorphicClerk: Clerk) {
     await clerkLoaded(isomorphicClerk)
     return isomorphicClerk.signOut(...args)
   }
+}
+
+type ToComputedRefs<T = any> = {
+  [K in keyof T]: ComputedRef<T[K]>;
+}
+
+export function toComputedRefs<T extends object>(
+  objectRef: ComputedRef<T>,
+): ToComputedRefs<T> {
+  const result = {} as any
+
+  for (const key in objectRef.value)
+    result[key] = computed(() => objectRef.value[key])
+
+  return result
 }
