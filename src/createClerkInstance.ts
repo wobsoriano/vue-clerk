@@ -1,8 +1,13 @@
 import type Clerk from '@clerk/clerk-js'
-import type { ClientResource, Resources } from '@clerk/types'
+import type { ClerkOptions, ClientResource, DomainOrProxyUrl, Resources } from '@clerk/types'
 import { computed, reactive, ref } from 'vue'
 import type { App, ComputedRef, Ref } from 'vue'
 import { deriveState } from './utils'
+
+export interface VueClerkOptions extends ClerkOptions {
+  publishableKey: string
+  domain?: Pick<DomainOrProxyUrl, 'domain'>
+}
 
 export interface VueClerkInjectionKey {
   clerk: Clerk
@@ -14,7 +19,7 @@ export interface VueClerkInjectionKey {
 export function createClerkInstance(
   app: App,
   clerk: Clerk,
-  options: Record<string, unknown>,
+  options: ClerkOptions,
 ) {
   const isClerkLoaded = ref(false)
   const state = reactive<Resources>({
