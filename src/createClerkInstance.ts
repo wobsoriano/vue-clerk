@@ -30,9 +30,8 @@ export function createClerkInstance(
   options: ClerkOptions,
 ) {
   // @ts-expect-error: This will be deprecated in the next version.
-  if (options.options || options.instanceOptions) {
+  if (options.options || options.instanceOptions)
     console.warn('The options and instanceOptions properties are deprecated. Pass the options directly to the plugin options. See https://vue-clerk.vercel.app/plugin.')
-  }
 
   const isClerkLoaded = ref(false)
   const state = reactive<Resources>({
