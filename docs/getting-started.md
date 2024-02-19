@@ -34,22 +34,4 @@ VITE_CLERK_PUBLISHABLE_KEY=pk_test_•••••••••••••••
 
 ## Configure plugin
 
-Vue Clerk requires your application to have the plugin installed. The Clerk plugin provides active session and user context to Clerk's composables and other components.
-
-```ts
-import { createApp } from 'vue'
-import { clerkPlugin } from 'vue-clerk/plugin'
-
-// or for headless mode:
-// import { clerkPlugin } from 'vue-clerk/headless'
-
-import App from './App.vue'
-
-const app = createApp(App)
-
-app.use(clerkPlugin, {
-  publishableKey: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
-})
-
-app.mount('#app')
-```
+Go to the [plugin](/plugin) page to learn how to configure the plugin.
