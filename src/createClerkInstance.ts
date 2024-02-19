@@ -7,14 +7,6 @@ import { deriveState } from './utils'
 export interface VueClerkOptions extends ClerkOptions {
   publishableKey: string
   domain?: Pick<DomainOrProxyUrl, 'domain'>
-  /**
-   * @deprecated Pass the options directly to the plugin options. See https://vue-clerk.vercel.app/plugin.
-   */
-  options?: ClerkOptions
-  /**
-   * @deprecated Pass the options directly to the plugin options. See https://vue-clerk.vercel.app/plugin.
-   */
-  instanceOptions?: DomainOrProxyUrl
 }
 
 export interface VueClerkInjectionKey {
@@ -29,9 +21,9 @@ export function createClerkInstance(
   clerk: Clerk,
   options: ClerkOptions,
 ) {
-  // @ts-expect-error: This will be deprecated in the next version.
+  // @ts-expect-error: Deprecated options
   if (options.options || options.instanceOptions)
-    console.warn('The options and instanceOptions properties are deprecated. Pass the options directly to the plugin options. See https://vue-clerk.vercel.app/plugin.')
+    console.error('The options and instanceOptions properties are deprecated. Pass the options directly to the plugin options. See https://vue-clerk.vercel.app/plugin.')
 
   const isClerkLoaded = ref(false)
   const state = reactive<Resources>({
