@@ -1,6 +1,29 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.7...v0.2.0)
+
+### 📖 Documentation
+
+- Add plugin usage ([2c9555d](https://github.com/wobsoriano/vue-clerk/commit/2c9555d))
+- Add plugin usage ([04cfb3d](https://github.com/wobsoriano/vue-clerk/commit/04cfb3d))
+
+### 🏡 Chore
+
+- ⚠️  Update plugin options to match react provider ([345b93e](https://github.com/wobsoriano/vue-clerk/commit/345b93e))
+- ⚠️  Update plugin options to match react provider ([8868e0e](https://github.com/wobsoriano/vue-clerk/commit/8868e0e))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Update plugin options to match react provider ([345b93e](https://github.com/wobsoriano/vue-clerk/commit/345b93e))
+- ⚠️  Update plugin options to match react provider ([8868e0e](https://github.com/wobsoriano/vue-clerk/commit/8868e0e))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.1.7
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.6...v0.1.7)
