@@ -15,7 +15,7 @@ import { RedirectToUserProfile, SignedIn, SignedOut } from 'vue-clerk'
 
 <template>
   <SignedIn>
-    <RedirectToUserProfile/>
+    <RedirectToUserProfile />
   </SignedIn>
   <SignedOut>
     Please Sign In
