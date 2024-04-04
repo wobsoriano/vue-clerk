@@ -8,6 +8,5 @@ export default defineConfig({
   splitting: true,
   clean: false,
   dts: false,
-  // @ts-expect-error: Internal
   esbuildPlugins: [vuePlugin()],
 })
