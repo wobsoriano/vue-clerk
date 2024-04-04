@@ -1,6 +1,29 @@
 # Changelog
 
 
+## v0.2.1
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.0...v0.2.1)
+
+### 📦 Build
+
+- **deps:** Bump @clerk/clerk-js to 4.71.2 ([049f068](https://github.com/wobsoriano/vue-clerk/commit/049f068))
+- **deps:** Bump @clerk/types to 3.63.0 ([a1dec6f](https://github.com/wobsoriano/vue-clerk/commit/a1dec6f))
+- **deps:** Bump @vueuse/core to 10.9.0 ([5e22dbc](https://github.com/wobsoriano/vue-clerk/commit/5e22dbc))
+
+### 🏡 Chore
+
+- Remove unused ts-expect-error ([6636af6](https://github.com/wobsoriano/vue-clerk/commit/6636af6))
+- Update vitest config extension ([fed00e7](https://github.com/wobsoriano/vue-clerk/commit/fed00e7))
+
+### 🎨 Styles
+
+- Eslint fix ([947cd7c](https://github.com/wobsoriano/vue-clerk/commit/947cd7c))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.2.0
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.1.7...v0.2.0)
