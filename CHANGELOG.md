@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.2.2
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.1...v0.2.2)
+
+### 🏡 Chore
+
+- Export plugin type ([7845379](https://github.com/wobsoriano/vue-clerk/commit/7845379))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.2.1
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.0...v0.2.1)
