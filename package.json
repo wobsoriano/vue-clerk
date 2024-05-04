@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "@clerk/clerk-js": "^5.2.1",
-    "@clerk/types": "^3.64.1",
+    "@clerk/types": "^4.2.0",
     "@vueuse/core": "^10.9.0"
   },
   "devDependencies": {
