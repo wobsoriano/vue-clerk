@@ -1,12 +1,12 @@
-import type { SessionResource, SetActive, SetSession } from '@clerk/types'
+import type { SessionResource, SetActive } from '@clerk/types'
 import { computed } from 'vue'
 
 import { toComputedRefs } from '../utils'
 import { useClerkProvide } from './useClerkProvide'
 
 type UseSessionListReturn =
-  | { isLoaded: false, sessions: undefined, setSession: undefined, setActive: undefined }
-  | { isLoaded: true, sessions: SessionResource[], setSession: SetSession, setActive: SetActive }
+  | { isLoaded: false, sessions: undefined, setActive: undefined }
+  | { isLoaded: true, sessions: SessionResource[], setActive: SetActive }
 
 export function useSessionList() {
   const { clerk, state, isClerkLoaded } = useClerkProvide()
@@ -18,7 +18,6 @@ export function useSessionList() {
     return {
       isLoaded: true,
       sessions: state.client.sessions,
-      setSession: clerk.setSession,
       setActive: clerk.setActive,
     }
   })
