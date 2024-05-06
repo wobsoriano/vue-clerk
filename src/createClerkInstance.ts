@@ -1,10 +1,10 @@
-import type Clerk from '@clerk/clerk-js'
+import type { Clerk } from '@clerk/clerk-js'
 import type { ClerkOptions, ClientResource, DomainOrProxyUrl, Resources } from '@clerk/types'
 import { computed, reactive, ref } from 'vue'
 import type { App, ComputedRef, Ref } from 'vue'
 import { deriveState } from './utils'
 
-export interface VueClerkOptions extends ClerkOptions {
+export type VueClerkOptions = ClerkOptions & {
   publishableKey: string
   domain?: Pick<DomainOrProxyUrl, 'domain'>
 }
@@ -21,18 +21,12 @@ export function createClerkInstance(
   clerk: Clerk,
   options: ClerkOptions,
 ) {
-  // @ts-expect-error: Deprecated options
-  if (options.options || options.instanceOptions)
-    console.error('The options and instanceOptions properties are deprecated. Pass the options directly to the plugin options. See https://vue-clerk.vercel.app/plugin.')
-
   const isClerkLoaded = ref(false)
   const state = reactive<Resources>({
     client: {} as ClientResource,
     user: clerk.client as any,
     session: clerk.session,
     organization: clerk.organization,
-    lastOrganizationInvitation: null,
-    lastOrganizationMember: null,
   })
 
   clerk?.load(options)

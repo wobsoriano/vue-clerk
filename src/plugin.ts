@@ -1,4 +1,4 @@
-import Clerk from '@clerk/clerk-js'
+import { Clerk } from '@clerk/clerk-js'
 import type { Plugin } from 'vue'
 import type { VueClerkOptions } from './createClerkInstance'
 import { createClerkInstance } from './createClerkInstance'

@@ -1,4 +1,4 @@
-import type Clerk from '@clerk/clerk-js'
+import type { Clerk } from '@clerk/clerk-js'
 import type { ComputedRef } from 'vue'
 import { computed } from 'vue'
 import type { ActiveSessionResource, InitialState, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
