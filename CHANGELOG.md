@@ -1,6 +1,36 @@
 # Changelog
 
 
+## v0.3.0
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.3...v0.3.0)
+
+### 📖 Documentation
+
+- Fix plugin usage warning block ([4a8e5fb](https://github.com/wobsoriano/vue-clerk/commit/4a8e5fb))
+- New UI design screenshots ([8da2cf4](https://github.com/wobsoriano/vue-clerk/commit/8da2cf4))
+
+### 🏡 Chore
+
+- Bump @clerk/clerk-js to 5.2.1 ([1be0864](https://github.com/wobsoriano/vue-clerk/commit/1be0864))
+- Bump @clerk/types to 4.2.0 ([b885e3a](https://github.com/wobsoriano/vue-clerk/commit/b885e3a))
+- ⚠️  Remove setSession function from useSessionList ([422b242](https://github.com/wobsoriano/vue-clerk/commit/422b242))
+- ⚠️  Remove setSession function from useSignIn ([dd8f112](https://github.com/wobsoriano/vue-clerk/commit/dd8f112))
+- Export Clerk class ([704619a](https://github.com/wobsoriano/vue-clerk/commit/704619a))
+
+### ✅ Tests
+
+- Remove node 16 support ([f4c7eb0](https://github.com/wobsoriano/vue-clerk/commit/f4c7eb0))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Remove setSession function from useSessionList ([422b242](https://github.com/wobsoriano/vue-clerk/commit/422b242))
+- ⚠️  Remove setSession function from useSignIn ([dd8f112](https://github.com/wobsoriano/vue-clerk/commit/dd8f112))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.2.3
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.2...v0.2.3)
