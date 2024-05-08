@@ -5,7 +5,7 @@ outline: deep
 # `<SignIn />`
 
 <br />
-<img src="https://clerk.com/_next/image?url=%2Fdocs%2Fimages%2Fui-components%2Fcomponent-sign_in.svg&w=1080&q=75" />
+<img src="https://clerk.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F_docs%2Fmain%2Fui-components%2Fsign-in.svg&w=1080&q=75" />
 
 The `<SignIn />` component renders a UI for signing in users. The functionality of the `<SignIn />` component is controlled by the instance settings you specify in your [Clerk Dashboard](https://dashboard.clerk.com). You can further customize your `<SignIn />` component by passing additional properties at the time of rendering.
 
