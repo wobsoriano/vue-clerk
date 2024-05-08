@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { OrganizationSwitcher, SignInButton, SignOutButton, WithUser, useAuth } from 'vue-clerk'
+import { OrganizationSwitcher, SignInButton, SignOutButton, WithUser, useAuth, useClerkProvide } from 'vue-clerk'
 
+const { isClerkLoaded } = useClerkProvide()
 const { isSignedIn } = useAuth()
 </script>
 
 <template>
   <h1>Hello Clerk!</h1>
   <OrganizationSwitcher :appearance="{ elements: { organizationPreviewTextContainer: 'hidden md:block', organizationSwitcherTriggerIcon: 'hidden md:block' } }" />
-  <div v-if="isSignedIn">
+  <div v-if="!isClerkLoaded">
+    Loading auth..
+  </div>
+  <div v-else-if="isSignedIn">
     <!-- <UserButton /> -->
     <WithUser>
       <template #default="{ isLoaded, user }">

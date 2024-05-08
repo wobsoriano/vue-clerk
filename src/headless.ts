@@ -1,9 +1,11 @@
-import Clerk from '@clerk/clerk-js/headless'
+import { Clerk } from '@clerk/clerk-js/headless'
 import type { Plugin } from 'vue'
 import type { VueClerkOptions } from './createClerkInstance'
 import { createClerkInstance } from './createClerkInstance'
 
 export type { VueClerkOptions }
+
+export { Clerk }
 
 export const clerkPlugin: Plugin = {
   install(app, options: VueClerkOptions) {
