@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.2.3
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.2...v0.2.3)
+
+### 🚀 Enhancements
+
+- **docs:** Add reminder for Nuxt plugin filename suffix ([c6c03bb](https://github.com/wobsoriano/vue-clerk/commit/c6c03bb))
+
+### ❤️ Contributors
+
+- Jeremy Auvray ([@jeremy93-2008](http://github.com/jeremy93-2008))
+
 ## v0.2.2
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.1...v0.2.2)
