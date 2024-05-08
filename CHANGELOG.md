@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.1
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.0...v0.3.1)
+
+### 🏡 Chore
+
+- Export createClerkInstance for outside use ([ab21621](https://github.com/wobsoriano/vue-clerk/commit/ab21621))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.3.0
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.3...v0.3.0)
