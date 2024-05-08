@@ -7,6 +7,8 @@ export type { VueClerkOptions }
 
 export { Clerk } from '@clerk/clerk-js'
 
+export { createClerkInstance }
+
 export const clerkPlugin: Plugin = {
   install(app, options: VueClerkOptions) {
     const { publishableKey, domain, ...loadOptions } = options
