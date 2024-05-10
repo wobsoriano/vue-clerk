@@ -20,29 +20,16 @@ export interface VueClerkInjectionKey {
   derivedState: ComputedRef<ReturnType<typeof deriveState>>
 }
 
-export function createClerkInstance(
-  app: App,
-  clerk: Clerk,
-  options: ClerkOptions,
-) {
-  const isClerkLoaded = ref(false)
-  const state = reactive<Resources>({
+function initializeState(clerk: Clerk) {
+  return reactive<Resources>({
     client: {} as ClientResource,
     user: clerk.client as any,
     session: clerk.session,
     organization: clerk.organization,
   })
+}
 
-  clerk?.load(options)
-    .then(() => {
-      isClerkLoaded.value = true
-
-      clerk?.addListener((payload) => {
-        for (const [key, value] of Object.entries(payload))
-          state[key as keyof typeof state] = value
-      })
-    }).catch(() => {})
-
+function provideClerkToApp(app: App, clerk: Clerk, state: Resources, isClerkLoaded: Ref<boolean>) {
   const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, undefined))
 
   app.config.globalProperties.$clerk = clerk
@@ -53,6 +40,40 @@ export function createClerkInstance(
     isClerkLoaded,
     derivedState,
   })
+}
+
+/**
+ * @internal
+ */
+export function createClerkInstance(app: App, clerk: Clerk, options: ClerkOptions) {
+  const isClerkLoaded = ref(false)
+  const state = initializeState(clerk)
+
+  clerk?.load(options)
+    .then(() => {
+      isClerkLoaded.value = true
+    }).catch(() => {})
+
+  clerk?.addListener((payload) => {
+    for (const [key, value] of Object.entries(payload))
+      state[key as keyof typeof state] = value
+  })
+
+  provideClerkToApp(app, clerk, state, isClerkLoaded)
+}
+
+/**
+ * @internal
+ */
+export function createClerkInstanceWithoutLoading(app: App, clerk: Clerk, isClerkLoaded: Ref<boolean>) {
+  const state = initializeState(clerk)
+
+  clerk?.addListener((payload) => {
+    for (const [key, value] of Object.entries(payload))
+      state[key as keyof typeof state] = value
+  })
+
+  provideClerkToApp(app, clerk, state, isClerkLoaded)
 }
 
 declare module 'vue' {

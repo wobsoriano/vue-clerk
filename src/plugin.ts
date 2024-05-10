@@ -1,13 +1,13 @@
 import { Clerk } from '@clerk/clerk-js'
 import type { Plugin } from 'vue'
 import type { VueClerkOptions } from './createClerkInstance'
-import { createClerkInstance } from './createClerkInstance'
+import { createClerkInstance, createClerkInstanceWithoutLoading } from './createClerkInstance'
 
 export type { VueClerkOptions }
 
 export { Clerk } from '@clerk/clerk-js'
 
-export { createClerkInstance }
+export { createClerkInstance, createClerkInstanceWithoutLoading }
 
 export const clerkPlugin: Plugin = {
   install(app, options: VueClerkOptions) {
