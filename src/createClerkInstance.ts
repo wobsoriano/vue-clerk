@@ -5,6 +5,10 @@ import type { App, ComputedRef, Ref } from 'vue'
 import { deriveState } from './utils'
 
 export type VueClerkOptions = ClerkOptions & {
+  /**
+   * @internal
+   */
+  Clerk?: Clerk
   publishableKey: string
   domain?: Pick<DomainOrProxyUrl, 'domain'>
 }

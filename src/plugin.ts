@@ -12,7 +12,7 @@ export { createClerkInstance }
 export const clerkPlugin: Plugin = {
   install(app, options: VueClerkOptions) {
     const { publishableKey, domain, ...loadOptions } = options
-    const clerk = new Clerk(publishableKey, domain)
+    const clerk: Clerk = options.Clerk ?? new Clerk(publishableKey, domain)
 
     createClerkInstance(app, clerk, loadOptions)
   },
