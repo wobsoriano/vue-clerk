@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.2
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.1...v0.3.2)
+
+### 🏡 Chore
+
+- Add option to pass custom Clerk instance ([1cd57b6](https://github.com/wobsoriano/vue-clerk/commit/1cd57b6))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.3.1
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.0...v0.3.1)
