@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.3
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.2...v0.3.3)
+
+### 🏡 Chore
+
+- Add function to create clerk instance without loading ([9c3b886](https://github.com/wobsoriano/vue-clerk/commit/9c3b886))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.3.2
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.1...v0.3.2)
