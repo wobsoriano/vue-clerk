@@ -1,6 +1,6 @@
 import type { Clerk } from '@clerk/clerk-js'
 import type { ClerkOptions, ClientResource, DomainOrProxyUrl, Resources } from '@clerk/types'
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive } from 'vue'
 import type { App, ComputedRef, Ref } from 'vue'
 import { deriveState } from './utils'
 
@@ -20,16 +20,40 @@ export interface VueClerkInjectionKey {
   derivedState: ComputedRef<ReturnType<typeof deriveState>>
 }
 
-function initializeState(clerk: Clerk) {
-  return reactive<Resources>({
+/**
+ * @internal
+ */
+export function provideClerkToApp(app: App, clerk: Clerk, options: ClerkOptions, otherOptions: {
+  /**
+   * Will be provided throughout the app to check if ClerkJS has been loaded.
+   */
+  isClerkLoaded: Ref<boolean>
+  /**
+   * Whether to initialize ClerkJS. See https://clerk.com/docs/quickstarts/javascript#initialize-clerk-js.
+   */
+  shouldLoadClerk?: boolean
+}) {
+  const state = reactive<Resources>({
     client: {} as ClientResource,
     user: clerk.client as any,
     session: clerk.session,
     organization: clerk.organization,
   })
-}
 
-function provideClerkToApp(app: App, clerk: Clerk, state: Resources, isClerkLoaded: Ref<boolean>) {
+  const { isClerkLoaded, shouldLoadClerk } = otherOptions
+
+  if (shouldLoadClerk) {
+    clerk?.load(options)
+      .then(() => {
+        isClerkLoaded.value = true
+      }).catch(() => {})
+  }
+
+  clerk?.addListener((payload) => {
+    for (const [key, value] of Object.entries(payload))
+      state[key as keyof typeof state] = value
+  })
+
   const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, undefined))
 
   app.config.globalProperties.$clerk = clerk
@@ -40,40 +64,6 @@ function provideClerkToApp(app: App, clerk: Clerk, state: Resources, isClerkLoad
     isClerkLoaded,
     derivedState,
   })
-}
-
-/**
- * @internal
- */
-export function createClerkInstance(app: App, clerk: Clerk, options: ClerkOptions) {
-  const isClerkLoaded = ref(false)
-  const state = initializeState(clerk)
-
-  clerk?.load(options)
-    .then(() => {
-      isClerkLoaded.value = true
-    }).catch(() => {})
-
-  clerk?.addListener((payload) => {
-    for (const [key, value] of Object.entries(payload))
-      state[key as keyof typeof state] = value
-  })
-
-  provideClerkToApp(app, clerk, state, isClerkLoaded)
-}
-
-/**
- * @internal
- */
-export function createClerkInstanceWithoutLoading(app: App, clerk: Clerk, isClerkLoaded: Ref<boolean>) {
-  const state = initializeState(clerk)
-
-  clerk?.addListener((payload) => {
-    for (const [key, value] of Object.entries(payload))
-      state[key as keyof typeof state] = value
-  })
-
-  provideClerkToApp(app, clerk, state, isClerkLoaded)
 }
 
 declare module 'vue' {
