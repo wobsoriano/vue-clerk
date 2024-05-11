@@ -1,7 +1,7 @@
 import { Clerk } from '@clerk/clerk-js/headless'
 import { type Plugin, ref } from 'vue'
-import type { VueClerkOptions } from './createClerkInstance'
-import { provideClerkToApp } from './createClerkInstance'
+import type { VueClerkOptions } from './provideClerkToApp'
+import { provideClerkToApp } from './provideClerkToApp'
 
 export type { VueClerkOptions }
 

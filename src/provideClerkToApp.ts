@@ -23,7 +23,7 @@ export interface VueClerkInjectionKey {
 /**
  * @internal
  */
-export function provideClerkToApp(app: App, clerk: Clerk, otherOptions: {
+export function provideClerkToApp(app: App, clerk: Clerk, options: {
   /**
    * A Vue ref that be provided throughout the app to check if ClerkJS has been loaded.
    */
@@ -44,7 +44,7 @@ export function provideClerkToApp(app: App, clerk: Clerk, otherOptions: {
     organization: clerk.organization,
   })
 
-  const { isClerkLoaded, shouldLoadClerk, clerkOptions } = otherOptions
+  const { isClerkLoaded, shouldLoadClerk, clerkOptions } = options
 
   if (shouldLoadClerk) {
     clerk?.load(clerkOptions)
