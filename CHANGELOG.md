@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.3.4
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.3...v0.3.4)
+
+### 📖 Documentation
+
+- Update plugin options ([6716925](https://github.com/wobsoriano/vue-clerk/commit/6716925))
+
+### 🏡 Chore
+
+- Update clerk provider internals ([c39539a](https://github.com/wobsoriano/vue-clerk/commit/c39539a))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.3.3
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.2...v0.3.3)
