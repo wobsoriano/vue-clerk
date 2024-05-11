@@ -23,15 +23,19 @@ export interface VueClerkInjectionKey {
 /**
  * @internal
  */
-export function provideClerkToApp(app: App, clerk: Clerk, options: ClerkOptions, otherOptions: {
+export function provideClerkToApp(app: App, clerk: Clerk, otherOptions: {
   /**
-   * Will be provided throughout the app to check if ClerkJS has been loaded.
+   * A Vue ref that be provided throughout the app to check if ClerkJS has been loaded.
    */
   isClerkLoaded: Ref<boolean>
   /**
    * Whether to initialize ClerkJS. See https://clerk.com/docs/quickstarts/javascript#initialize-clerk-js.
    */
   shouldLoadClerk?: boolean
+  /**
+   * ClerkJS load options. See https://clerk.com/docs/references/javascript/clerk/clerk#load.
+   */
+  clerkOptions: ClerkOptions
 }) {
   const state = reactive<Resources>({
     client: {} as ClientResource,
@@ -40,10 +44,10 @@ export function provideClerkToApp(app: App, clerk: Clerk, options: ClerkOptions,
     organization: clerk.organization,
   })
 
-  const { isClerkLoaded, shouldLoadClerk } = otherOptions
+  const { isClerkLoaded, shouldLoadClerk, clerkOptions } = otherOptions
 
   if (shouldLoadClerk) {
-    clerk?.load(options)
+    clerk?.load(clerkOptions)
       .then(() => {
         isClerkLoaded.value = true
       }).catch(() => {})

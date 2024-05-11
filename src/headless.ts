@@ -13,9 +13,10 @@ export const clerkPlugin: Plugin = {
     const { publishableKey, domain, ...loadOptions } = options
     const clerk = new Clerk(publishableKey, domain)
 
-    provideClerkToApp(app, clerk, loadOptions, {
+    provideClerkToApp(app, clerk, {
       isClerkLoaded,
       shouldLoadClerk: true,
+      clerkOptions: loadOptions,
     })
   },
 }
