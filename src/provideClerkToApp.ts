@@ -1,5 +1,5 @@
 import type { Clerk } from '@clerk/clerk-js'
-import type { ClerkOptions, ClientResource, DomainOrProxyUrl, Resources } from '@clerk/types'
+import type { ClerkOptions, ClientResource, DomainOrProxyUrl, InitialState, Resources } from '@clerk/types'
 import { computed, reactive } from 'vue'
 import type { App, ComputedRef, Ref } from 'vue'
 import { deriveState } from './utils'
@@ -11,6 +11,7 @@ export type VueClerkOptions = ClerkOptions & {
   Clerk?: Clerk
   publishableKey: string
   domain?: Pick<DomainOrProxyUrl, 'domain'>
+  initialState?: InitialState
 }
 
 export interface VueClerkInjectionKey {
@@ -36,6 +37,7 @@ export function provideClerkToApp(app: App, clerk: Clerk, options: {
    * ClerkJS load options. See https://clerk.com/docs/references/javascript/clerk/clerk#load.
    */
   clerkOptions: ClerkOptions
+  initialState?: InitialState
 }) {
   const state = reactive<Resources>({
     client: {} as ClientResource,
@@ -44,7 +46,7 @@ export function provideClerkToApp(app: App, clerk: Clerk, options: {
     organization: clerk.organization,
   })
 
-  const { isClerkLoaded, shouldLoadClerk, clerkOptions } = options
+  const { isClerkLoaded, shouldLoadClerk, clerkOptions, initialState } = options
 
   if (shouldLoadClerk) {
     clerk?.load(clerkOptions)
@@ -58,7 +60,7 @@ export function provideClerkToApp(app: App, clerk: Clerk, options: {
       state[key as keyof typeof state] = value
   })
 
-  const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, undefined))
+  const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, initialState))
 
   app.config.globalProperties.$clerk = clerk
 
