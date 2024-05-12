@@ -1,5 +1,6 @@
 import type { OrganizationResource } from '@clerk/types'
 import { computed } from 'vue'
+import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
 import { useClerkProvide } from './useClerkProvide'
 
@@ -17,7 +18,7 @@ type UseOrganizationReturn =
     organization: OrganizationResource | null
   }
 
-export function useOrganization() {
+export function useOrganization(): ToComputedRefs<UseOrganizationReturn> {
   const { isClerkLoaded, derivedState } = useClerkProvide()
 
   const result = computed<UseOrganizationReturn>(() => {

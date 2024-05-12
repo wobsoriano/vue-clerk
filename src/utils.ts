@@ -105,7 +105,7 @@ export function createSignOut(isomorphicClerk: Clerk) {
   }
 }
 
-type ToComputedRefs<T = any> = {
+export type ToComputedRefs<T = any> = {
   [K in keyof T]: ComputedRef<T[K]>;
 }
 

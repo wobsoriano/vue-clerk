@@ -1,5 +1,6 @@
 import type { SetActive, SignUpResource } from '@clerk/types'
 import { computed } from 'vue'
+import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
 import { useClerkProvide } from './useClerkProvide'
 
@@ -7,7 +8,7 @@ type UseSignUpReturn =
   | { isLoaded: false, signUp: undefined, setActive: undefined }
   | { isLoaded: true, signUp: SignUpResource, setActive: SetActive }
 
-export function useSignUp() {
+export function useSignUp(): ToComputedRefs<UseSignUpReturn> {
   const { clerk, isClerkLoaded } = useClerkProvide()
 
   const result = computed<UseSignUpReturn>(() => {

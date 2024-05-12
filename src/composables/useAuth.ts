@@ -1,5 +1,6 @@
 import type { ActJWTClaim, CheckAuthorizationWithCustomPermissions, GetToken, OrganizationCustomRoleKey, SignOut } from '@clerk/types'
 import { computed } from 'vue'
+import type { ToComputedRefs } from '../utils'
 import { createGetToken, createSignOut, toComputedRefs } from '../utils'
 import { invalidStateError, useAuthHasRequiresRoleOrPermission } from '../errors/messages'
 import { useClerkProvide } from './useClerkProvide'
@@ -61,7 +62,7 @@ type UseAuthReturn =
     getToken: GetToken
   }
 
-export function useAuth() {
+export function useAuth(): ToComputedRefs<UseAuthReturn> {
   const { clerk, derivedState } = useClerkProvide()
 
   const getToken: GetToken = createGetToken(clerk)
