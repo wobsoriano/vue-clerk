@@ -1,5 +1,6 @@
 import type { UserResource } from '@clerk/types'
 import { computed } from 'vue'
+import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
 import { useClerkProvide } from './useClerkProvide'
 
@@ -8,7 +9,7 @@ type UseUserReturn =
   | { isLoaded: true, isSignedIn: false, user: null }
   | { isLoaded: true, isSignedIn: true, user: UserResource }
 
-export function useUser() {
+export function useUser(): ToComputedRefs<UseUserReturn> {
   const { derivedState } = useClerkProvide()
 
   const result = computed<UseUserReturn>(() => {
