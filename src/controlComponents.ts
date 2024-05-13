@@ -43,7 +43,7 @@ export const RedirectToSignIn = defineComponent((props: RedirectOptions) => {
   const hasActiveSessions = computed(() => clientCtx.value?.activeSessions && clientCtx.value.activeSessions.length > 0)
 
   onMounted(() => {
-    if (sessionCtx.value === null && hasActiveSessions)
+    if (sessionCtx.value === null && hasActiveSessions.value)
       void clerk.redirectToAfterSignOut()
     else
       void clerk.redirectToSignIn(props)
