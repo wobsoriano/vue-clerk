@@ -1,7 +1,7 @@
 import { inject } from 'vue'
 import type { VueClerkInjectionKey } from '../provideClerkToApp'
 
-export function useClerkProvide() {
+export function useClerkProvider() {
   const clerk = inject<VueClerkInjectionKey>('VUE_CLERK')
 
   if (!clerk)
@@ -9,3 +9,8 @@ export function useClerkProvide() {
 
   return clerk
 }
+
+/**
+ * @deprecated use useClerkProvider instead
+ */
+export const useClerkProvide = useClerkProvider

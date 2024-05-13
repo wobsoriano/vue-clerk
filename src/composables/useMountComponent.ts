@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { onMounted, ref, watchEffect } from 'vue'
-import { useClerkProvide } from './useClerkProvide'
+import { useClerkProvider } from './useClerkProvider'
 
 /**
  * @param root0
@@ -22,7 +22,7 @@ export function useMountComponent({
   unmountFn: (...args: any) => void
   props: Record<string, any>
 }) {
-  const { isClerkLoaded } = useClerkProvide()
+  const { isClerkLoaded } = useClerkProvider()
   const isMounted = ref(false)
 
   onMounted(() => {

@@ -3,22 +3,22 @@ import { computed } from 'vue'
 
 import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
-import { useClerkProvide } from './useClerkProvide'
+import { useClerkProvider } from './useClerkProvider'
 
 type UseSessionListReturn =
   | { isLoaded: false, sessions: undefined, setActive: undefined }
   | { isLoaded: true, sessions: SessionResource[], setActive: SetActive }
 
 export function useSessionList(): ToComputedRefs<UseSessionListReturn> {
-  const { clerk, state, isClerkLoaded } = useClerkProvide()
+  const { clerk, clientCtx } = useClerkProvider()
 
   const result = computed<UseSessionListReturn>(() => {
-    if (!isClerkLoaded.value || !state.client)
-      return { isLoaded: false, sessions: undefined, setSession: undefined, setActive: undefined }
+    if (!clientCtx.value)
+      return { isLoaded: false, sessions: undefined, setActive: undefined }
 
     return {
       isLoaded: true,
-      sessions: state.client.sessions,
+      sessions: clientCtx.value.sessions,
       setActive: clerk.setActive,
     }
   })

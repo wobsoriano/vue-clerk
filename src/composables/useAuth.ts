@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { ToComputedRefs } from '../utils'
 import { createGetToken, createSignOut, toComputedRefs } from '../utils'
 import { invalidStateError, useAuthHasRequiresRoleOrPermission } from '../errors/messages'
-import { useClerkProvide } from './useClerkProvide'
+import { useClerkProvider } from './useClerkProvider'
 
 type CheckAuthorizationSignedOut = undefined
 type CheckAuthorizationWithoutOrgOrUser = (params?: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => false
@@ -63,13 +63,13 @@ type UseAuthReturn =
   }
 
 export function useAuth(): ToComputedRefs<UseAuthReturn> {
-  const { clerk, derivedState } = useClerkProvide()
+  const { clerk, authCtx } = useClerkProvider()
 
   const getToken: GetToken = createGetToken(clerk)
   const signOut: SignOut = createSignOut(clerk)
 
   const result = computed<UseAuthReturn>(() => {
-    const { sessionId, userId, actor, orgId, orgRole, orgSlug, orgPermissions } = derivedState.value
+    const { sessionId, userId, actor, orgId, orgRole, orgSlug, orgPermissions } = authCtx.value
 
     const has = (params: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => {
       if (!params?.permission && !params?.role)
