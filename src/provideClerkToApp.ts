@@ -1,7 +1,7 @@
 import type { Clerk } from '@clerk/clerk-js'
-import type { ActJWTClaim, ActiveSessionResource, ClerkOptions, ClientResource, DomainOrProxyUrl, InitialState, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
+import type { ClerkOptions, ClientResource, DomainOrProxyUrl, InitialState, Resources } from '@clerk/types'
 import { computed, reactive } from 'vue'
-import type { App, ComputedRef, Ref } from 'vue'
+import type { App, Ref } from 'vue'
 import { deriveState } from './utils'
 import type { VueClerkInjectionKeyType } from './keys'
 import { VueClerkInjectionKey } from './keys'
@@ -14,32 +14,6 @@ export type VueClerkOptions = ClerkOptions & {
   publishableKey: string
   domain?: Pick<DomainOrProxyUrl, 'domain'>
   initialState?: InitialState
-}
-
-export interface VueClerkInjectionKey {
-  clerk: Clerk
-  /**
-   * @deprecated Will be removed in the next release.
-   */
-  state: Resources
-  isClerkLoaded: Ref<boolean>
-  /**
-   * @deprecated Will be removed in the next release.
-   */
-  derivedState: ComputedRef<ReturnType<typeof deriveState>>
-  authCtx: ComputedRef<{
-    userId: string | null | undefined
-    sessionId: string | null | undefined
-    actor: ActJWTClaim | null | undefined
-    orgId: string | null | undefined
-    orgRole: OrganizationCustomRoleKey | null | undefined
-    orgSlug: string | null | undefined
-    orgPermissions: OrganizationCustomPermissionKey[] | null | undefined
-  }>
-  clientCtx: ComputedRef<ClientResource | null | undefined>
-  sessionCtx: ComputedRef<ActiveSessionResource | null | undefined>
-  userCtx: ComputedRef<UserResource | null | undefined>
-  organizationCtx: ComputedRef<OrganizationResource | null | undefined>
 }
 
 /**
@@ -94,11 +68,7 @@ export function provideClerkToApp(app: App, clerk: Clerk, options: {
 
   app.config.globalProperties.$clerk = clerk
 
-<<<<<<< HEAD
-  app.provide<VueClerkInjectionKey>('VUE_CLERK', {
-=======
   app.provide<VueClerkInjectionKeyType>(VueClerkInjectionKey, {
->>>>>>> 9f4f2a7 (chore: export injection key)
     clerk,
     state,
     isClerkLoaded,
