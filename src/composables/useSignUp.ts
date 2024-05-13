@@ -2,22 +2,22 @@ import type { SetActive, SignUpResource } from '@clerk/types'
 import { computed } from 'vue'
 import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
-import { useClerkProvide } from './useClerkProvide'
+import { useClerkProvider } from './useClerkProvider'
 
 type UseSignUpReturn =
   | { isLoaded: false, signUp: undefined, setActive: undefined }
   | { isLoaded: true, signUp: SignUpResource, setActive: SetActive }
 
 export function useSignUp(): ToComputedRefs<UseSignUpReturn> {
-  const { clerk, isClerkLoaded } = useClerkProvide()
+  const { clerk, clientCtx } = useClerkProvider()
 
   const result = computed<UseSignUpReturn>(() => {
-    if (!isClerkLoaded.value || !clerk.client)
+    if (!clientCtx.value)
       return { isLoaded: false, signUp: undefined, setActive: undefined }
 
     return {
       isLoaded: true,
-      signUp: clerk.client.signUp,
+      signUp: clientCtx.value.signUp,
       setActive: clerk.setActive,
     }
   })

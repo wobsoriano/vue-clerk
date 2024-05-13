@@ -68,40 +68,40 @@ function deriveFromClientSideState(state: Resources) {
 }
 
 /**
- * @param isomorphicClerk
+ * @param clerk
  * @internal
  */
-function clerkLoaded(isomorphicClerk: Clerk) {
+function clerkLoaded(clerk: Clerk) {
   return new Promise<void>((resolve) => {
-    if (isomorphicClerk.loaded)
+    if (clerk.loaded)
       resolve()
 
-    isomorphicClerk.load().then(() => resolve())
+    clerk.load().then(() => resolve())
   })
 }
 
 /**
- * @param isomorphicClerk
+ * @param clerk
  * @internal
  */
-export function createGetToken(isomorphicClerk: Clerk) {
+export function createGetToken(clerk: Clerk) {
   return async (options: any) => {
-    await clerkLoaded(isomorphicClerk)
-    if (!isomorphicClerk.session)
+    await clerkLoaded(clerk)
+    if (!clerk.session)
       return null
 
-    return isomorphicClerk.session.getToken(options)
+    return clerk.session.getToken(options)
   }
 }
 
 /**
- * @param isomorphicClerk
+ * @param clerk
  * @internal
  */
-export function createSignOut(isomorphicClerk: Clerk) {
+export function createSignOut(clerk: Clerk) {
   return async (...args: any) => {
-    await clerkLoaded(isomorphicClerk)
-    return isomorphicClerk.signOut(...args)
+    await clerkLoaded(clerk)
+    return clerk.signOut(...args)
   }
 }
 

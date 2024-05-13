@@ -2,7 +2,7 @@ import type { UserResource } from '@clerk/types'
 import { computed } from 'vue'
 import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
-import { useClerkProvide } from './useClerkProvide'
+import { useClerkProvider } from './useClerkProvider'
 
 type UseUserReturn =
   | { isLoaded: false, isSignedIn: undefined, user: undefined }
@@ -10,18 +10,16 @@ type UseUserReturn =
   | { isLoaded: true, isSignedIn: true, user: UserResource }
 
 export function useUser(): ToComputedRefs<UseUserReturn> {
-  const { derivedState } = useClerkProvide()
+  const { userCtx } = useClerkProvider()
 
   const result = computed<UseUserReturn>(() => {
-    const { user } = derivedState.value
-
-    if (user === undefined)
+    if (userCtx.value === undefined)
       return { isLoaded: false, isSignedIn: undefined, user: undefined }
 
-    if (user === null)
+    if (userCtx.value === null)
       return { isLoaded: true, isSignedIn: false, user: null }
 
-    return { isLoaded: true, isSignedIn: true, user }
+    return { isLoaded: true, isSignedIn: true, user: userCtx.value }
   })
 
   return toComputedRefs(result)

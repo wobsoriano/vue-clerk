@@ -46,8 +46,12 @@ export {
 
 export {
   useClerk,
-  useClerkProvide,
 } from './composables/useClerk'
+
+export {
+  useClerkProvider,
+  useClerkProvide,
+} from './composables/useClerkProvider'
 
 export {
   useSignIn,

@@ -1,14 +1,11 @@
-import type { LoadedClerk } from '@clerk/types'
-import { useClerkProvide } from './useClerkProvide'
+import { useClerkProvider } from './useClerkProvider'
 
-export function useClerk(): LoadedClerk {
-  const { clerk } = useClerkProvide()
+export function useClerk() {
+  const { clerk } = useClerkProvider()
 
-  // The actual value is an instance of IsomorphicClerk, not Clerk
-  // we expose is as a Clerk instance
-  return clerk as unknown as LoadedClerk
+  return clerk
 }
 
 export {
-  useClerkProvide,
+  useClerkProvider,
 }

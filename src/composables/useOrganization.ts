@@ -2,7 +2,7 @@ import type { OrganizationResource } from '@clerk/types'
 import { computed } from 'vue'
 import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
-import { useClerkProvide } from './useClerkProvide'
+import { useClerkProvider } from './useClerkProvider'
 
 type UseOrganizationReturn =
   | {
@@ -19,18 +19,16 @@ type UseOrganizationReturn =
   }
 
 export function useOrganization(): ToComputedRefs<UseOrganizationReturn> {
-  const { isClerkLoaded, derivedState } = useClerkProvide()
+  const { isClerkLoaded, organizationCtx } = useClerkProvider()
 
   const result = computed<UseOrganizationReturn>(() => {
-    const { organization } = derivedState.value
-
-    if (organization === undefined)
+    if (organizationCtx.value === undefined)
       return { isLoaded: false, organization: undefined }
 
-    if (organization === null)
+    if (organizationCtx.value === null)
       return { isLoaded: true, organization: null }
 
-    return { isLoaded: isClerkLoaded.value, organization }
+    return { isLoaded: isClerkLoaded.value, organization: organizationCtx.value }
   })
 
   return toComputedRefs(result)
