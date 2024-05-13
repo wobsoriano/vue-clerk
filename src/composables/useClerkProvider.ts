@@ -2,15 +2,18 @@ import { inject } from 'vue'
 import type { VueClerkInjectionKey } from '../provideClerkToApp'
 
 export function useClerkProvider() {
-  const clerk = inject<VueClerkInjectionKey>('VUE_CLERK')
+  const ctx = inject<VueClerkInjectionKey>('VUE_CLERK')
 
-  if (!clerk)
-    throw new Error('Clerk provider not found')
+  if (!ctx) {
+    throw new Error(
+      'This composable can only be used when the Vue Clerk plugin is installed. Learn more: https://vue-clerk.vercel.app/plugin',
+    )
+  }
 
-  return clerk
+  return ctx
 }
 
 /**
- * @deprecated use useClerkProvider instead
+ * @deprecated use `useClerkProvider()` instead
  */
 export const useClerkProvide = useClerkProvider
