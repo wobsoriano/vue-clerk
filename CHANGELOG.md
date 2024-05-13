@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.7
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.6...v0.3.7)
+
+### 🏡 Chore
+
+- Fix condition for redirecting to sign-in page after sign-out ([02e224e](https://github.com/wobsoriano/vue-clerk/commit/02e224e))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.3.6
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.5...v0.3.6)
