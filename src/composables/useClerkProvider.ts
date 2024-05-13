@@ -1,8 +1,9 @@
 import { inject } from 'vue'
-import type { VueClerkInjectionKey } from '../provideClerkToApp'
+import type { VueClerkInjectionKeyType } from '../keys'
+import { VueClerkInjectionKey } from '../keys'
 
 export function useClerkProvider() {
-  const ctx = inject<VueClerkInjectionKey>('VUE_CLERK')
+  const ctx = inject<VueClerkInjectionKeyType>(VueClerkInjectionKey)
 
   if (!ctx) {
     throw new Error(

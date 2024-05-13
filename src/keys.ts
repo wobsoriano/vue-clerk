@@ -1,0 +1,33 @@
+import type { ComputedRef, Ref } from 'vue'
+import type { Clerk } from '@clerk/clerk-js'
+import type { ActJWTClaim, ActiveSessionResource, ClientResource, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
+import type { deriveState } from './utils'
+
+export interface VueClerkInjectionKeyType {
+  clerk: Clerk
+  /**
+   * @deprecated Will be removed in the next release.
+   */
+  state: Resources
+  isClerkLoaded: Ref<boolean>
+  /**
+   * @deprecated Will be removed in the next release.
+   */
+  derivedState: ComputedRef<ReturnType<typeof deriveState>>
+  authCtx: ComputedRef<{
+    userId: string | null | undefined
+    sessionId: string | null | undefined
+    actor: ActJWTClaim | null | undefined
+    orgId: string | null | undefined
+    orgRole: OrganizationCustomRoleKey | null | undefined
+    orgSlug: string | null | undefined
+    orgPermissions: OrganizationCustomPermissionKey[] | null | undefined
+  }>
+  clientCtx: ComputedRef<ClientResource | null | undefined>
+  sessionCtx: ComputedRef<ActiveSessionResource | null | undefined>
+  userCtx: ComputedRef<UserResource | null | undefined>
+  organizationCtx: ComputedRef<OrganizationResource | null | undefined>
+}
+
+// export const VueClerkInjectionKey = Symbol('VueClerk') as InjectionKey<VueClerkInjectionKeyType>
+export const VueClerkInjectionKey = 'VUE_CLERK'

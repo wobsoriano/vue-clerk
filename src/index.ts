@@ -68,3 +68,8 @@ export {
 export {
   useOrganization,
 } from './composables/useOrganization'
+
+export {
+  VueClerkInjectionKey,
+  VueClerkInjectionKeyType,
+} from './keys'
