@@ -1,7 +1,7 @@
 {
   "name": "vue-clerk",
   "version": "0.3.5",
-  "packageManager": "pnpm@9.1.0",
+  "packageManager": "pnpm@9.1.1",
   "description": "",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
@@ -66,7 +66,7 @@
     "@vueuse/core": "^10.9.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.16.3",
+    "@antfu/eslint-config": "^2.17.0",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/user-event": "^14.5.2",
     "@testing-library/vue": "^8.0.3",
@@ -83,6 +83,6 @@
     "vitepress": "1.0.2",
     "vitest": "^1.6.0",
     "vue": "^3.4.27",
-    "vue-tsc": "^2.0.16"
+    "vue-tsc": "^2.0.17"
   }
 }
