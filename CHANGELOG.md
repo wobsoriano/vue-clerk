@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.3.6
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.5...v0.3.6)
+
+### 🏡 Chore
+
+- Rename internal clerk provider ([c55ad64](https://github.com/wobsoriano/vue-clerk/commit/c55ad64))
+- Stricter composable type returns ([4fe35e0](https://github.com/wobsoriano/vue-clerk/commit/4fe35e0))
+- Stricter composable type returns ([cd9e0b3](https://github.com/wobsoriano/vue-clerk/commit/cd9e0b3))
+- Add internal initialState support ([ee84ece](https://github.com/wobsoriano/vue-clerk/commit/ee84ece))
+- Update provided values ([16dd0b4](https://github.com/wobsoriano/vue-clerk/commit/16dd0b4))
+- Bump @clerk/clerk-js to 5.2.4 ([6c5c54b](https://github.com/wobsoriano/vue-clerk/commit/6c5c54b))
+- Bump @clerk/types to 4.2.1 ([fc2d1d8](https://github.com/wobsoriano/vue-clerk/commit/fc2d1d8))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.3.5
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.4...v0.3.5)
