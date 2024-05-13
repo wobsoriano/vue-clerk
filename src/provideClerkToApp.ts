@@ -3,6 +3,8 @@ import type { ActJWTClaim, ActiveSessionResource, ClerkOptions, ClientResource, 
 import { computed, reactive } from 'vue'
 import type { App, ComputedRef, Ref } from 'vue'
 import { deriveState } from './utils'
+import type { VueClerkInjectionKeyType } from './keys'
+import { VueClerkInjectionKey } from './keys'
 
 export type VueClerkOptions = ClerkOptions & {
   /**
@@ -92,7 +94,11 @@ export function provideClerkToApp(app: App, clerk: Clerk, options: {
 
   app.config.globalProperties.$clerk = clerk
 
+<<<<<<< HEAD
   app.provide<VueClerkInjectionKey>('VUE_CLERK', {
+=======
+  app.provide<VueClerkInjectionKeyType>(VueClerkInjectionKey, {
+>>>>>>> 9f4f2a7 (chore: export injection key)
     clerk,
     state,
     isClerkLoaded,
