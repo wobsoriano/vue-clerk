@@ -16,7 +16,7 @@ The Session object returned from the composable will hold all state for the curr
 
 ## Usage
 
-The following example accesses the [Session](https://clerk.com/docs/reference/clerkjs/session) object in order to display how long a user has been active in this client session. Note that you can also get to the [User](https://clerk.com/docs/reference/clerkjs/user) object through the `useSession` hook.
+The following example accesses the [Session](https://clerk.com/docs/reference/clerkjs/session) object in order to display how long a user has been active in this client session. Note that you can also get to the [User](https://clerk.com/docs/reference/clerkjs/user) object through the `useSession` composable.
 
 ```vue
 <script setup>

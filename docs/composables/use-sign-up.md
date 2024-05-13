@@ -8,7 +8,7 @@ Access the SignUp object inside your components.
 
 ## Overview
 
-The `useSignUp` hook gives you access to the [SignUp](https://clerk.com/docs/reference/clerkjs/signup) object inside your components.
+The `useSignUp` composable gives you access to the [SignUp](https://clerk.com/docs/reference/clerkjs/signup) object inside your components.
 
 You can use the methods of the `SignUp` object to create your own custom sign up flow, as an alternative to using Clerk's pre-built [<SignUp/>](/authentication/sign-up.html) component.
 
