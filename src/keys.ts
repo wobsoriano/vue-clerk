@@ -1,10 +1,11 @@
 import type { ComputedRef, Ref } from 'vue'
-import type { Clerk } from '@clerk/clerk-js'
 import type { ActJWTClaim, ActiveSessionResource, ClientResource, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
 import type { deriveState } from './utils'
+import type { BrowserClerk, HeadlessBrowserClerk } from './provideClerkToApp'
+import type { IsomorphicClerk } from './isomorphicClerk'
 
 export interface VueClerkInjectionKeyType {
-  clerk: Clerk
+  clerk: IsomorphicClerk
   /**
    * @deprecated Will be removed in the next release.
    */

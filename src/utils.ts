@@ -1,7 +1,8 @@
-import type { Clerk } from '@clerk/clerk-js'
 import type { ComputedRef } from 'vue'
 import { computed } from 'vue'
 import type { ActiveSessionResource, InitialState, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
+import type { BrowserClerk, HeadlessBrowserClerk } from './provideClerkToApp'
+import type { IsomorphicClerk } from './isomorphicClerk'
 
 export function deriveState(clerkLoaded: boolean, state: Resources, initialState: InitialState | undefined) {
   if (!clerkLoaded && initialState)
@@ -71,12 +72,12 @@ function deriveFromClientSideState(state: Resources) {
  * @param clerk
  * @internal
  */
-function clerkLoaded(clerk: Clerk) {
+function clerkLoaded(clerk: IsomorphicClerk) {
   return new Promise<void>((resolve) => {
     if (clerk.loaded)
       resolve()
 
-    clerk.load().then(() => resolve())
+    clerk.addOnLoaded(() => resolve())
   })
 }
 
@@ -84,7 +85,7 @@ function clerkLoaded(clerk: Clerk) {
  * @param clerk
  * @internal
  */
-export function createGetToken(clerk: Clerk) {
+export function createGetToken(clerk: IsomorphicClerk) {
   return async (options: any) => {
     await clerkLoaded(clerk)
     if (!clerk.session)
@@ -98,7 +99,7 @@ export function createGetToken(clerk: Clerk) {
  * @param clerk
  * @internal
  */
-export function createSignOut(clerk: Clerk) {
+export function createSignOut(clerk: IsomorphicClerk) {
   return async (...args: any) => {
     await clerkLoaded(clerk)
     return clerk.signOut(...args)

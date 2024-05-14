@@ -73,3 +73,7 @@ export {
   VueClerkInjectionKey,
   VueClerkInjectionKeyType,
 } from './keys'
+
+export {
+  clerkPlugin,
+} from './plugin'

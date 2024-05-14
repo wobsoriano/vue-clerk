@@ -25,5 +25,7 @@ const { isSignedIn } = useAuth()
     </WithUser>
     <SignOutButton />
   </div>
-  <SignInButton v-else mode="modal" />
+  <div v-else>
+    <SignInButton mode="modal" />
+  </div>
 </template>

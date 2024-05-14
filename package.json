@@ -21,25 +21,13 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    },
-    "./plugin": {
-      "types": "./dist/plugin.d.ts",
-      "import": "./dist/plugin.mjs",
-      "require": "./dist/plugin.js"
-    },
-    "./headless": {
-      "types": "./dist/headless.d.ts",
-      "import": "./dist/headless.mjs",
-      "require": "./dist/headless.js"
     }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "headless.d.ts",
-    "plugin.d.ts"
+    "dist"
   ],
   "scripts": {
     "dev": "tsup --watch --onSuccess \"pnpm build:dts && pnpm --filter playground dev\"",
@@ -61,9 +49,9 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
-    "@clerk/clerk-js": "^5.5.3",
-    "@clerk/types": "^4.5.1",
-    "@vueuse/core": "^10.10.0"
+    "@clerk/shared": "^2.0.2",
+    "@clerk/types": "^4.2.1",
+    "@vueuse/core": "^10.9.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.19.1",

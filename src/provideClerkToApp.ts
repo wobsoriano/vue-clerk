@@ -1,61 +1,48 @@
-import type { Clerk } from '@clerk/clerk-js'
-import type { ClerkOptions, ClientResource, DomainOrProxyUrl, InitialState, Resources } from '@clerk/types'
-import { computed, reactive } from 'vue'
-import type { App, Ref } from 'vue'
+import type { Clerk, ClerkOptions, ClientResource, Resources, Without } from '@clerk/types'
+import { computed, reactive, ref, shallowRef } from 'vue'
+import type { App } from 'vue'
 import { deriveState } from './utils'
 import type { VueClerkInjectionKeyType } from './keys'
 import { VueClerkInjectionKey } from './keys'
+import { IsomorphicClerk } from './isomorphicClerk'
+import type { IsomorphicClerkOptions } from './types'
 
-export type VueClerkOptions = ClerkOptions & {
-  /**
-   * @internal
-   */
-  Clerk?: Clerk
-  publishableKey: string
-  domain?: Pick<DomainOrProxyUrl, 'domain'>
-  initialState?: InitialState
+export interface HeadlessBrowserClerk extends Clerk {
+  load: (opts?: Without<ClerkOptions, 'isSatellite'>) => Promise<void>
+  updateClient: (client: ClientResource) => void
 }
 
-// @deprecated Use provideClerkToVueApp instead
-export const provideClerkToApp = provideClerkToVueApp
+export interface BrowserClerk extends HeadlessBrowserClerk {
+  onComponentsReady: Promise<void>
+  components: any
+}
 
-export function provideClerkToVueApp(app: App, clerk: Clerk, options: {
-  /**
-   * A Vue ref that be provided throughout the app to check if ClerkJS has been loaded.
-   */
-  isClerkLoaded: Ref<boolean>
-  /**
-   * Whether to initialize ClerkJS. See https://clerk.com/docs/quickstarts/javascript#initialize-clerk-js.
-   */
-  shouldLoadClerk?: boolean
-  /**
-   * ClerkJS load options. See https://clerk.com/docs/references/javascript/clerk/clerk#load.
-   */
-  clerkOptions: ClerkOptions
-  initialState?: InitialState
-}): Clerk {
+/**
+ * @internal
+ */
+export function provideClerkToApp(app: App, options: IsomorphicClerkOptions) {
+  const isClerkLoaded = ref(false)
+  const clerk = new IsomorphicClerk(options)
+
   const state = reactive<Resources>({
-    client: clerk.client as ClientResource,
-    session: clerk.session,
-    user: clerk.user,
-    organization: clerk.organization,
+    client: {} as ClientResource,
+    session: undefined,
+    user: undefined,
+    organization: undefined,
   })
 
-  const { isClerkLoaded, shouldLoadClerk, clerkOptions, initialState } = options
+  clerk.loadClerkJS()
 
-  if (shouldLoadClerk) {
-    clerk?.load(clerkOptions)
-      .then(() => {
-        isClerkLoaded.value = true
-      }).catch(() => {})
-  }
-
-  clerk?.addListener((payload) => {
+  clerk.addListener((payload) => {
     for (const [key, value] of Object.entries(payload))
       state[key as keyof typeof state] = value
   })
 
-  const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, initialState))
+  clerk.addOnLoaded(() => {
+    isClerkLoaded.value = true
+  })
+
+  const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, undefined))
 
   const authCtx = computed(() => {
     const { sessionId, userId, orgId, actor, orgRole, orgSlug, orgPermissions } = derivedState.value
@@ -85,6 +72,6 @@ export function provideClerkToVueApp(app: App, clerk: Clerk, options: {
 
 declare module 'vue' {
   interface ComponentCustomProperties {
-    $clerk: Clerk
+    $clerk: IsomorphicClerk
   }
 }
