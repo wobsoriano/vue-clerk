@@ -75,5 +75,5 @@ export {
 } from './keys'
 
 export type {
-  IsomorphicClerkOptions
+  IsomorphicClerkOptions,
 } from './types'

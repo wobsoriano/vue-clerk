@@ -5,12 +5,7 @@ import type {
   DomainOrProxyUrl,
   LoadedClerk,
   MultiDomainAndOrProxy,
-  RedirectUrlProp,
   SDKMetadata,
-  SignInProps,
-  SignInRedirectOptions,
-  SignUpProps,
-  SignUpRedirectOptions,
   Without,
 } from '@clerk/types'
 
@@ -72,50 +67,3 @@ export type ClerkProp =
   | HeadlessBrowserClerkConstructor
   | undefined
   | null
-
-interface ButtonProps {
-  mode?: 'redirect' | 'modal'
-  // children?: React.ReactNode
-}
-
-export type SignInButtonProps = ButtonProps &
-  Pick<
-    SignInProps,
-    'fallbackRedirectUrl' | 'forceRedirectUrl' | 'signUpForceRedirectUrl' | 'signUpFallbackRedirectUrl'
-  >
-
-export type SignUpButtonProps = {
-  unsafeMetadata?: SignUpUnsafeMetadata
-} & ButtonProps &
-Pick<
-    SignUpProps,
-    'fallbackRedirectUrl' | 'forceRedirectUrl' | 'signInForceRedirectUrl' | 'signInFallbackRedirectUrl'
-  >
-
-export type SignInWithMetamaskButtonProps = ButtonProps & RedirectUrlProp
-
-export type RedirectToSignInProps = SignInRedirectOptions
-export type RedirectToSignUpProps = SignUpRedirectOptions
-
-type PageProps<T extends string> =
-  | {
-    label: string
-    url: string
-    // labelIcon: React.ReactNode
-  }
-  | {
-    label: T
-    url?: never
-    labelIcon?: never
-  }
-
-export type UserProfilePageProps = PageProps<'account' | 'security'>
-
-export interface UserProfileLinkProps {
-  url: string
-  label: string
-  // labelIcon: React.ReactNode
-}
-
-export type OrganizationProfilePageProps = PageProps<'general' | 'members'>
-export type OrganizationProfileLinkProps = UserProfileLinkProps
