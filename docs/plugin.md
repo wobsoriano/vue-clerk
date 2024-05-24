@@ -14,17 +14,15 @@ When using Nuxt, ensure that your plugin filenames are suffixed with `.client.js
 
 ```ts
 import { createApp } from 'vue'
-import { clerkPlugin } from 'vue-clerk/plugin'
-
-// or for headless mode:
-// import { clerkPlugin } from 'vue-clerk/headless'
+import { clerkPlugin } from 'vue-clerk'
 
 import App from './App.vue'
 
 const app = createApp(App)
 
 app.use(clerkPlugin, {
-  publishableKey: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+  publishableKey: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY,
+  // clerkJSVariant: 'headless'
 })
 
 app.mount('#app')
