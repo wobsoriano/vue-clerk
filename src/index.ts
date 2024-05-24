@@ -77,3 +77,8 @@ export {
 export type {
   IsomorphicClerkOptions,
 } from './types'
+
+export {
+  clerkPlugin,
+  provideClerkToApp,
+} from './plugin'

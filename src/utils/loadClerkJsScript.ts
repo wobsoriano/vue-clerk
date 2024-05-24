@@ -45,7 +45,7 @@ async function loadClerkJsScript(opts: LoadClerkJsScriptOptions) {
 }
 
 function clerkJsScriptUrl(opts: LoadClerkJsScriptOptions) {
-  const { clerkJSUrl, clerkJSVariant, clerkJSVersion, proxyUrl, domain, publishableKey } = opts
+  const { clerkJSUrl, clerkJSVariant, proxyUrl, domain, publishableKey } = opts
 
   if (clerkJSUrl)
     return clerkJSUrl
@@ -59,7 +59,8 @@ function clerkJsScriptUrl(opts: LoadClerkJsScriptOptions) {
     scriptHost = parsePublishableKey(publishableKey)?.frontendApi || ''
 
   const variant = clerkJSVariant ? `${clerkJSVariant.replace(/\.+$/, '')}.` : ''
-  const version = versionSelector(clerkJSVersion)
+  // const version = versionSelector(clerkJSVersion)
+  const version = JS_PACKAGE_VERSION
   return `https://${scriptHost}/npm/@clerk/clerk-js@${version}/dist/clerk.${variant}browser.js`
 }
 

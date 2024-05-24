@@ -20,7 +20,7 @@ export interface BrowserClerk extends HeadlessBrowserClerk {
 /**
  * @internal
  */
-export function provideClerkToApp(app: App, options: IsomorphicClerkOptions) {
+export function provideClerkToApp(app: App, options: IsomorphicClerkOptions): IsomorphicClerk {
   const isClerkLoaded = ref(false)
   const clerk = new IsomorphicClerk(options)
 
@@ -30,8 +30,6 @@ export function provideClerkToApp(app: App, options: IsomorphicClerkOptions) {
     user: undefined,
     organization: undefined,
   })
-
-  clerk.loadClerkJS()
 
   clerk.addListener((payload) => {
     for (const [key, value] of Object.entries(payload))
