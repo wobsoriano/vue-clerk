@@ -3,7 +3,6 @@ import type {
   ClerkOptions,
   ClientResource,
   DomainOrProxyUrl,
-  InitialState,
   LoadedClerk,
   MultiDomainAndOrProxy,
   RedirectUrlProp,

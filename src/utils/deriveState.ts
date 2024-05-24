@@ -1,8 +1,4 @@
-import type { ComputedRef } from 'vue'
-import { computed } from 'vue'
 import type { ActiveSessionResource, InitialState, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
-import type { BrowserClerk, HeadlessBrowserClerk } from './provideClerkToApp'
-import type { IsomorphicClerk } from './isomorphicClerk'
 
 export function deriveState(clerkLoaded: boolean, state: Resources, initialState: InitialState | undefined) {
   if (!clerkLoaded && initialState)
@@ -66,57 +62,4 @@ function deriveFromClientSideState(state: Resources) {
     orgPermissions,
     actor,
   }
-}
-
-/**
- * @param clerk
- * @internal
- */
-function clerkLoaded(clerk: IsomorphicClerk) {
-  return new Promise<void>((resolve) => {
-    if (clerk.loaded)
-      resolve()
-
-    clerk.addOnLoaded(() => resolve())
-  })
-}
-
-/**
- * @param clerk
- * @internal
- */
-export function createGetToken(clerk: IsomorphicClerk) {
-  return async (options: any) => {
-    await clerkLoaded(clerk)
-    if (!clerk.session)
-      return null
-
-    return clerk.session.getToken(options)
-  }
-}
-
-/**
- * @param clerk
- * @internal
- */
-export function createSignOut(clerk: IsomorphicClerk) {
-  return async (...args: any) => {
-    await clerkLoaded(clerk)
-    return clerk.signOut(...args)
-  }
-}
-
-export type ToComputedRefs<T = any> = {
-  [K in keyof T]: ComputedRef<T[K]>;
-}
-
-export function toComputedRefs<T extends object>(
-  objectRef: ComputedRef<T>,
-): ToComputedRefs<T> {
-  const result = {} as any
-
-  for (const key in objectRef.value)
-    result[key] = computed(() => objectRef.value[key])
-
-  return result
 }

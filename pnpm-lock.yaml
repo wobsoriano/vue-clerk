@@ -8,12 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@clerk/shared':
-        specifier: ^2.0.2
-        version: 2.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@clerk/types':
-        specifier: ^4.5.1
-        version: 4.5.1
+        specifier: ^4.5.0
+        version: 4.5.0
       '@vueuse/core':
         specifier: ^10.10.0
         version: 10.10.0(vue@3.4.27(typescript@5.4.5))
@@ -437,8 +434,8 @@ packages:
       react-dom:
         optional: true
 
-  '@clerk/types@4.5.1':
-    resolution: {integrity: sha512-eLaH+IKnxgjGQhRZ5rhZA9pQszSKbtSZE5V6c3a/F2crlkYIFABrVdf1q6p5bSAEmcYdcV4u4kaEFZ5UpYNcOw==}
+  '@clerk/types@4.5.0':
+    resolution: {integrity: sha512-g+CulWZq/HG9uhYFkXr8n9e376zZKY7elhW8/vXKJHDQEYeBmcUAkDgtgYXOU9OtXNS8xTbnhAwScn1bk1pRNg==}
     engines: {node: '>=18.17.0'}
 
   '@cloudflare/kv-asset-handler@0.3.2':
@@ -6195,7 +6192,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@clerk/types@4.5.1':
+  '@clerk/types@4.5.0':
     dependencies:
       csstype: 3.1.1
 

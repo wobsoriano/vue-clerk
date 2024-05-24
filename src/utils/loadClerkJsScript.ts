@@ -6,6 +6,7 @@ import { addClerkPrefix } from '@clerk/shared/url'
 import { errorThrower } from '../errors/errorThrower'
 import type { IsomorphicClerkOptions } from '../types'
 import { isDevOrStagingUrl } from './isDevOrStageUrl'
+import { versionSelector } from './versionSelector'
 
 const FAILED_TO_LOAD_ERROR = 'Clerk: Failed to load Clerk'
 
@@ -14,7 +15,7 @@ type LoadClerkJsScriptOptions = Omit<IsomorphicClerkOptions, 'proxyUrl' | 'domai
   domain?: string
 }
 
-function loadClerkJsScript(opts: LoadClerkJsScriptOptions) {
+async function loadClerkJsScript(opts: LoadClerkJsScriptOptions) {
   const { publishableKey } = opts
 
   if (!publishableKey)
@@ -44,7 +45,7 @@ function loadClerkJsScript(opts: LoadClerkJsScriptOptions) {
 }
 
 function clerkJsScriptUrl(opts: LoadClerkJsScriptOptions) {
-  const { clerkJSUrl, clerkJSVariant, clerkJSVersion = '5.2.4', proxyUrl, domain, publishableKey } = opts
+  const { clerkJSUrl, clerkJSVariant, clerkJSVersion, proxyUrl, domain, publishableKey } = opts
 
   if (clerkJSUrl)
     return clerkJSUrl
@@ -58,8 +59,7 @@ function clerkJsScriptUrl(opts: LoadClerkJsScriptOptions) {
     scriptHost = parsePublishableKey(publishableKey)?.frontendApi || ''
 
   const variant = clerkJSVariant ? `${clerkJSVariant.replace(/\.+$/, '')}.` : ''
-  // const version = versionSelector(clerkJSVersion)
-  const version = clerkJSVersion
+  const version = versionSelector(clerkJSVersion)
   return `https://${scriptHost}/npm/@clerk/clerk-js@${version}/dist/clerk.${variant}browser.js`
 }
 

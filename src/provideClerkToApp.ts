@@ -1,7 +1,7 @@
 import type { Clerk, ClerkOptions, ClientResource, Resources, Without } from '@clerk/types'
-import { computed, reactive, ref, shallowRef } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import type { App } from 'vue'
-import { deriveState } from './utils'
+import { deriveState } from './utils/index'
 import type { VueClerkInjectionKeyType } from './keys'
 import { VueClerkInjectionKey } from './keys'
 import { IsomorphicClerk } from './isomorphicClerk'
@@ -57,9 +57,7 @@ export function provideClerkToApp(app: App, options: IsomorphicClerkOptions) {
 
   app.provide<VueClerkInjectionKeyType>(VueClerkInjectionKey, {
     clerk,
-    state,
     isClerkLoaded,
-    derivedState,
     authCtx,
     clientCtx,
     sessionCtx,
