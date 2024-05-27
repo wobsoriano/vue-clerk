@@ -1,3 +1,5 @@
+import './polyfills'
+
 import SignIn from './components/SignIn.vue'
 import SignUp from './components/SignUp.vue'
 import SignInButton from './components/SignInButton.vue'

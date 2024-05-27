@@ -1,5 +1,3 @@
-import './polyfills'
-
 import type { Plugin } from 'vue'
 import type { IsomorphicClerkOptions } from './types'
 
