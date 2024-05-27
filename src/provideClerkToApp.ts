@@ -19,9 +19,6 @@ export interface BrowserClerk extends HeadlessBrowserClerk {
   components: any
 }
 
-/**
- * @internal
- */
 export function provideClerkToApp(app: App, options: IsomorphicClerkOptions): IsomorphicClerk {
   const { publishableKey, Clerk: userInitializedClerk } = options
 
