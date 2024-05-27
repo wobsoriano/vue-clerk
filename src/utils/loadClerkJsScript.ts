@@ -6,7 +6,7 @@ import { addClerkPrefix } from '@clerk/shared/url'
 import { errorThrower } from '../errors/errorThrower'
 import type { IsomorphicClerkOptions } from '../types'
 import { isDevOrStagingUrl } from './isDevOrStageUrl'
-import { versionSelector } from './versionSelector'
+// import { versionSelector } from './versionSelector'
 
 const FAILED_TO_LOAD_ERROR = 'Clerk: Failed to load Clerk'
 

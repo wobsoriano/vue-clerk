@@ -1,11 +1,13 @@
 import type { Clerk, ClerkOptions, ClientResource, Resources, Without } from '@clerk/types'
 import { computed, reactive, ref } from 'vue'
 import type { App } from 'vue'
+import { isPublishableKey } from '@clerk/shared/keys'
 import { deriveState } from './utils/index'
 import type { VueClerkInjectionKeyType } from './keys'
 import { VueClerkInjectionKey } from './keys'
 import { IsomorphicClerk } from './isomorphicClerk'
 import type { IsomorphicClerkOptions } from './types'
+import { errorThrower } from './errors/errorThrower'
 
 export interface HeadlessBrowserClerk extends Clerk {
   load: (opts?: Without<ClerkOptions, 'isSatellite'>) => Promise<void>
@@ -21,6 +23,15 @@ export interface BrowserClerk extends HeadlessBrowserClerk {
  * @internal
  */
 export function provideClerkToApp(app: App, options: IsomorphicClerkOptions): IsomorphicClerk {
+  const { publishableKey, Clerk: userInitializedClerk } = options
+
+  if (!userInitializedClerk) {
+    if (!publishableKey)
+      errorThrower.throwMissingPublishableKeyError()
+    else if (publishableKey && !isPublishableKey(publishableKey))
+      errorThrower.throwInvalidPublishableKeyError({ key: publishableKey })
+  }
+
   const isClerkLoaded = ref(false)
   const clerk = new IsomorphicClerk(options)
 
