@@ -80,5 +80,5 @@ export type {
 
 export {
   clerkPlugin,
-  provideClerkToApp,
+  provideClerkToVueApp,
 } from './plugin'
