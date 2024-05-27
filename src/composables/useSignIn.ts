@@ -1,6 +1,6 @@
 import type { SetActive, SignInResource } from '@clerk/types'
 import { computed } from 'vue'
-import { eventMethodCalled } from '@clerk/shared/telemetry';
+import { eventMethodCalled } from '@clerk/shared/telemetry'
 import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
 import { useClerkProvider } from './useClerkProvider'

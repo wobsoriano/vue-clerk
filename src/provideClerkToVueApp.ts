@@ -1,3 +1,5 @@
+import './polyfills'
+
 import type { Clerk, ClerkOptions, ClientResource, Resources, Without } from '@clerk/types'
 import { computed, reactive, ref } from 'vue'
 import type { App } from 'vue'

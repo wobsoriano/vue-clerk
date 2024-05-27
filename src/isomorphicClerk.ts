@@ -56,15 +56,11 @@ const SDK_METADATA = {
   environment: process.env.NODE_ENV,
 }
 
-// export interface Global {
-//   Clerk?: HeadlessBrowserClerk | BrowserClerk
-// }
-
-// declare const global: Global
-
-declare global {
-  interface Window { Clerk?: HeadlessBrowserClerk | BrowserClerk }
+export interface Global {
+  Clerk?: HeadlessBrowserClerk | BrowserClerk
 }
+
+declare const global: Global
 
 type GenericFunction<TArgs = never> = (...args: TArgs[]) => unknown
 
@@ -397,11 +393,11 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
             await c.load(this.options)
         }
 
-        window.Clerk = c
+        global.Clerk = c
       }
       else {
         // Hot-load latest ClerkJS from Clerk CDN
-        if (!window.Clerk) {
+        if (!global.Clerk) {
           await loadClerkJsScript({
             ...this.options,
             publishableKey: this.#publishableKey,
@@ -410,14 +406,14 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
           })
         }
 
-        if (!window.Clerk)
+        if (!global.Clerk)
           throw new Error('Failed to download latest ClerkJS. Contact support@clerk.com.')
 
-        await window.Clerk.load(this.options)
+        await global.Clerk.load(this.options)
       }
 
-      if (window.Clerk?.loaded)
-        return this.hydrateClerkJS(window.Clerk)
+      if (global.Clerk?.loaded)
+        return this.hydrateClerkJS(global.Clerk)
     }
     catch (err) {
       const error = err as Error

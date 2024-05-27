@@ -15,7 +15,6 @@
     "auth",
     "clerk"
   ],
-  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
