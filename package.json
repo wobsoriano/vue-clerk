@@ -63,7 +63,7 @@
   "dependencies": {
     "@clerk/clerk-js": "^5.5.3",
     "@clerk/types": "^4.5.1",
-    "@vueuse/core": "^10.9.0"
+    "@vueuse/core": "^10.10.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.17.0",
