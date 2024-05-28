@@ -211,7 +211,7 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
   get proxyUrl(): string {
     // This getter can run in environments where window is not available.
     // In those cases we should expect and use proxy as a string
-    if (inBrowser() && window.location)
+    if (typeof window !== 'undefined' && window.location)
       return handleValueOrFn(this.#proxyUrl, new URL(window.location.href), '')
 
     if (typeof this.#proxyUrl === 'function')
@@ -254,7 +254,7 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
   get isSatellite(): boolean {
     // This getter can run in environments where window is not available.
     // In those cases we should expect and use domain as a string
-    if (inBrowser() && window.location)
+    if (typeof window !== 'undefined' && window.location)
       return handleValueOrFn(this.options.isSatellite, new URL(window.location.href), false)
 
     if (typeof this.options.isSatellite === 'function')
@@ -366,7 +366,7 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
     // For more information refer to:
     // - https://github.com/remix-run/remix/issues/2947
     // - https://github.com/facebook/react/issues/24430
-    if (inBrowser()) {
+    if (typeof window !== 'undefined') {
       window.__clerk_publishable_key = this.#publishableKey
       window.__clerk_proxy_url = this.proxyUrl
       window.__clerk_domain = this.domain
