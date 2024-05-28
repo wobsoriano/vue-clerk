@@ -9,7 +9,7 @@ export default defineConfig((overrideOptions) => {
   const isWatch = !!overrideOptions.watch
 
   return {
-    entry: ['src/index.ts'],
+    entry: ['src/index.ts', 'src/plugin.ts'],
     format: ['cjs', 'esm'],
     splitting: true,
     clean: false,

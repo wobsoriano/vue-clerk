@@ -20,6 +20,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
+    },
+    "./plugin": {
+      "types": "./dist/plugin.d.ts",
+      "import": "./dist/plugin.mjs",
+      "require": "./dist/plugin.js"
     }
   },
   "main": "./dist/index.js",
