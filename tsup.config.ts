@@ -3,7 +3,7 @@ import { defineConfig } from 'tsup'
 import vuePlugin from 'unplugin-vue/esbuild'
 import { name, version } from './package.json'
 
-const clerkJsVersion = '5.5.1'
+const clerkJsVersion = '5'
 
 export default defineConfig((overrideOptions) => {
   const isWatch = !!overrideOptions.watch
