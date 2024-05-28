@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.3.8
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.7...v0.3.8)
+
+### 🏡 Chore
+
+- Export injection key ([e8a8388](https://github.com/wobsoriano/vue-clerk/commit/e8a8388))
+- Deprecate provideClerkToApp in favor of provideClerkToVueApp ([0751426](https://github.com/wobsoriano/vue-clerk/commit/0751426))
+- Bump @clerk/clerk-js to 5.5.3 ([7af45cc](https://github.com/wobsoriano/vue-clerk/commit/7af45cc))
+- Bump @clerk/types to 4.5.1 ([eb576f9](https://github.com/wobsoriano/vue-clerk/commit/eb576f9))
+- Bump @vueuse/core to 10.10.0 ([c8ab9cf](https://github.com/wobsoriano/vue-clerk/commit/c8ab9cf))
+- Bump all non-major dependencies ([3dc38c8](https://github.com/wobsoriano/vue-clerk/commit/3dc38c8))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.3.7
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.6...v0.3.7)
