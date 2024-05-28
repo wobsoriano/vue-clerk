@@ -16,10 +16,10 @@ export type VueClerkOptions = ClerkOptions & {
   initialState?: InitialState
 }
 
-/**
- * @internal
- */
-export function provideClerkToApp(app: App, clerk: Clerk, options: {
+// @deprecated Use provideClerkToVueApp instead
+export const provideClerkToApp = provideClerkToVueApp
+
+export function provideClerkToVueApp(app: App, clerk: Clerk, options: {
   /**
    * A Vue ref that be provided throughout the app to check if ClerkJS has been loaded.
    */
@@ -33,7 +33,7 @@ export function provideClerkToApp(app: App, clerk: Clerk, options: {
    */
   clerkOptions: ClerkOptions
   initialState?: InitialState
-}) {
+}): Clerk {
   const state = reactive<Resources>({
     client: clerk.client as ClientResource,
     session: clerk.session,
@@ -79,6 +79,8 @@ export function provideClerkToApp(app: App, clerk: Clerk, options: {
     userCtx,
     organizationCtx,
   })
+
+  return clerk
 }
 
 declare module 'vue' {

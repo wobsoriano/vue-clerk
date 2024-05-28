@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { OrganizationSwitcher, SignInButton, SignOutButton, WithUser, useAuth, useClerkProvide } from 'vue-clerk'
+import { OrganizationSwitcher, SignInButton, SignOutButton, WithUser, useAuth, useClerkProvider } from 'vue-clerk'
 
-const { isClerkLoaded } = useClerkProvide()
+const { isClerkLoaded } = useClerkProvider()
 const { isSignedIn } = useAuth()
 </script>
 
