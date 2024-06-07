@@ -1,4 +1,4 @@
-import type { ComputedRef, Ref } from 'vue'
+import type { ComputedRef, InjectionKey, Ref } from 'vue'
 import type { ActJWTClaim, ActiveSessionResource, ClientResource, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, UserResource } from '@clerk/types'
 import type { IsomorphicClerk } from './isomorphicClerk'
 
@@ -20,5 +20,4 @@ export interface VueClerkInjectionKeyType {
   organizationCtx: ComputedRef<OrganizationResource | null | undefined>
 }
 
-// export const VueClerkInjectionKey = Symbol('VueClerk') as InjectionKey<VueClerkInjectionKeyType>
-export const VueClerkInjectionKey = 'VUE_CLERK'
+export const VueClerkInjectionKey = Symbol('VueClerk') as InjectionKey<VueClerkInjectionKeyType>

@@ -3,7 +3,6 @@ import { computed, reactive, ref } from 'vue'
 import type { App } from 'vue'
 import { isPublishableKey } from '@clerk/shared/keys'
 import { deriveState } from './utils/index'
-import type { VueClerkInjectionKeyType } from './keys'
 import { VueClerkInjectionKey } from './keys'
 import { IsomorphicClerk } from './isomorphicClerk'
 import type { IsomorphicClerkOptions } from './types'
@@ -61,7 +60,7 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions):
 
   app.config.globalProperties.$clerk = clerk
 
-  app.provide<VueClerkInjectionKeyType>(VueClerkInjectionKey, {
+  app.provide(VueClerkInjectionKey, {
     clerk,
     isClerkLoaded,
     authCtx,
