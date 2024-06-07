@@ -55,7 +55,7 @@
   "dependencies": {
     "@clerk/shared": "^2.2.2",
     "@clerk/types": "^4.6.0",
-    "@vueuse/core": "^10.9.0"
+    "@vueuse/core": "^10.10.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.19.1",
