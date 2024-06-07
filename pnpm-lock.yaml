@@ -14,9 +14,6 @@ importers:
       '@clerk/types':
         specifier: ^4.6.0
         version: 4.6.0
-      '@vueuse/core':
-        specifier: ^10.10.0
-        version: 10.10.0(vue@3.4.27(typescript@5.4.5))
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.20.0

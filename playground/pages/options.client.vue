@@ -10,12 +10,18 @@ export default defineComponent({
 </script>
 
 <template>
-  <WithUser v-slot="{ isSignedIn, user }">
-    <div v-if="isSignedIn">
-      {{ user?.firstName ? `Hello, ${user.firstName}` : 'Hello there!' }}
+  <WithUser v-slot="{ isLoaded, isSignedIn, user }">
+    <div v-if="!isLoaded">
+      Loading...
     </div>
-    <!-- <button v-else @click="$clerk.openSignIn">
+    <div v-else-if="isSignedIn">
+      <span>{{ user?.firstName ? `Hello, ${user.firstName}` : 'Hello there!' }}</span>
+      <button @click="$clerk.signOut">
+        Sign Out
+      </button>
+    </div>
+    <button v-else @click="$clerk.openSignIn">
       Sign In
-    </button> -->
+    </button>
   </WithUser>
 </template>
