@@ -1,4 +1,4 @@
-import type { Clerk, ClerkOptions, ClientResource, Resources, Without } from '@clerk/types'
+import type { Clerk, ClerkOptions, ClientResource, InitialState, Resources, Without } from '@clerk/types'
 import { computed, reactive, ref } from 'vue'
 import type { App } from 'vue'
 import { isPublishableKey } from '@clerk/shared/keys'
@@ -18,7 +18,7 @@ export interface BrowserClerk extends HeadlessBrowserClerk {
   components: any
 }
 
-export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions): IsomorphicClerk {
+export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions, initialState?: InitialState): IsomorphicClerk {
   const { publishableKey, Clerk: userInitializedClerk } = options
 
   if (!userInitializedClerk) {
@@ -47,7 +47,7 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions):
     isClerkLoaded.value = true
   })
 
-  const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, undefined))
+  const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, initialState))
 
   const authCtx = computed(() => {
     const { sessionId, userId, orgId, actor, orgRole, orgSlug, orgPermissions } = derivedState.value
