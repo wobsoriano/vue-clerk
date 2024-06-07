@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@clerk/shared": "^2.2.2",
-    "@clerk/types": "^4.5.0",
+    "@clerk/types": "^4.6.0",
     "@vueuse/core": "^10.9.0"
   },
   "devDependencies": {
