@@ -77,7 +77,7 @@ importers:
     dependencies:
       '@clerk/localizations':
         specifier: ^2.4.3
-        version: 2.4.3
+        version: 2.4.4
       h3-clerk:
         specifier: ^0.4.3
         version: 0.4.3(h3@1.11.1)(react@18.3.1)
@@ -423,6 +423,10 @@ packages:
 
   '@clerk/clerk-sdk-node@5.0.10':
     resolution: {integrity: sha512-3r14aIOM4wFw1YpjNI4U3eekY9IvaMbdVZWPQaeVNTAYZt2wheYpKr3z2BIdEDSZA9U5pFxmKsWLNa+7yjxBsg==}
+    engines: {node: '>=18.17.0'}
+
+  '@clerk/localizations@2.4.4':
+    resolution: {integrity: sha512-Cy0m4Pt9C02Jx3iK76t5cquDJsM5PCc4fiViapGKAp5+gNs0ySG2BFqegVlVk/c6Qa9HzX3tNOiYMVabEHtAyw==}
     engines: {node: '>=18.17.0'}
 
   '@clerk/shared@2.2.2':
@@ -6215,6 +6219,10 @@ snapshots:
     transitivePeerDependencies:
       - react
       - react-dom
+
+  '@clerk/localizations@2.4.4':
+    dependencies:
+      '@clerk/types': 4.6.0
 
   '@clerk/shared@2.2.2(react@18.3.1)':
     dependencies:
