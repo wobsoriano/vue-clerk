@@ -5,6 +5,7 @@ import SignUp from './components/SignUp.vue'
 import SignInButton from './components/SignInButton.vue'
 import SignUpButton from './components/SignUpButton.vue'
 import SignOutButton from './components/SignOutButton.vue'
+import SignInWithMetamaskButton from './components/SignInWithMetamaskButton.vue'
 import UserProfile from './components/UserProfile.vue'
 import UserButton from './components/UserButton.vue'
 import WithUser from './components/WithUser.vue'
@@ -21,6 +22,7 @@ export {
   SignInButton,
   SignUpButton,
   SignOutButton,
+  SignInWithMetamaskButton,
   UserProfile,
   UserButton,
   WithClerk,
