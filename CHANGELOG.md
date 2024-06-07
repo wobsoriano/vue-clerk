@@ -1,6 +1,42 @@
 # Changelog
 
 
+## v0.4.0
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.8...v0.4.0)
+
+### 🚀 Enhancements
+
+- Add telemetry calls for auth composables ([e1bff03](https://github.com/wobsoriano/vue-clerk/commit/e1bff03))
+- Add SignInWithMetamaskButton ([3d7e51d](https://github.com/wobsoriano/vue-clerk/commit/3d7e51d))
+
+### 📖 Documentation
+
+- Add redirect to sign in and sign up props ([c4e0462](https://github.com/wobsoriano/vue-clerk/commit/c4e0462))
+- Add links to initialValues ([e5b784d](https://github.com/wobsoriano/vue-clerk/commit/e5b784d))
+- Update plugin usage ([20b7467](https://github.com/wobsoriano/vue-clerk/commit/20b7467))
+- Update plugin options ([a1c11ed](https://github.com/wobsoriano/vue-clerk/commit/a1c11ed))
+
+### 🏡 Chore
+
+- Hot load clerk from CDN ([e62b9c9](https://github.com/wobsoriano/vue-clerk/commit/e62b9c9))
+- ⚠️  Migrate to isomorphic clerk ([e721f16](https://github.com/wobsoriano/vue-clerk/commit/e721f16))
+- Export IsomorphicClerkOptions ([88514d3](https://github.com/wobsoriano/vue-clerk/commit/88514d3))
+- **provideClerkToApp:** Rename to provideClerkToVueApp ([74bbf98](https://github.com/wobsoriano/vue-clerk/commit/74bbf98))
+- Bump @clerk/shared to 2.2.2 ([ee93a88](https://github.com/wobsoriano/vue-clerk/commit/ee93a88))
+- Bump @clerk/types to 4.6.0 ([926f9ef](https://github.com/wobsoriano/vue-clerk/commit/926f9ef))
+- Bump @vueuse/core to 10.10.0 ([5540309](https://github.com/wobsoriano/vue-clerk/commit/5540309))
+- Bump all non-major dependencies ([37638d6](https://github.com/wobsoriano/vue-clerk/commit/37638d6))
+- Use typed injection key with Symbol ([9e7912b](https://github.com/wobsoriano/vue-clerk/commit/9e7912b))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Migrate to isomorphic clerk ([e721f16](https://github.com/wobsoriano/vue-clerk/commit/e721f16))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.3.8
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.7...v0.3.8)
