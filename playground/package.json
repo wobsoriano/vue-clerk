@@ -14,7 +14,7 @@
     "vue-clerk": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.14.2",
     "nuxt": "^3.11.2"
   }
 }

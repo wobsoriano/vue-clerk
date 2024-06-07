@@ -1,10 +1,15 @@
-import { clerkPlugin } from 'vue-clerk/plugin'
-import { frFR } from '@clerk/localizations'
+import { provideClerkToVueApp } from 'vue-clerk'
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   const publishableKey = useRuntimeConfig().public.clerkPublishableKey as string
-  nuxtApp.vueApp.use(clerkPlugin, {
-    publishableKey,
-    localization: frFR,
-  })
+
+  const clerk = provideClerkToVueApp(nuxtApp.vueApp, { publishableKey })
+
+  await clerk.loadClerkJS()
+
+  return {
+    provide: {
+      clerk,
+    },
+  }
 })

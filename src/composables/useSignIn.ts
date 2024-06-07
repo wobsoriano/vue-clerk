@@ -1,5 +1,6 @@
 import type { SetActive, SignInResource } from '@clerk/types'
 import { computed } from 'vue'
+import { eventMethodCalled } from '@clerk/shared/telemetry'
 import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
 import { useClerkProvider } from './useClerkProvider'
@@ -10,6 +11,8 @@ type UseSignInReturn =
 
 export function useSignIn(): ToComputedRefs<UseSignInReturn> {
   const { clerk, clientCtx } = useClerkProvider()
+
+  clerk.telemetry?.record(eventMethodCalled('useSignIn'))
 
   const result = computed<UseSignInReturn>(() => {
     if (!clientCtx.value)

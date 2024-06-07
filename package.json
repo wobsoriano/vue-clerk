@@ -1,8 +1,8 @@
 {
   "name": "vue-clerk",
   "version": "0.3.8",
-  "packageManager": "pnpm@9.1.2",
-  "description": "",
+  "packageManager": "pnpm@9.2.0",
+  "description": "Unofficial Vue + Clerk integration.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/wobsoriano/vue-clerk#readme",
@@ -15,7 +15,6 @@
     "auth",
     "clerk"
   ],
-  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -26,20 +25,13 @@
       "types": "./dist/plugin.d.ts",
       "import": "./dist/plugin.mjs",
       "require": "./dist/plugin.js"
-    },
-    "./headless": {
-      "types": "./dist/headless.d.ts",
-      "import": "./dist/headless.mjs",
-      "require": "./dist/headless.js"
     }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "headless.d.ts",
-    "plugin.d.ts"
+    "dist"
   ],
   "scripts": {
     "dev": "tsup --watch --onSuccess \"pnpm build:dts && pnpm --filter playground dev\"",
@@ -61,22 +53,22 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
-    "@clerk/clerk-js": "^5.5.3",
-    "@clerk/types": "^4.5.1",
+    "@clerk/shared": "^2.2.2",
+    "@clerk/types": "^4.6.0",
     "@vueuse/core": "^10.10.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.19.1",
+    "@antfu/eslint-config": "^2.20.0",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/user-event": "^14.5.2",
     "@testing-library/vue": "^8.1.0",
-    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue": "^5.0.5",
     "changelogen": "^0.5.5",
-    "eslint": "^9.3.0",
+    "eslint": "^9.4.0",
     "eslint-plugin-import": "^2.29.1",
     "jsdom": "^24.1.0",
     "taze": "^0.13.8",
-    "tsup": "^8.0.2",
+    "tsup": "^8.1.0",
     "typescript": "^5.4.5",
     "unplugin-vue": "^5.0.5",
     "vite": "^5.2.12",
