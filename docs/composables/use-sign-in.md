@@ -8,7 +8,7 @@ Access the SignIn object inside of your components.
 
 ## Overview
 
-The `useSignIn` hook gives you access to the [SignIn](https://clerk.com/docs/reference/clerkjs/signin) object inside your components.
+The `useSignIn` composable gives you access to the [SignIn](https://clerk.com/docs/reference/clerkjs/signin) object inside your components.
 
 You can use the methods of the `SignIn` object to create your own custom sign in flow, as an alternative to using Clerk's pre-built [<SignIn/>](/authentication/sign-in.html) component.
 

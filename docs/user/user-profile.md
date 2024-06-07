@@ -5,7 +5,7 @@ outline: deep
 # `<UserProfile />`
 
 <br />
-<img src="https://clerk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fe1ql88v4%2Fproduction%2F86ce587f95cbaa773bdd9ddf8d5dfbb57387de16-528x645.svg%3Ffit%3Dmax%26auto%3Dformat&w=1080&q=75" alt="UserProfile component sample" />
+<img src="https://clerk.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F_docs%2Fmain%2Fui-components%2Fuser-profile.svg&w=1920&q=75" alt="UserProfile component sample" />
 
 The `<UserProfile />` component is used to render a beautiful, full-featured account management UI that allows users to manage their profile and security settings.
 

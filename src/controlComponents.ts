@@ -1,7 +1,8 @@
 import { computed, defineComponent, onMounted } from 'vue'
 import type { CheckAuthorizationWithCustomPermissions, HandleOAuthCallbackParams, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, RedirectOptions } from '@clerk/types'
 import { useAuth } from './composables/useAuth'
-import { useClerkProvide } from './composables/useClerkProvide'
+import { useClerkProvider } from './composables/useClerkProvider'
+import { useClerk } from './composables/useClerk'
 
 export const SignedIn = defineComponent({
   setup(_props, { slots }) {
@@ -21,7 +22,7 @@ export const SignedOut = defineComponent({
 
 export const ClerkLoaded = defineComponent({
   setup(_props, { slots }) {
-    const { isClerkLoaded } = useClerkProvide()
+    const { isClerkLoaded } = useClerkProvider()
 
     return () => isClerkLoaded.value ? slots.default?.() : null
   },
@@ -29,35 +30,30 @@ export const ClerkLoaded = defineComponent({
 
 export const ClerkLoading = defineComponent({
   setup(_props, { slots }) {
-    const { isClerkLoaded } = useClerkProvide()
+    const { isClerkLoaded } = useClerkProvider()
 
     return () => !isClerkLoaded.value ? slots.default?.() : null
   },
 })
 
 export const RedirectToSignIn = defineComponent((props: RedirectOptions) => {
-  const { clerk, state } = useClerkProvide()
+  const { sessionCtx, clientCtx } = useClerkProvider()
+  const clerk = useClerk()
 
-  const hasActiveSessions = computed(() => state.client?.activeSessions && state.client.activeSessions.length > 0)
-
-  // TODO: Remove temp use of __unstable__environment
-  const { __unstable__environment } = clerk as any
+  const hasActiveSessions = computed(() => clientCtx.value?.activeSessions && clientCtx.value.activeSessions.length > 0)
 
   onMounted(() => {
-    if (clerk.session === null && hasActiveSessions.value && __unstable__environment) {
-      const { afterSignOutOneUrl } = __unstable__environment.displayConfig
-      void clerk.navigate(afterSignOutOneUrl)
-    }
-    else {
+    if (sessionCtx.value === null && hasActiveSessions.value)
+      void clerk.redirectToAfterSignOut()
+    else
       void clerk.redirectToSignIn(props)
-    }
   })
 
   return () => null
 })
 
 export const RedirectToSignUp = defineComponent((props: RedirectOptions) => {
-  const { clerk } = useClerkProvide()
+  const clerk = useClerk()
 
   onMounted(() => {
     void clerk.redirectToSignUp(props)
@@ -67,7 +63,7 @@ export const RedirectToSignUp = defineComponent((props: RedirectOptions) => {
 })
 
 export const RedirectToUserProfile = defineComponent(() => {
-  const { clerk } = useClerkProvide()
+  const clerk = useClerk()
 
   onMounted(() => {
     void clerk.redirectToUserProfile()
@@ -77,7 +73,7 @@ export const RedirectToUserProfile = defineComponent(() => {
 })
 
 export const RedirectToOrganizationProfile = defineComponent(() => {
-  const { clerk } = useClerkProvide()
+  const clerk = useClerk()
 
   onMounted(() => {
     void clerk.redirectToOrganizationProfile()
@@ -87,7 +83,7 @@ export const RedirectToOrganizationProfile = defineComponent(() => {
 })
 
 export const RedirectToCreateOrganization = defineComponent(() => {
-  const { clerk } = useClerkProvide()
+  const clerk = useClerk()
 
   onMounted(() => {
     void clerk.redirectToCreateOrganization()
@@ -97,7 +93,7 @@ export const RedirectToCreateOrganization = defineComponent(() => {
 })
 
 export const AuthenticateWithRedirectCallback = defineComponent((props: HandleOAuthCallbackParams) => {
-  const { clerk } = useClerkProvide()
+  const clerk = useClerk()
 
   onMounted(() => {
     void clerk.handleRedirectCallback(props)
@@ -128,6 +124,9 @@ export const Protect = defineComponent((props: ProtectProps, { slots }) => {
   const { isLoaded, has, userId } = useAuth()
 
   return () => {
+    /**
+     * Avoid flickering children or fallback while clerk is loading sessionId or userId
+     */
     if (!isLoaded.value)
       return null
 

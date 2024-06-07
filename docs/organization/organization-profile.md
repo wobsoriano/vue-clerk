@@ -5,7 +5,7 @@ outline: deep
 # `<OrganizationProfile />`
 
 <br />
-<img src="https://clerk.com/_next/image?url=%2Fdocs%2Fimages%2Fui-components%2Fcomponent-org_profile.svg&w=2048&q=75" />
+<img src="https://clerk.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F_docs%2Fmain%2Fui-components%2Forganization-profile.svg&w=1920&q=75" />
 
 The `<OrganizationProfile />` component is used to render a beautiful, full-featured organization management UI that allows users to manage their organization profile and security settings.
 

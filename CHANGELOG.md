@@ -1,6 +1,195 @@
 # Changelog
 
 
+## v0.4.0
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.8...v0.4.0)
+
+### 🚀 Enhancements
+
+- Add telemetry calls for auth composables ([e1bff03](https://github.com/wobsoriano/vue-clerk/commit/e1bff03))
+- Add SignInWithMetamaskButton ([3d7e51d](https://github.com/wobsoriano/vue-clerk/commit/3d7e51d))
+
+### 📖 Documentation
+
+- Add redirect to sign in and sign up props ([c4e0462](https://github.com/wobsoriano/vue-clerk/commit/c4e0462))
+- Add links to initialValues ([e5b784d](https://github.com/wobsoriano/vue-clerk/commit/e5b784d))
+- Update plugin usage ([20b7467](https://github.com/wobsoriano/vue-clerk/commit/20b7467))
+- Update plugin options ([a1c11ed](https://github.com/wobsoriano/vue-clerk/commit/a1c11ed))
+
+### 🏡 Chore
+
+- Hot load clerk from CDN ([e62b9c9](https://github.com/wobsoriano/vue-clerk/commit/e62b9c9))
+- ⚠️  Migrate to isomorphic clerk ([e721f16](https://github.com/wobsoriano/vue-clerk/commit/e721f16))
+- Export IsomorphicClerkOptions ([88514d3](https://github.com/wobsoriano/vue-clerk/commit/88514d3))
+- **provideClerkToApp:** Rename to provideClerkToVueApp ([74bbf98](https://github.com/wobsoriano/vue-clerk/commit/74bbf98))
+- Bump @clerk/shared to 2.2.2 ([ee93a88](https://github.com/wobsoriano/vue-clerk/commit/ee93a88))
+- Bump @clerk/types to 4.6.0 ([926f9ef](https://github.com/wobsoriano/vue-clerk/commit/926f9ef))
+- Bump @vueuse/core to 10.10.0 ([5540309](https://github.com/wobsoriano/vue-clerk/commit/5540309))
+- Bump all non-major dependencies ([37638d6](https://github.com/wobsoriano/vue-clerk/commit/37638d6))
+- Use typed injection key with Symbol ([9e7912b](https://github.com/wobsoriano/vue-clerk/commit/9e7912b))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Migrate to isomorphic clerk ([e721f16](https://github.com/wobsoriano/vue-clerk/commit/e721f16))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.3.8
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.7...v0.3.8)
+
+### 🏡 Chore
+
+- Export injection key ([e8a8388](https://github.com/wobsoriano/vue-clerk/commit/e8a8388))
+- Deprecate provideClerkToApp in favor of provideClerkToVueApp ([0751426](https://github.com/wobsoriano/vue-clerk/commit/0751426))
+- Bump @clerk/clerk-js to 5.5.3 ([7af45cc](https://github.com/wobsoriano/vue-clerk/commit/7af45cc))
+- Bump @clerk/types to 4.5.1 ([eb576f9](https://github.com/wobsoriano/vue-clerk/commit/eb576f9))
+- Bump @vueuse/core to 10.10.0 ([c8ab9cf](https://github.com/wobsoriano/vue-clerk/commit/c8ab9cf))
+- Bump all non-major dependencies ([3dc38c8](https://github.com/wobsoriano/vue-clerk/commit/3dc38c8))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.3.7
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.6...v0.3.7)
+
+### 🏡 Chore
+
+- Fix condition for redirecting to sign-in page after sign-out ([02e224e](https://github.com/wobsoriano/vue-clerk/commit/02e224e))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.3.6
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.5...v0.3.6)
+
+### 🏡 Chore
+
+- Rename internal clerk provider ([c55ad64](https://github.com/wobsoriano/vue-clerk/commit/c55ad64))
+- Stricter composable type returns ([4fe35e0](https://github.com/wobsoriano/vue-clerk/commit/4fe35e0))
+- Stricter composable type returns ([cd9e0b3](https://github.com/wobsoriano/vue-clerk/commit/cd9e0b3))
+- Add internal initialState support ([ee84ece](https://github.com/wobsoriano/vue-clerk/commit/ee84ece))
+- Update provided values ([16dd0b4](https://github.com/wobsoriano/vue-clerk/commit/16dd0b4))
+- Bump @clerk/clerk-js to 5.2.4 ([6c5c54b](https://github.com/wobsoriano/vue-clerk/commit/6c5c54b))
+- Bump @clerk/types to 4.2.1 ([fc2d1d8](https://github.com/wobsoriano/vue-clerk/commit/fc2d1d8))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.3.5
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.4...v0.3.5)
+
+### 🏡 Chore
+
+- Update clerk provider internals ([0165033](https://github.com/wobsoriano/vue-clerk/commit/0165033))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.3.4
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.3...v0.3.4)
+
+### 📖 Documentation
+
+- Update plugin options ([6716925](https://github.com/wobsoriano/vue-clerk/commit/6716925))
+
+### 🏡 Chore
+
+- Update clerk provider internals ([c39539a](https://github.com/wobsoriano/vue-clerk/commit/c39539a))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.3.3
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.2...v0.3.3)
+
+### 🏡 Chore
+
+- Add function to create clerk instance without loading ([9c3b886](https://github.com/wobsoriano/vue-clerk/commit/9c3b886))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.3.2
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.1...v0.3.2)
+
+### 🏡 Chore
+
+- Add option to pass custom Clerk instance ([1cd57b6](https://github.com/wobsoriano/vue-clerk/commit/1cd57b6))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.3.1
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.0...v0.3.1)
+
+### 🏡 Chore
+
+- Export createClerkInstance for outside use ([ab21621](https://github.com/wobsoriano/vue-clerk/commit/ab21621))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.3.0
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.3...v0.3.0)
+
+### 📖 Documentation
+
+- Fix plugin usage warning block ([4a8e5fb](https://github.com/wobsoriano/vue-clerk/commit/4a8e5fb))
+- New UI design screenshots ([8da2cf4](https://github.com/wobsoriano/vue-clerk/commit/8da2cf4))
+
+### 🏡 Chore
+
+- Bump @clerk/clerk-js to 5.2.1 ([1be0864](https://github.com/wobsoriano/vue-clerk/commit/1be0864))
+- Bump @clerk/types to 4.2.0 ([b885e3a](https://github.com/wobsoriano/vue-clerk/commit/b885e3a))
+- ⚠️  Remove setSession function from useSessionList ([422b242](https://github.com/wobsoriano/vue-clerk/commit/422b242))
+- ⚠️  Remove setSession function from useSignIn ([dd8f112](https://github.com/wobsoriano/vue-clerk/commit/dd8f112))
+- Export Clerk class ([704619a](https://github.com/wobsoriano/vue-clerk/commit/704619a))
+
+### ✅ Tests
+
+- Remove node 16 support ([f4c7eb0](https://github.com/wobsoriano/vue-clerk/commit/f4c7eb0))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Remove setSession function from useSessionList ([422b242](https://github.com/wobsoriano/vue-clerk/commit/422b242))
+- ⚠️  Remove setSession function from useSignIn ([dd8f112](https://github.com/wobsoriano/vue-clerk/commit/dd8f112))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
+## v0.2.3
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.2...v0.2.3)
+
+### 🚀 Enhancements
+
+- **docs:** Add reminder for Nuxt plugin filename suffix ([c6c03bb](https://github.com/wobsoriano/vue-clerk/commit/c6c03bb))
+
+### ❤️ Contributors
+
+- Jeremy Auvray ([@jeremy93-2008](http://github.com/jeremy93-2008))
+
 ## v0.2.2
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.2.1...v0.2.2)

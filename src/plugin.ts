@@ -1,15 +1,15 @@
-import Clerk from '@clerk/clerk-js'
 import type { Plugin } from 'vue'
-import type { VueClerkOptions } from './createClerkInstance'
-import { createClerkInstance } from './createClerkInstance'
+import type { InitialState } from '@clerk/types'
+import type { IsomorphicClerkOptions } from './types'
 
-export type { VueClerkOptions }
+import { provideClerkToVueApp } from './provideClerkToVueApp'
 
 export const clerkPlugin: Plugin = {
-  install(app, options: VueClerkOptions) {
-    const { publishableKey, domain, ...loadOptions } = options
-    const clerk = new Clerk(publishableKey, domain)
-
-    createClerkInstance(app, clerk, loadOptions)
+  install(app, options: IsomorphicClerkOptions & { initialState?: InitialState }) {
+    provideClerkToVueApp(app, options)
   },
+}
+
+export {
+  provideClerkToVueApp,
 }

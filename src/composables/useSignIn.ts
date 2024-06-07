@@ -1,23 +1,26 @@
-import type { SetActive, SetSession, SignInResource } from '@clerk/types'
+import type { SetActive, SignInResource } from '@clerk/types'
 import { computed } from 'vue'
+import { eventMethodCalled } from '@clerk/shared/telemetry'
+import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
-import { useClerkProvide } from './useClerkProvide'
+import { useClerkProvider } from './useClerkProvider'
 
 type UseSignInReturn =
-  | { isLoaded: false, signIn: undefined, setSession: undefined, setActive: undefined }
-  | { isLoaded: true, signIn: SignInResource, setSession: SetSession, setActive: SetActive }
+  | { isLoaded: false, signIn: undefined, setActive: undefined }
+  | { isLoaded: true, signIn: SignInResource, setActive: SetActive }
 
-export function useSignIn() {
-  const { clerk, isClerkLoaded } = useClerkProvide()
+export function useSignIn(): ToComputedRefs<UseSignInReturn> {
+  const { clerk, clientCtx } = useClerkProvider()
+
+  clerk.telemetry?.record(eventMethodCalled('useSignIn'))
 
   const result = computed<UseSignInReturn>(() => {
-    if (!isClerkLoaded.value || !clerk.client)
-      return { isLoaded: false, signIn: undefined, setSession: undefined, setActive: undefined }
+    if (!clientCtx.value)
+      return { isLoaded: false, signIn: undefined, setActive: undefined }
 
     return {
       isLoaded: true,
-      signIn: clerk.client.signIn,
-      setSession: clerk.setSession,
+      signIn: clientCtx.value.signIn,
       setActive: clerk.setActive,
     }
   })

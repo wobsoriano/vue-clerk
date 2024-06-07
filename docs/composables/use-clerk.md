@@ -8,7 +8,7 @@ Access the Clerk object inside your components.
 
 ## Overview
 
-The `useClerk` hook accesses the [Clerk](https://clerk.com/docs/reference/clerkjs/clerk) object. It can be used to retrieve any object in the [ClerkJS](https://reference.clerk.dev/reference/clerkjs) SDK. Moreover, it allows access to all of the [Clerk object's methods](https://clerk.com/docs/reference/clerkjs/clerk#methods), giving you the freedom to build alternatives to any [Clerk Component](https://clerk.com/docs/reference/clerkjs/clerk).
+The `useClerk` composable accesses the [Clerk](https://clerk.com/docs/reference/clerkjs/clerk) object. It can be used to retrieve any object in the [ClerkJS](https://reference.clerk.dev/reference/clerkjs) SDK. Moreover, it allows access to all of the [Clerk object's methods](https://clerk.com/docs/reference/clerkjs/clerk#methods), giving you the freedom to build alternatives to any [Clerk Component](https://clerk.com/docs/reference/clerkjs/clerk).
 
 ## Usage
 

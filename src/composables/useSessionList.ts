@@ -1,24 +1,24 @@
-import type { SessionResource, SetActive, SetSession } from '@clerk/types'
+import type { SessionResource, SetActive } from '@clerk/types'
 import { computed } from 'vue'
 
+import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
-import { useClerkProvide } from './useClerkProvide'
+import { useClerkProvider } from './useClerkProvider'
 
 type UseSessionListReturn =
-  | { isLoaded: false, sessions: undefined, setSession: undefined, setActive: undefined }
-  | { isLoaded: true, sessions: SessionResource[], setSession: SetSession, setActive: SetActive }
+  | { isLoaded: false, sessions: undefined, setActive: undefined }
+  | { isLoaded: true, sessions: SessionResource[], setActive: SetActive }
 
-export function useSessionList() {
-  const { clerk, state, isClerkLoaded } = useClerkProvide()
+export function useSessionList(): ToComputedRefs<UseSessionListReturn> {
+  const { clerk, clientCtx } = useClerkProvider()
 
   const result = computed<UseSessionListReturn>(() => {
-    if (!isClerkLoaded.value || !state.client)
-      return { isLoaded: false, sessions: undefined, setSession: undefined, setActive: undefined }
+    if (!clientCtx.value)
+      return { isLoaded: false, sessions: undefined, setActive: undefined }
 
     return {
       isLoaded: true,
-      sessions: state.client.sessions,
-      setSession: clerk.setSession,
+      sessions: clientCtx.value.sessions,
       setActive: clerk.setActive,
     }
   })

@@ -8,19 +8,21 @@ The plugin provides your application the active session and user context to Cler
 
 ## Usage
 
+::: warning
+When using Nuxt, ensure that your plugin filenames are suffixed with `.client.js` or `.client.ts`. This practice ensures that Nuxt will load them only when Vue is mounted and ready on the client, preventing them from being loaded on the server side.
+:::
+
 ```ts
 import { createApp } from 'vue'
-import { clerkPlugin } from 'vue-clerk/plugin'
-
-// or for headless mode:
-// import { clerkPlugin } from 'vue-clerk/headless'
+import { clerkPlugin } from 'vue-clerk'
 
 import App from './App.vue'
 
 const app = createApp(App)
 
 app.use(clerkPlugin, {
-  publishableKey: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+  publishableKey: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY,
+  // clerkJSVariant: 'headless'
 })
 
 app.mount('#app')
@@ -32,7 +34,11 @@ app.mount('#app')
 |:----|:----|:----|
 |`publishableKey`|`string`|Clerk publishable key for your instance. This can be found in your Clerk Dashboard on the [API Keys](https://dashboard.clerk.com/last-active?path=api-keys) page. |
 |`frontendApi`|`string`|The frontend API host for your instance. [API Keys](https://dashboard.clerk.com/last-active?path=api-keys) page. |
-|`navigate?`|`(to: string) => Promise<unknown> \| void`|A function which takes the destination path as an argument and performs a "push" navigation.|
+|`routerPush?`|`(to: string) => Promise<unknown> \| void`|A function which takes the destination path as an argument and performs a "push" navigation.|
+|`routerReplace?`|`(to: string) => Promise<unknown> \| void`|A function which takes the destination path as an argument and performs a "replace" navigation.|
+|`clerkJSUrl?`|`string`|Define the URL that `vue-clerk` should hot-load `@clerk/clerk-js` from.|
+|`clerkJSVariant?`|`string`|If your web application only uses Control components, you can set this value to `headless` and load a minimal ClerkJS bundle for optimal page performance.|
+|`clerkJSVersion?`|`string`|Define the npm version for `@clerk/clerk-js`.|
 |`supportEmail?`|`string`|Optional support email for display in authentication screens. Will only affect Clerk Components and not [Account Portal](https://clerk.com/docs/account-portal/overview) pages.|
 |`appearance?`|[`Appearance`](https://clerk.com/docs/components/customization/overview) / `undefined`|Optional object to style your components. Will only affect Clerk Components and not [Account Portal](https://clerk.com/docs/account-portal/overview) pages.|
 |`localization`|[`Localization`](https://clerk.com/docs/components/customization/localization) / `undefined`|Optional object to localize your components. Will only affect Clerk Components and not [Account Portal](https://clerk.com/docs/account-portal/overview) pages.|

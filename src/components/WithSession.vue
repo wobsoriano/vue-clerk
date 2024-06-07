@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { toReactive } from '@vueuse/core'
+import { reactive } from 'vue'
 import { useSession } from '../composables/useSession'
 
 // toReactive removes .value when accessing in template
-const props = toReactive(useSession())
+const props = reactive(useSession())
 </script>
 
 <template>
