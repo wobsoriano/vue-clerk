@@ -124,6 +124,9 @@ export const Protect = defineComponent((props: ProtectProps, { slots }) => {
   const { isLoaded, has, userId } = useAuth()
 
   return () => {
+    /**
+     * Avoid flickering children or fallback while clerk is loading sessionId or userId
+     */
     if (!isLoaded.value)
       return null
 
