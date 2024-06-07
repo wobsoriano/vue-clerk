@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@clerk/shared':
-        specifier: ^2.2.1
+        specifier: ^2.2.2
         version: 2.2.2(react@18.3.1)
       '@clerk/types':
         specifier: ^4.5.0
