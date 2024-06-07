@@ -18,8 +18,8 @@ export interface BrowserClerk extends HeadlessBrowserClerk {
   components: any
 }
 
-export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions, initialState?: InitialState): IsomorphicClerk {
-  const { publishableKey, Clerk: userInitializedClerk } = options
+export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions & { initialState?: InitialState }): IsomorphicClerk {
+  const { initialState, publishableKey, Clerk: userInitializedClerk } = options
 
   if (!userInitializedClerk) {
     if (!publishableKey)

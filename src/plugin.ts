@@ -5,8 +5,8 @@ import type { IsomorphicClerkOptions } from './types'
 import { provideClerkToVueApp } from './provideClerkToVueApp'
 
 export const clerkPlugin: Plugin = {
-  install(app, options: IsomorphicClerkOptions, initialState?: InitialState) {
-    provideClerkToVueApp(app, options, initialState)
+  install(app, options: IsomorphicClerkOptions & { initialState?: InitialState }) {
+    provideClerkToVueApp(app, options)
   },
 }
 
