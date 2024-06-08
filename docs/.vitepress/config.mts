@@ -99,6 +99,7 @@ export default defineConfig({
           { text: 'useAuth', link: '/composables/use-auth.md' },
           { text: 'useClerk', link: '/composables/use-clerk.md' },
           { text: 'useSession', link: '/composables/use-session.md' },
+          { text: 'useSessionList', link: '/composables/use-session-list.md' },
           { text: 'useSignIn', link: '/composables/use-sign-in.md' },
           { text: 'useSignUp', link: '/composables/use-sign-up.md' },
           { text: 'useUser', link: '/composables/use-user.md' },
