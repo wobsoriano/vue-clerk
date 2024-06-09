@@ -29,7 +29,7 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions &
   }
 
   const isClerkLoaded = ref(false)
-  const clerk = new IsomorphicClerk(options)
+  const clerk = IsomorphicClerk.getOrCreateInstance(options)
 
   const state = reactive<Resources>({
     client: clerk.client as ClientResource,
