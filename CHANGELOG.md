@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.4.1
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.4.0...v0.4.1)
+
+### 📖 Documentation
+
+- Add useSessionList doc ([8d5f4e5](https://github.com/wobsoriano/vue-clerk/commit/8d5f4e5))
+
+### 🏡 Chore
+
+- Remove vueuse ([9e8e597](https://github.com/wobsoriano/vue-clerk/commit/9e8e597))
+- Remove redundant type ([ad10082](https://github.com/wobsoriano/vue-clerk/commit/ad10082))
+- Bump all non-major dependencies ([860ef5d](https://github.com/wobsoriano/vue-clerk/commit/860ef5d))
+- Update initial state values ([86d8668](https://github.com/wobsoriano/vue-clerk/commit/86d8668))
+- Use getOrCreateInstance method when instantiating clerk ([2752281](https://github.com/wobsoriano/vue-clerk/commit/2752281))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.4.0
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.3.8...v0.4.0)
