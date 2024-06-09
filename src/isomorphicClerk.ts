@@ -165,6 +165,10 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
   private premountOrganizationListNodes = new Map<HTMLDivElement, OrganizationListProps>()
   private premountMethodCalls = new Map<MethodName<BrowserClerk>, MethodCallback>()
   private loadedListeners: Array<() => void> = []
+  private premountAddListeners = new Map<
+    ListenerCallback,
+    { listener: ListenerCallback, unsubscribe: UnsubscribeCallback, clerkUnsubscribe?: UnsubscribeCallback }
+  >()
 
   #loaded = false
   #domain: DomainOrProxyUrl['domain']
@@ -450,6 +454,9 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
     this.clerkjs = clerkjs
 
     this.premountMethodCalls.forEach(cb => cb())
+    for (const item of this.premountAddListeners.values()) {
+      item.clerkUnsubscribe = clerkjs.addListener(item.listener)
+    }
 
     if (this.preopenSignIn !== null)
       clerkjs.openSignIn(this.preopenSignIn)
@@ -765,14 +772,20 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
   }
 
   addListener = (listener: ListenerCallback): UnsubscribeCallback => {
-    const callback = () => this.clerkjs?.addListener(listener)
-
     if (this.clerkjs) {
-      return callback() as UnsubscribeCallback
+      return this.clerkjs.addListener(listener)
     }
     else {
-      this.premountMethodCalls.set('addListener', callback)
-      return () => this.premountMethodCalls.delete('addListener')
+      const unsubscribe = () => {
+        const item = this.premountAddListeners.get(listener)
+        if (item) {
+          if (item.clerkUnsubscribe)
+            item.clerkUnsubscribe()
+          this.premountAddListeners.delete(listener)
+        }
+      }
+      this.premountAddListeners.set(listener, { listener, unsubscribe })
+      return unsubscribe
     }
   }
 
