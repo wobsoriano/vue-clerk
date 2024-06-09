@@ -32,10 +32,10 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions &
   const clerk = new IsomorphicClerk(options)
 
   const state = reactive<Resources>({
-    client: {} as ClientResource,
-    session: undefined,
-    user: undefined,
-    organization: undefined,
+    client: clerk.client as ClientResource,
+    session: clerk.session,
+    user: clerk.user,
+    organization: clerk.organization,
   })
 
   clerk.addListener((payload) => {
