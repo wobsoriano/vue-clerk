@@ -26,8 +26,9 @@ const { isLoaded, sessions } = useSessionList()
 
 <template>
   <div v-if="isLoaded">
-    <p>Welcome back. You have been here
-       {{sessions.length}} times before.
+    <p>
+      Welcome back. You have been here
+      {{ sessions.length }} times before.
     </p>
   </div>
 </template>
