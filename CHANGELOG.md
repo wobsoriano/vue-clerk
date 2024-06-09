@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.4.2
+
+[compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.4.1...v0.4.2)
+
+### 🏡 Chore
+
+- Remove unnecessary type assertion ([deb1b34](https://github.com/wobsoriano/vue-clerk/commit/deb1b34))
+
+### ❤️ Contributors
+
+- Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
+
 ## v0.4.1
 
 [compare changes](https://github.com/wobsoriano/vue-clerk/compare/v0.4.0...v0.4.1)
