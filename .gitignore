@@ -11,7 +11,7 @@ logs
 node_modules
 temp
 .vscode
-
+.vitepress
 
 docs/.vitepress/dist
 docs/.vitepress/cache
