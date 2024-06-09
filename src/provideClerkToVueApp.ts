@@ -47,7 +47,7 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions &
     isClerkLoaded.value = true
   })
 
-  const derivedState = computed(() => deriveState(isClerkLoaded.value, state as Resources, initialState))
+  const derivedState = computed(() => deriveState(isClerkLoaded.value, state, initialState))
 
   const authCtx = computed(() => {
     const { sessionId, userId, orgId, actor, orgRole, orgSlug, orgPermissions } = derivedState.value
