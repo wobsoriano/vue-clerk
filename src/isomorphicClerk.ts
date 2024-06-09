@@ -167,7 +167,7 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
   private loadedListeners: Array<() => void> = []
   private premountAddListeners = new Map<
     ListenerCallback,
-    { listener: ListenerCallback; unsubscribe: UnsubscribeCallback; clerkUnsubscribe?: UnsubscribeCallback }
+    { listener: ListenerCallback, unsubscribe: UnsubscribeCallback, clerkUnsubscribe?: UnsubscribeCallback }
   >()
 
   #loaded = false
@@ -454,7 +454,7 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
     this.clerkjs = clerkjs
 
     this.premountMethodCalls.forEach(cb => cb())
-    for (const [key, item] of this.premountAddListeners) {
+    for (const item of this.premountAddListeners.values()) {
       item.clerkUnsubscribe = clerkjs.addListener(item.listener)
     }
 
@@ -774,11 +774,13 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
   addListener = (listener: ListenerCallback): UnsubscribeCallback => {
     if (this.clerkjs) {
       return this.clerkjs.addListener(listener)
-    } else {
+    }
+    else {
       const unsubscribe = () => {
         const item = this.premountAddListeners.get(listener)
         if (item) {
-          if (item.clerkUnsubscribe) item.clerkUnsubscribe()
+          if (item.clerkUnsubscribe)
+            item.clerkUnsubscribe()
           this.premountAddListeners.delete(listener)
         }
       }
