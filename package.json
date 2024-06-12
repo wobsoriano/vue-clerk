@@ -35,7 +35,7 @@
   ],
   "scripts": {
     "dev": "tsup --watch --onSuccess \"pnpm build:dts && pnpm --filter playground dev\"",
-    "build": "tsup --onSuccess \"pnpm build:dts\"",
+    "build": "tsup --env.NODE_ENV production --onSuccess \"pnpm build:dts\"",
     "build:dts": "vue-tsc --declaration --emitDeclarationOnly",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

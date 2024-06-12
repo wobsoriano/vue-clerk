@@ -6,13 +6,15 @@ import { name, version } from './package.json'
 const clerkJsVersion = '5'
 
 export default defineConfig((overrideOptions) => {
+  const isProd = overrideOptions.env?.NODE_ENV === 'production'
   const isWatch = !!overrideOptions.watch
 
   return {
     entry: ['src/index.ts', 'src/plugin.ts'],
     format: ['cjs', 'esm'],
     splitting: true,
-    clean: false,
+    clean: true,
+    minify: isProd,
     dts: false,
     esbuildPlugins: [vuePlugin()],
     define: {
