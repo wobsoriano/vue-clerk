@@ -2,19 +2,12 @@
 import type { RedirectUrlProp } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
 
-const props = withDefaults(defineProps<RedirectUrlProp & {
-  mode?: 'modal' | 'redirect'
-}>(), {
-  mode: 'redirect',
-})
+const props = defineProps<RedirectUrlProp>()
 
 const clerk = useClerk()
 
 function clickHandler() {
-  async function authenticate() {
-    await clerk.authenticateWithMetamask({ redirectUrl: props.redirectUrl || undefined })
-  }
-  void authenticate()
+  void clerk.authenticateWithMetamask({ redirectUrl: props.redirectUrl || undefined })
 }
 </script>
 
