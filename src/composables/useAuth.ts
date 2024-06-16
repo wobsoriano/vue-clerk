@@ -1,12 +1,51 @@
 import type { ActJWTClaim, CheckAuthorizationWithCustomPermissions, GetToken, OrganizationCustomRoleKey, SignOut } from '@clerk/types'
 import { computed } from 'vue'
 import type { ToComputedRefs } from '../utils'
-import { createGetToken, createSignOut, toComputedRefs } from '../utils'
+import { toComputedRefs } from '../utils'
 import { invalidStateError, useAuthHasRequiresRoleOrPermission } from '../errors/messages'
+import type { IsomorphicClerk } from '../isomorphicClerk'
 import { useClerkProvider } from './useClerkProvider'
 
 type CheckAuthorizationSignedOut = undefined
 type CheckAuthorizationWithoutOrgOrUser = (params?: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => false
+
+/**
+ * @param clerk
+ * @internal
+ */
+function clerkLoaded(clerk: IsomorphicClerk) {
+  return new Promise<void>((resolve) => {
+    if (clerk.loaded)
+      resolve()
+
+    clerk.addOnLoaded(() => resolve())
+  })
+}
+
+/**
+ * @param clerk
+ * @internal
+ */
+export function createGetToken(clerk: IsomorphicClerk) {
+  return async (options: any) => {
+    await clerkLoaded(clerk)
+    if (!clerk.session)
+      return null
+
+    return clerk.session.getToken(options)
+  }
+}
+
+/**
+ * @param clerk
+ * @internal
+ */
+export function createSignOut(clerk: IsomorphicClerk) {
+  return async (...args: any) => {
+    await clerkLoaded(clerk)
+    return clerk.signOut(...args)
+  }
+}
 
 type UseAuthReturn =
   | {
