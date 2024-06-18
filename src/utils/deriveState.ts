@@ -1,3 +1,11 @@
+/*!
+ * Original code by Clerk, Inc.
+ * MIT Licensed, Copyright 2022 Clerk, Inc., see https://github.com/clerk/javascript/blob/main/packages/react/LICENSE for details
+ *
+ * Credits to the Clerk team:
+ * https://github.com/clerk/javascript/blob/main/packages/react/src/utils/deriveState.ts
+ */
+
 import type { ActiveSessionResource, InitialState, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, OrganizationResource, Resources, UserResource } from '@clerk/types'
 
 export function deriveState(clerkLoaded: boolean, state: Resources, initialState: InitialState | undefined) {

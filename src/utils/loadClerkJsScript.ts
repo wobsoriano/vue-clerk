@@ -1,3 +1,11 @@
+/*!
+ * Original code by Clerk, Inc.
+ * MIT Licensed, Copyright 2022 Clerk, Inc., see https://github.com/clerk/javascript/blob/main/packages/react/LICENSE for details
+ *
+ * Credits to the Clerk team:
+ * https://github.com/clerk/javascript/blob/main/packages/react/src/utils/loadClerkJsScript.ts
+ */
+
 import { parsePublishableKey } from '@clerk/shared/keys'
 import { loadScript } from '@clerk/shared/loadScript'
 import { isValidProxyUrl, proxyUrlToAbsoluteURL } from '@clerk/shared/proxy'

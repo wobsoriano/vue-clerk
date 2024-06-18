@@ -1,3 +1,11 @@
+/*!
+ * Original code by Clerk, Inc.
+ * MIT Licensed, Copyright 2022 Clerk, Inc., see https://github.com/clerk/javascript/blob/main/packages/react/LICENSE for details
+ *
+ * Credits to the Clerk team:
+ * https://github.com/clerk/javascript/blob/main/packages/react/src/isomorphicClerk.ts
+ */
+
 import type {
   ActiveSessionResource,
   AuthenticateWithGoogleOneTapParams,
@@ -38,6 +46,7 @@ import type {
 } from '@clerk/types'
 
 import { inBrowser } from '@clerk/shared/browser'
+import { handleValueOrFn } from '@clerk/shared/handleValueOrFn'
 import { errorThrower } from './errors/errorThrower'
 import { unsupportedNonBrowserDomainOrProxyUrlFunction } from './errors/messages'
 import type {
@@ -48,7 +57,7 @@ import type {
   HeadlessBrowserClerkConstructor,
   IsomorphicClerkOptions,
 } from './types'
-import { handleValueOrFn, isConstructor, loadClerkJsScript } from './utils/index'
+import { isConstructor, loadClerkJsScript } from './utils/index'
 
 const SDK_METADATA = {
   name: PACKAGE_NAME,
