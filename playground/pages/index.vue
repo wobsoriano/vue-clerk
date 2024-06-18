@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import { ClerkLoaded } from 'vue-clerk';
 import { OrganizationSwitcher, SignOutButton, WithUser, useAuth } from 'vue-clerk'
 
 const { isSignedIn, isLoaded } = useAuth()
-
-// onMounted(() => {
-//   console.log(getCurrentInstance().setupState)
-// })
 </script>
 
 <template>
@@ -31,7 +26,6 @@ const { isSignedIn, isLoaded } = useAuth()
     <SignOutButton />
   </div>
   <div v-else>
-    <!-- <SignInButton mode="modal" /> -->
-    <!-- <div v-clerk /> -->
+    <SignInButton mode="modal" />
   </div>
 </template>
