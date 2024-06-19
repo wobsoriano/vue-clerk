@@ -8,10 +8,6 @@ The plugin provides your application the active session and user context to Cler
 
 ## Usage
 
-::: warning
-When using Nuxt, ensure that your plugin filenames are suffixed with `.client.js` or `.client.ts`. This practice ensures that Nuxt will load them only when Vue is mounted and ready on the client, preventing them from being loaded on the server side.
-:::
-
 ```ts
 import { createApp } from 'vue'
 import { clerkPlugin } from 'vue-clerk'
