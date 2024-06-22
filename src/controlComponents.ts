@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import type { CheckAuthorizationWithCustomPermissions, HandleOAuthCallbackParams, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, RedirectOptions } from '@clerk/types'
 import { useAuth } from './composables/useAuth'
 import { useClerkProvider } from './composables/useClerkProvider'
@@ -40,10 +40,10 @@ export const RedirectToSignIn = defineComponent((props: RedirectOptions) => {
   const { sessionCtx, clientCtx } = useClerkProvider()
   const clerk = useClerk()
 
-  const hasActiveSessions = computed(() => clientCtx.value?.activeSessions && clientCtx.value.activeSessions.length > 0)
+  const hasActiveSessions = clientCtx.value?.activeSessions && clientCtx.value.activeSessions.length > 0
 
   onMounted(() => {
-    if (sessionCtx.value === null && hasActiveSessions.value)
+    if (sessionCtx.value === null && hasActiveSessions)
       void clerk.redirectToAfterSignOut()
     else
       void clerk.redirectToSignIn(props)
