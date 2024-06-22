@@ -4,15 +4,17 @@ outline: deep
 
 # useClerk()
 
-Access the Clerk object inside your components.
+The `useClerk()` composable provides access to the [`Clerk`](https://clerk.com/docs/references/javascript/clerk/clerk) object, giving you the ability to build alternatives to any Clerk Component.
 
-## Overview
+::: warning
+This is intended to be used for advanced use cases, like building a completely custom OAuth flow or as an escape hatch for getting access to the `Clerk` object.
+:::
 
-The `useClerk` composable accesses the [Clerk](https://clerk.com/docs/reference/clerkjs/clerk) object. It can be used to retrieve any object in the [ClerkJS](https://reference.clerk.dev/reference/clerkjs) SDK. Moreover, it allows access to all of the [Clerk object's methods](https://clerk.com/docs/reference/clerkjs/clerk#methods), giving you the freedom to build alternatives to any [Clerk Component](https://clerk.com/docs/reference/clerkjs/clerk).
+## Returns
+
+The `useClerk()` composable returns the `Clerk` object, which includes all the methods and properties listed in the [`Clerk` reference](https://clerk.com/docs/references/javascript/clerk/clerk).
 
 ## Usage
-
-An example of the `useClerk` composable in action is shown below. We get access to the [Clerk](https://clerk.com/docs/reference/clerkjs/clerk) object in order to render a button that opens the [sign in](https://clerk.com/docs/component-reference/sign-in) form as a modal.
 
 ```vue
 <script setup>

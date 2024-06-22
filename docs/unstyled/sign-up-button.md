@@ -6,6 +6,16 @@ outline: deep
 
 The `<SignUpButton>` component is a button that links to the sign-up page or displays the sign-up modal.
 
+## Props
+
+Click [here](https://clerk.com/docs/components/unstyled/sign-up-button#sign-up-button-properties) to see the full list of props available.
+
+## Slots
+
+|Name|Description|
+|:----|:----|
+|`default?`|children you want to wrap the `<SignUpButton>` in.|
+
 ## Usage
 
 ### Basic Usage
@@ -43,18 +53,3 @@ import { SignUpButton } from 'vue-clerk'
   </div>
 </template>
 ```
-
-## Props
-
-|Name|Type|Description|
-|:----|:----|:----|
-|`redirectUrl`|`string`|Full URL or path to navigate after successful sign in or sign up. The same as setting `afterSignInUrl` and `afterSignUpUrl` to the same value.|
-|`afterSignInUrl`|`string`|The full URL or path to navigate after a successful sign in.|
-|`afterSignUpUrl`|`string`|The full URL or path to navigate after a successful sign up.|
-|`mode`|`'redirect' \|'modal'`|Determines what happens when a user clicks on the `<SignInButton>`. Setting this to `'redirect'` will redirect the user to the sign-in route. Setting this to `'modal'` will open a modal on the current route.Defaults to 'redirect'`|
-
-## Slots
-
-|Name|Description|
-|:----|:----|
-|`default?`|children you want to wrap the `<SignUpButton>` in.|

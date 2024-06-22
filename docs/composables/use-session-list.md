@@ -6,12 +6,9 @@ outline: deep
 
 The `useSessionList()` composable returns an array of [`Session`](https://clerk.com/docs/references/javascript/session) objects that have been registered on the client device.
 
-## Properties
+## Returns
 
-|Name|Type|Description|
-|--- |--- |--- |
-|isLoaded|`boolean`|A boolean that is set to `false` until Clerk loads and initializes.|
-|sessions|[`Session[]`](https://clerk.com/docs/references/javascript/session)|A boolean that is set to `false` until Clerk loads and initializes.|
+Click [here](https://clerk.com/docs/references/react/use-session-list#use-session-list-returns) to see the full list of properties returned.
 
 ## Usage
 

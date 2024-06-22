@@ -9,6 +9,10 @@ outline: deep
 
 The `<CreateOrganization />` component is used to render an organization creation UI that allows users to create brand new organizations within your application.
 
+## Props
+
+Click [here](https://clerk.com/docs/components/organization/create-organization#properties) to see the full list of props available.
+
 ## Usage
 
 ```vue
@@ -20,12 +24,3 @@ import { CreateOrganization } from 'vue-clerk'
   <CreateOrganization />
 </template>
 ```
-
-## Props
-
-|Name|Type|Description|
-|:----|:----|:----|
-|`afterCreateOrganizationUrl`|`string`|Full URL or path to navigate after creating a new organization.|
-|`routing`|`'hash' \|'path' \|'virtual'`|The routing strategy for your pages.|
-|`path`|`string`|The path where the component is mounted when path-based routing is used. -e.g. /create-org. This prop is ignored in hash and virtual based routing.|
-|`appearance`|[`Appearance`](https://clerk.com/docs/components/customization/overview) / `undefined`|Optional object to style your components. Will only affect Clerk Components and not [Account Portal](https://clerk.com/docs/account-portal/overview) pages.|

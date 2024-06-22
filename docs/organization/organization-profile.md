@@ -9,6 +9,14 @@ outline: deep
 
 The `<OrganizationProfile />` component is used to render a beautiful, full-featured organization management UI that allows users to manage their organization profile and security settings.
 
+Out of the box, this component's General tab displays the organization's information and the Leave organization button. Admins will be able to see the Update profile button, Verified domains section, and Delete organization button.
+
+The Members tab shows the organization's members along with their join dates and roles. Admins will have the ability to invite a member, change a member's role, or remove them from the organization. Admins will have tabs within the Members tab to view the organization's [invitations](https://clerk.com/docs/organizations/overview#organization-invitations) and [requests](https://clerk.com/docs/organizations/overview#membership-requests).
+
+## Props
+
+Click [here](https://clerk.com/docs/components/organization/organization-profile#properties) to see the full list of props available.
+
 ## Usage
 
 ```vue
@@ -17,15 +25,6 @@ import { OrganizationProfile } from 'vue-clerk'
 </script>
 
 <template>
-  <OrganizationProfile />
+  <OrganizationProfile path="/organization-profile" />
 </template>
 ```
-
-## Props
-
-|Name|Type|Description|
-|:----|:----|:----|
-|`afterLeaveOrganizationUrl`|`string`|Full URL or path to navigate after leaving an organization.|
-|`routing`|`'hash' \|'path' \|'virtual'`|The routing strategy for your pages.|
-|`path`|`string`|The path where the component is mounted when path-based routing is used. -e.g. /create-org. This prop is ignored in hash and virtual based routing.|
-|`appearance`|[`Appearance`](https://clerk.com/docs/components/customization/overview) \| `undefined`|Optional object to style your components. Will only affect Clerk Components and not [Account Portal](https://clerk.com/docs/account-portal/overview) pages.|
