@@ -6,6 +6,10 @@ outline: deep
 
 Learn how to make Vue Clerk components available in your project.
 
+::: info
+To reduce the time of going back and forth between the official [Clerk docs](https://clerk.com/docs) and the Vue Clerk docs, we have copied most of the content you will see here from the Clerk docs and added some Vue-specific information.
+:::
+
 ## Overview
 
 Vue Clerk is a wrapper around ClerkJS. It's a way to integrate Clerk into your Vue application.

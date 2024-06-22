@@ -9,25 +9,18 @@ outline: deep
 
 The `<UserProfile />` component is used to render a beautiful, full-featured account management UI that allows users to manage their profile and security settings.
 
+## Props
+
+Click [here](https://clerk.com/docs/components/user/user-profile#properties) to see the full list of props available.
+
 ## Usage
 
 ```vue
 <script setup>
-import { UserProfile, useAuth } from 'vue-clerk'
-
-const { isSignedIn } = useAuth()
+import { UserProfile } from 'vue-clerk'
 </script>
 
 <template>
-  <UserProfile path="/user-profile" routing="path" />
+  <UserProfile path="/user-profile" />
 </template>
 ```
-
-## Props
-
-|Name|Type|Description|
-|:----|:----|:----|
-|`appearance`|[`Appearance`](https://clerk.com/docs/components/customization/overview) / `undefined`|Optional object to style your components. Will only affect Clerk Components and not [Account Portal](https://clerk.com/docs/account-portal/overview) pages.|
-|`routing`|`'hash' \|'path' \|'virtual'`|The routing strategy for your pages.|
-|`path`|`string`|The path where the component is mounted on when path-based routing is used e.g. /sign-in.|
-|`additionalOAuthScopes`|`object`|Specify additional scopes per OAuth provider that your users would like to provide if not already approved. e.g. `{google: ['foo', 'bar'], github: ['qux']}`.|

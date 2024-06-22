@@ -4,15 +4,19 @@ outline: deep
 
 # useUser()
 
-Access the User object inside of your component
+The `useUser()` composable is a convenient way to access the current [`User`](https://clerk.com/docs/references/javascript/user/user) data where you need it. This composable provides the user data and helper methods to manage the current active session.
 
-## Overview
+## Returns
 
-The useUser composable returns the current user state: `{ isLoaded, isSignedIn, user }`. You can use the `user` object to access the currently active [User](https://clerk.com/docs/reference/clerkjs/user). It can be used to update the user or display information about the user's profile, like their name or email address.
+Click [here](https://clerk.com/docs/references/react/use-user#use-user-returns) to see the full list of properties returned.
 
 ## Usage
 
-### Retrieve user data
+### Retrieve the current user data
+
+The following example demonstrates how to use the `useUser()` composable to access the `user` object, which includes the current user's data, like the user's full name. The `isLoaded` and `isSignedIn` properties are used to handle the loading state and to check if the user is signed in, respectively.
+
+For more information on the `User` object, see the [reference](https://clerk.com/docs/references/javascript/user/user).
 
 ```vue
 <script setup>
@@ -22,13 +26,19 @@ const { isLoaded, isSignedIn, user } = useUser()
 </script>
 
 <template>
-  <div v-if="isLoaded && isSignedIn">
-    Hello, {{ user.firstName }} welcome to Clerk
+  <div v-if="!isLoaded">
+    Loading...
+  </div>
+  <div v-else-if="!isSignedIn">
+    Not signed in
+  </div>
+  <div v-else>
+    Hello, {{ user.fullName }}!
   </div>
 </template>
 ```
 
-### Update user data
+### Update the current user data
 
 ```vue
 <script setup>
@@ -57,7 +67,9 @@ async function updateUser() {
 
 ### Reload user data
 
-In some circumstances you need retrieve the latest user data after updating your user in your backend. You can use `user.reload()` to reload the data on the frontend.
+To retrieve the latest user data after updating the user elsewhere, use the `user.reload()` method.
+
+For more information on the `reload()` method, see the [`User`](https://clerk.com/docs/references/javascript/user/user#reload) reference.
 
 ```vue
 <script setup>
@@ -68,9 +80,12 @@ const { user } = useUser()
 async function updateUser() {
   // updated data via an api point
   const updateMeta = await fetch('/api/updateMetadata')
+
+  // Check if the update was successful
   if (!updateMeta.message === 'success')
     throw new Error('Error updating')
 
+  // If the update was successful, reload the user data
   user.value.reload()
 }
 </script>
@@ -84,37 +99,3 @@ async function updateUser() {
   </div>
 </template>
 ```
-
-## Alternatives
-
-There are times where using a composable might be inconvenient. For such cases, there are alternative ways to get access to the [User](https://clerk.com/docs/reference/clerkjs/user) object.
-
-Vue Clerk provides the `<WithUser/>` component that will allow your wrapped components to get access to the currently signed in user.
-
-```vue
-<script>
-import { WithUser } from 'vue-clerk'
-
-export default {
-  components: { WithUser }
-}
-</script>
-
-<template>
-  <WithUser v-slot="{ user }">
-    {{ user?.firstName ? `Hello, ${user.firstName}` : 'Hello there!' }}
-  </WithUser>
-</template>
-```
-
-## Props
-
-|Name|Type|Description|
-|--- |--- |--- |
-|userId|`string`|The ID of the active user, or null when signed out. In data-loaders, this is often the only piece of information needed to securely retrieve the data associated with a request.|
-|sessionId|`string`|The ID of the active session, or null when signed out. This is primarily used in audit logs to enable device-level granularity instead of user-level.|
-|actor|`string`|If user impersonation is being used, this field will contain information about the impersonator.|
-|getToken({ template?: string; })|`string`|Retrieves a signed JWT that is structured according to the corresponding JWT template in your dashboard. If no template parameter is provided, a default Clerk session JWT is returned.|
-|orgId|`string`|A unique identifier for this organization.|
-|orgRole|`string`|The role that the user will have in the organization. Valid values are admin and basic_member|
-|claims|`object`|All claims for the JWT associated with the current user|

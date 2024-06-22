@@ -4,82 +4,33 @@ outline: deep
 
 # useSignUp()
 
-Access the SignUp object inside your components.
+The `useSignUp()` composable gives you access to the [`SignUp`](https://clerk.com/docs/references/javascript/sign-up/sign-up) object, which allows you to check the current state of a sign-up. This is also useful for creating a custom sign-up flow.
 
-## Overview
+## Returns
 
-The `useSignUp` composable gives you access to the [SignUp](https://clerk.com/docs/reference/clerkjs/signup) object inside your components.
-
-You can use the methods of the `SignUp` object to create your own custom sign up flow, as an alternative to using Clerk's pre-built [<SignUp/>](/authentication/sign-up.html) component.
-
-The `SignUp` object will also contain the state of the sign up attempt that is currently in progress, giving you the chance to examine all the details and act accordingly.
+Click [here](https://clerk.com/docs/references/react/use-sign-up#use-sign-up-returns) to see the full list of properties returned.
 
 ## Usage
 
-Getting access to the [SignUp](https://clerk.com/docs/reference/clerkjs/signup) object from inside one of your components is easy. Note that the `useSignUp` composable can only be used if you installed the plugin.
+### Check the current state of a up
 
-The following example accesses the `SignUp` object to check the current sign up attempt's status.
+Use the `useSignUp()` composable to check the current state of a sign-up.
 
 ```vue
-<script setup>
-import { useSignUp } from 'vue-clerk'
+<script>
+import { useSignIn } from 'vue-clerk'
 
-const { isLoaded, signUp } = useSignUp()
+const { isLoaded, signUp } = useSignIn()
 </script>
 
 <template>
   <div v-if="isLoaded">
-    The current sign up attempt status
-    is {{ signUp.status }}.
+    The current sign-up attempt status is {{ signUp.status }}.
   </div>
+  <div v-else>Loading...</div>
 </template>
 ```
 
-A more involved example follows below. In this example, we show an approach to create your own custom form for registering users.
+### Create a custom sign-up flow
 
-```vue
-<script setup>
-import { ref } from 'vue'
-import { useSignUp } from 'vue-clerk'
-
-const { isLoaded, signUp, setActive } = useSignUp()
-
-const email = ref('')
-const password = ref('')
-
-async function submit() {
-  await signUp
-    .value
-    .create({
-      emailAddress: email.value,
-      password: password.value,
-    })
-    .then((result) => {
-      if (result.status === 'complete') {
-        console.log(result)
-        setActive({ session: result.createdSessionId })
-      }
-      else {
-        console.log(result)
-      }
-    })
-    .catch(err => console.error('error', err.errors[0].longMessage))
-}
-</script>
-
-<template>
-  <form v-if="isLoaded" @submit.prevent="submit">
-    <div>
-      <label for="email">Email</label>
-      <input v-model="email" type="email">
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input v-model="password" type="password">
-    </div>
-    <div>
-      <button>Sign Up</button>
-    </div>
-  </form>
-</template>
-```
+The `useSignUp()` composable can also be used to build fully custom sign-up flows, if Clerk's pre-built components don't meet your specific needs or if you require more control over the authentication flow. Different sign-up flows include email and password, email and phone codes, email links, and multifactor (MFA). To learn more about using the `useSignUp()` composable to create custom flows, check out the [custom flow guides](https://clerk.com/docs/custom-flows/overview).

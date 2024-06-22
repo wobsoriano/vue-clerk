@@ -6,6 +6,16 @@ outline: deep
 
 The `<SignOutButton>` component is a button that signs a user out. By default, it is a `<button>` tag that says Sign Out, but it is completely customizable by passing children.
 
+## Props
+
+Click [here](https://clerk.com/docs/components/unstyled/sign-out-button#sign-out-button-properties) to see the full list of props available.
+
+## Slots
+
+|Name|Description|
+|:----|:----|
+|`default?`|children you want to wrap the `<SignOutButton>` in.|
+
 ## Usage
 
 ### Basic Usage
@@ -46,11 +56,17 @@ import { SignOutButton } from 'vue-clerk'
 
 ### Multi-session usage
 
+<br />
+
+#### Sign out of all sessions
+
+Clicking the `<SignOutButton>` component signs the user out of all sessions. This is the default behavior.
+
 #### Sign out of a specific session
 
 You can sign out of a specific session by passing in a `sessionId` to the `signOutOptions` prop. This is useful for signing a single account out of a multi-session (multiple account) application.
 
-In the example below, the `sessionId` is retrieved from the [`useAuth()`](/composables/use-auth) composable.
+In the example below, the `sessionId` is retrieved from the [`useAuth()`](/composables/use-auth) composable. If the user is not signed in, the `sessionId` will be `null`, and the user is shown the `<SignInButton>` component. If the user is signed in, the user is shown the `<SignOutButton>` component, which when clicked, signs the user out of that specific session.
 
 ```vue
 <script setup>
@@ -61,45 +77,8 @@ const { sessionId } = useAuth()
 
 <template>
   <div>
-    <h1>{{ sessionId ? 'Sign out' : 'Sign in' }}</h1>
-    <SignOutButton v-if="sessionId" :sign-out-options="{ sessionId }" />
-    <SignInButton v-else />
+    <SignInButton v-if="!sessionId" />
+    <SignOutButton v-else :sign-out-options="{ sessionId }" />
   </div>
 </template>
 ```
-
-Sign out of all sessions
-
-#### Sign out of all sessions
-
-You can sign out of all currently active sessions by passing a callback that returns the `signOut()` method to the signOutCallback prop. This is useful for signing out all currently active accounts from a multi-session (multiple account) application.
-
-In the example below, the `signOut()` method is retrieved from the [`useClerk()`](/composables/use-clerk) composable.
-
-```vue
-<script setup>
-import { SignOutButton, useClerk } from 'vue-clerk'
-
-const { signOut } = useClerk()
-</script>
-
-<template>
-  <div>
-    <h1>Sign out</h1>
-    <SignOutButton :sign-out-callback="signOut" />
-  </div>
-</template>
-```
-
-## Props
-
-|Name|Type|Description|
-|:----|:----|:----|
-|`signOutCallback?`|`() => (void \|Promise<any>)`|A promise to handle after the sign out has successfully happened.|
-|`signOutOptions?`|`SignOutOptions`|Object that has a `sessionId` property. The `sessionId` can be passed in to sign out a specific session, which is useful for multisession applications.|
-
-## Slots
-
-|Name|Description|
-|:----|:----|
-|`default?`|children you want to wrap the `<SignOutButton>` in.|

@@ -4,7 +4,7 @@ outline: deep
 
 # `<ClerkLoaded />`
 
-The `<ClerkLoaded>` component guarantees that the [Clerk](https://clerk.com/docs/reference/clerkjs/clerk) object has loaded before rendering its children.
+The `<ClerkLoaded>` component guarantees that the Clerk object has loaded and will be available under `window.Clerk`. This allows you to wrap child components to access the `Clerk` object without the need to check it exists.
 
 ## Usage
 
@@ -21,13 +21,12 @@ import { ClerkLoaded } from 'vue-clerk'
 ```
 
 ```vue
-<script>
-export default {
-  name: 'Page',
-  mounted() {
-    document.title = this.$clerk.version
-  }
-}
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  document.title = 'This page uses Clerk ' + window.Clerk.version
+})
 </script>
 
 <template>
