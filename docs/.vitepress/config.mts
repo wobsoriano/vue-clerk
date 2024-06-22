@@ -8,6 +8,7 @@ export default defineConfig({
   description: 'Clerk composables and components for Vue',
   lastUpdated: true,
   cleanUrls: true,
+  ignoreDeadLinks: [/^https?:\/\/localhost/],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
