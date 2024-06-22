@@ -38,6 +38,7 @@ export default defineConfig({
       {
         text: 'Introduction',
         items: [
+          { text: 'What is Vue Clerk?', link: '/what-is-vue-clerk' },
           { text: 'Getting Started', link: '/getting-started' },
           { text: 'Plugin', link: '/plugin' },
         ],

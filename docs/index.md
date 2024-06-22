@@ -8,7 +8,10 @@ hero:
   tagline: Easiest way to add authentication and user management to your Vue application
   actions:
     - theme: brand
-      text: Getting Started
+      text: What is Vue Clerk?
+      link: /what-is-vue-clerk
+    - theme: alt
+      text: Quickstart
       link: /getting-started
     - theme: alt
       text: View on GitHub
