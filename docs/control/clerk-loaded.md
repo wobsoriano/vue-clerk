@@ -25,7 +25,7 @@ import { ClerkLoaded } from 'vue-clerk'
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  document.title = 'This page uses Clerk ' + window.Clerk.version
+  document.title = `This page uses Clerk ${window.Clerk.version}`
 })
 </script>
 

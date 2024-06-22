@@ -21,7 +21,7 @@ In the following example, `<UserButton />` is mounted inside a header component,
 
 ```vue
 <script setup>
-import { SignedIn, SignedOut, SignInButton, UserButton } from 'vue-clerk'
+import { SignInButton, SignedIn, SignedOut, UserButton } from 'vue-clerk'
 </script>
 
 <template>

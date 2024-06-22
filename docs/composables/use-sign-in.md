@@ -27,7 +27,9 @@ const { isLoaded, signIn } = useSignIn()
   <div v-if="isLoaded">
     The current sign in attempt status is {{ signIn.status }}.
   </div>
-  <div v-else>Loading...</div>
+  <div v-else>
+    Loading...
+  </div>
 </template>
 ```
 

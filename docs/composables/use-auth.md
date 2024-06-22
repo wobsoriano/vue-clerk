@@ -20,10 +20,10 @@ import { useAuth } from 'vue-clerk'
 
 const { getToken, isLoaded, isSignedIn } = useAuth()
 
-const fetchDataFromExternalResource = async () => {
-  const token = await getToken.value();
+async function fetchDataFromExternalResource() {
+  const token = await getToken.value()
   // Add logic to fetch your data
-  return data;
+  return data
 }
 </script>
 

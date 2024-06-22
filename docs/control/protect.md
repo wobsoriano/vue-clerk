@@ -71,7 +71,7 @@ import { Protect } from 'vue-clerk'
 </script>
 
 <template>
-  <Protect :condition="(has) => has({role: 'org:admin'}) || has({role: 'org:billing_manager'})">
+  <Protect :condition="(has) => has({ role: 'org:admin' }) || has({ role: 'org:billing_manager' })">
     <template #fallback>
       <p>Only an Admin or Billing Manager can access this content.</p>
     </template>
