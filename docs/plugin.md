@@ -8,7 +8,7 @@ The plugin provides your application the active session and user context to Cler
 
 ## Usage
 
-```ts
+```ts{2,8,9,10}
 import { createApp } from 'vue'
 import { clerkPlugin } from 'vue-clerk'
 
@@ -18,7 +18,6 @@ const app = createApp(App)
 
 app.use(clerkPlugin, {
   publishableKey: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY,
-  // clerkJSVariant: 'headless'
 })
 
 app.mount('#app')
