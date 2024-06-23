@@ -26,7 +26,7 @@ function clerkLoaded(clerk: IsomorphicClerk) {
  * @param clerk
  * @internal
  */
-export function createGetToken(clerk: IsomorphicClerk) {
+function createGetToken(clerk: IsomorphicClerk) {
   return async (options: any) => {
     await clerkLoaded(clerk)
     if (!clerk.session)
@@ -40,7 +40,7 @@ export function createGetToken(clerk: IsomorphicClerk) {
  * @param clerk
  * @internal
  */
-export function createSignOut(clerk: IsomorphicClerk) {
+function createSignOut(clerk: IsomorphicClerk) {
   return async (...args: any) => {
     await clerkLoaded(clerk)
     return clerk.signOut(...args)
