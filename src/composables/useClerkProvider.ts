@@ -6,7 +6,7 @@ export function useClerkProvider() {
 
   if (!ctx) {
     throw new Error(
-      'This composable can only be used when the Vue Clerk plugin is installed. Learn more: https://vue-clerk.vercel.app/plugin',
+      'This composable can only be used when the Vue Clerk plugin is installed. Learn more: https://vue-clerk.com/plugin',
     )
   }
 

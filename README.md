@@ -13,7 +13,7 @@ npm install vue-clerk
 
 ## Usage
 
-Vue Clerk requires your application to have the [`clerkPlugin`](https://vue-clerk.vercel.app/getting-started.html#configure-plugin) installed.
+Vue Clerk requires your application to have the [`clerkPlugin`](https://vue-clerk.com/getting-started.html#configure-plugin) installed.
 
 If using Vite, set `VITE_CLERK_PUBLISHABLE_KEY` to your Publishable key in your `.env.local` file to make the environment variable accessible on `process.env` and pass it as the `publishableKey` prop.
 
@@ -33,7 +33,7 @@ import { SignInButton, SignedIn, SignedOut, UserButton } from 'vue-clerk'
 </template>
 ```
 
-For further details and examples, please refer to the [Documentation](https://vue-clerk.vercel.app).
+For further details and examples, please refer to the [Documentation](https://vue-clerk.com).
 
 ## License
 
