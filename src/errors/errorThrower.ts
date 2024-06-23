@@ -1,3 +1,11 @@
+/*!
+ * Original code by Clerk, Inc.
+ * MIT Licensed, Copyright 2022 Clerk, Inc., see https://github.com/clerk/javascript/blob/main/packages/react/LICENSE for details
+ *
+ * Credits to the Clerk team:
+ * https://github.com/clerk/javascript/blob/main/packages/react/src/errors/errorThrower.ts
+ */
+
 import type { ErrorThrowerOptions } from '@clerk/shared/error'
 import { buildErrorThrower } from '@clerk/shared/error'
 
