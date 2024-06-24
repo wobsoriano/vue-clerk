@@ -38,6 +38,7 @@ export default defineConfig({
     sidebar: [
       {
         text: 'Introduction',
+        collapsed: false,
         items: [
           { text: 'What is Vue Clerk?', link: '/what-is-vue-clerk' },
           { text: 'Getting Started', link: '/getting-started' },
@@ -46,6 +47,7 @@ export default defineConfig({
       },
       {
         text: 'Authentication Components',
+        collapsed: false,
         base: '/authentication',
         items: [
           { text: 'SignIn', link: '/sign-in.md' },
@@ -54,6 +56,7 @@ export default defineConfig({
       },
       {
         text: 'User Components',
+        collapsed: false,
         base: '/user',
         items: [
           { text: 'UserButton', link: '/user-button.md' },
@@ -62,6 +65,7 @@ export default defineConfig({
       },
       {
         text: 'Organization Components',
+        collapsed: false,
         base: '/organization',
         items: [
           { text: 'CreateOrganization', link: '/create-organization.md' },
@@ -72,6 +76,7 @@ export default defineConfig({
       },
       {
         text: 'Control Components',
+        collapsed: false,
         base: '/control',
         items: [
           { text: 'ClerkLoaded', link: '/clerk-loaded.md' },
@@ -88,6 +93,7 @@ export default defineConfig({
       },
       {
         text: 'Unstyled Components',
+        collapsed: false,
         base: '/unstyled',
         items: [
           { text: 'SignInButton', link: '/sign-in-button.md' },
@@ -97,6 +103,7 @@ export default defineConfig({
       },
       {
         text: 'Composables',
+        collapsed: false,
         items: [
           { text: 'useAuth', link: '/composables/use-auth.md' },
           { text: 'useClerk', link: '/composables/use-clerk.md' },
