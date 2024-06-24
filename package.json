@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@clerk/shared": "^2.3.1",
-    "@clerk/types": "^4.6.0"
+    "@clerk/types": "^4.6.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.0",
