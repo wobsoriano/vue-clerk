@@ -18,6 +18,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     initialState: serverInitialState.value,
     appearance: {
       baseTheme: shadesOfPurple,
-    }
+    },
   })
 })
