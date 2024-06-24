@@ -61,7 +61,7 @@ pnpm add vue-clerk
 
 ## 3. Set your environment variables
 
-1. If you don't have an `.env.local` file in the root directory of your React project, create one now.
+1. If you don't have an `.env.local` file in the root directory of your Vue project, create one now.
 
 2. Find your Clerk publishable key. If you're signed into Clerk, the `.env.local` snippet below will contain your key. Otherwise:
 
