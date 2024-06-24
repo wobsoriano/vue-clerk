@@ -1,4 +1,5 @@
 import { clerkPlugin } from 'vue-clerk'
+import { shadesOfPurple } from '@clerk/themes'
 import type { SignedInAuthObject, SignedOutAuthObject } from '@clerk/backend/internal'
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -15,5 +16,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     routerPush: (to: string) => navigateTo(to),
     routerReplace: (to: string) => navigateTo(to, { replace: true }),
     initialState: serverInitialState.value,
+    appearance: {
+      baseTheme: shadesOfPurple,
+    }
   })
 })
