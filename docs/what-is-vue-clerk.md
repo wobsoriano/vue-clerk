@@ -11,5 +11,5 @@ Vue Clerk provides Vue implementations of [Clerk Components](https://clerk.com/c
 Vue Clerk comes loaded with custom [composables](/composables/use-clerk.html). These composables give you access to the [Clerk object](https://clerk.com/docs/reference/clerkjs/clerk), and a set of useful helper methods for signing in and signing up.
 
 ::: info
-To reduce the time of going back and forth between the official [Clerk docs](https://clerk.com/docs) and the Vue Clerk docs, we have copied most of the content you will see here from the Clerk docs and added some Vue-specific information.
+To reduce the time of going back and forth between the official [Clerk docs](https://clerk.com/docs) and the Vue Clerk docs, we have copied most of the content you will see here (including images) from the Clerk docs and added some Vue-specific information.
 :::
