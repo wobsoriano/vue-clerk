@@ -10,6 +10,8 @@ You need to create a Clerk Application in your [Clerk Dashboard](https://dashboa
 
 ## 1. Set up a Vue application use Vite
 
+Scaffold your new React application using [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+
 ::: code-group
 
 ```bash [npm]
@@ -36,6 +38,10 @@ pnpm dev
 :::
 
 ## 2. Install Vue Clerk
+
+The Vue Clerk SDK gives you access to prebuilt components, composables, and helpers for Vue.
+
+To get started using Clerk with Vue, add the SDK to your project:
 
 ::: code-group
 
