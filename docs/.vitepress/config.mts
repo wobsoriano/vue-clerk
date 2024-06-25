@@ -47,7 +47,7 @@ export default defineConfig({
       },
       {
         text: 'Components',
-        collapsed: false,
+        collapsed: true,
         items: [
           {
             text: 'Authentication',
@@ -104,7 +104,7 @@ export default defineConfig({
       },
       {
         text: 'Composables',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'useAuth', link: '/composables/use-auth.md' },
           { text: 'useClerk', link: '/composables/use-clerk.md' },
@@ -113,6 +113,13 @@ export default defineConfig({
           { text: 'useSignIn', link: '/composables/use-sign-in.md' },
           { text: 'useSignUp', link: '/composables/use-sign-up.md' },
           { text: 'useUser', link: '/composables/use-user.md' },
+        ],
+      },
+      {
+        text: 'Guides',
+        collapsed: false,
+        items: [
+          { text: 'Nuxt', link: '/guides/nuxt.md' },
         ],
       },
     ],
