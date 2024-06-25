@@ -37,7 +37,8 @@ CLERK_SECRET_KEY=
 
 Adding this will inject a `auth` object to the context of your h3 server. You can then use that to protected your API routes!
 
-```js [server/middleware/clerk.ts]
+```js
+// server/middleware/clerk.ts
 import { withClerkMiddleware } from 'h3-clerk'
 
 export default withClerkMiddleware()
@@ -47,7 +48,8 @@ export default withClerkMiddleware()
 
 Notice here that we are setting an initial state for the user. This will let us use some of the composables in SSR and check if user is authenticated or not in route middlewares.
 
-```js [plugins/vue-clerk.ts]
+```js
+// plugins/vue-clerk.ts
 import { clerkPlugin } from 'vue-clerk'
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -63,8 +65,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   nuxtApp.vueApp.use(clerkPlugin, {
     publishableKey,
-    routerPush: (to: string) => navigateTo(to),
-    routerReplace: (to: string) => navigateTo(to, { replace: true }),
+    routerPush: to => navigateTo(to),
+    routerReplace: to => navigateTo(to, { replace: true }),
     initialState: serverInitialState.value,
   })
 })
@@ -76,7 +78,8 @@ function pruneUnserializableFields(authContext) {
 
 ## 5. Add a route middleware to protect private pages
 
-```ts [middleware/auth.ts]
+```ts
+// middleware/auth.ts
 import { useAuth } from 'vue-clerk'
 
 export default defineNuxtRouteMiddleware(() => {
