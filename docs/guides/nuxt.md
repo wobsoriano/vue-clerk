@@ -74,7 +74,6 @@ function pruneUnserializableFields(authContext) {
 }
 ```
 
-
 ## 5. Add a route middleware to protect private pages
 
 ```ts [middleware/auth.ts]

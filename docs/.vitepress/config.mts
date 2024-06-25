@@ -55,7 +55,7 @@ export default defineConfig({
             items: [
               { text: 'SignIn', link: '/sign-in.md' },
               { text: 'SignUp', link: '/sign-up.md' },
-            ]
+            ],
           },
           {
             text: 'User',
@@ -100,7 +100,7 @@ export default defineConfig({
               { text: 'SignUpButton', link: '/sign-up-button.md' },
             ],
           },
-        ]
+        ],
       },
       {
         text: 'Composables',
