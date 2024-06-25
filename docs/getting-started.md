@@ -73,7 +73,7 @@ pnpm add vue-clerk
 
 The final result should look like this:
 
-```.env.local
+```bash [.env.local]
 VITE_CLERK_PUBLISHABLE_KEY=pk_test_************************
 ```
 
@@ -123,10 +123,10 @@ app.mount('#app')
 
 You can control which content signed in and signed out users can see with Clerk's [prebuilt components](https://clerk.com/docs/components/overview). To get started, create a header for your users to sign in or out. To do this, you will use:
 
-- [`<SignedIn>`](/control/signed-in): Children of this component can only be seen while signed in.
-- [`<SignedOut>`](/control/signed-out): Children of this component can only be seen while signed out.
-- [`<UserButton />`](/user/user-button): A prebuilt component that comes styled out of the box to show the avatar from the account the user is signed in with.
-- [`<SignInButton />`](/unstyled/sign-in-button): An unstyled component that links to the sign-in page or displays the sign-in modal.
+- [`<SignedIn>`](/components/control/signed-in): Children of this component can only be seen while signed in.
+- [`<SignedOut>`](/components/control/signed-out): Children of this component can only be seen while signed out.
+- [`<UserButton />`](/components/user/user-button): A prebuilt component that comes styled out of the box to show the avatar from the account the user is signed in with.
+- [`<SignInButton />`](/components/unstyled/sign-in-button): An unstyled component that links to the sign-in page or displays the sign-in modal.
 
 ```vue{2,6-11}
 <script setup>

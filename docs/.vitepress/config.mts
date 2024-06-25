@@ -46,64 +46,65 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Authentication Components',
-        collapsed: false,
-        base: '/authentication',
+        text: 'Components',
+        collapsed: true,
         items: [
-          { text: 'SignIn', link: '/sign-in.md' },
-          { text: 'SignUp', link: '/sign-up.md' },
-        ],
-      },
-      {
-        text: 'User Components',
-        collapsed: false,
-        base: '/user',
-        items: [
-          { text: 'UserButton', link: '/user-button.md' },
-          { text: 'UserProfile', link: '/user-profile.md' },
-        ],
-      },
-      {
-        text: 'Organization Components',
-        collapsed: false,
-        base: '/organization',
-        items: [
-          { text: 'CreateOrganization', link: '/create-organization.md' },
-          { text: 'OrganizationProfile', link: '/organization-profile.md' },
-          { text: 'OrganizationSwitcher', link: '/organization-switcher.md' },
-          { text: 'OrganizationList', link: '/organization-list.md' },
-        ],
-      },
-      {
-        text: 'Control Components',
-        collapsed: false,
-        base: '/control',
-        items: [
-          { text: 'ClerkLoaded', link: '/clerk-loaded.md' },
-          { text: 'ClerkLoading', link: '/clerk-loading.md' },
-          { text: 'Protect', link: '/protect.md' },
-          { text: 'RedirectToSignIn', link: '/redirect-to-signin.md' },
-          { text: 'RedirectToSignUp', link: '/redirect-to-signup' },
-          { text: 'RedirectToUserProfile', link: '/redirect-to-userprofile.md' },
-          { text: 'RedirectToOrganizationProfile', link: '/redirect-to-organizationprofile.md' },
-          { text: 'RedirectToCreateOrganization', link: '/redirect-to-createorganization.md' },
-          { text: 'SignedIn', link: '/signed-in.md' },
-          { text: 'SignedOut', link: '/signed-out.md' },
-        ],
-      },
-      {
-        text: 'Unstyled Components',
-        collapsed: false,
-        base: '/unstyled',
-        items: [
-          { text: 'SignInButton', link: '/sign-in-button.md' },
-          { text: 'SignOutButton', link: '/sign-out-button.md' },
-          { text: 'SignUpButton', link: '/sign-up-button.md' },
+          {
+            text: 'Authentication',
+            base: '/components/authentication',
+            items: [
+              { text: 'SignIn', link: '/sign-in.md' },
+              { text: 'SignUp', link: '/sign-up.md' },
+            ],
+          },
+          {
+            text: 'User',
+            base: '/components/user',
+            items: [
+              { text: 'UserButton', link: '/user-button.md' },
+              { text: 'UserProfile', link: '/user-profile.md' },
+            ],
+          },
+          {
+            text: 'Organization',
+            base: '/components/organization',
+            items: [
+              { text: 'CreateOrganization', link: '/create-organization.md' },
+              { text: 'OrganizationProfile', link: '/organization-profile.md' },
+              { text: 'OrganizationSwitcher', link: '/organization-switcher.md' },
+              { text: 'OrganizationList', link: '/organization-list.md' },
+            ],
+          },
+          {
+            text: 'Control',
+            base: '/components/control',
+            items: [
+              { text: 'ClerkLoaded', link: '/clerk-loaded.md' },
+              { text: 'ClerkLoading', link: '/clerk-loading.md' },
+              { text: 'Protect', link: '/protect.md' },
+              { text: 'RedirectToSignIn', link: '/redirect-to-signin.md' },
+              { text: 'RedirectToSignUp', link: '/redirect-to-signup' },
+              { text: 'RedirectToUserProfile', link: '/redirect-to-userprofile.md' },
+              { text: 'RedirectToOrganizationProfile', link: '/redirect-to-organizationprofile.md' },
+              { text: 'RedirectToCreateOrganization', link: '/redirect-to-createorganization.md' },
+              { text: 'SignedIn', link: '/signed-in.md' },
+              { text: 'SignedOut', link: '/signed-out.md' },
+            ],
+          },
+          {
+            text: 'Unstyled',
+            base: '/components/unstyled',
+            items: [
+              { text: 'SignInButton', link: '/sign-in-button.md' },
+              { text: 'SignOutButton', link: '/sign-out-button.md' },
+              { text: 'SignUpButton', link: '/sign-up-button.md' },
+            ],
+          },
         ],
       },
       {
         text: 'Composables',
-        collapsed: false,
+        collapsed: true,
         items: [
           { text: 'useAuth', link: '/composables/use-auth.md' },
           { text: 'useClerk', link: '/composables/use-clerk.md' },
@@ -112,6 +113,13 @@ export default defineConfig({
           { text: 'useSignIn', link: '/composables/use-sign-in.md' },
           { text: 'useSignUp', link: '/composables/use-sign-up.md' },
           { text: 'useUser', link: '/composables/use-user.md' },
+        ],
+      },
+      {
+        text: 'Guides',
+        collapsed: false,
+        items: [
+          { text: 'Nuxt', link: '/guides/nuxt.md' },
         ],
       },
     ],
