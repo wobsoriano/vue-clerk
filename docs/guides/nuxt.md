@@ -6,7 +6,7 @@ outline: deep
 
 ## 1. Install vue-clerk and h3-clerk
 
-The [h3-clerk](https://github.com/wobsoriano/h3-clerk) package is a h3 middleware used to add Clerk authentication to your h3/Nuxt server.
+The [h3-clerk](https://github.com/wobsoriano/h3-clerk) package is a middleware used to add Clerk authentication to your [h3](https://h3.unjs.io/guide/websocket)/Nuxt apps. You can protect your API routes with it.
 
 ::: code-group
 
@@ -33,9 +33,9 @@ CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 ```
 
-## 3. Install the h3-clerk middleware
+## 3. Add server middleware to your Nuxt app
 
-Adding this will inject a `auth` object to the context of your h3 server. You can then use that to protected your API routes!
+`withClerkMiddleware` grants you access to user authentication state throughout your application, on any route or page. It also allows you to protect specific routes from unauthenticated users.
 
 ```js
 // server/middleware/clerk.ts
@@ -44,7 +44,7 @@ import { withClerkMiddleware } from 'h3-clerk'
 export default withClerkMiddleware()
 ```
 
-## 4. Install the Clerk plugin
+## 4. Add the Clerk plugin
 
 Notice here that we are setting an initial state for the user. This will let us use some of the composables in SSR and check if user is authenticated or not in route middlewares.
 
@@ -79,19 +79,23 @@ function pruneUnserializableFields(authContext) {
 ## 5. Add a route middleware to protect private pages
 
 ```ts
-// middleware/auth.ts
+// middleware/auth.global.ts
 import { useAuth } from 'vue-clerk'
 
-export default defineNuxtRouteMiddleware(() => {
+export default defineNuxtRouteMiddleware((to) => {
   // isSignedIn here can be used in both SSR and CSR
   // since we set an initial state in the plugin!
   const { isSignedIn } = useAuth()
 
-  if (!isSignedIn.value)
+  const protectedPages = ['dashboard']
+  const publicPages = ['sign-in', 'sign-up']
+
+  if (isSignedIn.value && publicPages.includes(to.name))
+    return navigateTo('/dashboard')
+
+  if (!isSignedIn.value && protectedPages.includes(to.name))
     return navigateTo('/sign-in')
 })
 ```
-
-That's it!
 
 A complete example can be found [here](https://github.com/wobsoriano/nuxt-clerk-template).
