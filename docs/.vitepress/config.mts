@@ -22,7 +22,6 @@ export default defineConfig({
           },
         ],
       },
-      { text: 'Sponsor', link: 'https://github.com/sponsors/wobsoriano' },
     ],
 
     editLink: {
