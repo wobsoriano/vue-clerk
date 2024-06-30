@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.4
+
+### Patch Changes
+
+- 191bebf: feat: add current org membership property to useOrganization composable
 
 ## v0.4.3
 
@@ -64,7 +69,7 @@
 ### 🏡 Chore
 
 - Hot load clerk from CDN ([e62b9c9](https://github.com/wobsoriano/vue-clerk/commit/e62b9c9))
-- ⚠️  Migrate to isomorphic clerk ([e721f16](https://github.com/wobsoriano/vue-clerk/commit/e721f16))
+- ⚠️ Migrate to isomorphic clerk ([e721f16](https://github.com/wobsoriano/vue-clerk/commit/e721f16))
 - Export IsomorphicClerkOptions ([88514d3](https://github.com/wobsoriano/vue-clerk/commit/88514d3))
 - **provideClerkToApp:** Rename to provideClerkToVueApp ([74bbf98](https://github.com/wobsoriano/vue-clerk/commit/74bbf98))
 - Bump @clerk/shared to 2.2.2 ([ee93a88](https://github.com/wobsoriano/vue-clerk/commit/ee93a88))
@@ -75,7 +80,7 @@
 
 #### ⚠️ Breaking Changes
 
-- ⚠️  Migrate to isomorphic clerk ([e721f16](https://github.com/wobsoriano/vue-clerk/commit/e721f16))
+- ⚠️ Migrate to isomorphic clerk ([e721f16](https://github.com/wobsoriano/vue-clerk/commit/e721f16))
 
 ### ❤️ Contributors
 
@@ -205,8 +210,8 @@
 
 - Bump @clerk/clerk-js to 5.2.1 ([1be0864](https://github.com/wobsoriano/vue-clerk/commit/1be0864))
 - Bump @clerk/types to 4.2.0 ([b885e3a](https://github.com/wobsoriano/vue-clerk/commit/b885e3a))
-- ⚠️  Remove setSession function from useSessionList ([422b242](https://github.com/wobsoriano/vue-clerk/commit/422b242))
-- ⚠️  Remove setSession function from useSignIn ([dd8f112](https://github.com/wobsoriano/vue-clerk/commit/dd8f112))
+- ⚠️ Remove setSession function from useSessionList ([422b242](https://github.com/wobsoriano/vue-clerk/commit/422b242))
+- ⚠️ Remove setSession function from useSignIn ([dd8f112](https://github.com/wobsoriano/vue-clerk/commit/dd8f112))
 - Export Clerk class ([704619a](https://github.com/wobsoriano/vue-clerk/commit/704619a))
 
 ### ✅ Tests
@@ -215,8 +220,8 @@
 
 #### ⚠️ Breaking Changes
 
-- ⚠️  Remove setSession function from useSessionList ([422b242](https://github.com/wobsoriano/vue-clerk/commit/422b242))
-- ⚠️  Remove setSession function from useSignIn ([dd8f112](https://github.com/wobsoriano/vue-clerk/commit/dd8f112))
+- ⚠️ Remove setSession function from useSessionList ([422b242](https://github.com/wobsoriano/vue-clerk/commit/422b242))
+- ⚠️ Remove setSession function from useSignIn ([dd8f112](https://github.com/wobsoriano/vue-clerk/commit/dd8f112))
 
 ### ❤️ Contributors
 
@@ -280,13 +285,13 @@
 
 ### 🏡 Chore
 
-- ⚠️  Update plugin options to match react provider ([345b93e](https://github.com/wobsoriano/vue-clerk/commit/345b93e))
-- ⚠️  Update plugin options to match react provider ([8868e0e](https://github.com/wobsoriano/vue-clerk/commit/8868e0e))
+- ⚠️ Update plugin options to match react provider ([345b93e](https://github.com/wobsoriano/vue-clerk/commit/345b93e))
+- ⚠️ Update plugin options to match react provider ([8868e0e](https://github.com/wobsoriano/vue-clerk/commit/8868e0e))
 
 #### ⚠️ Breaking Changes
 
-- ⚠️  Update plugin options to match react provider ([345b93e](https://github.com/wobsoriano/vue-clerk/commit/345b93e))
-- ⚠️  Update plugin options to match react provider ([8868e0e](https://github.com/wobsoriano/vue-clerk/commit/8868e0e))
+- ⚠️ Update plugin options to match react provider ([345b93e](https://github.com/wobsoriano/vue-clerk/commit/345b93e))
+- ⚠️ Update plugin options to match react provider ([8868e0e](https://github.com/wobsoriano/vue-clerk/commit/8868e0e))
 
 ### ❤️ Contributors
 
@@ -400,7 +405,7 @@
 
 ### 🚀 Enhancements
 
-- ⚠️  Add headless support for lesser build size ([3b6d82c](https://github.com/wobsoriano/vue-clerk/commit/3b6d82c))
+- ⚠️ Add headless support for lesser build size ([3b6d82c](https://github.com/wobsoriano/vue-clerk/commit/3b6d82c))
 
 ### 📖 Documentation
 
@@ -419,7 +424,7 @@
 
 #### ⚠️ Breaking Changes
 
-- ⚠️  Add headless support for lesser build size ([3b6d82c](https://github.com/wobsoriano/vue-clerk/commit/3b6d82c))
+- ⚠️ Add headless support for lesser build size ([3b6d82c](https://github.com/wobsoriano/vue-clerk/commit/3b6d82c))
 
 ### ❤️ Contributors
 
@@ -493,7 +498,7 @@
 
 - Pass mount and unmount functions to mount composable instead ([e088ef6](https://github.com/wobsoriano/vue-clerk/commit/e088ef6))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
 
@@ -505,7 +510,7 @@
 
 - Export clerk provider composable ([af20c9f](https://github.com/wobsoriano/vue-clerk/commit/af20c9f))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
 
@@ -515,7 +520,7 @@
 
 ### 🚀 Enhancements
 
-- Add  property for Options API users ([b4974ca](https://github.com/wobsoriano/vue-clerk/commit/b4974ca))
+- Add property for Options API users ([b4974ca](https://github.com/wobsoriano/vue-clerk/commit/b4974ca))
 - Add SignUpButton ([91eec95](https://github.com/wobsoriano/vue-clerk/commit/91eec95))
 - Allow clerk options to be passed in plugin installation ([9060ca2](https://github.com/wobsoriano/vue-clerk/commit/9060ca2))
 
@@ -535,7 +540,7 @@
 - Update sign in btn test ([cfcf08f](https://github.com/wobsoriano/vue-clerk/commit/cfcf08f))
 - Move test files ([2823d06](https://github.com/wobsoriano/vue-clerk/commit/2823d06))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
 
@@ -557,7 +562,7 @@
 - Add initial sign in and up component usage ([0026511](https://github.com/wobsoriano/vue-clerk/commit/0026511))
 - Update index features ([63fa2f8](https://github.com/wobsoriano/vue-clerk/commit/63fa2f8))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
 
@@ -599,7 +604,7 @@
 
 - Set default SignInButton mode to redirect ([ca6ce67](https://github.com/wobsoriano/vue-clerk/commit/ca6ce67))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
 
@@ -616,7 +621,7 @@
 
 - Make sure clerk is loaded before mounting components ([21937a4](https://github.com/wobsoriano/vue-clerk/commit/21937a4))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
 
@@ -634,12 +639,10 @@
 
 ## v0.0.1
 
-
 ### 🤖 CI
 
 - Add changelogen ([11fc78d](https://github.com/wobsoriano/vue-clerk/commit/11fc78d))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - Wobsoriano ([@wobsoriano](http://github.com/wobsoriano))
-
