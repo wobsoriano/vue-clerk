@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- 3a0a8f7: fix: vue-tsc not a function error on build"
+- 3a0a8f7: fix: vue-tsc typeerror on build
 
 ## 0.4.7
 
