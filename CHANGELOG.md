@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.7
+
+### Patch Changes
+
+- cabee70: ci: fix release script
+
 ## 0.4.6
 
 ### Patch Changes
