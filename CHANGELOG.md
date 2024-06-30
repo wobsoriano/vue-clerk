@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.8
+
+### Patch Changes
+
+- 3a0a8f7: fix: vue-tsc not a function error on build"
+
 ## 0.4.7
 
 ### Patch Changes
