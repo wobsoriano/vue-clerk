@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.6
+
+### Patch Changes
+
+- 0142fb7: chore: remove unused error messages
+
 ## 0.4.5
 
 ### Patch Changes
