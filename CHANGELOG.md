@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.5
+
+### Patch Changes
+
+- c23a20a: chore: add build:release script
+
 ## 0.4.4
 
 ### Patch Changes
