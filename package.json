@@ -34,7 +34,7 @@
     "build:dts": "vue-tsc --declaration --emitDeclarationOnly",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepublishOnly": "pnpm build:release",
+    "prepublishOnly": "pnpm build",
     "release": "pnpm build && changeset publish",
     "test": "vitest",
     "update-deps": "taze -w && pnpm i",
