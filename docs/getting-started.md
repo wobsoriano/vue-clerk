@@ -10,7 +10,7 @@ You need to create a Clerk Application in your [Clerk Dashboard](https://dashboa
 
 ## 1. Set up a Vue application use Vite
 
-Scaffold your new React application using [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+Scaffold your new Vue application using [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
 ::: code-group
 
