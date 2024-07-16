@@ -112,6 +112,7 @@ export default defineConfig({
           { text: 'useSignIn', link: '/composables/use-sign-in.md' },
           { text: 'useSignUp', link: '/composables/use-sign-up.md' },
           { text: 'useUser', link: '/composables/use-user.md' },
+          { text: 'useOrganization', link: '/composables/use-organization.md' },
         ],
       },
       {
