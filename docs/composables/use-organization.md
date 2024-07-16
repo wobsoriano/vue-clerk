@@ -12,15 +12,15 @@ The following example demonstrates how to use the `useOrganization()` composable
 
 ```vue
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useOrganization } from '@clerk/vue';
+import { onMounted, ref } from 'vue'
+import { useOrganization } from '@clerk/vue'
 
-const { organization, isLoaded } = useOrganization();
+const { organization, isLoaded } = useOrganization()
 </script>
 
 <template>
   <div v-if="isLoaded">
-  <p>This current organization is {{ organization.name }}</p>
+    <p>This current organization is {{ organization.name }}</p>
   </div>
   <div v-else>
     <p>Loading...</p>
@@ -36,37 +36,37 @@ You can implement this pattern to any Clerk function that returns a [`ClerkPagin
 
 ```vue
 <script setup>
-import { ref, watchEffect } from 'vue';
-import { useOrganization } from '@clerk/vue';
+import { ref, watchEffect } from 'vue'
+import { useOrganization } from '@clerk/vue'
 
-const memberships = ref([]);
-const currentPage = ref(1);
-const { organization, isLoading } = useOrganization();
+const memberships = ref([])
+const currentPage = ref(1)
+const { organization, isLoading } = useOrganization()
 
-const pageSize = 10;
+const pageSize = 10
 
-const fetchMemberships = async () => {
+async function fetchMemberships() {
   if (!organization.value) {
-    return;
+    return
   }
 
   const { data } = await organization.value.getMemberships({
     initialPage: currentPage.value,
     pageSize: 5
-  });
-  memberships.value = data;
-};
+  })
+  memberships.value = data
+}
 
 watchEffect(() => {
   if (!organization.value) {
     return
   }
 
-  fetchMemberships();
-});
+  fetchMemberships()
+})
 
-const fetchPrevious = () => currentPage.value--;
-const fetchNext = () => currentPage.value++;
+const fetchPrevious = () => currentPage.value--
+const fetchNext = () => currentPage.value++
 </script>
 
 <template>
@@ -79,8 +79,12 @@ const fetchNext = () => currentPage.value++;
       </li>
     </ul>
     <div>
-      <button @click="fetchPrevious" :disabled="currentPage === 1">Previous</button>
-      <button @click="fetchNext">Next</button>
+      <button :disabled="currentPage === 1" @click="fetchPrevious">
+        Previous
+      </button>
+      <button @click="fetchNext">
+        Next
+      </button>
     </div>
   </div>
   <div v-else>
