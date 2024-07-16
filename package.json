@@ -47,7 +47,7 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
-    "@clerk/shared": "^2.3.1",
+    "@clerk/shared": "^2.3.3",
     "@clerk/types": "^4.8.0"
   },
   "devDependencies": {
