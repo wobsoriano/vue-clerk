@@ -18,14 +18,14 @@ Vue Clerk requires your application to have the [`clerkPlugin`](https://vue-cler
 If using Vite, set `VITE_CLERK_PUBLISHABLE_KEY` to your Publishable key in your `.env.local` file to make the environment variable accessible on `process.env` and pass it as the `publishableKey` prop.
 
 ```vue
-<script setup lang="ts">
+<script setup>
 import { SignInButton, SignedIn, SignedOut, UserButton } from 'vue-clerk'
 </script>
 
 <template>
   <h1>Hello Clerk!</h1>
   <SignedIn>
-    <UserButton after-sign-out-url="https://foo.bar" />
+    <UserButton />
   </SignedIn>
   <SignedOut>
     <SignInButton mode="modal" />
