@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.9
+
+### Patch Changes
+
+- 50327fc: Bump clerk dependencies
+
 ## 0.4.8
 
 ### Patch Changes
