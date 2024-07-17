@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import type { SignInProps } from '@clerk/types'
+import { ref } from 'vue'
 import { useClerk } from '../composables/useClerk'
 
 const props = withDefaults(defineProps<SignInProps & {
   mode?: 'modal' | 'redirect'
+  asChild?: true | undefined
 }>(), {
   mode: 'redirect',
+  asChild: undefined,
 })
+const node = ref<HTMLElement | null>(null)
+const setRef = (value: HTMLElement | null) => (node.value = value)
 
 const clerk = useClerk()
 
@@ -21,9 +26,13 @@ function clickHandler() {
 </script>
 
 <template>
-  <slot :handler="clickHandler">
-    <button data-testid="sign-in-btn" @click="clickHandler">
-      Sign In
-    </button>
-  </slot>
+  <slot
+    v-if="asChild"
+    v-bind="{ ...$attrs, onClick: clickHandler, ref: setRef }"
+  />
+  <button v-else ref="node" data-testid="sign-in-btn" v-bind="$attrs" @click="clickHandler">
+    <slot :handler="clickHandler">
+      Sign in
+    </slot>
+  </button>
 </template>
