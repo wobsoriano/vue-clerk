@@ -45,8 +45,8 @@ import { SignOutButton } from 'vue-clerk'
 <template>
   <div>
     <h1> Sign out </h1>
-    <SignOutButton v-slot="{ handler }">
-      <button @click="handler">
+    <SignOutButton v-slot="props" as-child>
+      <button v-bind="props">
         Sign out
       </button>
     </SignOutButton>

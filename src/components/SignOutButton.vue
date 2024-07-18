@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { SignOutOptions } from '@clerk/types'
-import { ref } from 'vue'
+import { usePolymorphicRef } from '../composables/usePolymorphicRef'
 import { useClerk } from '../composables/useClerk'
 
 const props = withDefaults(defineProps<{
@@ -16,8 +16,7 @@ const props = withDefaults(defineProps<{
 })
 
 const emit = defineEmits(['signOut'])
-const node = ref<HTMLElement | null>(null)
-const setRef = (value: HTMLElement | null) => (node.value = value)
+const { node, setRef } = usePolymorphicRef()
 
 const clerk = useClerk()
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { SignInProps } from '@clerk/types'
-import { ref } from 'vue'
+import { usePolymorphicRef } from '../composables/usePolymorphicRef'
 import { useClerk } from '../composables/useClerk'
 
 const props = withDefaults(defineProps<SignInProps & {
@@ -10,8 +10,7 @@ const props = withDefaults(defineProps<SignInProps & {
   mode: 'redirect',
   asChild: undefined,
 })
-const node = ref<HTMLElement | null>(null)
-const setRef = (value: HTMLElement | null) => (node.value = value)
+const { node, setRef } = usePolymorphicRef()
 
 const clerk = useClerk()
 
