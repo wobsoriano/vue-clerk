@@ -42,8 +42,8 @@ import { SignInButton } from 'vue-clerk'
 <template>
   <div>
     <h1>Sign in</h1>
-    <SignInButton v-slot="{ handler }">
-      <button @click="handler">
+    <SignInButton v-slot="props" as-child>
+      <button v-bind="props">
         Sign in with Clerk
       </button>
     </SignInButton>

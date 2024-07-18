@@ -24,6 +24,10 @@ const { isSignedIn, isLoaded } = useAuth()
     <SignOutButton />
   </div>
   <div v-else>
-    <SignInButton mode="modal" />
+    <SignInButton v-slot="props" as-child mode="modal">
+      <button v-bind="props">
+        Sign in baby
+      </button>
+    </SignInButton>
   </div>
 </template>
