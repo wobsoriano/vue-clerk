@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.10
+
+### Patch Changes
+
+- a040391: Add reusable polymorphic ref composable
+- d00284c: Introduce unstyled polymorphic components
+
 ## 0.4.9
 
 ### Patch Changes
