@@ -120,6 +120,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Nuxt', link: '/guides/nuxt.md' },
+          { text: 'Custom Pages', link: '/guides/custom-pages.md' },
         ],
       },
     ],
