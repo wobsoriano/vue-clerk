@@ -21,11 +21,11 @@ const customPages: CustomPage[] = [
     mountIcon: (el) => {
       customPageIcon.value = el
     },
-    unmountIcon: (el) => {/* cleanup */},
+    unmountIcon: (el) => { /* cleanup */ },
     mount: (el) => {
       customPageContent.value = el
     },
-    unmount: (el) => {/* cleanup */},
+    unmount: (el) => { /* cleanup */ },
   },
 ]
 </script>
