@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.11
+
+### Patch Changes
+
+- 85edb7f: Add GoogleOneTap component
+
 ## 0.4.10
 
 ### Patch Changes
