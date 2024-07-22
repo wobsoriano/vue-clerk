@@ -54,6 +54,7 @@ export default defineConfig({
             items: [
               { text: 'SignIn', link: '/sign-in.md' },
               { text: 'SignUp', link: '/sign-up.md' },
+              { text: 'GoogleOneTap', link: '/google-one-tap.md' },
             ],
           },
           {
