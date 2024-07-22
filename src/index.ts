@@ -15,6 +15,7 @@ import OrganizationSwitcher from './components/OrganizationSwitcher.vue'
 import OrganizationList from './components/OrganizationList.vue'
 import WithClerk from './components/WithClerk.vue'
 import WithSession from './components/WithSession.vue'
+import GoogleOneTap from './components/GoogleOneTap.vue'
 
 export {
   SignIn,
@@ -32,6 +33,7 @@ export {
   CreateOrganization,
   OrganizationSwitcher,
   OrganizationList,
+  GoogleOneTap,
 }
 
 export * from './controlComponents'
