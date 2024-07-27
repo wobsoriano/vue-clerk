@@ -1,5 +1,11 @@
 import { defineComponent, onMounted } from 'vue'
-import type { CheckAuthorizationWithCustomPermissions, HandleOAuthCallbackParams, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, RedirectOptions } from '@clerk/types'
+import type {
+  CheckAuthorizationWithCustomPermissions,
+  HandleOAuthCallbackParams,
+  OrganizationCustomPermissionKey,
+  OrganizationCustomRoleKey,
+  RedirectOptions
+} from '@clerk/types'
 import { useAuth } from '../composables/useAuth'
 import { useClerkProvider } from '../composables/useClerkProvider'
 import { useClerk } from '../composables/useClerk'
