@@ -1,4 +1,4 @@
-import { defineComponent, h, onMounted, ref, watchEffect } from 'vue'
+import { defineComponent, h, ref, watchEffect } from 'vue'
 import type {
   CreateOrganizationProps,
   GoogleOneTapProps,
@@ -10,7 +10,8 @@ import type {
   UserButtonProps,
   UserProfileProps,
 } from '@clerk/types'
-import { useClerk, useClerkProvider } from '../composables/useClerk'
+import { useClerk } from '../composables/useClerk'
+import { ClerkLoaded } from './controlComponents'
 
 type AnyObject = Record<string, any>
 
@@ -21,19 +22,10 @@ interface MountProps {
 }
 
 const UIPortal = defineComponent((props: MountProps) => {
-  const { isClerkLoaded } = useClerkProvider()
-  const isMounted = ref(false)
   const el = ref<HTMLDivElement | null>(null)
 
-  onMounted(() => {
-    isMounted.value = true
-  })
-
   watchEffect((onInvalidate) => {
-    if (!isMounted.value)
-      return
-
-    if (el.value && isClerkLoaded.value)
+    if (el.value)
       props.mount?.(el.value, props)
 
     onInvalidate(() => {
@@ -42,7 +34,7 @@ const UIPortal = defineComponent((props: MountProps) => {
     })
   })
 
-  return () => h('div', { ref: el })
+  return () => h(ClerkLoaded, () => h('div', { ref: el }))
 })
 
 export const GoogleOneTap = defineComponent((props: GoogleOneTapProps) => {
