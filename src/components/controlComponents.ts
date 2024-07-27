@@ -4,7 +4,7 @@ import type {
   HandleOAuthCallbackParams,
   OrganizationCustomPermissionKey,
   OrganizationCustomRoleKey,
-  RedirectOptions
+  RedirectOptions,
 } from '@clerk/types'
 import { useAuth } from '../composables/useAuth'
 import { useClerkProvider } from '../composables/useClerkProvider'
