@@ -1,5 +1,5 @@
 import { vi } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 import { defineComponent, h } from 'vue'
 import SignUpButton from '../SignUpButton.vue'
