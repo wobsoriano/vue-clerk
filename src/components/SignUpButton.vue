@@ -3,11 +3,18 @@ import type { SignUpProps } from '@clerk/types'
 import { usePolymorphicRef } from '../composables/usePolymorphicRef'
 import { useClerk } from '../composables/useClerk'
 
-const props = withDefaults(defineProps<SignUpProps & {
+type SignUpButtonProps = {
+  unsafeMetadata?: SignUpUnsafeMetadata
+} &
+Pick<
+  SignUpProps,
+    'fallbackRedirectUrl' | 'forceRedirectUrl' | 'signInForceRedirectUrl' | 'signInFallbackRedirectUrl'
+>
+
+const props = withDefaults(defineProps<SignUpButtonProps & {
   mode?: 'modal' | 'redirect'
   asChild?: true | undefined
 }>(), {
-  mode: 'redirect',
   asChild: undefined,
 })
 
@@ -20,7 +27,11 @@ function clickHandler() {
   if (mode === 'modal')
     return clerk.openSignUp(opts)
 
-  return clerk.redirectToSignUp(opts)
+  return clerk.redirectToSignUp({
+    ...opts,
+    signUpFallbackRedirectUrl: props.fallbackRedirectUrl,
+    signUpForceRedirectUrl: props.forceRedirectUrl,
+  })
 }
 </script>
 
