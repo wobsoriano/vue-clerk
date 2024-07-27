@@ -1,5 +1,5 @@
 ---
-"@fake-scope/fake-pkg": patch
+"vue-clerk": patch
 ---
 
-Clena up UI components
+Clean up UI components
