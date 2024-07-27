@@ -16,8 +16,8 @@ import { ClerkLoaded } from './controlComponents'
 type AnyObject = Record<string, any>
 
 interface MountProps {
-  mount: ((node: HTMLDivElement, props: AnyObject) => void) | undefined
-  unmount: ((node: HTMLDivElement) => void) | undefined
+  mount: (node: HTMLDivElement, props: AnyObject) => void
+  unmount: (node: HTMLDivElement) => void
   props?: AnyObject
 }
 
@@ -26,11 +26,11 @@ const UIPortal = defineComponent((props: MountProps) => {
 
   watchEffect((onInvalidate) => {
     if (el.value)
-      props.mount?.(el.value, props)
+      props.mount(el.value, props)
 
     onInvalidate(() => {
       if (el.value)
-        props.unmount?.(el.value)
+        props.unmount(el.value)
     })
   })
 
