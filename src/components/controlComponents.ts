@@ -1,8 +1,8 @@
 import { defineComponent, onMounted } from 'vue'
 import type { CheckAuthorizationWithCustomPermissions, HandleOAuthCallbackParams, OrganizationCustomPermissionKey, OrganizationCustomRoleKey, RedirectOptions } from '@clerk/types'
-import { useAuth } from './composables/useAuth'
-import { useClerkProvider } from './composables/useClerkProvider'
-import { useClerk } from './composables/useClerk'
+import { useAuth } from '../composables/useAuth'
+import { useClerkProvider } from '../composables/useClerkProvider'
+import { useClerk } from '../composables/useClerk'
 
 export const SignedIn = defineComponent({
   setup(_props, { slots }) {
@@ -159,6 +159,4 @@ export const Protect = defineComponent((props: ProtectProps, { slots }) => {
      */
     return slots.default?.()
   }
-}, {
-  props: ['condition', 'role', 'permission'],
 })
