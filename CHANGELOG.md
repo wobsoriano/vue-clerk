@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.12
+
+### Patch Changes
+
+- 138596c: Clean up UI components and add compile-time tests
+- b8ac6ae: Bump @clerk/shared to 2.4.1 and @clerk/types to 4.9.1"
+
 ## 0.4.11
 
 ### Patch Changes
