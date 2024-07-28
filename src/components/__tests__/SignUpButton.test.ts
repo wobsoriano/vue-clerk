@@ -1,5 +1,5 @@
 import { vi } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/vue'
+import { render, screen } from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 import { defineComponent, h } from 'vue'
 import SignUpButton from '../SignUpButton.vue'
@@ -32,38 +32,36 @@ describe('<SignUpButton />', () => {
 
   it('calls clerk.redirectToSignUp when clicked', async () => {
     render(SignUpButton)
-    const btn = screen.getByTestId('sign-up-btn')
-    userEvent.click(btn)
-    await waitFor(() => {
-      expect(mockRedirectToSignUp).toHaveBeenCalled()
-    })
+    const btn = screen.getByText('Sign up')
+    await userEvent.click(btn)
+
+    expect(mockRedirectToSignUp).toHaveBeenCalled()
   })
 
-  it('handles redirectUrl prop', async () => {
+  it('handles forceRedirectUrl prop', async () => {
     render(SignUpButton, {
       props: {
-        redirectUrl: url,
+        forceRedirectUrl: url,
+      },
+    })
+    const btn = screen.getByText('Sign up')
+    await userEvent.click(btn)
+
+    expect(mockRedirectToSignUp).toHaveBeenCalledWith({ forceRedirectUrl: url, signUpForceRedirectUrl: url })
+  })
+
+  it('handles fallbackRedirectUrl prop', async () => {
+    render(SignUpButton, {
+      props: {
+        fallbackRedirectUrl: url,
       },
     })
     const btn = screen.getByTestId('sign-up-btn')
-    userEvent.click(btn)
-    await waitFor(() => {
-      expect(mockRedirectToSignUp).toHaveBeenCalledWith({ redirectUrl: url })
-    })
-  })
+    await userEvent.click(btn)
 
-  it('handles afterSignUpUrl prop', async () => {
-    render(SignUpButton, {
-      props: {
-        afterSignUpUrl: url,
-      },
-    })
-    const btn = screen.getByTestId('sign-up-btn')
-    userEvent.click(btn)
-    await waitFor(() => {
-      expect(mockRedirectToSignUp).toHaveBeenCalledWith({
-        afterSignUpUrl: url,
-      })
+    expect(mockRedirectToSignUp).toHaveBeenCalledWith({
+      fallbackRedirectUrl: url,
+      signUpFallbackRedirectUrl: url,
     })
   })
 
@@ -80,7 +78,7 @@ describe('<SignUpButton />', () => {
     await userEvent.click(btn)
 
     expect(handler).toHaveBeenCalled()
-    // expect(mockRedirectToSignUp).toHaveBeenCalled()
+    expect(mockRedirectToSignUp).toHaveBeenCalled()
   })
 
   it('uses text passed as children', async () => {

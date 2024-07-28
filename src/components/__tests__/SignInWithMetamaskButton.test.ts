@@ -2,43 +2,43 @@ import { vi } from 'vitest'
 import { render, screen } from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 import { defineComponent, h } from 'vue'
-import SignOutButton from '../SignOutButton.vue'
+import SignInWithMetamaskButton from '../SignInWithMetamaskButton.vue'
 
-const mockSignOut = vi.fn()
+const mockAuthenticatewithMetamask = vi.fn()
 const originalError = console.error
 
 vi.mock('../../composables/useClerk', async () => {
   return {
     useClerk: () => ({
-      signOut: mockSignOut,
+      authenticateWithMetamask: mockAuthenticatewithMetamask,
     }),
   }
 })
 
-describe('<SignOutButton />', () => {
+describe('<SignInWithMetamaskButton />', () => {
   beforeAll(() => {
     console.error = vi.fn()
   })
 
   beforeEach(() => {
-    mockSignOut.mockReset()
+    mockAuthenticatewithMetamask.mockReset()
   })
 
   afterAll(() => {
     console.error = originalError
   })
 
-  it('calls clerk.signOutOne when clicked', async () => {
-    render(SignOutButton)
-    const btn = screen.getByText('Sign out')
+  it('calls clerk.authenticateWithMetamask when clicked', async () => {
+    render(SignInWithMetamaskButton)
+    const btn = screen.getByText('Sign in with Metamask')
     await userEvent.click(btn)
 
-    expect(mockSignOut).toHaveBeenCalled()
+    expect(mockAuthenticatewithMetamask).toHaveBeenCalled()
   })
 
   it('uses text passed as children', async () => {
     const Button = defineComponent(() => {
-      return () => h(SignOutButton, () => 'text')
+      return () => h(SignInWithMetamaskButton, () => 'text')
     })
     render(Button)
     screen.getByText('text')
