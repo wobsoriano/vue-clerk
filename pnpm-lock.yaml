@@ -12,7 +12,7 @@ importers:
         specifier: ^2.4.1
         version: 2.4.1(react@18.3.1)
       '@clerk/types':
-        specifier: ^4.8.0
+        specifier: ^4.9.1
         version: 4.9.1
     devDependencies:
       '@antfu/eslint-config':
