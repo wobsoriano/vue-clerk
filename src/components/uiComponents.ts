@@ -84,8 +84,8 @@ export const UserButton = defineComponent((props: UserButtonProps) => {
 export const OrganizationProfile = defineComponent((props: OrganizationProfileProps) => {
   const clerk = useClerk()
   return () => h(UIPortal, {
-    mount: clerk.mountUserButton,
-    unmount: clerk.unmountUserButton,
+    mount: clerk.mountOrganizationProfile,
+    unmount: clerk.unmountOrganizationProfile,
     props,
   })
 })
@@ -93,8 +93,8 @@ export const OrganizationProfile = defineComponent((props: OrganizationProfilePr
 export const CreateOrganization = defineComponent((props: CreateOrganizationProps) => {
   const clerk = useClerk()
   return () => h(UIPortal, {
-    mount: clerk.mountUserButton,
-    unmount: clerk.unmountUserButton,
+    mount: clerk.mountCreateOrganization,
+    unmount: clerk.unmountCreateOrganization,
     props,
   })
 })
@@ -102,8 +102,8 @@ export const CreateOrganization = defineComponent((props: CreateOrganizationProp
 export const OrganizationSwitcher = defineComponent((props: OrganizationSwitcherProps) => {
   const clerk = useClerk()
   return () => h(UIPortal, {
-    mount: clerk.mountUserButton,
-    unmount: clerk.unmountUserButton,
+    mount: clerk.mountOrganizationSwitcher,
+    unmount: clerk.unmountOrganizationSwitcher,
     props,
   })
 })
@@ -111,8 +111,8 @@ export const OrganizationSwitcher = defineComponent((props: OrganizationSwitcher
 export const OrganizationList = defineComponent((props: OrganizationListProps) => {
   const clerk = useClerk()
   return () => h(UIPortal, {
-    mount: clerk.mountUserButton,
-    unmount: clerk.unmountUserButton,
+    mount: clerk.mountOrganizationList,
+    unmount: clerk.unmountOrganizationList,
     props,
   })
 })
