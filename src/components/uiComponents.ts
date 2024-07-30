@@ -40,8 +40,8 @@ const UIPortal = defineComponent((props: MountProps) => {
 export const GoogleOneTap = defineComponent((props: GoogleOneTapProps) => {
   const clerk = useClerk()
   return () => h(UIPortal, {
-    mount: clerk.mountSignIn,
-    unmount: clerk.unmountSignIn,
+    mount: () => clerk.openGoogleOneTap(props),
+    unmount: clerk.closeGoogleOneTap,
     props,
   })
 })
