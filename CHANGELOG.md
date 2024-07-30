@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.13
+
+### Patch Changes
+
+- ca81318: Fix incorrect UI components mount and unmount functions
+- 46a2203: Fix incorrect GoogleOneTap mount function
+
 ## 0.4.12
 
 ### Patch Changes
