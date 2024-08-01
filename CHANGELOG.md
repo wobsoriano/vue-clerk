@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.14
+
+### Patch Changes
+
+- 5a96cb7: Fix UI component props not mounting
+
 ## 0.4.13
 
 ### Patch Changes
