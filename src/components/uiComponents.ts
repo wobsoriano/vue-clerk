@@ -26,7 +26,7 @@ const UIPortal = defineComponent((props: MountProps) => {
 
   watchEffect((onInvalidate) => {
     if (el.value)
-      props.mount(el.value, props)
+      props.mount(el.value, props.props || {})
 
     onInvalidate(() => {
       if (el.value)
