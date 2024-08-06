@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.15
+
+### Patch Changes
+
+- 2f3603f: Bump @clerk/shared and @clerk/types versions
+
 ## 0.4.14
 
 ### Patch Changes
