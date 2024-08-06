@@ -122,6 +122,7 @@ export default defineConfig({
         items: [
           { text: 'Nuxt', link: '/guides/nuxt.md' },
           { text: 'Custom Pages', link: '/guides/custom-pages.md' },
+          { text: 'Custom Menu items', link: '/guides/custom-menu-items.md' },
         ],
       },
     ],
