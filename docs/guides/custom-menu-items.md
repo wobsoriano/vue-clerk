@@ -11,7 +11,7 @@ While vue-clerk doesn't currently support declarative custom menu items like its
 import { UserButton } from 'vue-clerk'
 import type { CustomMenuItem } from '@clerk/types'
 
-const customMenuItemIcon = ref<HTMLDivElement | null>(null)
+const customMenuItemIcon = shallowRef<HTMLDivElement | null>(null)
 const customMenuItems: CustomMenuItem[] = [
   {
     label: 'Open chat',
