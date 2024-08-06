@@ -13,7 +13,7 @@ const customMenuItems: CustomMenuItem[] = [
     onClick: () => {
       // eslint-disable-next-line no-alert
       alert('init chat')
-    }
+    },
   },
 ]
 </script>
