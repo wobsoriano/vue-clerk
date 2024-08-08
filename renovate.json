@@ -6,6 +6,10 @@
   "assignees": ["wobsoriano"],
   "packageRules": [
     {
+      "matchPackagePatterns": ["*"],
+      "enabled": false
+    },
+    {
       "matchPackageNames": ["@clerk/shared", "@clerk/types"],
       "enabled": true
     }
