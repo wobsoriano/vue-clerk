@@ -13,7 +13,7 @@ importers:
         version: 2.4.5(react@18.3.1)
       '@clerk/types':
         specifier: ^4.12.1
-        version: 4.12.1
+        version: 4.13.0
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.21.2
@@ -488,6 +488,10 @@ packages:
 
   '@clerk/types@4.12.1':
     resolution: {integrity: sha512-0torlmJM3S3kYdaZuIrw1pf4K8aMvoFV+PE1xg7MGfZ0enD9UO3Vhw24pP/yBhI4hVGtNu95E63gpeOFIYysrA==}
+    engines: {node: '>=18.17.0'}
+
+  '@clerk/types@4.13.0':
+    resolution: {integrity: sha512-W/iZ5ig35UgJHmZqqgO1tosHuGtdKR8e+f8FJWphpdIW6KNCK+Oxc5lOO/hJU1c9aih0x5QdlLrKsqF3S8JKdA==}
     engines: {node: '>=18.17.0'}
 
   '@clerk/types@4.9.1':
@@ -6273,6 +6277,10 @@ snapshots:
       tslib: 2.4.1
 
   '@clerk/types@4.12.1':
+    dependencies:
+      csstype: 3.1.1
+
+  '@clerk/types@4.13.0':
     dependencies:
       csstype: 3.1.1
 
