@@ -8,10 +8,6 @@
     {
       "matchPackageNames": ["@clerk/shared", "@clerk/types"],
       "enabled": true
-    },
-    {
-      "matchPackagePatterns": ["*"],
-      "enabled": false
     }
   ]
 }
