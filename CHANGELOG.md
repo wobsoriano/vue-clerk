@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.16
+
+### Patch Changes
+
+- 4d69257: chore(deps): bump @clerk/types from 4.12.1 to 4.13.0
+- b215ddb: chore(deps): bump @clerk/shared from 2.4.5 to 2.5.0
+- f43df06: fix: Temporary add unexported `Transferable` type
+
 ## 0.4.15
 
 ### Patch Changes
