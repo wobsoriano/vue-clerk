@@ -12,3 +12,4 @@ updates:
     allow:
       - dependency-name: '@clerk/shared'
       - dependency-name: '@clerk/types'
+    versioning-strategy: increase
