@@ -2,4 +2,4 @@
 "vue-clerk": patch
 ---
 
-Fix unexported type
+fix: Temporary add unexported `Transferable` type
