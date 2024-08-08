@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "assignees": ["wobsoriano"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["@clerk/shared", "@clerk/types"],
+      "enabled": true
+    }
+  ]
+}
