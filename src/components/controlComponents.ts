@@ -1,7 +1,7 @@
 import { defineComponent, onMounted } from 'vue'
 import type {
   CheckAuthorizationWithCustomPermissions,
-  HandleOAuthCallbackParams,
+  HandleOAuthCallbackParams as HandleOAuthCallbackParamsOriginal,
   OrganizationCustomPermissionKey,
   OrganizationCustomRoleKey,
   RedirectOptions,
@@ -97,6 +97,16 @@ export const RedirectToCreateOrganization = defineComponent(() => {
 
   return () => null
 })
+
+// TODO: Fix this later and export `Transferable` type
+type HandleOAuthCallbackParams = Omit<HandleOAuthCallbackParamsOriginal, 'transferable'> & {
+  /**
+   * Indicates whether or not sign in attempts are transferable to the sign up flow.
+   * When set to false, prevents opaque sign ups when a user attempts to sign in via OAuth with an email that doesn't exist.
+   * @default true
+   */
+  transferable?: boolean
+}
 
 export const AuthenticateWithRedirectCallback = defineComponent((props: HandleOAuthCallbackParams) => {
   const clerk = useClerk()

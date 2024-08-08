@@ -47,8 +47,8 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
-    "@clerk/shared": "^2.4.5",
-    "@clerk/types": "^4.12.1"
+    "@clerk/shared": "^2.5.0",
+    "@clerk/types": "^4.13.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.2",
