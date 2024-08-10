@@ -4,10 +4,10 @@ import type { CustomMenuItem, UserButtonProps } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
 import { ClerkLoaded } from './controlComponents'
 
-export const UserButtonMain = defineComponent((props: UserButtonProps, { slots }) => {
+const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
   const clerk = useClerk()
   const el = ref<HTMLDivElement | null>(null)
-  const mountRefs = ref<Map<Component, HTMLDivElement>>(new Map())
+  const teleportLocationMap = ref<Map<Component, HTMLDivElement>>(new Map())
 
   const menuSlotItems = slots.default?.()
 
@@ -28,7 +28,7 @@ export const UserButtonMain = defineComponent((props: UserButtonProps, { slots }
       return {
         ...menuItem,
         mountIcon(el) {
-          mountRefs.value.set(item, el)
+          teleportLocationMap.value.set(item, el)
         },
         // TODO: What do we need to clean?
         unmountIcon: () => { /* cleanup */ },
@@ -53,7 +53,7 @@ export const UserButtonMain = defineComponent((props: UserButtonProps, { slots }
   return () => h(ClerkLoaded, () => [
     h('div', { ref: el }),
     ...(menuSlotItems?.map((item) => {
-      return mountRefs.value.get(item) ? h(Teleport, { to: mountRefs.value.get(item) }, item) : null
+      return teleportLocationMap.value.get(item) ? h(Teleport, { to: teleportLocationMap.value.get(item) }, item) : null
     }) ?? []),
   ])
 })
@@ -92,4 +92,4 @@ const UserButtonAction = defineComponent({
   },
 })
 
-export const UserButton = Object.assign(UserButtonMain, { Link: UserButtonLink, Action: UserButtonAction })
+export const UserButton = Object.assign(UserButtonRoot, { Link: UserButtonLink, Action: UserButtonAction })
