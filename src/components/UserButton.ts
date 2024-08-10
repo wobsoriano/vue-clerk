@@ -1,4 +1,4 @@
-import type { Component, PropType } from 'vue'
+import type { Component, PropType, VNode } from 'vue'
 import { Teleport, computed, defineComponent, h, ref, watchEffect } from 'vue'
 import type { CustomMenuItem, UserButtonProps } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
@@ -9,7 +9,10 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
   const el = ref<HTMLDivElement | null>(null)
   const teleportDestinationMap = ref<Map<Component, HTMLDivElement>>(new Map())
 
-  const menuSlotItems = slots.default?.()
+  const menuSlotItemsRoot = slots.default?.()?.[0]
+
+  // @ts-expect-error: Add `default` slot type
+  const menuSlotItems = menuSlotItemsRoot?.children?.default?.() as VNode[]
 
   const customMenuItems = computed<CustomMenuItem[]>(() => {
     return menuSlotItems?.map((item) => {
@@ -59,6 +62,10 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
   ])
 })
 
+const UserButtonMenuItems = defineComponent((_props, { slots }) => {
+  return () => slots.default?.()
+})
+
 const UserButtonLink = defineComponent({
   inheritAttrs: false,
   props: {
@@ -93,4 +100,4 @@ const UserButtonAction = defineComponent({
   },
 })
 
-export const UserButton = Object.assign(UserButtonRoot, { Link: UserButtonLink, Action: UserButtonAction })
+export const UserButton = Object.assign(UserButtonRoot, { MenuItems: UserButtonMenuItems, Link: UserButtonLink, Action: UserButtonAction })
