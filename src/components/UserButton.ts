@@ -7,7 +7,7 @@ import { ClerkLoaded } from './controlComponents'
 const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
   const clerk = useClerk()
   const el = ref<HTMLDivElement | null>(null)
-  const teleportLocationMap = ref<Map<Component, HTMLDivElement>>(new Map())
+  const teleportDestinationMap = ref<Map<Component, HTMLDivElement>>(new Map())
 
   const menuSlotItems = slots.default?.()
 
@@ -28,7 +28,7 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
       return {
         ...menuItem,
         mountIcon(el) {
-          teleportLocationMap.value.set(item, el)
+          teleportDestinationMap.value.set(item, el)
         },
         // TODO: What do we need to clean?
         unmountIcon: () => { /* cleanup */ },
@@ -53,7 +53,7 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
   return () => h(ClerkLoaded, () => [
     h('div', { ref: el }),
     ...menuSlotItems?.map((item) => {
-      const target = teleportLocationMap.value.get(item)
+      const target = teleportDestinationMap.value.get(item)
       return target ? h(Teleport, { to: target }, item) : null
     }) ?? [],
   ])
