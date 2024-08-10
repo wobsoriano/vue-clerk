@@ -1,4 +1,4 @@
-import type { Component } from 'vue'
+import type { Component, PropType } from 'vue'
 import { Teleport, computed, defineComponent, h, ref, watchEffect } from 'vue'
 import type { CustomMenuItem, UserButtonProps } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
@@ -52,9 +52,10 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
 
   return () => h(ClerkLoaded, () => [
     h('div', { ref: el }),
-    ...(menuSlotItems?.map((item) => {
-      return teleportLocationMap.value.get(item) ? h(Teleport, { to: teleportLocationMap.value.get(item) }, item) : null
-    }) ?? []),
+    ...menuSlotItems?.map((item) => {
+      const target = teleportLocationMap.value.get(item)
+      return target ? h(Teleport, { to: target }, item) : null
+    }) ?? [],
   ])
 })
 
@@ -83,7 +84,7 @@ const UserButtonAction = defineComponent({
       required: true,
     },
     onClick: {
-      type: Function,
+      type: Function as PropType<() => void>,
       required: true,
     },
   },
