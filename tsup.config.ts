@@ -25,7 +25,7 @@ export default defineConfig(() => {
     ],
     define: {
       PACKAGE_NAME: `"${name}"`,
-      PACKAGE_VERSION: `"${version}"`
+      PACKAGE_VERSION: `"${version}"`,
     },
   }
 })
