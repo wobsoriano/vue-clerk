@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.18
+
+### Patch Changes
+
+- a49e0be: Use Clerk JS script loader functions from @clerk/shared
+
 ## 0.4.17
 
 ### Patch Changes
