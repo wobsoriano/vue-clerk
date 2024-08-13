@@ -4,13 +4,12 @@ import vuePlugin from 'unplugin-vue/esbuild'
 import autoPropsPlugin from '@vue.ts/tsx-auto-props/esbuild'
 import { name, version } from './package.json'
 
-const clerkJsVersion = '5'
-
-export default defineConfig((overrideOptions) => {
-  const isWatch = !!overrideOptions.watch
-
+export default defineConfig(() => {
   return {
-    entry: ['src/index.ts'],
+    entry: {
+      index: 'src/index.ts',
+      internal: 'src/internal.ts',
+    },
     format: ['cjs', 'esm'],
     splitting: true,
     clean: true,
@@ -26,9 +25,7 @@ export default defineConfig((overrideOptions) => {
     ],
     define: {
       PACKAGE_NAME: `"${name}"`,
-      PACKAGE_VERSION: `"${version}"`,
-      JS_PACKAGE_VERSION: `"${clerkJsVersion}"`,
-      __DEV__: `${isWatch}`,
+      PACKAGE_VERSION: `"${version}"`
     },
   }
 })
