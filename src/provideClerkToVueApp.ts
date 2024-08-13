@@ -2,7 +2,7 @@ import type { Clerk, ClerkOptions, ClientResource, InitialState, Resources, With
 import { computed, reactive, ref } from 'vue'
 import type { App } from 'vue'
 import { isPublishableKey } from '@clerk/shared/keys'
-import { deriveState } from './utils/index'
+import { deriveState } from '@clerk/shared/deriveState'
 import { VueClerkInjectionKey } from './keys'
 import { IsomorphicClerk } from './isomorphicClerk'
 import type { IsomorphicClerkOptions } from './types'

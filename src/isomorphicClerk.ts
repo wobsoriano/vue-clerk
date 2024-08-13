@@ -47,6 +47,7 @@ import type {
 
 import { inBrowser } from '@clerk/shared/browser'
 import { handleValueOrFn } from '@clerk/shared/handleValueOrFn'
+import { loadClerkJsScript } from '@clerk/shared/loadClerkJsScript'
 import { errorThrower } from './errors/errorThrower'
 import { unsupportedNonBrowserDomainOrProxyUrlFunction } from './errors/messages'
 import type {
@@ -57,7 +58,7 @@ import type {
   HeadlessBrowserClerkConstructor,
   IsomorphicClerkOptions,
 } from './types'
-import { isConstructor, loadClerkJsScript } from './utils/index'
+import { isConstructor } from './utils/index'
 
 const SDK_METADATA = {
   name: PACKAGE_NAME,

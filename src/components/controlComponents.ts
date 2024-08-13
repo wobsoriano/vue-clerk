@@ -98,7 +98,7 @@ export const RedirectToCreateOrganization = defineComponent(() => {
   return () => null
 })
 
-// TODO: Fix this later and export `Transferable` type
+// TODO: Fix this later and export `Transferable` type from @clerk/types
 type HandleOAuthCallbackParams = Omit<HandleOAuthCallbackParamsOriginal, 'transferable'> & {
   /**
    * Indicates whether or not sign in attempts are transferable to the sign up flow.

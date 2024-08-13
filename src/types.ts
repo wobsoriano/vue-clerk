@@ -26,11 +26,6 @@ export type IsomorphicClerkOptions = Without<ClerkOptions, 'isSatellite'> & {
   publishableKey: string
 } & MultiDomainAndOrProxy
 
-// export type ClerkProviderProps = IsomorphicClerkOptions & {
-//   children: React.ReactNode
-//   initialState?: InitialState
-// }
-
 export interface BrowserClerkConstructor {
   new (publishableKey: string, options?: DomainOrProxyUrl): BrowserClerk
 }
