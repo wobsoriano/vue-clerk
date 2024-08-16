@@ -39,4 +39,5 @@ app.mount('#app')
 |`afterSignUpUrl?`|`string`|The default URL to use after the user signs up.|
 |`isSatellite?`|`boolean \| ((url: URL) => boolean)`|This option defines that the application is a satellite application.|
 |`domain?`|`string \| ((url: URL) => boolean)`|This option sets the domain of the satellite application. If your application is a satellite application, this option is required.|
-|`signInUrl`|`string`|This url will be used for any redirects that might happen and needs to point to your primary application. This option is optional for production instances and required for development instances.|
+|`signInUrl`|`string`| (Default: `/sign-in`) This url will be used for any redirects that might happen and needs to point to your primary application. This option is optional for production instances and required for development instances.|
+|`signUpUrl`|`string`| (Default: `/sign-up`)This URL will be used for any redirects that might happen and needs to point to your primary application on the client-side. This option is optional for production instances and required for development instances.|
