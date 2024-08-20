@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.19
+
+### Patch Changes
+
+- be4aca9: Bump @clerk/types from 4.13.1 to 4.14.0
+- 07c2d12: Bump @clerk/shared from 2.5.1 to 2.5.2
+
 ## 0.4.18
 
 ### Patch Changes
