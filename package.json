@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@clerk/shared": "^2.5.1",
-    "@clerk/types": "^4.13.1"
+    "@clerk/types": "^4.14.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.2",
