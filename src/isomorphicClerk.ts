@@ -178,7 +178,12 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
   private premountOrganizationListNodes = new Map<HTMLDivElement, OrganizationListProps>()
   private premountMethodCalls = new Map<MethodName<BrowserClerk>, MethodCallback>()
   private loadedListeners: Array<() => void> = []
-  private premountAddListeners = new Map<ListenerCallback, { listener: ListenerCallback, unsubscribe: UnsubscribeCallback, clerkUnsubscribe?: UnsubscribeCallback }>()
+  /**
+   * Stores pre-mount `addListener` calls to support multiple listeners and prevent overwrites.
+   * This separate map ensures that both internal (clerkPlugin) and user-level
+   * listeners are preserved during the pre-mount phase, avoiding race conditions.
+   */
+  private premountAddListeners = new Map<ListenerCallback, { unsubscribe: UnsubscribeCallback, nativeUnsubscribe?: UnsubscribeCallback }>()
 
   #loaded = false
   #domain: DomainOrProxyUrl['domain']
@@ -500,9 +505,9 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
     this.clerkjs = clerkjs
 
     this.premountMethodCalls.forEach(cb => cb())
-    for (const item of this.premountAddListeners.values()) {
-      item.clerkUnsubscribe = clerkjs.addListener(item.listener)
-    }
+    this.premountAddListeners.forEach((value, listener) => {
+      value.nativeUnsubscribe = clerkjs.addListener(listener)
+    })
 
     if (this.preopenSignIn !== null) {
       clerkjs.openSignIn(this.preopenSignIn)
@@ -903,12 +908,11 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
       const unsubscribe = () => {
         const item = this.premountAddListeners.get(listener)
         if (item) {
-          if (item.clerkUnsubscribe)
-            item.clerkUnsubscribe()
+          item.nativeUnsubscribe?.()
           this.premountAddListeners.delete(listener)
         }
       }
-      this.premountAddListeners.set(listener, { listener, unsubscribe })
+      this.premountAddListeners.set(listener, { unsubscribe })
       return unsubscribe
     }
   }
