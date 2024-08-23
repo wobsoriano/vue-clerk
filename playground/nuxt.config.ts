@@ -10,5 +10,5 @@ export default defineNuxtConfig({
     clerkSecretKey: process.env.CLERK_SECRET_KEY,
   },
 
-  compatibilityDate: '2024-07-26',
+  compatibilityDate: '2024-08-22',
 })
