@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.20
+
+### Patch Changes
+
+- b1bc743: Improve calls to `addListener` in user-level
+
 ## 0.4.19
 
 ### Patch Changes
