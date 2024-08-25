@@ -3,13 +3,13 @@ import type {
   CreateOrganizationProps,
   GoogleOneTapProps,
   OrganizationListProps,
-  OrganizationProfileProps,
   OrganizationSwitcherProps,
   SignInProps,
   SignUpProps,
 } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
 import { UserButton } from './UserButton'
+import { OrganizationProfile } from './OrganizationProfile'
 import { UserProfile } from './UserProfile'
 import { ClerkLoaded } from './controlComponents'
 
@@ -63,15 +63,6 @@ export const SignUp = defineComponent((props: SignUpProps) => {
   })
 })
 
-export const OrganizationProfile = defineComponent((props: OrganizationProfileProps) => {
-  const clerk = useClerk()
-  return () => h(UIPortal, {
-    mount: clerk.mountOrganizationProfile,
-    unmount: clerk.unmountOrganizationProfile,
-    props,
-  })
-})
-
 export const CreateOrganization = defineComponent((props: CreateOrganizationProps) => {
   const clerk = useClerk()
   return () => h(UIPortal, {
@@ -100,6 +91,7 @@ export const OrganizationList = defineComponent((props: OrganizationListProps) =
 })
 
 export {
+  OrganizationProfile,
   UserButton,
   UserProfile,
 }
