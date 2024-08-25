@@ -24,8 +24,6 @@ import { UserProfile } from 'vue-clerk'
         <HomeIcon />
       </template>
     </UserProfile.Link>
-    <UserProfile.Page label="account" />
-    <UserProfile.Page label="security" />
   </UserProfile>
 </template>
 ```
