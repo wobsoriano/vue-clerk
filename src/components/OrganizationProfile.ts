@@ -28,8 +28,8 @@ const _OrganizationProfile = defineComponent((props: Without<OrganizationProfile
         label: item.props?.label ?? '',
       }
 
-      const isExternalLink = !item.children?.default
       const isReorderItem = reorderItemsLabels.includes(item.props!.label)
+      const isExternalLink = !item.children?.default && !isReorderItem
 
       if (!isReorderItem) {
         if (isExternalLink) {
