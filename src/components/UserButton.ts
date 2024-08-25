@@ -205,5 +205,5 @@ export const UserButton = Object.assign(UserButtonRoot, {
   MenuItems: UserButtonMenuItems,
   Link: UserButtonLink,
   Action: UserButtonAction,
-  UserProfilePage: UserButtonUserProfilePage
+  UserProfilePage: UserButtonUserProfilePage,
 })
