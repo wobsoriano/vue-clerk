@@ -121,8 +121,21 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Nuxt', link: '/guides/nuxt.md' },
-          { text: 'Custom Pages', link: '/guides/custom-pages.md' },
-          { text: 'Custom Menu items', link: '/guides/custom-menu-items.md' },
+          {
+            text: 'Custom Pages',
+            base: '/guides/custom-pages',
+            items: [
+              { text: 'UserProfile', link: '/user-profile.md' },
+              { text: 'OrganizationProfile', link: '/organization-profile.md' },
+            ],
+          },
+          {
+            text: 'Custom Menu Items',
+            base: '/guides/custom-menu-items',
+            items: [
+              { text: 'UserButton', link: '/user-button.md' },
+            ],
+          },
         ],
       },
     ],
