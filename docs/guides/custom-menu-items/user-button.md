@@ -26,9 +26,11 @@ function openChat() {
 <template>
   <UserButton>
     <UserButton.MenuItems>
-        <UserButton.Action label="Open chat" @click="openChat">
-            <template #labelIcon><Icon /></template>
-        </UserButton.Action>
+      <UserButton.Action label="Open chat" @click="openChat">
+        <template #labelIcon>
+          <Icon />
+        </template>
+      </UserButton.Action>
     </UserButton.MenuItems>
   </UserButton>
 </template>
@@ -48,16 +50,20 @@ function openChat() {
 <template>
   <UserButton>
     <UserButton.MenuItems>
-        <UserButton.Action label="Help" open="help">
-            <template #labelIcon><Icon /></template>
-        </UserButton.Action>
+      <UserButton.Action label="Help" open="help">
+        <template #labelIcon>
+          <Icon />
+        </template>
+      </UserButton.Action>
     </UserButton.MenuItems>
     <UserButton.UserProfilePage label="Help" url="help">
-        <template #labelIcon><Icon /></template>
-        <div>
-            <h1>Help Page</h1>
-            <p>This is the custom help page</p>
-        </div>
+      <template #labelIcon>
+        <Icon />
+      </template>
+      <div>
+        <h1>Help Page</h1>
+        <p>This is the custom help page</p>
+      </div>
     </UserButton.UserProfilePage>
   </UserButton>
 </template>
@@ -79,13 +85,15 @@ function openChat() {
 </script>
 
 <template>
-    <UserButton>
-        <UserButton.MenuItems>
-            <UserButton.Link label="Create organization" href="/create-organization">
-                <template #labelIcon><Icon /></template>
-            </UserButton.Link>
-        </UserButton.MenuItems>
-    </UserButton>
+  <UserButton>
+    <UserButton.MenuItems>
+      <UserButton.Link label="Create organization" href="/create-organization">
+        <template #labelIcon>
+          <Icon />
+        </template>
+      </UserButton.Link>
+    </UserButton.MenuItems>
+  </UserButton>
 </template>
 ```
 
@@ -99,15 +107,17 @@ import { UserButton } from 'vue-clerk'
 </script>
 
 <template>
-    <UserButton>
-        <UserButton.MenuItems>
-            <UserButton.Action label="signOut" />
-            <UserButton.Link label="Create organization" href="/create-organization">
-                <template #labelIcon><Icon /></template>
-            </UserButton.Link>
-            <UserButton.Action label="manageAccount" />
-        </UserButton.MenuItems>
-    </UserButton>
+  <UserButton>
+    <UserButton.MenuItems>
+      <UserButton.Action label="signOut" />
+      <UserButton.Link label="Create organization" href="/create-organization">
+        <template #labelIcon>
+          <Icon />
+        </template>
+      </UserButton.Link>
+      <UserButton.Action label="manageAccount" />
+    </UserButton.MenuItems>
+  </UserButton>
 </template>
 ```
 
@@ -129,13 +139,15 @@ const { has } = useAuth()
 </script>
 
 <template>
-    <UserButton>
-        <UserButton.MenuItems v-if="has({ permission: 'org:app:admin' })">
-            <UserButton.Link label="Create organization" href="/create-organization">
-                <template #labelIcon><Icon /></template>
-            </UserButton.Link>
-        </UserButton.MenuItems>
-    </UserButton>
+  <UserButton>
+    <UserButton.MenuItems v-if="has({ permission: 'org:app:admin' })">
+      <UserButton.Link label="Create organization" href="/create-organization">
+        <template #labelIcon>
+          <Icon />
+        </template>
+      </UserButton.Link>
+    </UserButton.MenuItems>
+  </UserButton>
 </template>
 ```
 

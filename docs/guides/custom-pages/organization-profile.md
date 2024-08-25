@@ -19,7 +19,9 @@ import { OrganizationSwitcher } from 'vue-clerk'
 </script>
 
 <template>
-  <!-- Work In Progress -->
+  <div>
+    <!-- Work In Progress -->
+  </div>
 </template>
 ```
 
@@ -31,8 +33,10 @@ import { OrganizationProfile } from 'vue-clerk'
 <template>
   <OrganizationProfile>
     <OrganizationProfile.Page label="Custom Page" url="custom-page">
-        <template #labelIcon><Icon /></template>
-        <CustomPage />
+      <template #labelIcon>
+        <Icon />
+      </template>
+      <CustomPage />
     </OrganizationProfile.Page>
   </OrganizationProfile>
 </template>
@@ -52,7 +56,9 @@ import { OrganizationSwitcher } from 'vue-clerk'
 </script>
 
 <template>
-  <!-- Work In Progress -->
+  <div>
+    <!-- Work In Progress -->
+  </div>
 </template>
 ```
 
@@ -64,7 +70,9 @@ import { OrganizationProfile } from 'vue-clerk'
 <template>
   <OrganizationProfile>
     <OrganizationProfile.Link label="Homepage" url="/">
-        <template #labelIcon><Icon /></template>
+      <template #labelIcon>
+        <Icon />
+      </template>
     </OrganizationProfile.Link>
   </OrganizationProfile>
 </template>
@@ -86,7 +94,9 @@ import { OrganizationSwitcher } from 'vue-clerk'
 </script>
 
 <template>
-  <!-- Work In Progress -->
+  <div>
+    <!-- Work In Progress -->
+  </div>
 </template>
 ```
 
@@ -98,15 +108,19 @@ import { OrganizationProfile } from 'vue-clerk'
 <template>
   <OrganizationProfile>
     <OrganizationProfile.Page label="Custom Page">
-        <template #labelIcon><Icon /></template>
-        <CustomPage />
+      <template #labelIcon>
+        <Icon />
+      </template>
+      <CustomPage />
     </OrganizationProfile.Page>
     <OrganizationProfile.Link label="Homepage" url="/">
-        <template #labelIcon><Icon /></template>
+      <template #labelIcon>
+        <Icon />
+      </template>
     </OrganizationProfile.Link>
     <OrganizationProfile.Page label="members" />
     <OrganizationProfile.Page label="general" />
-  </UserProfile>
+  </OrganizationProfile>
 </template>
 ```
 

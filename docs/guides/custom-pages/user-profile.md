@@ -22,16 +22,20 @@ import { UserButton } from 'vue-clerk'
 <template>
   <UserProfile>
     <UserButton.MenuItems>
-        <UserButton.Action label="Help" open="help">
-            <template #labelIcon><Icon /></template>
-        </UserButton.Action>
+      <UserButton.Action label="Help" open="help">
+        <template #labelIcon>
+          <Icon />
+        </template>
+      </UserButton.Action>
     </UserButton.MenuItems>
     <UserButton.UserProfilePage label="Help" url="help">
-        <template #labelIcon><Icon /></template>
-        <div>
-            <h1>Help Page</h1>
-            <p>This is the custom help page</p>
-        </div>
+      <template #labelIcon>
+        <Icon />
+      </template>
+      <div>
+        <h1>Help Page</h1>
+        <p>This is the custom help page</p>
+      </div>
     </UserButton.UserProfilePage>
   </UserProfile>
 </template>
@@ -45,11 +49,13 @@ import { UserProfile } from 'vue-clerk'
 <template>
   <UserProfile>
     <UserProfile.Page label="Help" url="help">
-        <template #labelIcon><Icon /></template>
-        <div>
-            <h1>Help Page</h1>
-            <p>This is the custom help page</p>
-        </div>
+      <template #labelIcon>
+        <Icon />
+      </template>
+      <div>
+        <h1>Help Page</h1>
+        <p>This is the custom help page</p>
+      </div>
     </UserProfile.Page>
   </UserProfile>
 </template>
@@ -69,7 +75,9 @@ import { UserButton } from 'vue-clerk'
 </script>
 
 <template>
+  <div>
   <!-- Work In Progress -->
+  </div>
 </template>
 ```
 
@@ -81,7 +89,9 @@ import { UserProfile } from 'vue-clerk'
 <template>
   <UserProfile>
     <UserProfile.Link label="Homepage" url="/">
-        <template #labelIcon><Icon /></template>
+      <template #labelIcon>
+        <Icon />
+      </template>
     </UserProfile.Link>
   </UserProfile>
 </template>
@@ -103,11 +113,15 @@ import { UserProfile } from 'vue-clerk'
 <template>
   <UserProfile>
     <UserProfile.Page label="Custom Page">
-        <template #labelIcon><Icon /></template>
-        <CustomPage />
+      <template #labelIcon>
+        <Icon />
+      </template>
+      <CustomPage />
     </UserProfile.Page>
     <UserProfile.Link label="Homepage" url="/">
-        <template #labelIcon><Icon /></template>
+      <template #labelIcon>
+        <Icon />
+      </template>
     </UserProfile.Link>
     <UserProfile.Page label="account" />
     <UserProfile.Page label="security" />
