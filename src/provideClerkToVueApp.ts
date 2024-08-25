@@ -1,5 +1,5 @@
 import type { Clerk, ClerkOptions, ClientResource, InitialState, Resources, Without } from '@clerk/types'
-import { computed, reactive, ref } from 'vue'
+import { computed, ref, shallowRef } from 'vue'
 import type { App } from 'vue'
 import { isPublishableKey } from '@clerk/shared/keys'
 import { deriveState } from '@clerk/shared/deriveState'
@@ -33,7 +33,7 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions &
   const isClerkLoaded = ref(false)
   const clerk = IsomorphicClerk.getOrCreateInstance(options)
 
-  const state = reactive<Resources>({
+  const state = shallowRef<Resources>({
     client: clerk.client as ClientResource,
     session: clerk.session,
     user: clerk.user,
@@ -41,21 +41,20 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions &
   })
 
   clerk.addListener((payload) => {
-    for (const [key, value] of Object.entries(payload))
-      state[key as keyof typeof state] = value
+    state.value = payload
   })
 
   clerk.addOnLoaded(() => {
     isClerkLoaded.value = true
   })
 
-  const derivedState = computed(() => deriveState(isClerkLoaded.value, state, initialState))
+  const derivedState = computed(() => deriveState(isClerkLoaded.value, state.value, initialState))
 
   const authCtx = computed(() => {
     const { sessionId, userId, orgId, actor, orgRole, orgSlug, orgPermissions } = derivedState.value
     return { sessionId, userId, actor, orgId, orgRole, orgSlug, orgPermissions }
   })
-  const clientCtx = computed(() => state.client)
+  const clientCtx = computed(() => state.value.client)
   const userCtx = computed(() => derivedState.value.user)
   const sessionCtx = computed(() => derivedState.value.session)
   const organizationCtx = computed(() => derivedState.value.organization)
