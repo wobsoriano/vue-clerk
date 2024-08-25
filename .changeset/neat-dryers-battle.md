@@ -18,12 +18,21 @@ function openChat() {
 <template>
   <UserButton>
     <UserButton.MenuItems>
-      <UserButton.Action label="Open chat" @click="openChat">
+      <UserButton.Action label="Help" open="help">
         <template #labelIcon>
-          <ChatIcon />
+          <HelpIcon />
         </template>
       </UserButton.Action>
     </UserButton.MenuItems>
+    <UserButton.UserProfilePage label="Help" url="help">
+      <template #labelIcon>
+        <HelpIcon />
+      </template>
+      <div>
+        <h1>Help Page</h1>
+        <p>This is the custom help page</p>
+      </div>
+    </UserButton.UserProfilePage>
   </UserButton>
 </template>
 ```
