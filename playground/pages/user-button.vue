@@ -2,6 +2,7 @@
 import { UserButton } from 'vue-clerk'
 
 function openChat() {
+  // eslint-disable-next-line no-console
   console.log('Open chat')
 }
 </script>
