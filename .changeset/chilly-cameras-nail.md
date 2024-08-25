@@ -8,7 +8,7 @@ Usage:
 
 ```vue
 <script setup>
-import { UserProfile } from 'vue-clerk' 
+import { UserProfile } from 'vue-clerk'
 </script>
 
 <template>
@@ -19,11 +19,6 @@ import { UserProfile } from 'vue-clerk'
       </template>
       <CustomPage />
     </UserProfile.Page>
-    <UserProfile.Link label="Homepage" url="/">
-      <template #labelIcon>
-        <HomeIcon />
-      </template>
-    </UserProfile.Link>
   </UserProfile>
 </template>
 ```
