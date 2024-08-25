@@ -9,7 +9,3 @@ export const clerkPlugin: Plugin = {
     provideClerkToVueApp(app, options)
   },
 }
-
-export {
-  provideClerkToVueApp,
-}

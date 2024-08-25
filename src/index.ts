@@ -69,8 +69,12 @@ export type {
 
 export {
   clerkPlugin,
-  provideClerkToVueApp,
 } from './plugin'
+
+export {
+  updateClerkOptions,
+  provideClerkToVueApp,
+} from './provideClerkToVueApp'
 
 export * from './components/uiComponents'
 export * from './components/controlComponents'

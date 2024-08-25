@@ -18,6 +18,8 @@ export interface BrowserClerk extends HeadlessBrowserClerk {
   components: any
 }
 
+let initOptions: ClerkOptions | undefined
+
 export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions & { initialState?: InitialState }): IsomorphicClerk {
   const { initialState, publishableKey, Clerk: userInitializedClerk } = options
 
@@ -71,6 +73,13 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions &
   })
 
   return clerk
+}
+
+export function updateClerkOptions(options: Pick<ClerkOptions, 'appearance' | 'localization'>) {
+  void (window as any).Clerk.__unstable__updateProps({
+    options: { ...initOptions, ...options },
+    appearance: { ...initOptions?.appearance, ...options.appearance },
+  })
 }
 
 declare module 'vue' {

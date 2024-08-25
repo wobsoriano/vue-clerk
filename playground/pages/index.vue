@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import { OrganizationSwitcher, SignInButton, SignOutButton, WithUser, useAuth } from 'vue-clerk'
+import { OrganizationSwitcher, SignInButton, SignOutButton, WithUser, useAuth, updateClerkOptions } from 'vue-clerk'
+import { frFR } from '@clerk/localizations'
 
 const { isSignedIn, isLoaded } = useAuth()
+
+function updateLocale() {
+  updateClerkOptions({
+    localization: frFR,
+  })
+}
 </script>
 
 <template>
@@ -22,6 +29,7 @@ const { isSignedIn, isLoaded } = useAuth()
         </div>
       </template>
     </WithUser>
+    <button @click="updateLocale">Switch locale</button>
     <SignOutButton />
   </div>
   <div v-else>

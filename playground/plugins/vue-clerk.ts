@@ -1,10 +1,10 @@
 import { clerkPlugin } from 'vue-clerk'
 import { shadesOfPurple } from '@clerk/themes'
-import type { SignedInAuthObject, SignedOutAuthObject } from '@clerk/backend/internal'
+import type { AuthObject } from '@clerk/backend'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const publishableKey = useRuntimeConfig().public.clerkPublishableKey as string
-  const serverInitialState = useState<SignedInAuthObject | SignedOutAuthObject | undefined>('clerk-initial-state', () => undefined)
+  const serverInitialState = useState<AuthObject | undefined>('clerk-initial-state', () => undefined)
 
   if (import.meta.server) {
     const authContext = nuxtApp.ssrContext?.event.context.auth
