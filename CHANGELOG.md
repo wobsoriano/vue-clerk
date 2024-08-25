@@ -1,5 +1,86 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- 7863158: Add custom pages and links to `<UserProfile />` component
+
+  Usage:
+
+  ```vue
+  <script setup>
+  import { UserProfile } from "vue-clerk";
+  </script>
+
+  <template>
+    <UserProfile>
+      <UserProfile.Page label="Custom page" url="custom">
+        <template #labelIcon>
+          <CustomIcon />
+        </template>
+        <CustomPage />
+      </UserProfile.Page>
+    </UserProfile>
+  </template>
+  ```
+
+- 4c5fcd8: Add custom page support in `<UserButton />` and improve menu items rendering
+
+  Usage:
+
+  ```vue
+  <script setup>
+  import { UserButton } from "vue-clerk";
+
+  function openChat() {
+    alert("Open chat");
+  }
+  </script>
+
+  <template>
+    <UserButton>
+      <UserButton.MenuItems>
+        <UserButton.Action label="Help" open="help">
+          <template #labelIcon>
+            <HelpIcon />
+          </template>
+        </UserButton.Action>
+      </UserButton.MenuItems>
+      <UserButton.UserProfilePage label="Help" url="help">
+        <template #labelIcon>
+          <HelpIcon />
+        </template>
+        <div>
+          <h1>Help Page</h1>
+          <p>This is the custom help page</p>
+        </div>
+      </UserButton.UserProfilePage>
+    </UserButton>
+  </template>
+  ```
+
+- f84f404: Add custom pages and links to `<OrganizationProfile />` component
+
+  Usage:
+
+  ```vue
+  <script setup>
+  import { OrganizationProfile } from "vue-clerk";
+  </script>
+
+  <template>
+    <OrganizationProfile>
+      <OrganizationProfile.Page label="Custom page" url="custom">
+        <template #labelIcon>
+          <CustomIcon />
+        </template>
+        <CustomPage />
+      </OrganizationProfile.Page>
+    </OrganizationProfile>
+  </template>
+  ```
+
 ## 0.4.21
 
 ### Patch Changes
