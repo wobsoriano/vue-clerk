@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.4.21
+
+### Patch Changes
+
+- 562f4e9: Add helper function to update Clerk options
+
+  Usage:
+
+  ```ts
+  import { updateClerkOptions } from "vue-clerk";
+  import { frFR } from "@clerk/localizations";
+
+  updateClerkOptions({
+    localization: frFR,
+    appearance: {
+      elements: {
+        formButtonPrimary: "bg-slate-500 hover:bg-slate-400 text-sm",
+      },
+    },
+  });
+  ```
+
 ## 0.4.20
 
 ### Patch Changes

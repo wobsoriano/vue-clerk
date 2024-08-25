@@ -1,6 +1,6 @@
 {
   "name": "vue-clerk",
-  "version": "0.4.20",
+  "version": "0.4.21",
   "description": "Unofficial Vue + Clerk integration.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
   "license": "MIT",
