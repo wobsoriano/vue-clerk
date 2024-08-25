@@ -7,10 +7,10 @@ import type {
   OrganizationSwitcherProps,
   SignInProps,
   SignUpProps,
-  UserProfileProps,
 } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
 import { UserButton } from './UserButton'
+import { UserProfile } from './UserProfile'
 import { ClerkLoaded } from './controlComponents'
 
 type AnyObject = Record<string, any>
@@ -63,15 +63,6 @@ export const SignUp = defineComponent((props: SignUpProps) => {
   })
 })
 
-export const UserProfile = defineComponent((props: UserProfileProps) => {
-  const clerk = useClerk()
-  return () => h(UIPortal, {
-    mount: clerk.mountUserProfile,
-    unmount: clerk.unmountUserProfile,
-    props,
-  })
-})
-
 export const OrganizationProfile = defineComponent((props: OrganizationProfileProps) => {
   const clerk = useClerk()
   return () => h(UIPortal, {
@@ -110,4 +101,5 @@ export const OrganizationList = defineComponent((props: OrganizationListProps) =
 
 export {
   UserButton,
+  UserProfile,
 }

@@ -1,20 +1,29 @@
-<script setup lang="ts">
-import { UserProfile } from 'vue-clerk'
+---
+"vue-clerk": minor
+---
+
+Add custom pages and links to `<UserProfile /> component
+
+Usage:
+
+```vue
+<script setup>
+import { UserProfile } from 'vue-clerk' 
 </script>
 
 <template>
   <UserProfile>
     <UserProfile.Page label="Custom page" url="custom">
       <template #labelIcon>
-        <div>👋</div>
+        <CustomIcon />
       </template>
-      <p>Here is the user profile content</p>
+      <CustomPage />
     </UserProfile.Page>
     <UserProfile.Link label="Homepage" url="/">
       <template #labelIcon>
-        <div>👋</div>
+        <HomeIcon />
       </template>
     </UserProfile.Link>
-    <UserProfile.Page label="security" />
   </UserProfile>
 </template>
+```
