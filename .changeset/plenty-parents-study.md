@@ -24,8 +24,6 @@ import { OrganizationProfile } from 'vue-clerk'
         <HomeIcon />
       </template>
     </OrganizationProfile.Link>
-    <OrganizationProfile.Page label="members" />
-    <OrganizationProfile.Page label="settings" />
   </OrganizationProfile>
 </template>
 ```
