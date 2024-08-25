@@ -2,7 +2,7 @@
 "vue-clerk": minor
 ---
 
-Add custom pages and links to `<UserProfile /> component
+Add custom pages and links to `<UserProfile />` component
 
 Usage:
 
