@@ -7,6 +7,14 @@ Add custom page support in `<UserButton />` and improve menu items rendering
 Usage:
 
 ```vue
+<script setup lang="ts">
+import { UserButton } from 'vue-clerk'
+
+function openChat() {
+  alert('Open chat')
+}
+</script>
+
 <template>
   <UserButton>
     <UserButton.MenuItems>
