@@ -101,5 +101,5 @@ export const OrganizationList = defineComponent((props: OrganizationListProps) =
 
 export {
   UserButton,
-  UserProfile
+  UserProfile,
 }
