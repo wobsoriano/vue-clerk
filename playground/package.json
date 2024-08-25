@@ -11,11 +11,11 @@
   "dependencies": {
     "@clerk/localizations": "^2.4.6",
     "@clerk/themes": "^2.1.10",
-    "h3-clerk": "^0.4.7",
+    "h3-clerk": "^0.4.12",
     "vue-clerk": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",
-    "nuxt": "^3.12.2"
+    "nuxt": "^3.13.0"
   }
 }

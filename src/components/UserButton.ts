@@ -1,49 +1,132 @@
-import type { Component, PropType, VNode } from 'vue'
+import type { RendererElement, RendererNode, VNode } from 'vue'
 import { Teleport, computed, defineComponent, h, ref, watchEffect } from 'vue'
-import type { CustomMenuItem, UserButtonProps } from '@clerk/types'
+import type { CustomMenuItem, CustomPage, UserButtonProps } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
 import { ClerkLoaded } from './controlComponents'
+
+const reorderItemsLabels = ['manageAccount', 'signOut']
 
 const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
   const clerk = useClerk()
   const el = ref<HTMLDivElement | null>(null)
-  const teleportDestinationMap = ref<Map<Component, HTMLDivElement>>(new Map())
+  const teleportDestinationMap = ref<Map<HTMLDivElement, {
+    to: HTMLDivElement
+    children: () => VNode | VNode[]
+  }>>(new Map())
 
-  const menuSlotItemsRoot = slots.default?.()?.[0]
+  const customItemsNodes = slots.default?.() as (VNode & {
+    children: {
+      default: () => (VNode<RendererNode, RendererElement, {
+        label: string
+        href?: string
+        onClick?: () => void
+        open?: string
+      }> & {
+        children: {
+          labelIcon: () => VNode
+        }
+      })[]
+      labelIcon: () => VNode[]
+    }
+    type: {
+      name: string
+    }
+  })[]
 
-  // @ts-expect-error: Add `default` slot type
-  const menuSlotItems = menuSlotItemsRoot?.children?.default?.() as VNode[]
+  const customMenuItemsAndPages = computed<{
+    menuItems: CustomMenuItem[]
+    pages: CustomPage[]
+  }>(() => {
+    const customMenuItems: CustomMenuItem[] = []
+    const customPages: CustomPage[] = []
 
-  const customMenuItems = computed<CustomMenuItem[]>(() => {
-    return menuSlotItems?.map((item) => {
-      const menuItem: CustomMenuItem = {
-        label: item.props?.label ?? '',
+    customItemsNodes.forEach((node) => {
+      if (node.type.name === 'UserButtonMenuItems') {
+        node.children.default().forEach((menuItemNode) => {
+          const isReorderItem = reorderItemsLabels.includes(menuItemNode.props!.label)
+
+          if (isReorderItem) {
+            customMenuItems.push({
+              label: menuItemNode.props!.label,
+            })
+            return
+          }
+
+          const customMenuItem: CustomMenuItem = {
+            label: menuItemNode.props?.label ?? '',
+            mountIcon(el) {
+              teleportDestinationMap.value.set(el, {
+                to: el,
+                children: menuItemNode.children.labelIcon,
+              })
+            },
+            unmountIcon: (el) => {
+              if (el) {
+                teleportDestinationMap.value.delete(el)
+              }
+            },
+          }
+
+          if (menuItemNode.props?.href) {
+            customMenuItem.href = menuItemNode.props.href
+          }
+          else if (menuItemNode.props?.onClick) {
+            customMenuItem.onClick = menuItemNode.props.onClick
+          }
+          else if (menuItemNode.props?.open) {
+            customMenuItem.open = menuItemNode.props.open
+          }
+
+          customMenuItems.push(customMenuItem)
+        })
       }
+      else if (node.type.name === 'UserButtonUserProfilePage') {
+        const customPage: CustomPage = {
+          label: node.props?.label ?? '',
+          url: node.props?.url ?? '',
+          mountIcon(el) {
+            teleportDestinationMap.value.set(el, {
+              to: el,
+              children: node.children.labelIcon,
+            })
+          },
+          unmountIcon: (el) => {
+            if (el) {
+              teleportDestinationMap.value.delete(el)
+            }
+          },
+          mount(el) {
+            teleportDestinationMap.value.set(el, {
+              to: el,
+              children: node.children.default,
+            })
+          },
+          unmount: (el) => {
+            if (el) {
+              teleportDestinationMap.value.delete(el)
+            }
+          },
+        }
 
-      if (item.props?.href) {
-        menuItem.href = item.props.href
+        customPages.push(customPage)
       }
+    })
 
-      if (item.props?.onClick) {
-        menuItem.onClick = item.props.onClick
-      }
-
-      return {
-        ...menuItem,
-        mountIcon(el) {
-          teleportDestinationMap.value.set(item, el)
-        },
-        // TODO: What do we need to clean?
-        unmountIcon: () => { /* cleanup */ },
-      }
-    }) ?? []
+    return {
+      menuItems: customMenuItems,
+      pages: customPages,
+    }
   })
 
   watchEffect((onInvalidate) => {
     if (el.value) {
       clerk.mountUserButton(el.value, {
         ...props,
-        customMenuItems: customMenuItems.value,
+        customMenuItems: customMenuItemsAndPages.value.menuItems,
+        userProfileProps: {
+          ...props.userProfileProps,
+          customPages: customMenuItemsAndPages.value.pages,
+        },
       })
     }
 
@@ -55,19 +138,22 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
 
   return () => h(ClerkLoaded, () => [
     h('div', { ref: el }),
-    ...menuSlotItems?.map((item) => {
-      const target = teleportDestinationMap.value.get(item)
-      return target ? h(Teleport, { to: target }, item) : null
+    ...Array.from(teleportDestinationMap.value.values()).map((item) => {
+      return h(Teleport, { to: item.to }, item.children())
     }) ?? [],
   ])
 })
 
 const UserButtonMenuItems = defineComponent((_props, { slots }) => {
   return () => slots.default?.()
+}, {
+  name: 'UserButtonMenuItems',
+  inheritAttrs: false,
 })
 
 const UserButtonLink = defineComponent({
   inheritAttrs: false,
+  name: 'UserButtonLink',
   props: {
     label: {
       type: String,
@@ -83,15 +169,30 @@ const UserButtonLink = defineComponent({
   },
 })
 
-const UserButtonAction = defineComponent({
+// TODO: Fix reorder label types.
+type ReorderItemsLabels = 'manageAccount' | 'signOut'
+const UserButtonAction = defineComponent(
+  <T extends string>(_props: { label: T } & T extends ReorderItemsLabels ? { onClick?: () => void, open?: string } : ({
+    onClick: () => void
+    open?: string
+  } | {
+    onClick?: () => void
+    open: string
+  }), { slots }: { slots: any }) => {
+    return () => slots.labelIcon?.()
+  },
+)
+
+const UserButtonUserProfilePage = defineComponent({
   inheritAttrs: false,
+  name: 'UserButtonUserProfilePage',
   props: {
     label: {
       type: String,
       required: true,
     },
-    onClick: {
-      type: Function as PropType<() => void>,
+    url: {
+      type: String,
       required: true,
     },
   },
@@ -100,4 +201,9 @@ const UserButtonAction = defineComponent({
   },
 })
 
-export const UserButton = Object.assign(UserButtonRoot, { MenuItems: UserButtonMenuItems, Link: UserButtonLink, Action: UserButtonAction })
+export const UserButton = Object.assign(UserButtonRoot, {
+  MenuItems: UserButtonMenuItems,
+  Link: UserButtonLink,
+  Action: UserButtonAction,
+  UserProfilePage: UserButtonUserProfilePage
+})
