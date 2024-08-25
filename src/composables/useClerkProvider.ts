@@ -12,8 +12,3 @@ export function useClerkProvider() {
 
   return ctx
 }
-
-/**
- * @deprecated use `useClerkProvider()` instead
- */
-export const useClerkProvide = useClerkProvider

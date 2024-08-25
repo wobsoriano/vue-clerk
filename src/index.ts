@@ -39,7 +39,6 @@ export {
 
 export {
   useClerkProvider,
-  useClerkProvide,
 } from './composables/useClerkProvider'
 
 export {
