@@ -3,3 +3,33 @@
 ---
 
 Add custom page support in `<UserButton />` and improve menu items rendering
+
+Usage:
+
+```vue
+<template>
+  <UserButton>
+    <UserButton.MenuItems>
+      <UserButton.Action label="Open chat" @click="openChat">
+        <template #labelIcon>
+          <ChatIcon />
+        </template>
+      </UserButton.Action>
+      <UserButton.Action label="Help" open="help">
+        <template #labelIcon>
+          <HelpIcon />
+        </template>
+      </UserButton.Action>
+    </UserButton.MenuItems>
+    <UserButton.UserProfilePage label="Help" url="help">
+      <template #labelIcon>
+        <HelpIcon />
+      </template>
+      <div>
+        <h1>Help Page</h1>
+        <p>This is the custom help page</p>
+      </div>
+    </UserButton.UserProfilePage>
+  </UserButton>
+</template>
+```
