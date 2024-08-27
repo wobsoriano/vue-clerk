@@ -17,6 +17,8 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
       - uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,4 +32,4 @@ jobs:
         run: pnpm build build
 
       - name: Publish to pkg.pr.new
-        run: pnpm dlx pkg-pr-new publish --compact --pnpm .
+        run: pnpm dlx pkg-pr-new publish --compact
