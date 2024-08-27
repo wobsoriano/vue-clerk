@@ -12,8 +12,8 @@ importers:
         specifier: ^2.5.2
         version: 2.5.2(react@18.3.1)
       '@clerk/types':
-        specifier: ^4.14.0
-        version: 4.14.0
+        specifier: ^4.15.0
+        version: 4.15.0
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.21.2
@@ -476,6 +476,10 @@ packages:
 
   '@clerk/types@4.14.0':
     resolution: {integrity: sha512-d3MUcWtXGTOS7QYCRVrOra7NYAGRiNWlb+Ke2KMSb+Z3lea6WlKeHa18uVnAkIVxBXtHlzdU2kwW0PrHkx8j9Q==}
+    engines: {node: '>=18.17.0'}
+
+  '@clerk/types@4.15.0':
+    resolution: {integrity: sha512-ENe/8arwL/EZw/htHMiFtLT17reBbA/qey26SXrayUn53FCoYDhctt3tf9pQXy4zd7jXxz3v3DlOqV3G7WCMIA==}
     engines: {node: '>=18.17.0'}
 
   '@cloudflare/kv-asset-handler@0.3.4':
@@ -6230,6 +6234,10 @@ snapshots:
       tslib: 2.4.1
 
   '@clerk/types@4.14.0':
+    dependencies:
+      csstype: 3.1.1
+
+  '@clerk/types@4.15.0':
     dependencies:
       csstype: 3.1.1
 
