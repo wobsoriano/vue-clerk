@@ -40,7 +40,7 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
     const customMenuItems: CustomMenuItem[] = []
     const customPages: CustomPage[] = []
 
-    customItemsNodes.forEach((node) => {
+    customItemsNodes?.forEach((node) => {
       if (node.type.name === 'UserButtonMenuItems') {
         node.children.default().forEach((menuItemNode) => {
           const isReorderItem = reorderItemsLabels.includes(menuItemNode.props!.label)
