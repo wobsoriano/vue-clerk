@@ -7,7 +7,7 @@ on:
 jobs:
   snapshot:
     name: Build
-    if: ${{ github.event.issue.pull_request && github.event.comment.body == '!snapshot' }}
+    if: ${{ contains(github.event.comment.body, '!snapshot') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -42,48 +42,23 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const util = require('util');
-
-            async function logObjectDetails(obj, name) {
-              console.log(`${name} details:`);
-              console.log(util.inspect(obj, { depth: null }));
-            }
-
             try {
-              await logObjectDetails(context, 'Context');
-              await logObjectDetails(github, 'GitHub API object');
-
               const issueNumber = context.issue.number;
-              console.log(`Issue/PR number: ${issueNumber}`);
-
               const owner = context.repo.owner;
               const repo = context.repo.name;
+
+              console.log(`Issue/PR number: ${issueNumber}`);
               console.log(`Repository: ${owner}/${repo}`);
+              console.log(`Event name: ${context.eventName}`);
+              console.log(`Action: ${context.action}`);
+              console.log(`Actor: ${context.actor}`);
+              console.log(`Payload:`, JSON.stringify(context.payload, null, 2));
 
-              // Check if the issue exists and is a pull request
-              const { data: issue } = await github.rest.issues.get({
-                owner,
-                repo,
-                issue_number: issueNumber,
-              });
-
-              await logObjectDetails(issue, 'Issue');
-
-              if (!issue.pull_request) {
-                throw new Error('This issue is not a pull request');
+              if (!repo) {
+                throw new Error('Repository name is undefined');
               }
 
-              // Try to get pull request details
-              const { data: pullRequest } = await github.rest.pulls.get({
-                owner,
-                repo,
-                pull_number: issueNumber,
-              });
-
-              await logObjectDetails(pullRequest, 'Pull Request');
-
-              // Post the comment
-              const { data: comment } = await github.rest.issues.createComment({
+              await github.rest.issues.createComment({
                 issue_number: issueNumber,
                 owner,
                 repo,
@@ -92,12 +67,9 @@ jobs:
                       '\n```'
               });
 
-              await logObjectDetails(comment, 'Created Comment');
-
               console.log('Comment posted successfully');
             } catch (error) {
               console.log(`Error details: ${error.message}`);
               console.log(`Error stack: ${error.stack}`);
-              await logObjectDetails(error, 'Full Error Object');
               core.setFailed(`Action failed with error: ${error}`);
             }
