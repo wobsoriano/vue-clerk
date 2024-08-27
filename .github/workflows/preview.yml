@@ -42,12 +42,62 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const issueNumber = context.issue.number;
-            console.log(`Commenting on PR #${issueNumber}`);
+            const util = require('util');
 
-            await github.rest.issues.createComment({
-              issue_number: issueNumber,
-              owner: context.repo.owner,
-              repo: context.repo.name,
-              body: 'Test message'
-            });
+            async function logObjectDetails(obj, name) {
+              console.log(`${name} details:`);
+              console.log(util.inspect(obj, { depth: null }));
+            }
+
+            try {
+              await logObjectDetails(context, 'Context');
+              await logObjectDetails(github, 'GitHub API object');
+
+              const issueNumber = context.issue.number;
+              console.log(`Issue/PR number: ${issueNumber}`);
+
+              const owner = context.repo.owner;
+              const repo = context.repo.name;
+              console.log(`Repository: ${owner}/${repo}`);
+
+              // Check if the issue exists and is a pull request
+              const { data: issue } = await github.rest.issues.get({
+                owner,
+                repo,
+                issue_number: issueNumber,
+              });
+
+              await logObjectDetails(issue, 'Issue');
+
+              if (!issue.pull_request) {
+                throw new Error('This issue is not a pull request');
+              }
+
+              // Try to get pull request details
+              const { data: pullRequest } = await github.rest.pulls.get({
+                owner,
+                repo,
+                pull_number: issueNumber,
+              });
+
+              await logObjectDetails(pullRequest, 'Pull Request');
+
+              // Post the comment
+              const { data: comment } = await github.rest.issues.createComment({
+                issue_number: issueNumber,
+                owner,
+                repo,
+                body: 'Snapshot command output:\n```\n' +
+                      `${{ steps.snapshot.outputs.command_output }}` +
+                      '\n```'
+              });
+
+              await logObjectDetails(comment, 'Created Comment');
+
+              console.log('Comment posted successfully');
+            } catch (error) {
+              console.log(`Error details: ${error.message}`);
+              console.log(`Error stack: ${error.stack}`);
+              await logObjectDetails(error, 'Full Error Object');
+              core.setFailed(`Action failed with error: ${error}`);
+            }
