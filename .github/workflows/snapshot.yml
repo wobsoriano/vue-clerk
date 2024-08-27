@@ -10,6 +10,18 @@ jobs:
     if: ${{ contains(github.event.comment.body, '!snapshot') }}
     runs-on: ubuntu-latest
     steps:
+      - name: React to comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            await github.rest.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              content: 'heart'
+            });
+
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
@@ -50,7 +62,7 @@ jobs:
             }
 
             function formatComment(packageUrl) {
-              return `The snapshot version command generated the following package:
+              return `The snapshot command generated the following package:
 
               \`\`\`bash
               npm i ${packageUrl}
