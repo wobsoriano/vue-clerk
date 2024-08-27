@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.1
+
+### Patch Changes
+
+- f526231: Fix `<UserButton />` component trying to account for custom menu items even when empty
+- ffff2e4: Bump @clerk/shared to 2.5.3 and @clerk/types to 4.15.0
+
 ## 0.5.0
 
 ### Minor Changes
