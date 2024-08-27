@@ -42,21 +42,12 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            try {
-              const issueNumber = context.issue.number;
-              console.log(`Commenting on PR #${issueNumber}`);
+            const issueNumber = context.issue.number;
+            console.log(`Commenting on PR #${issueNumber}`);
 
-              await github.rest.issues.createComment({
-                issue_number: issueNumber,
-                owner: context.repo.owner,
-                repo: context.repo.name,
-                body: 'Snapshot command output:\n```\n' +
-                      `${{ steps.snapshot.outputs.command_output }}` +
-                      '\n```'
-              });
-
-              console.log('Comment posted successfully');
-            } catch (error) {
-              console.log(`Error details: ${error.message}`);
-              core.setFailed(`Action failed with error: ${error}`);
-            }
+            await github.rest.issues.createComment({
+              issue_number: issueNumber,
+              owner: context.repo.owner,
+              repo: context.repo.name,
+              body: 'Test message'
+            });
