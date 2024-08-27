@@ -45,7 +45,7 @@ jobs:
             try {
               const issueNumber = context.issue.number;
               const owner = context.repo.owner;
-              const repo = context.repo.name;
+              const repo = context.repo.repo;
 
               console.log(`Issue/PR number: ${issueNumber}`);
               console.log(`Repository: ${owner}/${repo}`);
