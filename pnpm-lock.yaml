@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@clerk/shared':
-        specifier: ^2.5.3
-        version: 2.5.3(react@18.3.1)
+        specifier: ^2.5.5
+        version: 2.5.5(react@18.3.1)
       '@clerk/types':
         specifier: ^4.16.0
         version: 4.16.0
@@ -472,6 +472,18 @@ packages:
 
   '@clerk/shared@2.5.3':
     resolution: {integrity: sha512-9y4Zrn5gIfXwF3kZQ6A4TIyDzEhvuOQ9Eb2sRfGebmKtN40Mq8HyTlsd9CjJvAC9m5AGH7f6o7n9k8Gytf+x2w==}
+    engines: {node: '>=18.17.0'}
+    peerDependencies:
+      react: '>=18 || >=19.0.0-beta'
+      react-dom: '>=18 || >=19.0.0-beta'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
+  '@clerk/shared@2.5.5':
+    resolution: {integrity: sha512-hU30nhf7jsMuefkxsNFW5AdQeGZahi43JQ9X+pDk4C52V5Lq4++4tT/gzuTGEo8b9TM7VY0JW8OcsnHdU3wJVA==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       react: '>=18 || >=19.0.0-beta'
@@ -6254,6 +6266,16 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
 
+  '@clerk/shared@2.5.5(react@18.3.1)':
+    dependencies:
+      '@clerk/types': 4.16.0
+      glob-to-regexp: 0.4.1
+      js-cookie: 3.0.5
+      std-env: 3.7.0
+      swr: 2.2.5(react@18.3.1)
+    optionalDependencies:
+      react: 18.3.1
+
   '@clerk/themes@2.1.21':
     dependencies:
       '@clerk/types': 4.14.0
@@ -9316,7 +9338,7 @@ snapshots:
   h3-clerk@0.4.12(h3@1.12.0)(react@18.3.1):
     dependencies:
       '@clerk/backend': 1.8.0(react@18.3.1)
-      '@clerk/shared': 2.5.2(react@18.3.1)
+      '@clerk/shared': 2.5.3(react@18.3.1)
       h3: 1.12.0
     transitivePeerDependencies:
       - react
