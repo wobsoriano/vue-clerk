@@ -44,7 +44,7 @@ jobs:
       - name: Create a snapshot version
         id: snapshot
         run: |
-          output=$(pnpm dlx pkg-pr-new publish --compact)
+          output=$(pnpm dlx pkg-pr-new publish --compact --comment=off)
           echo "command_output<<EOF" >> $GITHUB_OUTPUT
           echo "$output" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -57,7 +57,7 @@ jobs:
             const commandOutput = `${{ steps.snapshot.outputs.command_output }}`;
 
             function extractPackageUrl(output) {
-              const match = output.match(/npm i (https:\/\/pkg\.pr\.new\/[^\s]+)/);
+              const match = output.match(/(https:\/\/pkg\.pr\.new\/[^\s]+)/);
               return match ? match[1] : null;
             }
 
