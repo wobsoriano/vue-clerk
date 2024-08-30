@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@clerk/shared':
-        specifier: ^2.5.5
-        version: 2.5.5(react@18.3.1)
+        specifier: ^2.6.0
+        version: 2.6.0(react@18.3.1)
       '@clerk/types':
         specifier: ^4.16.0
         version: 4.16.0
@@ -470,8 +470,8 @@ packages:
       react-dom:
         optional: true
 
-  '@clerk/shared@2.5.3':
-    resolution: {integrity: sha512-9y4Zrn5gIfXwF3kZQ6A4TIyDzEhvuOQ9Eb2sRfGebmKtN40Mq8HyTlsd9CjJvAC9m5AGH7f6o7n9k8Gytf+x2w==}
+  '@clerk/shared@2.5.5':
+    resolution: {integrity: sha512-hU30nhf7jsMuefkxsNFW5AdQeGZahi43JQ9X+pDk4C52V5Lq4++4tT/gzuTGEo8b9TM7VY0JW8OcsnHdU3wJVA==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       react: '>=18 || >=19.0.0-beta'
@@ -482,8 +482,8 @@ packages:
       react-dom:
         optional: true
 
-  '@clerk/shared@2.5.5':
-    resolution: {integrity: sha512-hU30nhf7jsMuefkxsNFW5AdQeGZahi43JQ9X+pDk4C52V5Lq4++4tT/gzuTGEo8b9TM7VY0JW8OcsnHdU3wJVA==}
+  '@clerk/shared@2.6.0':
+    resolution: {integrity: sha512-ntgDxluwkvtGr73cc6vRQQAa/MAxr49NlroQ4GcAidylmSYTrqouD+SFQp21UQX51sFecGZKPyr2YoTFyxzQoA==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       react: '>=18 || >=19.0.0-beta'
@@ -502,12 +502,12 @@ packages:
     resolution: {integrity: sha512-d3MUcWtXGTOS7QYCRVrOra7NYAGRiNWlb+Ke2KMSb+Z3lea6WlKeHa18uVnAkIVxBXtHlzdU2kwW0PrHkx8j9Q==}
     engines: {node: '>=18.17.0'}
 
-  '@clerk/types@4.15.0':
-    resolution: {integrity: sha512-ENe/8arwL/EZw/htHMiFtLT17reBbA/qey26SXrayUn53FCoYDhctt3tf9pQXy4zd7jXxz3v3DlOqV3G7WCMIA==}
-    engines: {node: '>=18.17.0'}
-
   '@clerk/types@4.16.0':
     resolution: {integrity: sha512-SoE6jFT7UuVtAbA6rSLwAk86VXnJhV2g0+GKQxxa6UFaXIm/s65jLVFpxCDdDZ0RJu2sBrMNfsWQHYyy06nRug==}
+    engines: {node: '>=18.17.0'}
+
+  '@clerk/types@4.17.0':
+    resolution: {integrity: sha512-/GksPLzWLCTbZ1ZNTUs4CMze89XUQNGNy9KJOP56JUaxCy+9iHbIsDyia6zicHXhH8/oIj9SrZv/nlEPNUFkoA==}
     engines: {node: '>=18.17.0'}
 
   '@cloudflare/kv-asset-handler@0.3.4':
@@ -6256,9 +6256,9 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
 
-  '@clerk/shared@2.5.3(react@18.3.1)':
+  '@clerk/shared@2.5.5(react@18.3.1)':
     dependencies:
-      '@clerk/types': 4.15.0
+      '@clerk/types': 4.16.0
       glob-to-regexp: 0.4.1
       js-cookie: 3.0.5
       std-env: 3.7.0
@@ -6266,9 +6266,9 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
 
-  '@clerk/shared@2.5.5(react@18.3.1)':
+  '@clerk/shared@2.6.0(react@18.3.1)':
     dependencies:
-      '@clerk/types': 4.16.0
+      '@clerk/types': 4.17.0
       glob-to-regexp: 0.4.1
       js-cookie: 3.0.5
       std-env: 3.7.0
@@ -6285,11 +6285,11 @@ snapshots:
     dependencies:
       csstype: 3.1.1
 
-  '@clerk/types@4.15.0':
+  '@clerk/types@4.16.0':
     dependencies:
       csstype: 3.1.1
 
-  '@clerk/types@4.16.0':
+  '@clerk/types@4.17.0':
     dependencies:
       csstype: 3.1.1
 
@@ -9338,7 +9338,7 @@ snapshots:
   h3-clerk@0.4.12(h3@1.12.0)(react@18.3.1):
     dependencies:
       '@clerk/backend': 1.8.0(react@18.3.1)
-      '@clerk/shared': 2.5.3(react@18.3.1)
+      '@clerk/shared': 2.5.5(react@18.3.1)
       h3: 1.12.0
     transitivePeerDependencies:
       - react
