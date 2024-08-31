@@ -11,8 +11,8 @@
     "nuke": "./scripts/nuke.sh"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.7",
     "@antfu/eslint-config": "^2.21.2",
+    "@changesets/cli": "^2.27.7",
     "eslint": "^9.6.0",
     "turbo": "^2.1.1",
     "typescript": "^5.5.2"
