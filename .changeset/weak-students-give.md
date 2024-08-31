@@ -13,12 +13,17 @@ Usage:
  ```
 
  ```html
- <script setup>
- const { userId } = useAuth()
- </script>
+<script setup>
+const { userId } = useAuth()
+</script>
 
- <template>
-   <div v-if="userId">Hello {{ userId }}</div>
-   <div v-else>Not signed in</div>
- </template>
- ```
+<template>
+    <SignedIn>
+        <h1>User id {{ userId }}</h1>
+        <UserButton />
+    </SignedIn>
+    <SignedOut>
+        <SignInButton mode="modal" />
+    </SignedOut>
+</template>
+```
