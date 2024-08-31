@@ -1,0 +1,72 @@
+{
+  "name": "vue-clerk",
+  "type": "module",
+  "version": "0.5.1",
+  "description": "Unofficial Vue + Clerk integration.",
+  "author": "Robert Soriano <sorianorobertc@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/wobsoriano/vue-clerk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wobsoriano/vue-clerk.git"
+  },
+  "bugs": "https://github.com/wobsoriano/vue-clerk/issues",
+  "keywords": [
+    "auth"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./internal": {
+      "types": "./dist/internal.d.ts",
+      "import": "./dist/internal.js",
+      "require": "./dist/internal.cjs"
+    },
+    "./nuxt": {
+      "types": "./dist/nuxt/index.d.ts",
+      "import": "./dist/nuxt/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "nuxt"
+  ],
+  "scripts": {
+    "dev": "tsup --watch --onSuccess \"pnpm build:dts\"",
+    "build": "tsup --env.NODE_ENV production --onSuccess \"pnpm build:dts\"",
+    "build:dts": "vue-tsc --declaration --emitDeclarationOnly && rm -rf dist/components/__tests__",
+    "prepublishOnly": "pnpm build",
+    "test": "vitest",
+    "update-deps": "taze -w && pnpm i",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@clerk/shared": "^2.5.5",
+    "@clerk/types": "^4.16.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/user-event": "^14.5.2",
+    "@testing-library/vue": "^8.1.0",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vue.ts/tsx-auto-props": "^0.6.0",
+    "expect-type": "^0.19.0",
+    "jsdom": "^24.1.0",
+    "taze": "^0.14.0",
+    "unplugin-vue": "^5.0.5",
+    "vite": "^5.3.2",
+    "vitest": "^1.6.0",
+    "vue": "^3.4.31",
+    "vue-component-type-helpers": "^2.0.29",
+    "vue-tsc": "^2.0.24"
+  }
+}

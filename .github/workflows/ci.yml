@@ -24,7 +24,7 @@ jobs:
           fetch-depth: 0
       - uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 9.9.0
 
       - name: Set up Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
@@ -39,10 +39,10 @@ jobs:
         run: pnpm lint
 
       - name: Typecheck
-        run: pnpm typecheck
+        run: pnpm --filter vue-clerk typecheck
 
       - name: Build
         run: pnpm build
 
       - name: Test
-        run: pnpm test
+        run: pnpm --filter vue-clerk test

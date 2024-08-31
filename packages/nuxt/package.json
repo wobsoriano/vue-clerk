@@ -1,0 +1,19 @@
+{
+  "name": "vue-clerk-nuxt",
+  "type": "module",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.13.0",
+    "@nuxt/schema": "^3.13.0",
+    "h3-clerk": "^0.4.12",
+    "vue-clerk": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.1"
+  }
+}
