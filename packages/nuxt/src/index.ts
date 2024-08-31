@@ -13,6 +13,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup(options, nuxt) {
     nuxt.options.runtimeConfig.public.clerk = options
+    nuxt.options.build.transpile.push('vue-clerk')
 
     const resolver = createResolver(import.meta.url)
 
@@ -28,6 +29,7 @@ export default defineNuxtModule<ModuleOptions>({
     addServerHandler({
       handler: resolver.resolve('./runtime/server/api/current-user.get'),
       route: '/api/_clerk/current-user',
+      method: 'get',
     })
 
     const components = [
