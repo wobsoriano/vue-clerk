@@ -4,25 +4,18 @@ outline: deep
 
 # Nuxt
 
-## 1. Install vue-clerk and h3-clerk
+Vue Clerk offers a Nuxt module that simplifies the integration of Clerk into your Nuxt application.
 
-The [h3-clerk](https://github.com/wobsoriano/h3-clerk) package is a middleware used to add Clerk authentication to your [h3](https://h3.unjs.io/guide/websocket)/Nuxt apps. You can protect your API routes with it.
+## 1. Install module
 
-::: code-group
+In your `nuxt.config.ts` file, add the `vue-clerk/nuxt` module to the `modules` array, and it will auto-import all components and composables for you. This also installs [h3-clerk](https://github.com/wobsoriano/h3-clerk) for server-side authentication.
 
-```bash [npm]
-npm install vue-clerk h3-clerk
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ['vue-clerk/nuxt'],
+})
 ```
-
-```bash [yarn]
-yarn add vue-clerk h3-clerk
-```
-
-```bash [pnpm]
-pnpm add vue-clerk h3-clerk
-```
-
-:::
 
 ## 2. Set your environment variables
 
@@ -33,59 +26,28 @@ CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 ```
 
-## 3. Add server middleware to your Nuxt app
+## 3. Configure module
 
-`withClerkMiddleware` grants you access to user authentication state throughout your application, on any route or page. It also allows you to protect specific routes from unauthenticated users.
+You can add Vue Clerk [plugin](/plugin#properties) options in your `nuxt.config.ts` file:
 
-```js
-// server/middleware/clerk.ts
-import { withClerkMiddleware } from 'h3-clerk'
-
-export default withClerkMiddleware()
-```
-
-## 4. Add the Clerk plugin
-
-Notice here that we are setting an initial state for the user. This will let us use some of the composables in SSR and check if user is authenticated or not in route middlewares.
-
-```js
-// plugins/vue-clerk.ts
-import { clerkPlugin } from 'vue-clerk'
-
-export default defineNuxtPlugin((nuxtApp) => {
-  const { publishableKey } = useRuntimeConfig().public
-  const serverInitialState = useState('clerk-initial-state', () => undefined)
-
-  // Installing the `withClerkMiddleware` from `h3-clerk` adds an `auth` object to the context.
-  // We can then use the `auth` object to get the initial state of the user.
-  if (import.meta.server) {
-    const authContext = useRequestEvent()?.context.auth
-    serverInitialState.value = authContext ? pruneUnserializableFields(authContext) : undefined
+```ts
+export default defineNuxtConfig({
+  modules: ['vue-clerk/nuxt'],
+  clerk: {
+    publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
+    appearance: {},
   }
-
-  nuxtApp.vueApp.use(clerkPlugin, {
-    publishableKey,
-    routerPush: to => navigateTo(to),
-    routerReplace: to => navigateTo(to, { replace: true }),
-    initialState: serverInitialState.value,
-  })
 })
-
-function pruneUnserializableFields(authContext) {
-  return JSON.parse(JSON.stringify(authContext))
-}
 ```
 
-## 5. Add a route middleware to protect private pages
+## 4. Add a route middleware to protect routes
 
 ```ts
 // middleware/auth.global.ts
 import { useAuth } from 'vue-clerk'
 
 export default defineNuxtRouteMiddleware((to) => {
-  // isSignedIn here can be used in both SSR and CSR
-  // since we set an initial state in the plugin!
-  const { isSignedIn } = useAuth()
+  const { isSignedIn } = useAuth() // works in SSR and CSR!
 
   const protectedPages = ['dashboard']
   const publicPages = ['sign-in', 'sign-up']
@@ -95,6 +57,23 @@ export default defineNuxtRouteMiddleware((to) => {
 
   if (!isSignedIn.value && protectedPages.includes(to.name))
     return navigateTo('/sign-in')
+})
+```
+
+## 5. Protect your API endpoints
+
+```ts
+import { clerkClient, getAuth } from 'h3-clerk'
+
+export default eventHandler((event) => {
+  const auth = getAuth(event)
+
+  if (!auth.userId) {
+    setResponseStatus(event, 403)
+    return
+  }
+
+  return clerkClient.users.getUser(auth.userId)
 })
 ```
 
