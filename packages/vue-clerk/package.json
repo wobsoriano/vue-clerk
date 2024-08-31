@@ -33,7 +33,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "tsup --watch --onSuccess \"pnpm build:dts && pnpm --filter playground dev\"",
+    "dev": "tsup --watch --onSuccess \"pnpm build:dts\"",
     "build": "tsup --env.NODE_ENV production --onSuccess \"pnpm build:dts\"",
     "build:dts": "vue-tsc --declaration --emitDeclarationOnly && rm -rf dist/components/__tests__",
     "prepublishOnly": "pnpm build",

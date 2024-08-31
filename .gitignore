@@ -12,5 +12,8 @@ node_modules
 temp
 .vscode
 
-docs/.vitepress/dist
-docs/.vitepress/cache
+apps/docs/.vitepress/dist
+apps/docs/.vitepress/cache
+
+# turbo
+.turbo
