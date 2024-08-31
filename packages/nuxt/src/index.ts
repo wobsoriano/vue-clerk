@@ -1,4 +1,4 @@
-import { addComponent, addImports, addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addImports, addImportsDir, addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
 export type ModuleOptions = IsomorphicClerkOptions
@@ -16,11 +16,18 @@ export default defineNuxtModule<ModuleOptions>({
 
     const resolver = createResolver(import.meta.url)
 
-    addPlugin(resolver.resolve('./runtime/plugin'))
+    addImportsDir(resolver.resolve('./runtime/composables'))
+
+    addPlugin(resolver.resolve('./runtime/plugins/current-user.server'))
+    addPlugin(resolver.resolve('./runtime/plugins/clerk'))
 
     addServerHandler({
       middleware: true,
       handler: resolver.resolve('./runtime/server/middleware'),
+    })
+    addServerHandler({
+      handler: resolver.resolve('./runtime/server/api/current-user.get'),
+      route: '/api/_clerk/current-user',
     })
 
     const components = [

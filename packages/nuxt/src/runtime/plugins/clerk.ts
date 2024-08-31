@@ -6,7 +6,7 @@ import { defineNuxtPlugin, navigateTo, useRuntimeConfig, useState } from '#app'
 type AuthObject = Record<string, unknown>
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const serverInitialState = useState<AuthObject | undefined>('vue-clerk-initial-state', () => undefined)
+  const serverInitialState = useState<AuthObject | undefined>('clerk-initial-state', () => undefined)
 
   // eslint-disable-next-line node/prefer-global/process
   if (process.env.server) {
