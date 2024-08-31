@@ -61,6 +61,8 @@ export default defineNuxtModule<ModuleOptions>({
       'useSignUp',
       'useUser',
       'useOrganization',
+      // helpers
+      'updateClerkOptions'
     ]
 
     addImports(

@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { UserProfile } from 'vue-clerk'
-</script>
-
 <template>
   <UserProfile>
     <UserProfile.Page label="Custom page" url="custom">

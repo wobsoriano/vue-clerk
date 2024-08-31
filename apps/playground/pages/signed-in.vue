@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { SignInButton, SignOutButton, SignedIn, SignedOut } from 'vue-clerk'
-</script>
-
 <template>
   <section>
     <SignedOut>

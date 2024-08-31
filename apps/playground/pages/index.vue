@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { WithUser, updateClerkOptions } from 'vue-clerk'
+import { WithUser } from 'vue-clerk'
 import { frFR } from '@clerk/localizations'
 
 const { isSignedIn, isLoaded } = useAuth()
