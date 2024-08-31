@@ -44,7 +44,7 @@ jobs:
       - name: Create a snapshot version
         id: snapshot
         run: |
-          output=$(pnpm dlx pkg-pr-new publish --compact --comment=off)
+          output=$(pnpm dlx pkg-pr-new publish './packages/vue-clerk' --compact --comment=off)
           echo "command_output<<EOF" >> $GITHUB_OUTPUT
           echo "$output" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
