@@ -24,6 +24,11 @@ export default defineNuxtModule<ModuleOptions>({
       middleware: true,
       handler: resolver.resolve('./runtime/server/middleware'),
     })
+    addServerHandler({
+      route: '/api/_clerk/current-user',
+      handler: resolver.resolve('./runtime/server/api/current-user.get'),
+      method: 'get',
+    })
 
     if (nuxt.options.nitro.imports !== false) {
       nuxt.options.nitro.imports = defu(nuxt.options.nitro.imports, {
@@ -84,6 +89,10 @@ export default defineNuxtModule<ModuleOptions>({
         from: 'vue-clerk',
       })),
     )
+    addImports({
+      name: 'useCurrentUser',
+      from: resolver.resolve('./runtime/composables/useCurrentUser'),
+    })
 
     components.forEach(component =>
       addComponent({

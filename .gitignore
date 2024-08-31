@@ -17,3 +17,9 @@ apps/docs/.vitepress/cache
 
 # turbo
 .turbo
+
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro

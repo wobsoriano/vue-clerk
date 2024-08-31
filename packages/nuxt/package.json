@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "tsup --watch",
-    "build": "tsup"
+    "dev": "pnpm build",
+    "postinstall": "nuxt-module-build prepare",
+    "build": "nuxt-module-build build && pnpm run move",
+    "move": "rm -rf ../vue-clerk/dist/nuxt && mv -f dist ../vue-clerk/dist/nuxt"
   },
   "dependencies": {
-    "@clerk/backend": "^1.9.0",
     "@nuxt/kit": "^3.13.0",
     "@nuxt/schema": "^3.13.0",
     "defu": "^6.1.4",
@@ -17,6 +18,9 @@
     "vue-clerk": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^22.5.1"
+    "@nuxt/devtools": "1.4.1",
+    "@nuxt/module-builder": "0.8.3",
+    "@types/node": "^22.5.1",
+    "nuxt": "3.13.0"
   }
 }

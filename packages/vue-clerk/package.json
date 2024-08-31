@@ -26,8 +26,9 @@
       "require": "./dist/internal.cjs"
     },
     "./nuxt": {
-      "types": "./dist/nuxt/index.d.ts",
-      "import": "./dist/nuxt/index.js"
+      "types": "./dist/nuxt/types.d.ts",
+      "import": "./dist/nuxt/module.mjs",
+      "require": "./dist/nuxt/module.cjs"
     }
   },
   "main": "./dist/index.js",
@@ -60,6 +61,7 @@
     "@clerk/types": "^4.16.0"
   },
   "devDependencies": {
+    "tsup": "^8.1.0",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/user-event": "^14.5.2",
     "@testing-library/vue": "^8.1.0",

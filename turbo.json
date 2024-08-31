@@ -9,6 +9,11 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "playground#build": {
+      "dependsOn": ["vue-clerk-nuxt#build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".nuxt/**", ".output/**", "dist/**"]
     }
   }
 }
