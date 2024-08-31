@@ -27,8 +27,7 @@
     },
     "./nuxt": {
       "types": "./dist/nuxt/index.d.ts",
-      "import": "./dist/nuxt/index.js",
-      "require": "./dist/nuxt/index.cjs"
+      "import": "./dist/nuxt/index.js"
     }
   },
   "main": "./dist/index.js",

@@ -3,8 +3,8 @@ import { defineConfig } from 'tsup'
 export default defineConfig(() => {
   return {
     entry: ['src/**/*.ts'],
-    format: ['cjs', 'esm'],
-    clean: true,
+    format: ['esm'],
+    clean: false,
     minify: false,
     dts: true,
     external: ['#app', '#imports'],
