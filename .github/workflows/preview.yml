@@ -1,9 +1,9 @@
-name: Snapshot
+name: Preview
 
 on: [push, pull_request]
 
 jobs:
-  snapshot:
+  build:
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -21,7 +21,8 @@ jobs:
           node-version: 20.x
           cache: pnpm
 
-      - run: pnpm install
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm build
