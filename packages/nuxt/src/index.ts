@@ -1,4 +1,5 @@
 import { addComponent, addImports, addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { defu } from 'defu'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
 export type ModuleOptions = IsomorphicClerkOptions
@@ -23,6 +24,17 @@ export default defineNuxtModule<ModuleOptions>({
       middleware: true,
       handler: resolver.resolve('./runtime/server/middleware'),
     })
+
+    if (nuxt.options.nitro.imports !== false) {
+      nuxt.options.nitro.imports = defu(nuxt.options.nitro.imports, {
+        presets: [
+          {
+            from: 'h3-clerk',
+            imports: ['clerkClient', 'getAuth'],
+          },
+        ],
+      })
+    }
 
     const components = [
       // Authentication Components
