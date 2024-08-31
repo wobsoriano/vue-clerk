@@ -1,9 +1,8 @@
 import { clerkPlugin } from 'vue-clerk'
-import type { AuthObject } from '@clerk/backend'
-// @ts-expect-error: Nuxt imports
+import type { AuthObject } from 'h3-clerk'
 import { defineNuxtPlugin, navigateTo, useRuntimeConfig, useState } from '#app'
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin((nuxtApp: any) => {
   const serverInitialState = useState<AuthObject | undefined>('clerk-initial-state', () => undefined)
 
   // eslint-disable-next-line node/prefer-global/process
