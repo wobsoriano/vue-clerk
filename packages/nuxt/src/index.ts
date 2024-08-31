@@ -1,5 +1,4 @@
 import { addComponent, addImports, addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
-import { addDependency } from 'nypm'
 import { defu } from 'defu'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
@@ -18,8 +17,6 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.build.transpile.push('vue-clerk')
 
     const resolver = createResolver(import.meta.url)
-
-    await addDependency('h3-clerk')
 
     addPlugin(resolver.resolve('./runtime/plugins/clerk'))
 

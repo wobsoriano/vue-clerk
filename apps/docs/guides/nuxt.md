@@ -6,9 +6,27 @@ outline: deep
 
 Vue Clerk offers a Nuxt module that simplifies the integration of Clerk into your Nuxt application.
 
+## 1. Install Vue Clerk and H3 Clerk
+
+::: code-group
+
+```bash [npm]
+npm install vue-clerk h3-clerk
+```
+
+```bash [yarn]
+yarn add vue-clerk h3-clerk
+```
+
+```bash [pnpm]
+pnpm add vue-clerk h3-clerk
+```
+
+:::
+
 ## 1. Install module
 
-In your `nuxt.config.ts` file, add the `vue-clerk/nuxt` module to the `modules` array, and it will auto-import all components and composables for you. This also installs [h3-clerk](https://github.com/wobsoriano/h3-clerk) for server-side authentication.
+In your `nuxt.config.ts` file, add the `vue-clerk/nuxt` module to the `modules` array, and it will auto-import all components and composables for you. This also installs [h3-clerk](https://github.com/wobsoriano/h3-clerk) middleware for server-side authentication.
 
 ```ts
 // nuxt.config.ts

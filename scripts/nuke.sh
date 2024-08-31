@@ -1,4 +1,5 @@
 rm -rf node_modules
+rm pnpm-lock.yaml
 rm -rf .turbo
 
 for d in packages/*
