@@ -8,8 +8,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "turbo run build && changeset publish",
-    "clean": "find . \\( -name '.turbo' -o -name 'dist' \\) -type d -prune -exec rm -rf {} +",
-    "clean:nm": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
+    "nuke": "./scripts/nuke.sh"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.7",
