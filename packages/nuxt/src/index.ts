@@ -1,4 +1,4 @@
-import { addComponent, addImports, addImportsDir, addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addComponentsDir, addImports, addImportsDir, addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
 export type ModuleOptions = IsomorphicClerkOptions
@@ -32,35 +32,35 @@ export default defineNuxtModule<ModuleOptions>({
       method: 'get',
     })
 
-    const components = [
-      // Authentication Components
-      'SignIn',
-      'SignUp',
-      // Unstyled Components
-      'SignInButton',
-      'SignOutButton',
-      'SignUpButton',
-      'SignInWithMetamaskButton',
-      // User Components
-      'UserButton',
-      'UserProfile',
-      // Organization Components
-      'CreateOrganization',
-      'OrganizationProfile',
-      'OrganizationSwitcher',
-      'OrganizationList',
-      // Control Components
-      'ClerkLoaded',
-      'ClerkLoading',
-      'Protect',
-      'RedirectToSignIn',
-      'RedirectToSignUp',
-      'RedirectToUserProfile',
-      'RedirectToOrganizationProfile',
-      'RedirectToCreateOrganization',
-      'SignedIn',
-      'SignedOut',
-    ]
+    // const components = [
+    //   // Authentication Components
+    //   'SignIn',
+    //   'SignUp',
+    //   // Unstyled Components
+    //   'SignInButton',
+    //   'SignOutButton',
+    //   'SignUpButton',
+    //   'SignInWithMetamaskButton',
+    //   // User Components
+    //   'UserButton',
+    //   'UserProfile',
+    //   // Organization Components
+    //   'CreateOrganization',
+    //   'OrganizationProfile',
+    //   'OrganizationSwitcher',
+    //   'OrganizationList',
+    //   // Control Components
+    //   'ClerkLoaded',
+    //   'ClerkLoading',
+    //   'Protect',
+    //   'RedirectToSignIn',
+    //   'RedirectToSignUp',
+    //   'RedirectToUserProfile',
+    //   'RedirectToOrganizationProfile',
+    //   'RedirectToCreateOrganization',
+    //   'SignedIn',
+    //   'SignedOut',
+    // ]
     const composables = [
       'useAuth',
       'useClerk',
@@ -77,16 +77,20 @@ export default defineNuxtModule<ModuleOptions>({
     addImports(
       composables.map(composable => ({
         name: composable,
+        as: composable,
         from: 'vue-clerk',
       })),
     )
 
-    components.forEach(component =>
-      addComponent({
-        name: component,
-        export: component,
-        filePath: 'vue-clerk',
-      }),
-    )
+    // components.forEach(component =>
+    //   addComponent({
+    //     name: component,
+    //     export: component,
+    //     filePath: 'vue-clerk',
+    //   }),
+    // )
+    addComponentsDir({
+      path: resolver.resolve('../../vue-clerk/components')
+    })
   },
 })
