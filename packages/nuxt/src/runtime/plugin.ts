@@ -6,7 +6,6 @@ import { defineNuxtPlugin, navigateTo, useRuntimeConfig, useState } from '#app'
 type AuthObject = Record<string, unknown>
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const publishableKey = useRuntimeConfig().public.clerkPublishableKey as string
   const serverInitialState = useState<AuthObject | undefined>('vue-clerk-initial-state', () => undefined)
 
   // eslint-disable-next-line node/prefer-global/process
@@ -16,7 +15,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   nuxtApp.vueApp.use(clerkPlugin, {
-    publishableKey,
+    ...useRuntimeConfig().public.clerk,
     routerPush: (to: string) => navigateTo(to),
     routerReplace: (to: string) => navigateTo(to, { replace: true }),
     initialState: serverInitialState.value,
