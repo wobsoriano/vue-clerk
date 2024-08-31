@@ -47,17 +47,17 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "vue": "^3.2.0",
-    "h3-clerk": "^0.14.12"
-  },
-  "dependencies": {
-    "@clerk/shared": "^2.5.5",
-    "@clerk/types": "^4.16.0"
+    "h3-clerk": "^0.14.12",
+    "vue": "^3.2.0"
   },
   "peerDependenciesMeta": {
     "h3-clerk": {
       "optional": true
     }
+  },
+  "dependencies": {
+    "@clerk/shared": "^2.5.5",
+    "@clerk/types": "^4.16.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.6",
