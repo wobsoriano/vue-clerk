@@ -18,11 +18,33 @@ importers:
         specifier: ^5.5.2
         version: 5.5.4
 
-  docs:
+  apps/docs:
     dependencies:
       vitepress:
         specifier: 1.3.4
         version: 1.3.4(@algolia/client-search@4.24.0)(@types/node@20.16.2)(postcss@8.4.41)(react@18.3.1)(search-insights@2.17.0)(terser@5.31.6)(typescript@5.5.4)
+
+  apps/playground:
+    dependencies:
+      '@clerk/localizations':
+        specifier: ^2.4.6
+        version: 2.7.1
+      '@clerk/themes':
+        specifier: ^2.1.10
+        version: 2.1.25
+      h3-clerk:
+        specifier: ^0.4.12
+        version: 0.4.12(h3@1.12.0)(react@18.3.1)
+      vue-clerk:
+        specifier: workspace:*
+        version: link:../../packages/vue-clerk
+    devDependencies:
+      '@types/node':
+        specifier: ^20.14.9
+        version: 20.16.2
+      nuxt:
+        specifier: ^3.13.0
+        version: 3.13.0(@parcel/watcher@2.4.1)(@types/node@20.16.2)(eslint@9.9.1(jiti@1.21.6))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.21.2)(terser@5.31.6)(typescript@5.5.4)(vite@5.4.2(@types/node@20.16.2)(terser@5.31.6))(vue-tsc@2.1.2(typescript@5.5.4))
 
   packages/vue-clerk:
     dependencies:
@@ -81,28 +103,6 @@ importers:
       vue-tsc:
         specifier: ^2.0.24
         version: 2.1.2(typescript@5.5.4)
-
-  playground:
-    dependencies:
-      '@clerk/localizations':
-        specifier: ^2.4.6
-        version: 2.7.1
-      '@clerk/themes':
-        specifier: ^2.1.10
-        version: 2.1.25
-      h3-clerk:
-        specifier: ^0.4.12
-        version: 0.4.12(h3@1.12.0)(react@18.3.1)
-      vue-clerk:
-        specifier: workspace:*
-        version: link:../packages/vue-clerk
-    devDependencies:
-      '@types/node':
-        specifier: ^20.14.9
-        version: 20.16.2
-      nuxt:
-        specifier: ^3.13.0
-        version: 3.13.0(@parcel/watcher@2.4.1)(@types/node@20.16.2)(eslint@9.9.1(jiti@1.21.6))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.21.2)(terser@5.31.6)(typescript@5.5.4)(vite@5.4.2(@types/node@20.16.2)(terser@5.31.6))(vue-tsc@2.1.2(typescript@5.5.4))
 
 packages:
 
@@ -7254,7 +7254,7 @@ snapshots:
 
   '@vue/devtools-core@7.3.3(vite@5.4.2(@types/node@20.16.2)(terser@5.31.6))':
     dependencies:
-      '@vue/devtools-kit': 7.3.3
+      '@vue/devtools-kit': 7.3.9
       '@vue/devtools-shared': 7.3.9
       mitt: 3.0.1
       nanoid: 3.3.7
@@ -8057,7 +8057,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.7.0
 
   dot-prop@8.0.2:
     dependencies:
@@ -9335,7 +9335,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.4.1
+      tslib: 2.7.0
 
   lru-cache@10.4.3: {}
 
@@ -9586,7 +9586,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.4.1
+      tslib: 2.7.0
 
   node-addon-api@7.1.1: {}
 
@@ -10506,7 +10506,7 @@ snapshots:
   snake-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.7.0
 
   snakecase-keys@5.4.4:
     dependencies:
