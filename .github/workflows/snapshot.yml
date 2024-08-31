@@ -1,27 +1,12 @@
 name: Snapshot
 
-on:
-  issue_comment:
-    types: [created]
+on: [push, pull_request]
 
 jobs:
   snapshot:
     name: Build
-    if: ${{ contains(github.event.comment.body, '!snapshot') }}
     runs-on: ubuntu-latest
     steps:
-      - name: React to comment
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            await github.rest.reactions.createForIssueComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: context.payload.comment.id,
-              content: 'heart'
-            });
-
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
@@ -43,53 +28,4 @@ jobs:
 
       - name: Create a snapshot version
         id: snapshot
-        run: |
-          output=$(pnpm dlx pkg-pr-new publish './packages/vue-clerk' --compact --comment=off)
-          echo "command_output<<EOF" >> $GITHUB_OUTPUT
-          echo "$output" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      - name: Comment PR
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const commandOutput = `${{ steps.snapshot.outputs.command_output }}`;
-
-            function extractPackageUrl(output) {
-              const match = output.match(/(https:\/\/pkg\.pr\.new\/[^\s]+)/);
-              return match ? match[1] : null;
-            }
-
-            function formatComment(packageUrl) {
-              return `The snapshot command generated the following package:
-
-              \`\`\`bash
-              npm i ${packageUrl}
-              \`\`\`
-
-              \`\`\`bash
-              pnpm add ${packageUrl}
-              \`\`\`
-
-              \`\`\`bash
-              yarn add ${packageUrl}
-              \`\`\`
-
-              \`\`\`bash
-              bun add ${packageUrl}
-              \`\`\``;
-            }
-
-            const packageUrl = extractPackageUrl(commandOutput);
-
-            const formattedComment = formatComment(packageUrl);
-
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: formattedComment
-            });
-
-            console.log('Comment posted successfully');
+        run: pnpm dlx pkg-pr-new publish './packages/vue-clerk' --compact --comment=off
