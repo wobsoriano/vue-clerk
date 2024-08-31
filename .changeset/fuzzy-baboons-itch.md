@@ -2,24 +2,24 @@
 "vue-clerk": minor
 ---
 
-Add Nuxt module
+Introduce Nuxt module
 
 Usage:
 
  ```js
  export default defineNuxtConfig({
-   modules: ["vue-clerk/nuxt"],
+   modules: ['vue-clerk/nuxt'],
  });
  ```
 
  ```html
 <script setup>
-const { userId } = useAuth()
+const { data: user } = await useCurrentUser()
 </script>
 
 <template>
     <SignedIn>
-        <h1>User id {{ userId }}</h1>
+        <h1>Hello, {{ user?.fullName }}</h1>
         <UserButton />
     </SignedIn>
     <SignedOut>
