@@ -3,6 +3,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
 
+  modules: ['vue-clerk/nuxt'],
+
   runtimeConfig: {
     public: {
       clerkPublishableKey: process.env.CLERK_PUBLISHABLE_KEY,

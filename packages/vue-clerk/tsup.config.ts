@@ -12,7 +12,7 @@ export default defineConfig(() => {
     },
     format: ['cjs', 'esm'],
     splitting: true,
-    clean: true,
+    clean: false,
     minify: false,
     dts: false,
     esbuildPlugins: [

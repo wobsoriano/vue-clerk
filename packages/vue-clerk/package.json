@@ -1,5 +1,6 @@
 {
   "name": "vue-clerk",
+  "type": "module",
   "version": "0.5.1",
   "description": "Unofficial Vue + Clerk integration.",
   "author": "Robert Soriano <sorianorobertc@gmail.com>",
@@ -11,33 +12,37 @@
   },
   "bugs": "https://github.com/wobsoriano/vue-clerk/issues",
   "keywords": [
-    "auth",
-    "clerk"
+    "auth"
   ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./internal": {
       "types": "./dist/internal.d.ts",
-      "import": "./dist/internal.mjs",
-      "require": "./dist/internal.js"
+      "import": "./dist/internal.js",
+      "require": "./dist/internal.cjs"
+    },
+    "./nuxt": {
+      "types": "./dist/nuxt/index.d.ts",
+      "import": "./dist/nuxt/index.js",
+      "require": "./dist/nuxt/index.cjs"
     }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "nuxt"
   ],
   "scripts": {
     "dev": "tsup --watch --onSuccess \"pnpm build:dts\"",
     "build": "tsup --env.NODE_ENV production --onSuccess \"pnpm build:dts\"",
     "build:dts": "vue-tsc --declaration --emitDeclarationOnly && rm -rf dist/components/__tests__",
     "prepublishOnly": "pnpm build",
-    "release": "pnpm build && changeset publish",
     "test": "vitest",
     "update-deps": "taze -w && pnpm i",
     "typecheck": "tsc --noEmit"
@@ -50,7 +55,6 @@
     "@clerk/types": "^4.16.0"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.7",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/user-event": "^14.5.2",
     "@testing-library/vue": "^8.1.0",
