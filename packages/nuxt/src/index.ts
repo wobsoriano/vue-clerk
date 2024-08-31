@@ -86,7 +86,7 @@ export default defineNuxtModule<ModuleOptions>({
       addComponent({
         name: component,
         export: component,
-        filePath: require.resolve('../index'),
+        filePath: resolver.resolve('../index'),
       }),
     )
   },
