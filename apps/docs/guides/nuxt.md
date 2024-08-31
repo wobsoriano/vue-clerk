@@ -24,7 +24,7 @@ pnpm add vue-clerk h3-clerk
 
 :::
 
-## 1. Install module
+## 2. Install module
 
 In your `nuxt.config.ts` file, add the `vue-clerk/nuxt` module to the `modules` array, and it will auto-import all components and composables for you. This also installs [h3-clerk](https://github.com/wobsoriano/h3-clerk) middleware for server-side authentication.
 
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 })
 ```
 
-## 2. Set your environment variables
+## 3. Set your environment variables
 
 Create a `.env` file in the root of your project and add your Clerk environment variables:
 
@@ -44,7 +44,7 @@ CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 ```
 
-## 3. Configure module
+## 4. Configure module
 
 You can add Vue Clerk [plugin](/plugin#properties) options in your `nuxt.config.ts` file:
 
@@ -58,7 +58,7 @@ export default defineNuxtConfig({
 })
 ```
 
-## 4. Add a route middleware to protect routes
+## 5. Add a route middleware to protect routes
 
 ```ts
 // middleware/auth.global.ts
@@ -78,7 +78,7 @@ export default defineNuxtRouteMiddleware((to) => {
 })
 ```
 
-## 5. Protect your API endpoints
+## 6. Protect your API endpoints
 
 ```ts
 export default eventHandler((event) => {
