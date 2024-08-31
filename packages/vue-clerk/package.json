@@ -47,7 +47,7 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "h3-clerk": "^0.14.12",
+    "h3-clerk": "^0.4.12",
     "vue": "^3.2.0"
   },
   "peerDependenciesMeta": {
