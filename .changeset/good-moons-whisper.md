@@ -27,3 +27,17 @@ const { userId } = useAuth()
     </SignedOut>
 </template>
 ```
+
+```ts
+// server/api/me.ts
+export default eventHandler((event) => {
+  const { userId } = getAuth(event)
+
+  if (!userId) {
+    setResponseStatus(event, 403)
+    return
+  }
+
+  return clerkClient.users.getUser(userId)
+})
+```

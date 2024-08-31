@@ -81,8 +81,6 @@ export default defineNuxtRouteMiddleware((to) => {
 ## 5. Protect your API endpoints
 
 ```ts
-import { clerkClient, getAuth } from 'h3-clerk'
-
 export default eventHandler((event) => {
   const { userId } = getAuth(event)
 
