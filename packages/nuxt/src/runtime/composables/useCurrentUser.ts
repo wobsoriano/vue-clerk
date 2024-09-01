@@ -1,4 +1,4 @@
-import type { User } from 'h3-clerk'
+import type { User } from '@clerk/backend'
 import type { AsyncData } from 'nuxt/app'
 import { useFetch } from '#imports'
 

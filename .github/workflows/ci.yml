@@ -42,7 +42,7 @@ jobs:
         run: pnpm --filter vue-clerk typecheck
 
       - name: Build
-        run: pnpm build
+        run: pnpm build --filter='vue-clerk' --filter='vue-clerk-nuxt'
 
       - name: Test
         run: pnpm --filter vue-clerk test

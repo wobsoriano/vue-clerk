@@ -1,8 +1,8 @@
-import { addComponent, addImports, addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addImports, addPlugin, addServerHandler, addTypeTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
-export type ModuleOptions = IsomorphicClerkOptions
+export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'>
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -14,19 +14,24 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup(options, nuxt) {
     const runtimeConfig = nuxt.options.runtimeConfig
-    runtimeConfig.public = defu(runtimeConfig.public, {
-      clerk: {
-        ...options,
-        publishableKey: options.publishableKey || process.env.CLERK_PUBLISHABLE_KEY,
-        signInUrl: options.signInUrl || process.env.CLERK_SIGN_IN_URL,
-        signUpUrl: options.signUpUrl || process.env.CLERK_SIGN_UP_URL,
-        isSatellite: options.isSatellite || process.env.CLERK_IS_SATELLITE,
-        proxyUrl: options.proxyUrl || process.env.CLERK_PROXY_URL,
-        domain: options.domain || process.env.CLERK_DOMAIN,
-        clerkJSUrl: options.clerkJSUrl || process.env.CLERK_JS_URL,
-        clerkJSVariant: options.clerkJSVariant || process.env.CLERK_JS_VARIANT,
-        clerkJSVersion: options.clerkJSVersion || process.env.CLERK_JS_VERSION,
-      },
+    const publicClerk = defu(runtimeConfig.public.clerk, {
+      ...options,
+      publishableKey: options.publishableKey,
+      signInUrl: options.signInUrl,
+      signUpUrl: options.signUpUrl,
+      isSatellite: options.isSatellite,
+      proxyUrl: options.proxyUrl,
+      domain: options.domain,
+      clerkJSUrl: options.clerkJSUrl,
+      clerkJSVariant: options.clerkJSVariant,
+      clerkJSVersion: options.clerkJSVersion,
+      apiUrl: 'https://api.clerk.com',
+      apiVersion: 'v1',
+    })
+    runtimeConfig.public.clerk = publicClerk as any
+    runtimeConfig.clerk = defu(runtimeConfig.clerk, {
+      secretKey: undefined,
+      jwtKey: undefined,
     })
 
     nuxt.options.build.transpile.push('vue-clerk')
@@ -45,16 +50,19 @@ export default defineNuxtModule<ModuleOptions>({
       method: 'get',
     })
 
-    if (nuxt.options.nitro.imports !== false) {
-      nuxt.options.nitro.imports = defu(nuxt.options.nitro.imports, {
-        presets: [
-          {
-            from: 'h3-clerk',
-            imports: ['clerkClient', 'getAuth'],
-          },
-        ],
-      })
-    }
+    nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/server/clerkClient')
+    nuxt.options.build.transpile.push(resolver.resolve('./runtime/server/clerkClient'))
+
+    addTypeTemplate({
+      filename: 'types/clerk.d.ts',
+      write: true,
+      getContents: () => [
+        'declare module \'#clerk\' {',
+        `  const clerkClient: typeof import('${resolver.resolve('./runtime/server/clerkClient')}').clerkClient`,
+        `  const getAuth: typeof import('${resolver.resolve('./runtime/server/clerkClient')}').getAuth`,
+        '}',
+      ].join('\n'),
+    })
 
     const components = [
       // Authentication Components
