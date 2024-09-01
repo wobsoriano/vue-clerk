@@ -5,7 +5,7 @@ function openChat() {
 }
 
 definePageMeta({
-  middleware: 'auth'
+  middleware: 'auth',
 })
 </script>
 
