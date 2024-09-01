@@ -1,5 +1,5 @@
 import { withClerkMiddleware } from 'h3-clerk'
-import { useRuntimeConfig } from '#app'
+import { useRuntimeConfig } from '#imports'
 
 const runtimeConfig = useRuntimeConfig()
 
