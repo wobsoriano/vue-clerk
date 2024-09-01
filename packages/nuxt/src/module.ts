@@ -18,8 +18,17 @@ export default defineNuxtModule<ModuleOptions>({
       clerk: {
         ...options,
         publishableKey: options.publishableKey || process.env.CLERK_PUBLISHABLE_KEY,
+        signInUrl: options.signInUrl || process.env.CLERK_SIGN_IN_URL,
+        signUpUrl: options.signUpUrl || process.env.CLERK_SIGN_UP_URL,
+        isSatellite: options.isSatellite || process.env.CLERK_IS_SATELLITE,
+        proxyUrl: options.proxyUrl || process.env.CLERK_PROXY_URL,
+        domain: options.domain || process.env.CLERK_DOMAIN,
+        clerkJSUrl: options.clerkJSUrl || process.env.CLERK_JS_URL,
+        clerkJSVariant: options.clerkJSVariant || process.env.CLERK_JS_VARIANT,
+        clerkJSVersion: options.clerkJSVersion || process.env.CLERK_JS_VERSION,
       },
     })
+
     nuxt.options.build.transpile.push('vue-clerk')
 
     const resolver = createResolver(import.meta.url)
