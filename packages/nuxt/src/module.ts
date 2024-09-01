@@ -14,19 +14,20 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup(options, nuxt) {
     const runtimeConfig = nuxt.options.runtimeConfig
-    runtimeConfig.public = defu(runtimeConfig.public, {
-      clerk: {
-        ...options,
-        publishableKey: options.publishableKey || process.env.CLERK_PUBLISHABLE_KEY,
-        signInUrl: options.signInUrl || process.env.CLERK_SIGN_IN_URL,
-        signUpUrl: options.signUpUrl || process.env.CLERK_SIGN_UP_URL,
-        isSatellite: options.isSatellite || process.env.CLERK_IS_SATELLITE,
-        proxyUrl: options.proxyUrl || process.env.CLERK_PROXY_URL,
-        domain: options.domain || process.env.CLERK_DOMAIN,
-        clerkJSUrl: options.clerkJSUrl || process.env.CLERK_JS_URL,
-        clerkJSVariant: options.clerkJSVariant || process.env.CLERK_JS_VARIANT,
-        clerkJSVersion: options.clerkJSVersion || process.env.CLERK_JS_VERSION,
-      },
+    const publicClerkVars = defu(runtimeConfig.public.clerk, {
+      ...options,
+    })
+    runtimeConfig.public.clerk = publicClerkVars
+    runtimeConfig.clerk = defu(runtimeConfig.clerk || {}, {
+      secretKey: '',
+      publishableKey: publicClerkVars.publishableKey,
+      domain: publicClerkVars.domain,
+      isSatellite: publicClerkVars.isSatellite,
+      proxyUrl: publicClerkVars.proxyUrl,
+      signInUrl: publicClerkVars.signInUrl,
+      signUpUrl: publicClerkVars.signUpUrl,
+      afterSignInUrl: publicClerkVars.afterSignInUrl,
+      afterSignUpUrl: publicClerkVars.afterSignUpUrl,
     })
 
     nuxt.options.build.transpile.push('vue-clerk')
