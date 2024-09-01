@@ -48,11 +48,11 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "h3-clerk": "^0.4.12",
+    "@clerk/backend": "^1.9.0",
     "vue": "^3.2.0"
   },
   "peerDependenciesMeta": {
-    "h3-clerk": {
+    "@clerk/backend": {
       "optional": true
     }
   },

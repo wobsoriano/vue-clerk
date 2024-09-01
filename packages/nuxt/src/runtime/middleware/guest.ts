@@ -8,7 +8,7 @@ export default defineNuxtRouteMiddleware((to) => {
     return
   }
 
-  const route = to?.meta?.auth?.redirectUrl ?? '/'
+  const route = to?.meta?.auth?.authenticatedRedirectUrl ?? '/'
 
   return navigateTo(route)
 })

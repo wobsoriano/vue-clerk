@@ -63,7 +63,10 @@ You can use the `auth` middleware to protect pages while doing client side routi
 
 ```vue
 <script setup>
-definePageMeta({ middleware: 'auth', auth: { redirectUrl: '/sign-in' } })
+definePageMeta({ middleware: 'auth', auth: { guestRedirectUrl: '/sign-in' } })
+// Guest redirect url will default to:
+// 1. NUXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL if set
+// 2. NUXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL if set and (1.) is not set
 </script>
 
 <template>
@@ -75,7 +78,7 @@ For guest only pages, you can use the `guest` middleware.
 
 ```vue
 <script setup>
-definePageMeta({ middleware: 'guest', auth: { redirectUrl: '/profile' } })
+definePageMeta({ middleware: 'guest', auth: { authenticatedRedirectUrl: '/profile' } })
 </script>
 
 <template>
