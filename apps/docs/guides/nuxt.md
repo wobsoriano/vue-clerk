@@ -11,22 +11,22 @@ Vue Clerk offers a Nuxt module that simplifies the integration of Clerk into you
 ::: code-group
 
 ```bash [npm]
-npm install vue-clerk h3-clerk
+npm install vue-clerk @clerk/backend
 ```
 
 ```bash [yarn]
-yarn add vue-clerk h3-clerk
+yarn add vue-clerk @clerk/backend
 ```
 
 ```bash [pnpm]
-pnpm add vue-clerk h3-clerk
+pnpm add vue-clerk @clerk/backend
 ```
 
 :::
 
 ## 2. Install module
 
-In your `nuxt.config.ts` file, add the `vue-clerk/nuxt` module to the `modules` array, and it will auto-import all components and composables for you. This also installs [h3-clerk](https://github.com/wobsoriano/h3-clerk) middleware for server-side authentication.
+In your `nuxt.config.ts` file, add the `vue-clerk/nuxt` module to the `modules` array, and it will auto-import all components and composables for you.
 
 ```ts
 // nuxt.config.ts
@@ -61,8 +61,6 @@ export default defineNuxtConfig({
 
 ```ts
 // middleware/auth.global.ts
-import { useAuth } from 'vue-clerk'
-
 export default defineNuxtRouteMiddleware((to) => {
   const { isSignedIn } = useAuth() // works in SSR and CSR!
 
@@ -80,6 +78,8 @@ export default defineNuxtRouteMiddleware((to) => {
 ## 6. Protect your API endpoints
 
 ```ts
+import { clerkClient, getAuth } from '#clerk'
+
 export default eventHandler((event) => {
   const { userId } = getAuth(event)
 
@@ -88,7 +88,7 @@ export default eventHandler((event) => {
     return
   }
 
-  return clerkClient.users.getUser(userId)
+  return clerkClient(event).users.getUser(userId)
 })
 ```
 
