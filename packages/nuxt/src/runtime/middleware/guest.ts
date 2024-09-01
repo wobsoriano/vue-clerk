@@ -1,5 +1,5 @@
 import { useAuth } from 'vue-clerk'
-import { defineNuxtRouteMiddleware, navigateTo } from '#imports'
+import { defineNuxtRouteMiddleware, navigateTo, useRuntimeConfig } from '#imports'
 
 export default defineNuxtRouteMiddleware((to) => {
   const { userId } = useAuth()
