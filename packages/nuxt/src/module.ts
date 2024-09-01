@@ -12,11 +12,19 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt: '>=3.0.0',
     },
   },
+  defaults: {
+    publishableKey: undefined,
+    domain: undefined,
+    isSatellite: undefined,
+    proxyUrl: undefined,
+    signInUrl: undefined,
+    signUpUrl: undefined,
+    afterSignInUrl: undefined,
+    afterSignUpUrl: undefined,
+  },
   async setup(options, nuxt) {
     const runtimeConfig = nuxt.options.runtimeConfig
-    const publicClerkVars = defu(runtimeConfig.public.clerk, {
-      ...options,
-    })
+    const publicClerkVars = defu(runtimeConfig.public.clerk, options)
     runtimeConfig.public.clerk = publicClerkVars
     runtimeConfig.clerk = defu(runtimeConfig.clerk || {}, {
       secretKey: '',
