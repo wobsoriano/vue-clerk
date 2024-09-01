@@ -1,5 +1,5 @@
 import { eventHandler } from 'h3'
-import { clerkClient, getAuth } from 'h3-clerk'
+import { clerkClient, getAuth } from '../clerkClient'
 
 export default eventHandler(async (event) => {
   const { userId } = getAuth(event)
@@ -8,5 +8,5 @@ export default eventHandler(async (event) => {
     return null
   }
 
-  return await clerkClient.users.getUser(userId)
+  return await clerkClient(event).users.getUser(userId)
 })

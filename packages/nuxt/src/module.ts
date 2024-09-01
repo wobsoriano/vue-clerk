@@ -1,8 +1,8 @@
-import { addComponent, addImports, addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addImports, addPlugin, addServerHandler, addTypeTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
-export type ModuleOptions = IsomorphicClerkOptions
+export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'>
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -13,8 +13,8 @@ export default defineNuxtModule<ModuleOptions>({
     },
   },
   async setup(options, nuxt) {
-    const runtimeConfig = nuxt.options.runtimeConfig.public
-    runtimeConfig.clerk = defu(runtimeConfig.clerk, {
+    const runtimeConfig = nuxt.options.runtimeConfig
+    const publicClerk = defu(runtimeConfig.public.clerk, {
       ...options,
       publishableKey: options.publishableKey,
       signInUrl: options.signInUrl,
@@ -25,6 +25,13 @@ export default defineNuxtModule<ModuleOptions>({
       clerkJSUrl: options.clerkJSUrl,
       clerkJSVariant: options.clerkJSVariant,
       clerkJSVersion: options.clerkJSVersion,
+      apiUrl: undefined,
+      apiVersion: undefined,
+    })
+    runtimeConfig.public.clerk = publicClerk as any
+    runtimeConfig.clerk = defu(runtimeConfig.clerk, {
+      secretKey: undefined,
+      jwtKey: undefined,
     })
 
     nuxt.options.build.transpile.push('vue-clerk')
@@ -43,16 +50,19 @@ export default defineNuxtModule<ModuleOptions>({
       method: 'get',
     })
 
-    if (nuxt.options.nitro.imports !== false) {
-      nuxt.options.nitro.imports = defu(nuxt.options.nitro.imports, {
-        presets: [
-          {
-            from: 'h3-clerk',
-            imports: ['clerkClient', 'getAuth'],
-          },
-        ],
-      })
-    }
+    nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/server/clerkClient')
+    nuxt.options.build.transpile.push(resolver.resolve('./runtime/server/clerkClient'))
+
+    addTypeTemplate({
+      filename: 'types/clerk.d.ts',
+      write: true,
+      getContents: () => [
+        'declare module \'#clerk\' {',
+        `  const clerkClient: typeof import('${resolver.resolve('./runtime/server/clerkClient')}').clerkClient`,
+        `  const getAuth: typeof import('${resolver.resolve('./runtime/server/clerkClient')}').getAuth`,
+        '}',
+      ].join('\n'),
+    })
 
     const components = [
       // Authentication Components
