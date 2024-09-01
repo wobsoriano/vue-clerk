@@ -12,25 +12,15 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt: '>=3.0.0',
     },
   },
-  defaults: {
-    publishableKey: undefined,
-    domain: undefined,
-    isSatellite: undefined,
-    proxyUrl: undefined,
-    signInUrl: undefined,
-    signUpUrl: undefined,
-    afterSignInUrl: undefined,
-    afterSignUpUrl: undefined,
-    clerkJSUrl: undefined,
-    clerkJSVariant: undefined,
-    clerkJSVersion: undefined,
-  },
   async setup(options, nuxt) {
     const runtimeConfig = nuxt.options.runtimeConfig
-    const publicClerkVars = defu(runtimeConfig.public.clerk, options)
+    const publicClerkVars = defu(runtimeConfig.public.clerk, {
+      ...options,
+      publishableKey: process.env.NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY || options.publishableKey,
+    })
     runtimeConfig.public.clerk = publicClerkVars
     runtimeConfig.clerk = defu(runtimeConfig.clerk || {}, {
-      secretKey: undefined,
+      secretKey: '',
       publishableKey: publicClerkVars.publishableKey,
       domain: publicClerkVars.domain,
       isSatellite: publicClerkVars.isSatellite,
