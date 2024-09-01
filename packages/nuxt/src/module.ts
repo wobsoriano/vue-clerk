@@ -1,4 +1,4 @@
-import { addComponent, addImports, addPlugin, addServerHandler, addTypeTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, addTypeTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { defu } from 'defu'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
@@ -18,6 +18,10 @@ export default defineNuxtModule<ModuleOptions>({
       ...options,
       publishableKey: options.publishableKey,
       signInUrl: options.signInUrl,
+      signInFallbackRedirectUrl: options.signInFallbackRedirectUrl,
+      signUpFallbackRedirectUrl: options.signUpFallbackRedirectUrl,
+      signInForceRedirectUrl: options.signInForceRedirectUrl,
+      signUpForceRedirectUrl: options.signUpForceRedirectUrl,
       signUpUrl: options.signUpUrl,
       isSatellite: options.isSatellite,
       proxyUrl: options.proxyUrl,
@@ -124,5 +128,8 @@ export default defineNuxtModule<ModuleOptions>({
         filePath: 'vue-clerk',
       }),
     )
+
+    addRouteMiddleware({ name: 'auth', path: resolver.resolve('./runtime/middleware/auth') })
+    addRouteMiddleware({ name: 'guest', path: resolver.resolve('./runtime/middleware/guest') })
   },
 })

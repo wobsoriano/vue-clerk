@@ -3,6 +3,10 @@ function openChat() {
   // eslint-disable-next-line no-console
   console.log('Open chat')
 }
+
+definePageMeta({
+  middleware: 'auth'
+})
 </script>
 
 <template>

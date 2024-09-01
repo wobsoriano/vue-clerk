@@ -59,20 +59,28 @@ export default defineNuxtConfig({
 
 ## 5. Add a route middleware to protect routes
 
-```ts
-// middleware/auth.global.ts
-export default defineNuxtRouteMiddleware((to) => {
-  const { isSignedIn } = useAuth() // works in SSR and CSR!
+You can use the `auth` middleware to protect pages while doing client side routing.
 
-  const protectedPages = ['dashboard']
-  const publicPages = ['sign-in', 'sign-up']
+```vue
+<script setup>
+definePageMeta({ middleware: 'auth', auth: { redirectUrl: '/sign-in' } })
+</script>
 
-  if (isSignedIn.value && publicPages.includes(to.name))
-    return navigateTo('/dashboard')
+<template>
+  <h1>Authenticated only</h1>
+</template>
+```
 
-  if (!isSignedIn.value && protectedPages.includes(to.name))
-    return navigateTo('/sign-in')
-})
+For guest only pages, you can use the `guest` middleware.
+
+```vue
+<script setup>
+definePageMeta({ middleware: 'guest', auth: { redirectUrl: '/profile' } })
+</script>
+
+<template>
+  <h1>Guest only</h1>
+</template>
 ```
 
 ## 6. Protect your API endpoints
