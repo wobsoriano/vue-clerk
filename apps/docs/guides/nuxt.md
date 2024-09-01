@@ -46,6 +46,8 @@ NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 NUXT_CLERK_SECRET_KEY=
 ```
 
+Full list of environment variables can be found [here](https://clerk.com/docs/deployments/clerk-environment-variables#sign-in-and-sign-up-redirects). Just replace `NEXT` with `NUXT`.
+
 ## 4. Configure module
 
 You can add Vue Clerk [plugin](/plugin#properties) options in your `nuxt.config.ts` file:
