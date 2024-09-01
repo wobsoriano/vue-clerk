@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.1
+
+### Patch Changes
+
+- b5f3f07: Use publishable key from env variable inside Nuxt module
+
 ## 0.6.0
 
 ### Minor Changes
