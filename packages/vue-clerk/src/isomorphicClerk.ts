@@ -65,7 +65,6 @@ import { isConstructor } from './utils/index'
 const SDK_METADATA = {
   name: PACKAGE_NAME,
   version: PACKAGE_VERSION,
-  // eslint-disable-next-line node/prefer-global/process
   environment: process.env.NODE_ENV,
 }
 
@@ -478,7 +477,6 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
       // In Next.js we can throw a full screen error in development mode.
       // However, in production throwing an error results in an infinite loop.
       // More info at: https://github.com/vercel/next.js/issues/6973
-      // eslint-disable-next-line node/prefer-global/process
       if (process.env.NODE_ENV === 'production') {
         console.error(error.stack || error.message || error)
       }

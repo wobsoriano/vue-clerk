@@ -13,7 +13,13 @@ export default defineNuxtModule<ModuleOptions>({
     },
   },
   async setup(options, nuxt) {
-    nuxt.options.runtimeConfig.public.clerk = options
+    const runtimeConfig = nuxt.options.runtimeConfig
+    runtimeConfig.public = defu(runtimeConfig.public, {
+      clerk: {
+        ...options,
+        publishableKey: options.publishableKey || process.env.CLERK_PUBLISHABLE_KEY,
+      },
+    })
     nuxt.options.build.transpile.push('vue-clerk')
 
     const resolver = createResolver(import.meta.url)
