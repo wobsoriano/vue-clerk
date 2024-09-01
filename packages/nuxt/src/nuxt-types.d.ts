@@ -14,7 +14,7 @@ type ClerkPublicRuntimeOptions = Pick<
   | 'proxyUrl'
   | 'isSatellite'
   | 'domain'
-> & Pick<ClerkOptions, 'apiUrl' | 'apiVersion'>
+> & Pick<ClerkOptions, 'apiUrl' | 'apiVersion' | 'telemetry'>
 
 type ClerkRuntimeOptions = Pick<ClerkOptions, 'secretKey' | 'jwtKey'>
 

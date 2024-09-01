@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@clerk/backend": "^1.9.0",
+    "@clerk/shared": "^2.5.5",
     "@nuxt/kit": "^3.13.0",
     "@nuxt/schema": "^3.13.0",
     "defu": "^6.1.4",
