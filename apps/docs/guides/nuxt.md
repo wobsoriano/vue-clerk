@@ -52,7 +52,6 @@ You can add Vue Clerk [plugin](/plugin#properties) options in your `nuxt.config.
 export default defineNuxtConfig({
   modules: ['vue-clerk/nuxt'],
   clerk: {
-    publishableKey: process.env.CLERK_PUBLISHABLE_KEY,
     appearance: {},
   }
 })
