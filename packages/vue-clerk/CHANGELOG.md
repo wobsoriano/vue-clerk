@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.5
+
+### Patch Changes
+
+- 8444c6e: Add Nuxt route middlewares for auth and guest pages
+
 ## 0.6.4
 
 ### Patch Changes
