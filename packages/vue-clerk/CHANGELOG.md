@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.2
+
+### Patch Changes
+
+- fe0cee4: Update Nuxt plugin order to pre
+
 ## 0.6.1
 
 ### Patch Changes
