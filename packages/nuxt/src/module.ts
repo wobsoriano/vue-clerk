@@ -15,18 +15,16 @@ export default defineNuxtModule<ModuleOptions>({
   async setup(options, nuxt) {
     const runtimeConfig = nuxt.options.runtimeConfig.public
     runtimeConfig.clerk = defu(runtimeConfig.clerk, {
-      clerk: {
-        ...options,
-        publishableKey: options.publishableKey || import.meta.env.CLERK_PUBLISHABLE_KEY,
-        signInUrl: options.signInUrl || import.meta.env.CLERK_SIGN_IN_URL,
-        signUpUrl: options.signUpUrl || import.meta.env.CLERK_SIGN_UP_URL,
-        isSatellite: options.isSatellite || import.meta.env.CLERK_IS_SATELLITE,
-        proxyUrl: options.proxyUrl || import.meta.env.CLERK_PROXY_URL,
-        domain: options.domain || import.meta.env.CLERK_DOMAIN,
-        clerkJSUrl: options.clerkJSUrl || import.meta.env.CLERK_JS_URL,
-        clerkJSVariant: options.clerkJSVariant || import.meta.env.CLERK_JS_VARIANT,
-        clerkJSVersion: options.clerkJSVersion || import.meta.env.CLERK_JS_VERSION,
-      },
+      ...options,
+      publishableKey: options.publishableKey,
+      signInUrl: options.signInUrl,
+      signUpUrl: options.signUpUrl,
+      isSatellite: options.isSatellite,
+      proxyUrl: options.proxyUrl,
+      domain: options.domain,
+      clerkJSUrl: options.clerkJSUrl,
+      clerkJSVariant: options.clerkJSVariant,
+      clerkJSVersion: options.clerkJSVersion,
     })
 
     nuxt.options.build.transpile.push('vue-clerk')
