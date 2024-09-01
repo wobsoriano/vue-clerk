@@ -27,7 +27,7 @@ export default defineNuxtModule<ModuleOptions>({
     const publicClerkVars = defu(runtimeConfig.public.clerk, options)
     runtimeConfig.public.clerk = publicClerkVars
     runtimeConfig.clerk = defu(runtimeConfig.clerk || {}, {
-      secretKey: '',
+      secretKey: undefined,
       publishableKey: publicClerkVars.publishableKey,
       domain: publicClerkVars.domain,
       isSatellite: publicClerkVars.isSatellite,
