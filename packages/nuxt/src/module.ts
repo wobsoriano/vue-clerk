@@ -21,6 +21,9 @@ export default defineNuxtModule<ModuleOptions>({
     signUpUrl: undefined,
     afterSignInUrl: undefined,
     afterSignUpUrl: undefined,
+    clerkJSUrl: undefined,
+    clerkJSVariant: undefined,
+    clerkJSVersion: undefined,
   },
   async setup(options, nuxt) {
     const runtimeConfig = nuxt.options.runtimeConfig
