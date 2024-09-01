@@ -40,8 +40,8 @@ export default defineNuxtConfig({
 Create a `.env` file in the root of your project and add your Clerk environment variables:
 
 ```bash
-CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
+NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+NUXT_CLERK_SECRET_KEY=
 ```
 
 ## 4. Configure module
