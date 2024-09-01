@@ -8,7 +8,7 @@ export default defineNuxtRouteMiddleware((to) => {
     return
   }
 
-  const route = to?.meta?.auth?.guestRedirectUrl ?? (useRuntimeConfig().public.clerk.signInForceRedirectUrl || useRuntimeConfig().public.clerk.signInFallbackRedirectUrl)
+  const route = to?.meta?.auth?.guestRedirectUrl ?? '/'
 
   return navigateTo(route)
 })
