@@ -15,8 +15,14 @@ export default defineNuxtModule<ModuleOptions>({
   async setup(options, nuxt) {
     const runtimeConfig = nuxt.options.runtimeConfig
     const publicClerkVars = defu(runtimeConfig.public.clerk, {
-      ...options,
       publishableKey: process.env.NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY || options.publishableKey,
+      domain: process.env.NUXT_PUBLIC_CLERK_DOMAIN || options.domain,
+      isSatellite: process.env.NUXT_PUBLIC_CLERK_IS_SATELLITE === 'true' || options.isSatellite,
+      proxyUrl: process.env.NUXT_PUBLIC_CLERK_PROXY_URL || options.proxyUrl,
+      signInUrl: process.env.NUXT_PUBLIC_CLERK_SIGN_IN_URL || options.signInUrl,
+      signUpUrl: process.env.NUXT_PUBLIC_CLERK_SIGN_UP_URL || options.signUpUrl,
+      signInFallbackRedirectUrl: process.env.NUXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL || options.signInFallbackRedirectUrl,
+      signUpFallbackRedirectUrl: process.env.NUXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL || options.signUpFallbackRedirectUrl,
     })
     runtimeConfig.public.clerk = publicClerkVars
     runtimeConfig.clerk = defu(runtimeConfig.clerk || {}, {
@@ -27,8 +33,8 @@ export default defineNuxtModule<ModuleOptions>({
       proxyUrl: publicClerkVars.proxyUrl,
       signInUrl: publicClerkVars.signInUrl,
       signUpUrl: publicClerkVars.signUpUrl,
-      afterSignInUrl: publicClerkVars.afterSignInUrl,
-      afterSignUpUrl: publicClerkVars.afterSignUpUrl,
+      signInFallbackRedirectUrl: publicClerkVars.signInFallbackRedirectUrl,
+      signUpFallbackRedirectUrl: publicClerkVars.signUpFallbackRedirectUrl,
     })
 
     nuxt.options.build.transpile.push('vue-clerk')
