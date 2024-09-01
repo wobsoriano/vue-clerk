@@ -6,7 +6,9 @@ outline: deep
 
 Vue Clerk offers a Nuxt module that simplifies the integration of Clerk into your Nuxt application.
 
-## 1. Install Vue Clerk and H3 Clerk
+## 1. Install `vue-clerk` and `@clerk/backend`
+
+`@clerk/backend` is used to interact with [Clerk's Backend API](https://clerk.com/docs/reference/backend-api) and to add authentication utilities to your API routes.
 
 ::: code-group
 
