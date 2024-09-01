@@ -25,8 +25,8 @@ export default defineNuxtModule<ModuleOptions>({
       clerkJSUrl: options.clerkJSUrl,
       clerkJSVariant: options.clerkJSVariant,
       clerkJSVersion: options.clerkJSVersion,
-      apiUrl: undefined,
-      apiVersion: undefined,
+      apiUrl: 'https://api.clerk.com',
+      apiVersion: 'v1',
     })
     runtimeConfig.public.clerk = publicClerk as any
     runtimeConfig.clerk = defu(runtimeConfig.clerk, {
