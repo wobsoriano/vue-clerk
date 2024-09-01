@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.3
+
+### Patch Changes
+
+- 1d757c7: Use recommended env vars for Clerk options
+
 ## 0.6.2
 
 ### Patch Changes
