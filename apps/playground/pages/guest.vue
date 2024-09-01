@@ -1,5 +1,5 @@
 <script setup>
-definePageMeta({ middleware: 'guest', auth: { redirectUrl: '/user-button' } })
+definePageMeta({ middleware: 'guest', auth: { authenticatedRedirectUrl: '/user-button' } })
 </script>
 
 <template>
