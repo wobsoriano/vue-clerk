@@ -26,7 +26,7 @@ export default defineNuxtModule<ModuleOptions>({
     })
     runtimeConfig.public.clerk = publicClerkVars
     runtimeConfig.clerk = defu(runtimeConfig.clerk || {}, {
-      secretKey: '',
+      secretKey: process.env.NUXT_CLERK_SECRET_KEY,
       publishableKey: publicClerkVars.publishableKey,
       domain: publicClerkVars.domain,
       isSatellite: publicClerkVars.isSatellite,
