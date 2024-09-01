@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.7
+
+### Patch Changes
+
+- 69fbbaa: Fix route middleware redirect urls
+
 ## 0.6.6
 
 ### Patch Changes
