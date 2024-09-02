@@ -8,7 +8,7 @@
     "dev": "node ./scripts/watch.mjs",
     "postinstall": "nuxt-module-build prepare",
     "build": "nuxt-module-build build && pnpm run move",
-    "move": "rm -rf ../vue-clerk/dist/nuxt && mv -f dist ../vue-clerk/dist/nuxt"
+    "move": "rm -rf ../vue-clerk/dist/nuxt && cp -R dist ../vue-clerk/dist/nuxt"
   },
   "dependencies": {
     "@clerk/backend": "^1.9.0",
