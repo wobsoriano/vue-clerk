@@ -1,14 +1,16 @@
 import { useAuth } from 'vue-clerk'
+import type { CheckAuthorizationWithCustomPermissions } from '@clerk/types'
 import { defineNuxtRouteMiddleware, navigateTo } from '#imports'
 
 export default defineNuxtRouteMiddleware((to) => {
-  const { userId } = useAuth()
+  const { userId, has } = useAuth()
+  const { permission, role, guestRedirectUrl = '/' } = to.meta?.auth || {}
 
-  if (userId.value) {
-    return
+  if ((permission || role) && !has.value?.({ permission, role } as Parameters<CheckAuthorizationWithCustomPermissions>[0])) {
+    return navigateTo(guestRedirectUrl)
   }
 
-  const route = to?.meta?.auth?.guestRedirectUrl ?? '/'
-
-  return navigateTo(route)
+  if (!userId.value) {
+    return navigateTo(guestRedirectUrl)
+  }
 })

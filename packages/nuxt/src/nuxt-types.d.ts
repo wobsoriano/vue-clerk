@@ -30,4 +30,15 @@ declare module 'nuxt/schema' {
   }
 }
 
+declare module 'vue-router' {
+  interface RouteMeta {
+    auth?: {
+      permission?: string
+      role?: string
+      authenticatedRedirectUrl?: string
+      guestRedirectUrl?: string
+    }
+  }
+}
+
 export {}
