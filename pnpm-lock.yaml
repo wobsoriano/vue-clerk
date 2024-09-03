@@ -101,8 +101,8 @@ importers:
         specifier: ^2.5.5
         version: 2.6.0(react@18.3.1)
       '@clerk/types':
-        specifier: ^4.16.0
-        version: 4.17.0
+        specifier: ^4.18.0
+        version: 4.18.0
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.4.6
@@ -525,6 +525,10 @@ packages:
 
   '@clerk/types@4.17.0':
     resolution: {integrity: sha512-/GksPLzWLCTbZ1ZNTUs4CMze89XUQNGNy9KJOP56JUaxCy+9iHbIsDyia6zicHXhH8/oIj9SrZv/nlEPNUFkoA==}
+    engines: {node: '>=18.17.0'}
+
+  '@clerk/types@4.18.0':
+    resolution: {integrity: sha512-c/wo6EcwtdpXEMJr/uPqSgffRFw0/SI5g1o+IeeNQmcEvAWJJgeCD015BiRAHgWomKln9NUgdZwFWQgSlmVK6Q==}
     engines: {node: '>=18.17.0'}
 
   '@cloudflare/kv-asset-handler@0.3.4':
@@ -6338,6 +6342,10 @@ snapshots:
       tslib: 2.4.1
 
   '@clerk/types@4.17.0':
+    dependencies:
+      csstype: 3.1.1
+
+  '@clerk/types@4.18.0':
     dependencies:
       csstype: 3.1.1
 
