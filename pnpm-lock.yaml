@@ -58,8 +58,8 @@ importers:
         specifier: ^1.9.0
         version: 1.9.0(react@18.3.1)
       '@clerk/shared':
-        specifier: ^2.5.5
-        version: 2.6.0(react@18.3.1)
+        specifier: ^2.6.1
+        version: 2.6.1(react@18.3.1)
       '@nuxt/kit':
         specifier: ^3.13.0
         version: 3.13.0(magicast@0.3.5)(rollup@4.21.2)
@@ -98,8 +98,8 @@ importers:
         specifier: ^1.9.0
         version: 1.9.0(react@18.3.1)
       '@clerk/shared':
-        specifier: ^2.5.5
-        version: 2.6.0(react@18.3.1)
+        specifier: ^2.6.1
+        version: 2.6.1(react@18.3.1)
       '@clerk/types':
         specifier: ^4.18.0
         version: 4.18.0
@@ -509,6 +509,18 @@ packages:
 
   '@clerk/shared@2.6.0':
     resolution: {integrity: sha512-ntgDxluwkvtGr73cc6vRQQAa/MAxr49NlroQ4GcAidylmSYTrqouD+SFQp21UQX51sFecGZKPyr2YoTFyxzQoA==}
+    engines: {node: '>=18.17.0'}
+    peerDependencies:
+      react: '>=18 || >=19.0.0-beta'
+      react-dom: '>=18 || >=19.0.0-beta'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
+  '@clerk/shared@2.6.1':
+    resolution: {integrity: sha512-yofLz2qE/wswC/uVKxDsYzOIUkPpooBxID+r4/hUsjwRRyIZPKaFm9Bh0tPCerLLmTVQuZBBicg21g+k2BOrgg==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       react: '>=18 || >=19.0.0-beta'
@@ -6329,6 +6341,16 @@ snapshots:
   '@clerk/shared@2.6.0(react@18.3.1)':
     dependencies:
       '@clerk/types': 4.17.0
+      glob-to-regexp: 0.4.1
+      js-cookie: 3.0.5
+      std-env: 3.7.0
+      swr: 2.2.5(react@18.3.1)
+    optionalDependencies:
+      react: 18.3.1
+
+  '@clerk/shared@2.6.1(react@18.3.1)':
+    dependencies:
+      '@clerk/types': 4.18.0
       glob-to-regexp: 0.4.1
       js-cookie: 3.0.5
       std-env: 3.7.0
