@@ -101,8 +101,8 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2(react@18.3.1)
       '@clerk/types':
-        specifier: ^4.18.0
-        version: 4.18.0
+        specifier: ^4.19.0
+        version: 4.19.0
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.4.6
