@@ -1,5 +1,35 @@
 # Changelog
 
+## 0.6.8
+
+### Patch Changes
+
+- 4ebc2cc: Support roles and permissions in Nuxt middleware
+
+  Examples:
+
+  Allow users that have the `org:invoices:create` permission
+
+  ```ts
+  definePageMeta({
+    middleware: "auth",
+    auth: {
+      permission: "org:invoices:create",
+    },
+  });
+  ```
+
+  Allow users with the `org:billing` role
+
+  ```ts
+  definePageMeta({
+    middleware: "auth",
+    auth: {
+      role: "org:billing",
+    },
+  });
+  ```
+
 ## 0.6.7
 
 ### Patch Changes
