@@ -53,11 +53,18 @@ Full list of environment variables can be found [here](https://clerk.com/docs/de
 
 ## 4. Add route middleware to protect routes
 
-You can use the `auth` middleware to protect pages while doing client side routing.
+You can use the `auth` middleware to protect pages while doing client side routing. You can also pass specific permission and role.
 
 ```vue
 <script setup>
-definePageMeta({ middleware: 'auth', auth: { guestRedirectUrl: '/sign-in' } })
+definePageMeta({
+  middleware: 'auth',
+  auth: {
+    guestRedirectUrl: '/sign-in',
+    // permission: 'org:invoices:create',
+    // role: 'org:billing'
+  }
+})
 </script>
 
 <template>
