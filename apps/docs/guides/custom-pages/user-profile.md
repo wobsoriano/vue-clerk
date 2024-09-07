@@ -75,9 +75,15 @@ import { UserButton } from 'vue-clerk'
 </script>
 
 <template>
-  <div>
-  <!-- Work In Progress -->
-  </div>
+  <header>
+    <UserButton>
+      <UserButton.UserProfileLink label="Homepage" url="/">
+        <template #labelIcon>
+          <Icon />
+        </template>
+      </UserButton.UserProfileLink>
+    </UserButton>
+  </header>
 </template>
 ```
 

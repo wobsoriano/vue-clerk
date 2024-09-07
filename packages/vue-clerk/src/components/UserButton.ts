@@ -80,7 +80,7 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
           customMenuItems.push(customMenuItem)
         })
       }
-      else if (node.type.name === 'UserButtonUserProfilePage') {
+      else if (['UserButtonUserProfilePage', 'UserButtonUserProfileLink'].includes(node.type.name)) {
         const customPage: CustomPage = {
           label: node.props?.label ?? '',
           url: node.props?.url ?? '',
@@ -95,17 +95,20 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
               teleportDestinationMap.value.delete(el)
             }
           },
-          mount(el) {
+        }
+
+        if (node.type.name === 'UserButtonUserProfileLink') {
+          customPage.mount = (el) => {
             teleportDestinationMap.value.set(el, {
               to: el,
               children: node.children.default,
             })
-          },
-          unmount: (el) => {
+          }
+          customPage.unmount = (el) => {
             if (el) {
               teleportDestinationMap.value.delete(el)
             }
-          },
+          }
         }
 
         customPages.push(customPage)
@@ -201,9 +204,28 @@ const UserButtonUserProfilePage = defineComponent({
   },
 })
 
+const UserButtonUserProfileLink = defineComponent({
+  inheritAttrs: false,
+  name: 'UserButtonUserProfileLink',
+  props: {
+    label: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(_props, { slots }) {
+    return () => slots.labelIcon?.()
+  },
+})
+
 export const UserButton = Object.assign(UserButtonRoot, {
   MenuItems: UserButtonMenuItems,
   Link: UserButtonLink,
   Action: UserButtonAction,
   UserProfilePage: UserButtonUserProfilePage,
+  UserProfileLink: UserButtonUserProfileLink,
 })
