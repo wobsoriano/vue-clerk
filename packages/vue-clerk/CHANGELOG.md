@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.9
+
+### Patch Changes
+
+- 4a22b11: Add custom `<UserProfileLink />` to `<UserButton />`
+
 ## 0.6.8
 
 ### Patch Changes
