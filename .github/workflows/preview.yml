@@ -25,7 +25,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm build --filter='vue-clerk' --filter='vue-clerk-nuxt'
+        run: pnpm build-packages
 
       - name: Create a snapshot version
         id: snapshot

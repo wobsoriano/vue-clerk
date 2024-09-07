@@ -4,10 +4,11 @@
   "packageManager": "pnpm@9.9.0",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "build-packages": "turbo run build --filter=\"./packages/*\"",
+    "dev": "turbo run dev ",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "turbo run build && changeset publish",
+    "release": "turbo run build-packages && changeset publish",
     "nuke": "./scripts/nuke.sh"
   },
   "devDependencies": {
