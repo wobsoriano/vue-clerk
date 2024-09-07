@@ -8,7 +8,7 @@
     "dev": "turbo run dev ",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "turbo run build-packages && changeset publish",
+    "release": "pnpm build-packages && changeset publish",
     "nuke": "./scripts/nuke.sh"
   },
   "devDependencies": {
