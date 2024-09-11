@@ -58,8 +58,8 @@ importers:
         specifier: ^1.9.0
         version: 1.9.2(react@18.3.1)
       '@clerk/shared':
-        specifier: ^2.6.2
-        version: 2.6.2(react@18.3.1)
+        specifier: ^2.7.1
+        version: 2.7.1(react@18.3.1)
       '@clerk/types':
         specifier: ^4.19.0
         version: 4.19.0
@@ -101,8 +101,8 @@ importers:
         specifier: ^1.9.0
         version: 1.9.2(react@18.3.1)
       '@clerk/shared':
-        specifier: ^2.6.2
-        version: 2.6.2(react@18.3.1)
+        specifier: ^2.7.1
+        version: 2.7.1(react@18.3.1)
       '@clerk/types':
         specifier: ^4.19.0
         version: 4.19.0
@@ -522,12 +522,28 @@ packages:
       react-dom:
         optional: true
 
+  '@clerk/shared@2.7.1':
+    resolution: {integrity: sha512-cEhLSCP/bzrEKh6j/NjEcNlXexYvJy2CjD2pPyYLnZLGKmP0vBGDO6dqGeJPJm356lspi57O97GA7QEGgn0gRA==}
+    engines: {node: '>=18.17.0'}
+    peerDependencies:
+      react: '>=18 || >=19.0.0-beta'
+      react-dom: '>=18 || >=19.0.0-beta'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   '@clerk/themes@2.1.27':
     resolution: {integrity: sha512-BFbSDhhFMTPsWzbEqm/LOOT4ULEin0C7jSngeiCFKjCG246QhsqfEZfwZVrWM7Gzfz/geR6itAtmLSSFDpzAbA==}
     engines: {node: '>=18.17.0'}
 
   '@clerk/types@4.19.0':
     resolution: {integrity: sha512-bDN/nRUD5PFCehQ+Kjdcft0I3b9CIyCcY3OBNDSc1L6RQhlXH+J48EtaP/cbRdslb83LJiBPQ2i/gV4VgblzwA==}
+    engines: {node: '>=18.17.0'}
+
+  '@clerk/types@4.20.1':
+    resolution: {integrity: sha512-s2v3wFgLsB+d0Ot5yN+5IjRNKWl63AAeEczTZDZYSWuNkGihvEXYjS2NtnYuhROBRgWEHEsm0JOp0rQkfTMkBw==}
     engines: {node: '>=18.17.0'}
 
   '@cloudflare/kv-asset-handler@0.3.4':
@@ -6319,12 +6335,26 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
 
+  '@clerk/shared@2.7.1(react@18.3.1)':
+    dependencies:
+      '@clerk/types': 4.20.1
+      glob-to-regexp: 0.4.1
+      js-cookie: 3.0.5
+      std-env: 3.7.0
+      swr: 2.2.5(react@18.3.1)
+    optionalDependencies:
+      react: 18.3.1
+
   '@clerk/themes@2.1.27':
     dependencies:
       '@clerk/types': 4.19.0
       tslib: 2.4.1
 
   '@clerk/types@4.19.0':
+    dependencies:
+      csstype: 3.1.1
+
+  '@clerk/types@4.20.1':
     dependencies:
       csstype: 3.1.1
 
