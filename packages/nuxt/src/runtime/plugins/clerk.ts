@@ -1,23 +1,21 @@
 import { clerkPlugin } from 'vue-clerk'
-import type { AuthObject } from '@clerk/backend'
-import { defineNuxtPlugin, navigateTo, useRuntimeConfig, useState } from '#app'
+import type { InitialState } from '@clerk/types'
+import { defineNuxtPlugin, navigateTo, useRuntimeConfig, useState } from '#imports'
 
 export default defineNuxtPlugin({
   name: 'vue-clerk',
-  enforce: 'pre',
-  async setup(nuxtApp) {
-    const serverInitialState = useState<AuthObject | undefined>('clerk-initial-state', () => undefined)
+  setup(nuxtApp) {
+    const initialState = useState<InitialState | undefined>('clerk-initial-state', () => undefined)
 
     if (import.meta.server) {
-      const authContext = nuxtApp.ssrContext?.event.context.auth
-      serverInitialState.value = authContext ? JSON.parse(JSON.stringify(authContext)) : undefined
+      initialState.value = nuxtApp.ssrContext?.event.context.__clerk_initial_state
     }
 
     nuxtApp.vueApp.use(clerkPlugin, {
       ...useRuntimeConfig().public.clerk,
       routerPush: (to: string) => navigateTo(to),
       routerReplace: (to: string) => navigateTo(to, { replace: true }),
-      initialState: serverInitialState.value,
+      initialState: initialState.value,
     })
   },
 })

@@ -1,7 +1,8 @@
 import type { AuthObject } from '@clerk/backend'
 import { createError, eventHandler, getRequestHeaders, getRequestProtocol, setResponseHeader } from 'h3'
-import { AuthStatus, constants } from '@clerk/backend/internal'
+import { AuthStatus, constants, makeAuthObjectSerializable, stripPrivateDataFromObject } from '@clerk/backend/internal'
 import type { H3Event } from 'h3'
+import type { InitialState } from '@clerk/types'
 import { clerkClient } from './clerkClient'
 
 function toWebRequest(event: H3Event) {
@@ -35,11 +36,22 @@ export default eventHandler(async (event) => {
     })
   }
 
-  event.context.auth = requestState.toAuth()
+  const authObject = requestState.toAuth()
+  event.context.auth = authObject
+  event.context.__clerk_initial_state = createInitialState(authObject)
 })
+
+function createInitialState(auth: AuthObject) {
+  const initialState = makeAuthObjectSerializable(stripPrivateDataFromObject(auth))
+  return initialState as unknown as InitialState
+}
 
 declare module 'h3' {
   interface H3EventContext {
     auth: AuthObject
+    /**
+     * @internal
+     */
+    __clerk_initial_state: InitialState
   }
 }
