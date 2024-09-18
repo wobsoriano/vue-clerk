@@ -1,6 +1,6 @@
 import { createClerkClient } from '@clerk/backend'
-import { isTruthy } from '@clerk/shared/underscore'
 import type { H3Event } from 'h3'
+import { isTruthy } from './utils'
 import { useRuntimeConfig } from '#imports'
 
 export function clerkClient(event: H3Event) {

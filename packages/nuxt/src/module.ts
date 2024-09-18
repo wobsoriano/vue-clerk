@@ -56,6 +56,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/server/clerkClient')
     nuxt.options.build.transpile.push(resolver.resolve('./runtime/server/clerkClient'))
+    nuxt.options.build.transpile.push(resolver.resolve('./runtime/server/utils'))
 
     addTypeTemplate({
       filename: 'types/clerk.d.ts',
