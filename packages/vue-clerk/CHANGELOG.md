@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.11
+
+### Patch Changes
+
+- 4e7d66e: Remove `@clerk/shared` dependency in nuxt module
+
 ## 0.6.10
 
 ### Patch Changes
