@@ -1,5 +1,4 @@
-import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, addTypeTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
-import { defu } from 'defu'
+import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, addTypeTemplate, createResolver, defineNuxtModule, updateRuntimeConfig } from '@nuxt/kit'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
 export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'>
@@ -13,29 +12,31 @@ export default defineNuxtModule<ModuleOptions>({
     },
   },
   async setup(options, nuxt) {
-    const runtimeConfig = nuxt.options.runtimeConfig
-    const publicClerk = defu(runtimeConfig.public.clerk, {
-      ...options,
-      publishableKey: options.publishableKey,
-      signInUrl: options.signInUrl,
-      signInFallbackRedirectUrl: options.signInFallbackRedirectUrl,
-      signUpFallbackRedirectUrl: options.signUpFallbackRedirectUrl,
-      signInForceRedirectUrl: options.signInForceRedirectUrl,
-      signUpForceRedirectUrl: options.signUpForceRedirectUrl,
-      signUpUrl: options.signUpUrl,
-      isSatellite: options.isSatellite,
-      proxyUrl: options.proxyUrl,
-      domain: options.domain,
-      clerkJSUrl: options.clerkJSUrl,
-      clerkJSVariant: options.clerkJSVariant,
-      clerkJSVersion: options.clerkJSVersion,
-      apiUrl: 'https://api.clerk.com',
-      apiVersion: 'v1',
-    })
-    runtimeConfig.public.clerk = publicClerk
-    runtimeConfig.clerk = defu(runtimeConfig.clerk, {
-      secretKey: undefined,
-      jwtKey: undefined,
+    updateRuntimeConfig({
+      public: {
+        clerk: {
+          ...options,
+          publishableKey: options.publishableKey,
+          signInUrl: options.signInUrl,
+          signInFallbackRedirectUrl: options.signInFallbackRedirectUrl,
+          signUpFallbackRedirectUrl: options.signUpFallbackRedirectUrl,
+          signInForceRedirectUrl: options.signInForceRedirectUrl,
+          signUpForceRedirectUrl: options.signUpForceRedirectUrl,
+          signUpUrl: options.signUpUrl,
+          isSatellite: options.isSatellite,
+          proxyUrl: options.proxyUrl,
+          domain: options.domain,
+          clerkJSUrl: options.clerkJSUrl,
+          clerkJSVariant: options.clerkJSVariant,
+          clerkJSVersion: options.clerkJSVersion,
+          apiUrl: 'https://api.clerk.com',
+          apiVersion: 'v1',
+        },
+      },
+      clerk: {
+        secretKey: undefined,
+        jwtKey: undefined,
+      }
     })
 
     const resolver = createResolver(import.meta.url)
