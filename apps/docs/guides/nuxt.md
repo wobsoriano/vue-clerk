@@ -63,6 +63,7 @@ definePageMeta({
     guestRedirectUrl: '/sign-in',
     // permission: 'org:invoices:create',
     // role: 'org:billing'
+    // condition: (has) => has('org:invoices:create')
   }
 })
 </script>
