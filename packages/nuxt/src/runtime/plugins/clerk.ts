@@ -4,7 +4,7 @@ import { defineNuxtPlugin, navigateTo, useRuntimeConfig, useState } from '#impor
 
 export default defineNuxtPlugin({
   name: 'vue-clerk',
-  async setup(nuxtApp) {
+  setup(nuxtApp) {
     const serverInitialState = useState<AuthObject | undefined>('clerk-initial-state', () => undefined)
 
     if (import.meta.server) {
