@@ -1,6 +1,6 @@
 import { clerkPlugin } from 'vue-clerk'
 import type { AuthObject } from '@clerk/backend'
-import { defineNuxtPlugin, navigateTo, useRuntimeConfig, useState } from '#app'
+import { defineNuxtPlugin, navigateTo, useRuntimeConfig, useState } from '#imports'
 
 export default defineNuxtPlugin({
   name: 'vue-clerk',

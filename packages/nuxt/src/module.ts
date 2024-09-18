@@ -32,15 +32,15 @@ export default defineNuxtModule<ModuleOptions>({
       apiUrl: 'https://api.clerk.com',
       apiVersion: 'v1',
     })
-    runtimeConfig.public.clerk = publicClerk as any
+    runtimeConfig.public.clerk = publicClerk
     runtimeConfig.clerk = defu(runtimeConfig.clerk, {
       secretKey: undefined,
       jwtKey: undefined,
     })
 
-    nuxt.options.build.transpile.push('vue-clerk')
-
     const resolver = createResolver(import.meta.url)
+
+    nuxt.options.build.transpile.push(resolver.resolve('./runtime'))
 
     addPlugin(resolver.resolve('./runtime/plugins/clerk'))
 
@@ -55,8 +55,6 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/server/clerkClient')
-    nuxt.options.build.transpile.push(resolver.resolve('./runtime/server/clerkClient'))
-    nuxt.options.build.transpile.push(resolver.resolve('./runtime/server/utils'))
 
     addTypeTemplate({
       filename: 'types/clerk.d.ts',
