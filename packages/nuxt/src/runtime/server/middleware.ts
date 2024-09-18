@@ -2,7 +2,7 @@ import type { AuthObject } from '@clerk/backend'
 import { createError, eventHandler, getRequestHeaders, getRequestProtocol, setResponseHeader } from 'h3'
 import { AuthStatus, constants, makeAuthObjectSerializable, stripPrivateDataFromObject } from '@clerk/backend/internal'
 import type { H3Event } from 'h3'
-import type { InitialState, Without } from '@clerk/types'
+import type { InitialState } from '@clerk/types'
 import { clerkClient } from './clerkClient'
 
 function toWebRequest(event: H3Event) {
