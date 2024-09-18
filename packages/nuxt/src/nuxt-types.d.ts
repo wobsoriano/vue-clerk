@@ -1,5 +1,6 @@
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 import type { ClerkOptions } from '@clerk/backend'
+import type { CheckAuthorizationWithCustomPermissions, OrganizationCustomPermissionKey, OrganizationCustomRoleKey } from '@clerk/types'
 
 type ClerkPublicRuntimeOptions = Pick<
   IsomorphicClerkOptions,
@@ -30,11 +31,27 @@ declare module 'nuxt/schema' {
   }
 }
 
+type ProtectParams = {
+  condition?: never
+  role: OrganizationCustomRoleKey
+  permission?: never
+} | {
+  condition?: never
+  role?: never
+  permission: OrganizationCustomPermissionKey
+} | {
+  condition: (has: CheckAuthorizationWithCustomPermissions) => boolean
+  role?: never
+  permission?: never
+} | {
+  condition?: never
+  role?: never
+  permission?: never
+}
+
 declare module 'vue-router' {
   interface RouteMeta {
-    auth?: {
-      permission?: string
-      role?: string
+    auth?: ProtectParams & {
       authenticatedRedirectUrl?: string
       guestRedirectUrl?: string
     }
