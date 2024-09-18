@@ -36,7 +36,7 @@ export default defineNuxtModule<ModuleOptions>({
       clerk: {
         secretKey: undefined,
         jwtKey: undefined,
-      }
+      },
     })
 
     const resolver = createResolver(import.meta.url)
