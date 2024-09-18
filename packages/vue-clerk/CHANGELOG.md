@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.6.13
+
+### Patch Changes
+
+- d662589: Allow condition for roles and permissions in route middleware
+
+  Usage:
+
+  ```vue
+  <script setup>
+  definePageMeta({
+    middleware: "auth",
+    auth: {
+      condition: (has) =>
+        has({ role: "org:admin" }) || has({ role: "org:billing_manager" }),
+    },
+  });
+  </script>
+
+  <template>
+    <p>Welcome, admin / billing manager.</p>
+  </template>
+  ```
+
 ## 0.6.12
 
 ### Patch Changes
