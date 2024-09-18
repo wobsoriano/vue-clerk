@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.12
+
+### Patch Changes
+
+- 4844e22: Use built-in `updateRuntimeConfig` helper from `@nuxt/kit` and remove private metadata from initial state
+
 ## 0.6.11
 
 ### Patch Changes
