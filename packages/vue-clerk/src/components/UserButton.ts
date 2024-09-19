@@ -97,7 +97,7 @@ const UserButtonRoot = defineComponent((props: UserButtonProps, { slots }) => {
           },
         }
 
-        if (node.type.name === 'UserButtonUserProfileLink') {
+        if (node.type.name === 'UserButtonUserProfilePage') {
           customPage.mount = (el) => {
             teleportDestinationMap.value.set(el, {
               to: el,
