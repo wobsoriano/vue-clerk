@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.15
+
+### Patch Changes
+
+- 74d72ad: Bump `@clerk/shared` from 2.8.1 to 2.8.3
+- e50a3f1: Bump `@clerk/types` from 4.21.0 to 4.22.0
+
 ## 0.6.14
 
 ### Patch Changes
