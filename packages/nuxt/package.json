@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@clerk/backend": "^1.13.2",
-    "@clerk/types": "^4.21.0",
+    "@clerk/types": "^4.22.0",
     "@nuxt/kit": "^3.13.2",
     "@nuxt/schema": "^3.13.2",
     "h3": "^1.12.0",
