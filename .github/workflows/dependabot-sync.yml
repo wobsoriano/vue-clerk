@@ -20,6 +20,6 @@ jobs:
         uses: StafflinePeoplePlus/dependabot-changesets@v0.1.4
         with:
           owner: wobsoriano
-          repo: svelte-clerk
+          repo: vue-clerk
           pr-number: ${{ github.event.pull_request.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
