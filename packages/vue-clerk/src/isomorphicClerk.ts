@@ -116,7 +116,6 @@ type IsomorphicLoadedClerk = Without<
   | 'mountSignUp'
   | 'mountSignIn'
   | 'mountUserProfile'
-  | '__experimental_mountUserVerification'
   | 'client'
   | 'authenticateWithCoinbase' // TODO: This is not preset in types?
 > & {
@@ -163,7 +162,6 @@ type IsomorphicLoadedClerk = Without<
   mountSignUp: (node: HTMLDivElement, props: SignUpProps) => void
   mountSignIn: (node: HTMLDivElement, props: SignInProps) => void
   mountUserProfile: (node: HTMLDivElement, props: UserProfileProps) => void
-  __experimental_mountUserVerification: (node: HTMLDivElement, props: __experimental_UserVerificationProps) => void
   client: ClientResource | undefined
 }
 
@@ -187,7 +185,6 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
   private premountCreateOrganizationNodes = new Map<HTMLDivElement, CreateOrganizationProps>()
   private premountOrganizationSwitcherNodes = new Map<HTMLDivElement, OrganizationSwitcherProps>()
   private premountOrganizationListNodes = new Map<HTMLDivElement, OrganizationListProps>()
-  private premountUserVerificationNodes = new Map<HTMLDivElement, __experimental_UserVerificationProps>()
   private premountMethodCalls = new Map<MethodName<BrowserClerk>, MethodCallback>()
   private loadedListeners: Array<() => void> = []
   /**
@@ -560,10 +557,6 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
       clerkjs.mountUserProfile(node, props)
     })
 
-    this.premountUserVerificationNodes.forEach((props: __experimental_UserVerificationProps, node: HTMLDivElement) => {
-      clerkjs.__experimental_mountUserVerification(node, props)
-    })
-
     this.premountUserButtonNodes.forEach((props: UserButtonProps, node: HTMLDivElement) => {
       clerkjs.mountUserButton(node, props)
     })
@@ -808,24 +801,6 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
     }
     else {
       this.premountSignInNodes.delete(node)
-    }
-  }
-
-  __experimental_mountUserVerification = (node: HTMLDivElement, props: __experimental_UserVerificationProps): void => {
-    if (this.clerkjs && this.#loaded) {
-      this.clerkjs.__experimental_mountUserVerification(node, props)
-    }
-    else {
-      this.premountUserVerificationNodes.set(node, props)
-    }
-  }
-
-  __experimental_unmountUserVerification = (node: HTMLDivElement): void => {
-    if (this.clerkjs && this.#loaded) {
-      this.clerkjs.__experimental_unmountUserVerification(node)
-    }
-    else {
-      this.premountUserVerificationNodes.delete(node)
     }
   }
 
