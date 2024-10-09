@@ -11,6 +11,8 @@ updates:
       interval: daily
     allow:
       - dependency-name: '@clerk/*'
+    ignore:
+      - dependency-name: '@clerk/localizations'
     groups:
       clerk-dependencies:
         patterns:
