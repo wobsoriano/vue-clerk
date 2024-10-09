@@ -36,8 +36,8 @@ importers:
         specifier: ^1.13.8
         version: 1.13.8(react@18.3.1)
       '@clerk/localizations':
-        specifier: ^3.1.2
-        version: 3.1.2
+        specifier: ^3.2.0
+        version: 3.2.0
       '@clerk/themes':
         specifier: ^2.1.35
         version: 2.1.35
@@ -504,8 +504,8 @@ packages:
     resolution: {integrity: sha512-8vCYux8Xbu5TQ2iq9tYuDnNhv3K/XhZ+34QJG+n4ZX4w4FfTTuzwb5OylcmP69vPvYybhoQfjpK57kBOW22deg==}
     engines: {node: '>=18.17.0'}
 
-  '@clerk/localizations@3.1.2':
-    resolution: {integrity: sha512-+FQqs83mUbLthb66zM8rmbp5LgkpTaVzN21EvkCcX8wAUJ7oT3W9sFSyUwQZXErwQpQNZRlv92nPPwxNsQZ7Mw==}
+  '@clerk/localizations@3.2.0':
+    resolution: {integrity: sha512-rUL4WhsbYJdfBJZ6twElSJeNx70qq8rh3pJATGY9fpqr8RBW4Rr2FdZQz+JneKyd3QTI+MoWlzTWUvaD4Gx16g==}
     engines: {node: '>=18.17.0'}
 
   '@clerk/shared@2.6.2':
@@ -6470,7 +6470,7 @@ snapshots:
       - react
       - react-dom
 
-  '@clerk/localizations@3.1.2':
+  '@clerk/localizations@3.2.0':
     dependencies:
       '@clerk/types': 4.25.0
 
