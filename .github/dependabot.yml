@@ -13,6 +13,7 @@ updates:
       - dependency-name: '@clerk/*'
     ignore:
       - dependency-name: '@clerk/localizations'
+      - dependency-name: '@clerk/themes'
     groups:
       clerk-dependencies:
         patterns:
