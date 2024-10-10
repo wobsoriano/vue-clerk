@@ -62,7 +62,13 @@ export default defineNuxtModule<ModuleOptions>({
       write: true,
       getContents: () => [
         'declare module \'#clerk\' {',
+        '  /**',
+        '   * @deprecated Import clerkClient from \'vue-clerk/server\' instead.',
+        '   */',
         `  const clerkClient: typeof import('${resolver.resolve('./runtime/server/clerkClient')}').clerkClient`,
+        '  /**',
+        '   * @deprecated Import getAuth from \'vue-clerk/server\' instead.',
+        '   */',
         `  const getAuth: typeof import('${resolver.resolve('./runtime/server/clerkClient')}').getAuth`,
         '}',
       ].join('\n'),
