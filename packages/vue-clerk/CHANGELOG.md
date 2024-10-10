@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.18
+
+### Patch Changes
+
+- 0a18200: Bump @clerk/backend from 1.13.8 to 1.13.9 in the clerk-dependencies group
+- b56c56b: Export all `@clerk/backend` exports through `vue-clerk/server`
+
 ## 0.6.17
 
 ### Patch Changes
