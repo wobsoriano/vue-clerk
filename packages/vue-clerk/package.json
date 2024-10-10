@@ -29,6 +29,10 @@
       "types": "./dist/nuxt/types.d.ts",
       "import": "./dist/nuxt/module.mjs",
       "require": "./dist/nuxt/module.cjs"
+    },
+    "./server": {
+      "types": "./dist/nuxt/runtime/server/index.d.ts",
+      "import": "./dist/nuxt/runtime/server/index.js"
     }
   },
   "main": "./dist/index.js",
