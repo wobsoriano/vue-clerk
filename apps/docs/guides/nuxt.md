@@ -91,14 +91,16 @@ definePageMeta({ middleware: 'guest', auth: { authenticatedRedirectUrl: '/profil
 
 ## 5. Protect your API endpoints
 
+To protect your routes, use the `getAuth()` function in your event handlers. This function retrieves the authentication state from the event object returning an [`Auth`](https://clerk.com/docs/references/nextjs/auth-object#auth-object) object that includes the `userId`, allowing you to determine if the user is authenticated..
+
 ```ts
-import { clerkClient, getAuth } from '#clerk'
+import { clerkClient, getAuth } from 'vue-clerk/server'
 
 export default eventHandler((event) => {
   const { userId } = getAuth(event)
 
   if (!userId) {
-    setResponseStatus(event, 403)
+    setResponseStatus(event, 401)
     return
   }
 

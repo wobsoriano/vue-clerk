@@ -1,4 +1,4 @@
-import { clerkClient, getAuth } from '#clerk'
+import { clerkClient, getAuth } from 'vue-clerk/server'
 
 export default eventHandler((event) => {
   const auth = getAuth(event)
