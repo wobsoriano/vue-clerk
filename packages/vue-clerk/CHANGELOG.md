@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.19
+
+### Patch Changes
+
+- cea71dd: Bump @clerk/backend from 1.13.9 to 1.13.10
+- cea71dd: Bump @clerk/shared from 2.9.0 to 2.9.1
+- cea71dd: Bump @clerk/types from 4.25.0 to 4.25.1
+
 ## 0.6.18
 
 ### Patch Changes
