@@ -33,8 +33,8 @@ importers:
   apps/playground:
     dependencies:
       '@clerk/backend':
-        specifier: ^1.15.0
-        version: 1.15.0(react@18.3.1)
+        specifier: ^1.15.1
+        version: 1.15.1(react@18.3.1)
       '@clerk/localizations':
         specifier: ^3.1.2
         version: 3.1.2
@@ -55,11 +55,11 @@ importers:
   packages/nuxt:
     dependencies:
       '@clerk/backend':
-        specifier: ^1.15.0
-        version: 1.15.0(react@18.3.1)
+        specifier: ^1.15.1
+        version: 1.15.1(react@18.3.1)
       '@clerk/types':
-        specifier: ^4.27.0
-        version: 4.27.0
+        specifier: ^4.28.0
+        version: 4.28.0
       '@nuxt/kit':
         specifier: ^3.13.2
         version: 3.13.2(magicast@0.3.5)(rollup@4.21.2)(webpack-sources@3.2.3)
@@ -95,11 +95,11 @@ importers:
         specifier: ^1.9.0
         version: 1.9.2(react@18.3.1)
       '@clerk/shared':
-        specifier: ^2.10.0
-        version: 2.10.0(react@18.3.1)
+        specifier: ^2.10.1
+        version: 2.10.1(react@18.3.1)
       '@clerk/types':
-        specifier: ^4.27.0
-        version: 4.27.0
+        specifier: ^4.28.0
+        version: 4.28.0
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.4.6
@@ -496,8 +496,8 @@ packages:
     bundledDependencies:
       - is-unicode-supported
 
-  '@clerk/backend@1.15.0':
-    resolution: {integrity: sha512-WU74HBpD4KpjcqkMHYiyfXtQboPBWjnf8HmVlWHSLoqJdA/11geWr2VOFPtJzuALtCg2SXIdL7nJvqlQquhurQ==}
+  '@clerk/backend@1.15.1':
+    resolution: {integrity: sha512-yoBCji0bJFn2bUxBOO0+6XmlN6Tb5M2CiW+DAX7V3pFQ7g7DnHjSZ/LVkt9yB0AmqHKPv1ISXWM/NFYSDBRVuA==}
     engines: {node: '>=18.17.0'}
 
   '@clerk/backend@1.9.2':
@@ -508,8 +508,8 @@ packages:
     resolution: {integrity: sha512-+FQqs83mUbLthb66zM8rmbp5LgkpTaVzN21EvkCcX8wAUJ7oT3W9sFSyUwQZXErwQpQNZRlv92nPPwxNsQZ7Mw==}
     engines: {node: '>=18.17.0'}
 
-  '@clerk/shared@2.10.0':
-    resolution: {integrity: sha512-4E9uBSBh1OR+/l6/FCMc5d+RUDnLU8op5bynZf0uZqK8xKmqs3+U9Svr1YJpmtJa+UwQLxkzWEsXE5jJ1Aph8w==}
+  '@clerk/shared@2.10.1':
+    resolution: {integrity: sha512-9dPuCcTd2qaK+YU9BiO5mPPnet9B38ZSp0gutnaUQmve9013qO0p9Lx7ympiPSulwkTG4NAfYxjr/pyIUUFqCQ==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       react: '>=18 || >=19.0.0-beta'
@@ -544,8 +544,8 @@ packages:
     resolution: {integrity: sha512-p2IyJ0q5WF1e976L1pS1J6Mb5ducfkUC31DR1EvMjPwJkrlWJdAMCPc+zqRRAePVy/JBVK2gEKbUVtJ6/jrpag==}
     engines: {node: '>=18.17.0'}
 
-  '@clerk/types@4.27.0':
-    resolution: {integrity: sha512-NOPelMa0SzD0oG/H77Gt0WwzGdUCFQVsUjMIb6AFVO7P/lKDecXN+wbYiMTzJ4HF4W4jUK9v0nNXNfLzDOwH8Q==}
+  '@clerk/types@4.28.0':
+    resolution: {integrity: sha512-RPdrUs8HYfhXaZ0MOVBkzy7lilsU9lDVSC88a5o/cEMmTML+BTDfLHMlLG81kgvagSLCKKbl28iocb8y7stm1Q==}
     engines: {node: '>=18.17.0'}
 
   '@cloudflare/kv-asset-handler@0.3.4':
@@ -6456,10 +6456,10 @@ snapshots:
       picocolors: 1.1.0
       sisteransi: 1.0.5
 
-  '@clerk/backend@1.15.0(react@18.3.1)':
+  '@clerk/backend@1.15.1(react@18.3.1)':
     dependencies:
-      '@clerk/shared': 2.10.0(react@18.3.1)
-      '@clerk/types': 4.27.0
+      '@clerk/shared': 2.10.1(react@18.3.1)
+      '@clerk/types': 4.28.0
       cookie: 0.7.0
       snakecase-keys: 5.4.4
       tslib: 2.4.1
@@ -6482,9 +6482,9 @@ snapshots:
     dependencies:
       '@clerk/types': 4.25.0
 
-  '@clerk/shared@2.10.0(react@18.3.1)':
+  '@clerk/shared@2.10.1(react@18.3.1)':
     dependencies:
-      '@clerk/types': 4.27.0
+      '@clerk/types': 4.28.0
       glob-to-regexp: 0.4.1
       js-cookie: 3.0.5
       std-env: 3.7.0
@@ -6515,7 +6515,7 @@ snapshots:
     dependencies:
       csstype: 3.1.1
 
-  '@clerk/types@4.27.0':
+  '@clerk/types@4.28.0':
     dependencies:
       csstype: 3.1.1
 
