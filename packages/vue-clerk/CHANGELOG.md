@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.7.0
+
+### Minor Changes
+
+- 11ed32f: Add experimental custom server middleware. Useful for custom logic when protecting your API routes.
+
+  Example usage:
+
+  ```ts
+  // server/middleware/clerk.ts
+  import { clerkMiddleware } from "vue-clerk/server";
+
+  export default clerkMiddleware((event) => {
+    const { auth } = event.context;
+
+    if (!auth.userId && event.path.startsWith("/api")) {
+      throw createError({
+        statusCode: 401,
+        message: "Unauthorized",
+      });
+    }
+  });
+  ```
+
 ## 0.6.22
 
 ### Patch Changes
