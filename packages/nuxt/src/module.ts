@@ -1,7 +1,28 @@
 import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, addTypeTemplate, createResolver, defineNuxtModule, updateRuntimeConfig } from '@nuxt/kit'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
-export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'>
+export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'> & {
+  /**
+   * @experimental
+   *
+   * Skip the automatic server middleware registration. When enabled, you'll need to
+   * register the middleware manually in your application.
+   *
+   * @default false
+   *
+   * @example
+   *
+   * ```ts
+   * // server/middleware/clerk.ts
+   * import { clerkMiddleware } from 'vue-clerk/server'
+   *
+   * export default clerkMiddleware((event) => {
+   *   console.log('auth', event.context.auth)
+   * })
+   * ```
+   */
+  __experimental_skipServerMiddleware?: boolean
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -45,10 +66,13 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin(resolver.resolve('./runtime/plugins/clerk'))
 
-    addServerHandler({
-      middleware: true,
-      handler: resolver.resolve('./runtime/server/middleware'),
-    })
+    if (!options.__experimental_skipServerMiddleware) {
+      addServerHandler({
+        middleware: true,
+        handler: resolver.resolve('./runtime/server/middleware'),
+      })
+    }
+
     addServerHandler({
       route: '/api/_clerk/current-user',
       handler: resolver.resolve('./runtime/server/api/current-user.get'),
