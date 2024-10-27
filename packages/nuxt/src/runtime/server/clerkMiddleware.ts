@@ -17,6 +17,34 @@ function toWebRequest(event: H3Event) {
 
 type Handler = (event: H3Event) => void
 
+/**
+ * Integrates Clerk authentication into your Nuxt application through Middleware.
+ *
+ * @param handler Optional callback function to handle the authenticated request
+ *
+ * @example
+ * Basic usage:
+ * ```ts
+ * export default clerkMiddleware()
+ * ```
+ *
+ * @example
+ * With custom handler:
+ * ```ts
+ * export default clerkMiddleware((event) => {
+ *   // Access auth data from the event context
+ *   const { auth } = event.context
+ *
+ *   // Example: Require authentication for all API routes
+ *   if (!auth.userId && event.path.startsWith('/api')) {
+ *     throw createError({
+ *       statusCode: 401,
+ *       message: 'Unauthorized'
+ *     })
+ *   }
+ * })
+ * ```
+ */
 export function clerkMiddleware(handler?: Handler) {
   return eventHandler(async (event) => {
     const clerkRequest = toWebRequest(event)
