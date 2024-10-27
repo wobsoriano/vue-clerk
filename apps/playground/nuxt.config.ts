@@ -4,7 +4,9 @@ export default defineNuxtConfig({
 
   modules: ['vue-clerk/nuxt'],
 
-  clerk: {},
+  clerk: {
+    // __experimental_skipServerMiddleware: true
+  },
 
   compatibilityDate: '2024-07-26',
 })
