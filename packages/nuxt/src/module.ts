@@ -1,4 +1,4 @@
-import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, addTypeTemplate, createResolver, defineNuxtModule, updateRuntimeConfig } from '@nuxt/kit'
+import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, createResolver, defineNuxtModule, updateRuntimeConfig } from '@nuxt/kit'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
 export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'> & {
@@ -77,25 +77,6 @@ export default defineNuxtModule<ModuleOptions>({
       route: '/api/_clerk/current-user',
       handler: resolver.resolve('./runtime/server/api/current-user.get'),
       method: 'get',
-    })
-
-    nuxt.options.alias['#clerk'] = resolver.resolve('./runtime/server/clerkClient')
-
-    addTypeTemplate({
-      filename: 'types/clerk.d.ts',
-      write: true,
-      getContents: () => [
-        'declare module \'#clerk\' {',
-        '  /**',
-        '   * @deprecated Import clerkClient from \'vue-clerk/server\' instead.',
-        '   */',
-        `  const clerkClient: typeof import('${resolver.resolve('./runtime/server/clerkClient')}').clerkClient`,
-        '  /**',
-        '   * @deprecated Import getAuth from \'vue-clerk/server\' instead.',
-        '   */',
-        `  const getAuth: typeof import('${resolver.resolve('./runtime/server/clerkClient')}').getAuth`,
-        '}',
-      ].join('\n'),
     })
 
     const components = [
