@@ -3,10 +3,17 @@ import type { IsomorphicClerkOptions } from 'vue-clerk'
 
 export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'> & {
   /**
-   * Disable the server middleware. This requires you to handle the middleware yourself.
+   * @experimental
+   *
+   * Skip the automatic server middleware registration. When enabled, you'll need to
+   * register the middleware manually in your application.
+   *
+   * @default false
    *
    * @example
-   * ```typescript
+   *
+   * ```ts
+   * // server/middleware/clerk.ts
    * import { clerkMiddleware } from 'vue-clerk/server'
    *
    * export default clerkMiddleware((event) => {
@@ -14,7 +21,7 @@ export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerR
    * })
    * ```
    */
-  __experimental_disableServerMiddleware?: boolean
+  __experimental_skipServerMiddleware?: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -59,7 +66,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin(resolver.resolve('./runtime/plugins/clerk'))
 
-    if (!options.__experimental_disableServerMiddleware) {
+    if (!options.__experimental_skipServerMiddleware) {
       addServerHandler({
         middleware: true,
         handler: resolver.resolve('./runtime/server/middleware'),

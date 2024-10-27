@@ -76,6 +76,7 @@ export function provideClerkToVueApp(app: App, options: IsomorphicClerkOptions &
 }
 
 export function updateClerkOptions(options: Pick<ClerkOptions, 'appearance' | 'localization'>) {
+  // `__unstable__updateProps` is not exposed as public API from `@clerk/types`
   void (window as any).Clerk.__unstable__updateProps({
     options: { ...initOptions, ...options },
     appearance: { ...initOptions?.appearance, ...options.appearance },
