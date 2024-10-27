@@ -2,7 +2,7 @@
 "vue-clerk": minor
 ---
 
-Add experimental custom server middleware
+Add experimental custom server middleware. Useful for custom logic when protecting your API routes.
 
 Example usage:
 
