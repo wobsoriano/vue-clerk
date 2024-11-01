@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.1
+
+### Patch Changes
+
+- ea5690a: Bump @clerk/backend from 1.15.1 to 1.15.2
+- ea5690a: Bump @clerk/shared from 2.10.1 to 2.11.0
+- ea5690a: Bump @clerk/types from 4.28.0 to 4.29.0
+
 ## 0.7.0
 
 ### Minor Changes
