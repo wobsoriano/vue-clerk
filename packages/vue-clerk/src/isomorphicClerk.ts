@@ -50,7 +50,7 @@ import type {
 } from '@clerk/types'
 
 import { inBrowser } from '@clerk/shared/browser'
-import { handleValueOrFn } from '@clerk/shared/handleValueOrFn'
+import { handleValueOrFn } from '@clerk/shared/utils'
 import { loadClerkJsScript } from '@clerk/shared/loadClerkJsScript'
 import { errorThrower } from './errors/errorThrower'
 import { unsupportedNonBrowserDomainOrProxyUrlFunction } from './errors/messages'
