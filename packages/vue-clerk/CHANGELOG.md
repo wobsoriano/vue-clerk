@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.2
+
+### Patch Changes
+
+- 8d4fe91: Bump @clerk/backend from 1.15.2 to 1.15.5
+- 8d4fe91: Bump @clerk/shared from 2.11.0 to 2.11.3
+- bd85934: Fix `handleValueOrFn` import
+
 ## 0.7.1
 
 ### Patch Changes
