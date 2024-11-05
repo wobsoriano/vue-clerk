@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.8.0
+
+### Minor Changes
+
+- 9c2a8c1: Introduce `<Waitlist />` component
+
+### Patch Changes
+
+- a413f2c: Bump @clerk/backend from 1.15.5 to 1.15.6
+- a413f2c: Bump @clerk/shared from 2.11.3 to 2.11.4
+- a413f2c: Bump @clerk/types from 4.29.0 to 4.30.0
+
 ## 0.7.2
 
 ### Patch Changes
