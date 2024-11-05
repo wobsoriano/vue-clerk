@@ -2,4 +2,4 @@
 "vue-clerk": minor
 ---
 
-Introduce `<Waitlist /> component
+Introduce `<Waitlist />` component
