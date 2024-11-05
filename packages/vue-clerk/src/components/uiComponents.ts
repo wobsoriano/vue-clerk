@@ -6,6 +6,7 @@ import type {
   OrganizationSwitcherProps,
   SignInProps,
   SignUpProps,
+  WaitlistProps,
 } from '@clerk/types'
 import { useClerk } from '../composables/useClerk'
 import { UserButton } from './UserButton'
@@ -86,6 +87,15 @@ export const OrganizationList = defineComponent((props: OrganizationListProps) =
   return () => h(UIPortal, {
     mount: clerk.mountOrganizationList,
     unmount: clerk.unmountOrganizationList,
+    props,
+  })
+})
+
+export const Waitlist = defineComponent((props: WaitlistProps) => {
+  const clerk = useClerk()
+  return () => h(UIPortal, {
+    mount: clerk.mountWaitlist,
+    unmount: clerk.unmountWaitlist,
     props,
   })
 })
