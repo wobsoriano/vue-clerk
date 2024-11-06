@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.1
+
+### Patch Changes
+
+- 98928ca: Bump @clerk/backend from 1.15.6 to 1.15.7
+- 98928ca: Bump @clerk/shared from 2.11.4 to 2.11.5
+
 ## 0.8.0
 
 ### Minor Changes
