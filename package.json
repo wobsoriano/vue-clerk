@@ -1,6 +1,7 @@
 {
   "name": "vue-clerk-monorepo",
   "private": true,
+  "packageManager": "pnpm@9.13.0",
   "scripts": {
     "build": "turbo run build",
     "build-packages": "turbo run build --filter=\"./packages/*\"",
@@ -16,6 +17,5 @@
     "eslint": "^9.6.0",
     "turbo": "^2.2.3",
     "typescript": "^5.5.2"
-  },
-  "packageManager": "pnpm@9.13.0"
+  }
 }
