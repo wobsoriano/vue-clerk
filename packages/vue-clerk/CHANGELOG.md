@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.6
+
+### Patch Changes
+
+- 700e5c5: Bump @clerk/backend from 1.16.4 to 1.17.0
+- 700e5c5: Bump @clerk/shared from 2.14.0 to 2.15.0
+
 ## 0.8.5
 
 ### Patch Changes
