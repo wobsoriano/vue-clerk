@@ -61,7 +61,7 @@
     }
   },
   "dependencies": {
-    "@clerk/shared": "^2.14.0",
+    "@clerk/shared": "^2.15.0",
     "@clerk/types": "^4.34.0"
   },
   "devDependencies": {
