@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0
+
+### Minor Changes
+
+- bde54da: Update route middleware names for Nuxt module
+- b13f1e9: Update route middleware redirect options
+- 2e2c41f: Remove experimental tag from `__experimental_skipServerMiddleware`
+
 ## 0.8.7
 
 ### Patch Changes
