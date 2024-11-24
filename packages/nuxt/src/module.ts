@@ -3,7 +3,6 @@ import type { IsomorphicClerkOptions } from 'vue-clerk'
 
 export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'> & {
   /**
-   * @experimental
    *
    * Skip the automatic server middleware registration. When enabled, you'll need to
    * register the middleware manually in your application.
@@ -21,7 +20,7 @@ export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerR
    * })
    * ```
    */
-  __experimental_skipServerMiddleware?: boolean
+  skipServerMiddleware?: boolean
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -66,7 +65,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addPlugin(resolver.resolve('./runtime/plugins/clerk'))
 
-    if (!options.__experimental_skipServerMiddleware) {
+    if (!options.skipServerMiddleware) {
       addServerHandler({
         middleware: true,
         handler: resolver.resolve('./runtime/server/middleware'),
@@ -140,6 +139,10 @@ export default defineNuxtModule<ModuleOptions>({
       }),
     )
 
+    addRouteMiddleware({ name: 'clerk:auth', path: resolver.resolve('./runtime/middleware/auth') })
+    addRouteMiddleware({ name: 'clerk:guest', path: resolver.resolve('./runtime/middleware/guest') })
+
+    // Deprecated: Remove next minor release
     addRouteMiddleware({ name: 'auth', path: resolver.resolve('./runtime/middleware/auth') })
     addRouteMiddleware({ name: 'guest', path: resolver.resolve('./runtime/middleware/guest') })
   },
