@@ -60,7 +60,7 @@ You can use the `clerk:auth` middleware to protect pages while doing client side
 definePageMeta({
   middleware: 'clerk:auth',
   auth: {
-    guestRedirectUrl: '/sign-in',
+    navigateUnauthenticatedTo: '/sign-in',
     // permission: 'org:invoices:create',
     // role: 'org:billing'
     // condition: (has) => has('org:invoices:create')
@@ -77,9 +77,9 @@ For guest only pages, you can use the `clerk:guest` middleware.
 
 ```vue
 <script setup>
-definePageMeta({ middleware: 'clerk:guest', auth: { authenticatedRedirectUrl: '/profile' } })
-// authenticatedRedirectUrl will default to:
-// 1. `authenticatedRedirectUrl` if set
+definePageMeta({ middleware: 'clerk:guest', auth: { navigateAuthenticatedTo: '/profile' } })
+// navigateAuthenticatedTo will default to:
+// 1. `navigateAuthenticatedTo` if set
 // 1. NUXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL env variable if set
 // 2. NUXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL if set and (1.) is not set
 </script>

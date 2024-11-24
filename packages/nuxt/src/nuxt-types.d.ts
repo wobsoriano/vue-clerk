@@ -49,12 +49,38 @@ type ProtectParams = {
   permission?: never
 }
 
+type MiddlewareMeta = ProtectParams & {
+  /**
+   * Where to redirect authenticated users
+   *
+   * @default undefined
+   */
+  navigateAuthenticatedTo?: string
+  /**
+   * @deprecated Use `navigateAuthenticatedTo` instead
+   */
+  authenticatedRedirectUrl?: string
+  /**
+   * Where to redirect unauthenticated users
+   *
+   * @default undefined
+   */
+  navigateUnauthenticatedTo?: string
+  /**
+   * @deprecated Use `navigateUnauthenticatedTo` instead
+   */
+  guestRedirectUrl?: string
+}
+
+declare module '#app' {
+  interface PageMeta {
+    auth?: MiddlewareMeta
+  }
+}
+
 declare module 'vue-router' {
   interface RouteMeta {
-    auth?: ProtectParams & {
-      authenticatedRedirectUrl?: string
-      guestRedirectUrl?: string
-    }
+    auth?: MiddlewareMeta
   }
 }
 
