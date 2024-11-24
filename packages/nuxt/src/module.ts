@@ -140,6 +140,10 @@ export default defineNuxtModule<ModuleOptions>({
       }),
     )
 
+    addRouteMiddleware({ name: 'clerk:auth', path: resolver.resolve('./runtime/middleware/auth') })
+    addRouteMiddleware({ name: 'clerk:guest', path: resolver.resolve('./runtime/middleware/guest') })
+
+    // Deprecated: Remove next minor release
     addRouteMiddleware({ name: 'auth', path: resolver.resolve('./runtime/middleware/auth') })
     addRouteMiddleware({ name: 'guest', path: resolver.resolve('./runtime/middleware/guest') })
   },

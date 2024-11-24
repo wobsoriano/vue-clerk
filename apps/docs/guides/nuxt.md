@@ -53,12 +53,12 @@ Full list of environment variables can be found [here](https://clerk.com/docs/de
 
 ## 4. Add route middleware to protect routes
 
-You can use the `auth` middleware to protect pages while doing client side routing. You can also pass specific permission and role.
+You can use the `clerk:auth` middleware to protect pages while doing client side routing. You can also pass specific permission and role.
 
 ```vue
 <script setup>
 definePageMeta({
-  middleware: 'auth',
+  middleware: 'clerk:auth',
   auth: {
     guestRedirectUrl: '/sign-in',
     // permission: 'org:invoices:create',
@@ -73,11 +73,11 @@ definePageMeta({
 </template>
 ```
 
-For guest only pages, you can use the `guest` middleware.
+For guest only pages, you can use the `clerk:guest` middleware.
 
 ```vue
 <script setup>
-definePageMeta({ middleware: 'guest', auth: { authenticatedRedirectUrl: '/profile' } })
+definePageMeta({ middleware: 'clerk:guest', auth: { authenticatedRedirectUrl: '/profile' } })
 // authenticatedRedirectUrl will default to:
 // 1. `authenticatedRedirectUrl` if set
 // 1. NUXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL env variable if set
