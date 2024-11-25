@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.1
+
+### Patch Changes
+
+- 19f9506: Bump @clerk/backend from 1.17.1 to 1.18.0
+- 19f9506: Bump @clerk/shared from 2.16.0 to 2.17.0
+- 19f9506: Bump @clerk/types from 4.34.1 to 4.35.0
+- 62fcd17: Fix internal user verification props
+
 ## 0.9.0
 
 ### Minor Changes
