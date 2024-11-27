@@ -1,13 +1,8 @@
-import type { ActiveSessionResource } from '@clerk/types'
+import type { UseSessionReturn } from '@clerk/types'
 import { computed } from 'vue'
 import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
 import { useClerkProvider } from './useClerkProvider'
-
-type UseSessionReturn =
-  | { isLoaded: false, isSignedIn: undefined, session: undefined }
-  | { isLoaded: true, isSignedIn: false, session: null }
-  | { isLoaded: true, isSignedIn: true, session: ActiveSessionResource }
 
 export function useSession(): ToComputedRefs<UseSessionReturn> {
   const { sessionCtx } = useClerkProvider()

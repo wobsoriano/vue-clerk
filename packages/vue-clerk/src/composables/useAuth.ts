@@ -1,13 +1,10 @@
-import type { ActJWTClaim, CheckAuthorizationWithCustomPermissions, GetToken, OrganizationCustomRoleKey, SignOut } from '@clerk/types'
+import type { CheckAuthorizationWithCustomPermissions, GetToken, SignOut, UseAuthReturn } from '@clerk/types'
 import { computed } from 'vue'
 import type { ToComputedRefs } from '../utils'
 import { toComputedRefs } from '../utils'
 import { invalidStateError, useAuthHasRequiresRoleOrPermission } from '../errors/messages'
 import type { IsomorphicClerk } from '../isomorphicClerk'
 import { useClerkProvider } from './useClerkProvider'
-
-type CheckAuthorizationSignedOut = undefined
-type CheckAuthorizationWithoutOrgOrUser = (params?: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => false
 
 /**
  * @param clerk
@@ -46,60 +43,6 @@ function createSignOut(clerk: IsomorphicClerk) {
     return clerk.signOut(...args)
   }
 }
-
-type UseAuthReturn =
-  | {
-    isLoaded: false
-    isSignedIn: undefined
-    userId: undefined
-    sessionId: undefined
-    actor: undefined
-    orgId: undefined
-    orgRole: undefined
-    orgSlug: undefined
-    has: CheckAuthorizationSignedOut
-    signOut: SignOut
-    getToken: GetToken
-  }
-  | {
-    isLoaded: true
-    isSignedIn: false
-    userId: null
-    sessionId: null
-    actor: null
-    orgId: null
-    orgRole: null
-    orgSlug: null
-    has: CheckAuthorizationWithoutOrgOrUser
-    signOut: SignOut
-    getToken: GetToken
-  }
-  | {
-    isLoaded: true
-    isSignedIn: true
-    userId: string
-    sessionId: string
-    actor: ActJWTClaim | null
-    orgId: null
-    orgRole: null
-    orgSlug: null
-    has: CheckAuthorizationWithoutOrgOrUser
-    signOut: SignOut
-    getToken: GetToken
-  }
-  | {
-    isLoaded: true
-    isSignedIn: true
-    userId: string
-    sessionId: string
-    actor: ActJWTClaim | null
-    orgId: string
-    orgRole: OrganizationCustomRoleKey
-    orgSlug: string | null
-    has: CheckAuthorizationWithCustomPermissions
-    signOut: SignOut
-    getToken: GetToken
-  }
 
 export function useAuth(): ToComputedRefs<UseAuthReturn> {
   const { clerk, authCtx } = useClerkProvider()
