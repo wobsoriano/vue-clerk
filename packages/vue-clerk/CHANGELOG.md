@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.9.2
+
+### Patch Changes
+
+- 24d8541: Add deprecation notice to the ff. control components:
+
+  - `RedirectToUserProfile`
+  - `RedirectToOrganizationProfile`
+  - `RedirectToCreateOrganization`
+  - `WithClerk`
+  - `WithSession`
+  - `WithUser`
+
 ## 0.9.1
 
 ### Patch Changes
