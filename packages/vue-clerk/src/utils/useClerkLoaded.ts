@@ -20,7 +20,7 @@ export function useClerkLoaded(callback: (clerk: IsomorphicClerk) => void) {
   const stop = watch(
     isClerkLoaded,
     (loaded) => {
-      if (loaded) {
+      if (!loaded) {
         return
       }
 
