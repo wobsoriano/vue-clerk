@@ -1,7 +1,7 @@
-import type { LoadedClerk } from '@clerk/types'
 import { watch } from 'vue'
 
-import { useClerk } from '../composables/useClerk'
+import { useClerkProvider } from '../composables/useClerkProvider'
+import type { IsomorphicClerk } from '../isomorphicClerk'
 
 /**
  * Executes a callback when Clerk is loaded.
@@ -14,17 +14,17 @@ import { useClerk } from '../composables/useClerk'
  * });
  * ```
  */
-export function useClerkLoaded(callback: (clerk: LoadedClerk) => void) {
-  const clerk = useClerk()
+export function useClerkLoaded(callback: (clerk: IsomorphicClerk) => void) {
+  const { isClerkLoaded, clerk } = useClerkProvider()
 
   const stop = watch(
-    clerk,
-    (unwrappedClerk) => {
-      if (!unwrappedClerk?.loaded) {
+    isClerkLoaded,
+    (loaded) => {
+      if (loaded) {
         return
       }
 
-      callback(unwrappedClerk as unknown as LoadedClerk)
+      callback(clerk)
       stop()
     },
     { immediate: true },
