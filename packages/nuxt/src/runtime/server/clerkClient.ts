@@ -11,6 +11,8 @@ export function clerkClient(event: H3Event) {
     apiVersion: runtimeConfig.public.clerk.apiVersion,
     secretKey: runtimeConfig.clerk.secretKey,
     jwtKey: runtimeConfig.clerk.jwtKey,
+    domain: runtimeConfig.public.clerk.domain,
+    isSatellite: isTruthy(runtimeConfig.public.clerk.isSatellite),
     telemetry: {
       disabled: isTruthy(runtimeConfig.public.clerk.telemetry?.disabled),
       debug: isTruthy(runtimeConfig.public.clerk.telemetry?.debug),
