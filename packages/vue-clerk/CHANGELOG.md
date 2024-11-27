@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.3
+
+### Patch Changes
+
+- 5b4263b: Pass `isSatellite` and `domain` options to `createClerkClient`
+
 ## 0.9.2
 
 ### Patch Changes
