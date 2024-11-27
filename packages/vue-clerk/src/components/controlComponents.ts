@@ -1,4 +1,5 @@
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent } from 'vue'
+import { deprecated } from '@clerk/shared/deprecated'
 import type {
   CheckAuthorizationWithCustomPermissions,
   HandleOAuthCallbackParams as HandleOAuthCallbackParamsOriginal,
@@ -8,7 +9,7 @@ import type {
 } from '@clerk/types'
 import { useAuth } from '../composables/useAuth'
 import { useClerkProvider } from '../composables/useClerkProvider'
-import { useClerk } from '../composables/useClerk'
+import { useClerkLoaded } from '../utils'
 
 export const SignedIn = defineComponent({
   setup(_props, { slots }) {
@@ -44,11 +45,10 @@ export const ClerkLoading = defineComponent({
 
 export const RedirectToSignIn = defineComponent((props: RedirectOptions) => {
   const { sessionCtx, clientCtx } = useClerkProvider()
-  const clerk = useClerk()
 
-  const hasActiveSessions = clientCtx.value?.activeSessions && clientCtx.value.activeSessions.length > 0
+  useClerkLoaded((clerk) => {
+    const hasActiveSessions = clientCtx.value?.activeSessions && clientCtx.value.activeSessions.length > 0
 
-  onMounted(() => {
     if (sessionCtx.value === null && hasActiveSessions)
       void clerk.redirectToAfterSignOut()
     else
@@ -59,39 +59,43 @@ export const RedirectToSignIn = defineComponent((props: RedirectOptions) => {
 })
 
 export const RedirectToSignUp = defineComponent((props: RedirectOptions) => {
-  const clerk = useClerk()
-
-  onMounted(() => {
+  useClerkLoaded((clerk) => {
     void clerk.redirectToSignUp(props)
   })
 
   return () => null
 })
 
+/**
+ * @deprecated Use [`redirectToUserProfile()`](https://clerk.com/docs/references/javascript/clerk/redirect-methods#redirect-to-user-profile) instead, will be removed in the next major version.
+ */
 export const RedirectToUserProfile = defineComponent(() => {
-  const clerk = useClerk()
-
-  onMounted(() => {
+  useClerkLoaded((clerk) => {
+    deprecated('RedirectToUserProfile', 'Use the `redirectToUserProfile()` method instead.')
     void clerk.redirectToUserProfile()
   })
 
   return () => null
 })
 
+/**
+ * @deprecated Use [`redirectToOrganizationProfile()`](https://clerk.com/docs/references/javascript/clerk/redirect-methods#redirect-to-organization-profile) instead, will be removed in the next major version.
+ */
 export const RedirectToOrganizationProfile = defineComponent(() => {
-  const clerk = useClerk()
-
-  onMounted(() => {
+  useClerkLoaded((clerk) => {
+    deprecated('RedirectToOrganizationProfile', 'Use the `redirectToOrganizationProfile()` method instead.')
     void clerk.redirectToOrganizationProfile()
   })
 
   return () => null
 })
 
+/**
+ * @deprecated Use [`redirectToCreateOrganization()`](https://clerk.com/docs/references/javascript/clerk/redirect-methods#redirect-to-create-organization) instead, will be removed in the next major version.
+ */
 export const RedirectToCreateOrganization = defineComponent(() => {
-  const clerk = useClerk()
-
-  onMounted(() => {
+  useClerkLoaded((clerk) => {
+    deprecated('RedirectToCreateOrganization', 'Use the `redirectToCreateOrganization()` method instead.')
     void clerk.redirectToCreateOrganization()
   })
 
@@ -109,9 +113,7 @@ type HandleOAuthCallbackParams = Omit<HandleOAuthCallbackParamsOriginal, 'transf
 }
 
 export const AuthenticateWithRedirectCallback = defineComponent((props: HandleOAuthCallbackParams) => {
-  const clerk = useClerk()
-
-  onMounted(() => {
+  useClerkLoaded((clerk) => {
     void clerk.handleRedirectCallback(props)
   })
 
