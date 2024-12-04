@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.4
+
+### Patch Changes
+
+- 900d769: Bump @clerk/backend from 1.18.0 to 1.19.0
+- 900d769: Bump @clerk/shared from 2.17.0 to 2.18.0
+- 900d769: Bump @clerk/types from 4.35.0 to 4.36.0
+- 3e5d7d8: Add OKX Wallet authentication
+
 ## 0.9.3
 
 ### Patch Changes
