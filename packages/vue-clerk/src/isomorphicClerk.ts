@@ -11,6 +11,7 @@ import type {
   AuthenticateWithCoinbaseWalletParams,
   AuthenticateWithGoogleOneTapParams,
   AuthenticateWithMetamaskParams,
+  AuthenticateWithOKXWalletParams,
   Clerk,
   ClerkAuthenticateWithWeb3Params,
   ClerkOptions,
@@ -109,6 +110,7 @@ type IsomorphicLoadedClerk = Without<
   | 'handleUnauthenticated'
   | 'authenticateWithMetamask'
   | 'authenticateWithCoinbaseWallet'
+  | 'authenticateWithOKXWallet'
   | 'authenticateWithWeb3'
   | 'authenticateWithGoogleOneTap'
   | 'createOrganization'
@@ -124,7 +126,6 @@ type IsomorphicLoadedClerk = Without<
   | 'mountUserProfile'
   | 'mountWaitlist'
   | 'client'
-  | 'authenticateWithCoinbase' // TODO: This is not preset in types?
 > & {
   // TODO: Align return type and parms
   handleRedirectCallback: (params: HandleOAuthCallbackParams) => void
@@ -133,6 +134,7 @@ type IsomorphicLoadedClerk = Without<
   // TODO: Align Promise unknown
   authenticateWithMetamask: (params: AuthenticateWithMetamaskParams) => Promise<void>
   authenticateWithCoinbaseWallet: (params: AuthenticateWithCoinbaseWalletParams) => Promise<void>
+  authenticateWithOKXWallet: (params: AuthenticateWithOKXWalletParams) => Promise<void>;
   authenticateWithWeb3: (params: ClerkAuthenticateWithWeb3Params) => Promise<void>
   authenticateWithGoogleOneTap: (
     params: AuthenticateWithGoogleOneTapParams,
@@ -1205,6 +1207,16 @@ export class IsomorphicClerk implements IsomorphicLoadedClerk {
     }
     else {
       this.premountMethodCalls.set('authenticateWithCoinbaseWallet', callback)
+    }
+  }
+
+  authenticateWithOKXWallet = async (params: AuthenticateWithOKXWalletParams): Promise<void> => {
+    const callback = () => this.clerkjs?.authenticateWithOKXWallet(params)
+    if (this.clerkjs && this.#loaded) {
+      return callback() as Promise<void>
+    }
+    else {
+      this.premountMethodCalls.set('authenticateWithOKXWallet', callback)
     }
   }
 
