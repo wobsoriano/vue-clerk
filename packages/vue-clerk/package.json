@@ -61,8 +61,8 @@
     }
   },
   "dependencies": {
-    "@clerk/shared": "^2.17.1",
-    "@clerk/types": "^4.35.1"
+    "@clerk/shared": "^2.18.0",
+    "@clerk/types": "^4.36.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.6",
