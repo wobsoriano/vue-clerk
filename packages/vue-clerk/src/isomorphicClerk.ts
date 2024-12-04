@@ -134,7 +134,7 @@ type IsomorphicLoadedClerk = Without<
   // TODO: Align Promise unknown
   authenticateWithMetamask: (params: AuthenticateWithMetamaskParams) => Promise<void>
   authenticateWithCoinbaseWallet: (params: AuthenticateWithCoinbaseWalletParams) => Promise<void>
-  authenticateWithOKXWallet: (params: AuthenticateWithOKXWalletParams) => Promise<void>;
+  authenticateWithOKXWallet: (params: AuthenticateWithOKXWalletParams) => Promise<void>
   authenticateWithWeb3: (params: ClerkAuthenticateWithWeb3Params) => Promise<void>
   authenticateWithGoogleOneTap: (
     params: AuthenticateWithGoogleOneTapParams,
