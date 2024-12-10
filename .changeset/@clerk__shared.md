@@ -2,4 +2,4 @@
 "vue-clerk": patch
 ---
 
-Bump @clerk/shared from 2.19.0 to 2.19.2
+Bump @clerk/shared from 2.19.0 to 2.19.3
