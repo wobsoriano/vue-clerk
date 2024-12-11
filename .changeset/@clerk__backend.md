@@ -2,4 +2,4 @@
 "vue-clerk": patch
 ---
 
-Bump @clerk/backend from 1.19.2 to 1.20.2
+Bump @clerk/backend from 1.19.2 to 1.21.0
