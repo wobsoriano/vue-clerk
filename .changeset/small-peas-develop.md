@@ -1,5 +1,5 @@
 ---
-"vue-clerk-nuxt": patch
+"vue-clerk": patch
 ---
 
 Transpile `vue-clerk/server` export
