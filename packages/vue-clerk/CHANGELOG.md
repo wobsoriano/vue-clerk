@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.8
+
+### Patch Changes
+
+- 6f591ec: Transpile `vue-clerk/server` export
+
 ## 0.9.7
 
 ### Patch Changes
