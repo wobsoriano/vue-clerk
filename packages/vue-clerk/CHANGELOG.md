@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.9
+
+### Patch Changes
+
+- 26d374d: Bump @clerk/backend from 1.21.0 to 1.21.2
+- 26d374d: Bump @clerk/shared from 2.20.0 to 2.20.2
+- 26d374d: Bump @clerk/types from 4.39.2 to 4.39.4
+- 1de225c: Update `IsomorphicClerk` to include Expo updates
+
 ## 0.9.8
 
 ### Patch Changes
