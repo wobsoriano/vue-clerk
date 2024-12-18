@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.10
+
+### Patch Changes
+
+- e7fcc15: Bump @clerk/backend from 1.21.2 to 1.21.3
+- e7fcc15: Bump @clerk/shared from 2.20.2 to 2.20.3
+
 ## 0.9.9
 
 ### Patch Changes
