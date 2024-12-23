@@ -15,7 +15,7 @@ function toWebRequest(event: H3Event) {
   })
 }
 
-type Handler = (event: H3Event) => void
+type Handler = (event: H3Event) => void | Promise<void>
 
 /**
  * Integrates Clerk authentication into your Nuxt application through Middleware.
@@ -71,7 +71,7 @@ export function clerkMiddleware(handler?: Handler) {
     event.context.auth = authObject
     event.context.__clerk_initial_state = createInitialState(authObject)
 
-    handler?.(event)
+    await handler?.(event)
   })
 }
 
