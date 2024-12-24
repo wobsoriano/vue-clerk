@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.11
+
+### Patch Changes
+
+- 435fcf4: Handle Promise in `clerkMiddleware`
+
 ## 0.9.10
 
 ### Patch Changes
