@@ -1,6 +1,7 @@
 import './polyfills'
 
 import { setClerkJsLoadingErrorPackageName } from '@clerk/shared/loadClerkJsScript'
+import { getDeprecationMessage } from './utils/deprecate'
 import SignInButton from './components/SignInButton.vue'
 import SignUpButton from './components/SignUpButton.vue'
 import SignOutButton from './components/SignOutButton.vue'
@@ -10,6 +11,7 @@ import WithClerk from './components/WithClerk.vue'
 import WithSession from './components/WithSession.vue'
 
 setClerkJsLoadingErrorPackageName(PACKAGE_NAME)
+console.warn(getDeprecationMessage())
 
 export {
   SignInButton,
