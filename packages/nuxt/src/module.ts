@@ -23,6 +23,21 @@ export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerR
   skipServerMiddleware?: boolean
 }
 
+function getDeprecationMessage() {
+  return `
+DEPRECATION NOTICE
+==================
+
+The vue-clerk package has graduated to an official SDK!
+
+Please visit our migration guide:
+https://clerk.com/docs/references/vue/migrating-from-vue-community-sdk
+
+The community SDK will continue to work but will no longer
+receive updates or security patches.
+`
+}
+
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'vue-clerk',
@@ -60,6 +75,8 @@ export default defineNuxtModule<ModuleOptions>({
         jwtKey: undefined,
       },
     })
+
+    logger.warn(getDeprecationMessage())
 
     const resolver = createResolver(import.meta.url)
 

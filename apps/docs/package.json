@@ -9,7 +9,7 @@
     "preview": "vitepress serve"
   },
   "dependencies": {
-    "vitepress": "1.3.4",
-    "@vueuse/core": "12.2.0"
+    "@vueuse/core": "12.2.0",
+    "vitepress": "1.3.4"
   }
 }

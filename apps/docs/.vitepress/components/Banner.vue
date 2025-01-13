@@ -13,7 +13,7 @@ watchEffect(() => {
   if (height.value) {
     document.documentElement.style.setProperty(
       '--vp-layout-top-height',
-      `${height.value + 16}px`
+      `${height.value + 16}px`,
     )
   }
 })
