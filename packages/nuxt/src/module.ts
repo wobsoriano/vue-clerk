@@ -61,9 +61,6 @@ export default defineNuxtModule<ModuleOptions>({
       },
     })
 
-    const { getDeprecationMessage } = await import('vue-clerk/internal')
-    logger.warn(getDeprecationMessage())
-
     const resolver = createResolver(import.meta.url)
 
     nuxt.options.build.transpile.push(resolver.resolve('./runtime'), 'vue-clerk/server')
