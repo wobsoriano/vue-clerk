@@ -2,8 +2,8 @@
 
 Vue Clerk is the easiest way to add authentication and user management to your Vue application. Add sign up, sign in, and profile management to your application in minutes.
 
-> [!WARNING]
-> This unofficial package isn't connected to Clerk.com. It's a project designed to smoothly incorporate Clerk features into Vue applications.
+> [!IMPORTANT]
+> This project has graduated to an [official SDK](https://clerk.com/changelog/2025-01-07-vue-and-nuxt-sdk). Please proceed [here](https://clerk.com/docs/references/vue/migrating-from-vue-community-sdk) for migration instructions.
 
 ## Installation
 
