@@ -33,7 +33,7 @@ import { SignInButton, SignedIn, SignedOut, UserButton } from 'vue-clerk'
 </template>
 ```
 
-For further details and examples, please refer to the [Documentation](https://vue-clerk.com).
+For further details and examples, please refer to the [Documentation](https://vue-clerk.vercel.app).
 
 ## License
 
