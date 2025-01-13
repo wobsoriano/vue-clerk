@@ -13,7 +13,7 @@ watchEffect(() => {
   if (height.value) {
     document.documentElement.style.setProperty(
       '--vp-layout-top-height',
-      `${height.value + 16}px`
+      `${height.value + 16}px`,
     )
   }
 })
@@ -22,7 +22,7 @@ watchEffect(() => {
 <template>
   <div ref="el" class="banner">
     <div class="text">
-      🎉 This package has graduated to an official Clerk SDK! See our <a href="https://clerk.com/docs/references/vue/migrating-from-vue-community-sdk" target="_blank">migration guide</a>.
+      🎉 This package has graduated to an official Clerk SDK! See the <a href="https://clerk.com/docs/references/vue/migrating-from-vue-community-sdk" target="_blank">migration guide</a>.
     </div>
   </div>
 </template>

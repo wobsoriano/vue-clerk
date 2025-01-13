@@ -1,6 +1,5 @@
 import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, createResolver, defineNuxtModule, updateRuntimeConfig, useLogger } from '@nuxt/kit'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
-import { getDeprecationMessage } from 'vue-clerk/internal'
 
 export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'> & {
   /**
@@ -22,6 +21,21 @@ export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerR
    * ```
    */
   skipServerMiddleware?: boolean
+}
+
+function getDeprecationMessage() {
+  return `
+DEPRECATION NOTICE
+==================
+
+The vue-clerk package has graduated to an official SDK!
+
+Please visit our migration guide:
+https://clerk.com/docs/references/vue/migrating-from-vue-community-sdk
+
+The community SDK will continue to work but will no longer
+receive updates or security patches.
+`
 }
 
 export default defineNuxtModule<ModuleOptions>({
