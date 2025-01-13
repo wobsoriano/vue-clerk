@@ -1,4 +1,4 @@
-import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, createResolver, defineNuxtModule, updateRuntimeConfig } from '@nuxt/kit'
+import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, createResolver, defineNuxtModule, updateRuntimeConfig, useLogger } from '@nuxt/kit'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
 
 export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'> & {
@@ -23,6 +23,21 @@ export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerR
   skipServerMiddleware?: boolean
 }
 
+function getDeprecationMessage() {
+  return `
+DEPRECATION NOTICE
+==================
+
+The vue-clerk package has graduated to an official SDK!
+
+Please visit our migration guide:
+https://clerk.com/docs/references/vue/migrating-from-vue-community-sdk
+
+The community SDK will continue to work but will no longer
+receive updates or security patches.
+`
+}
+
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'vue-clerk',
@@ -32,6 +47,8 @@ export default defineNuxtModule<ModuleOptions>({
     },
   },
   async setup(options, nuxt) {
+    const logger = useLogger('vue-clerk')
+
     updateRuntimeConfig({
       public: {
         clerk: {
@@ -58,6 +75,8 @@ export default defineNuxtModule<ModuleOptions>({
         jwtKey: undefined,
       },
     })
+
+    logger.warn(getDeprecationMessage())
 
     const resolver = createResolver(import.meta.url)
 
