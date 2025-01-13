@@ -1,6 +1,5 @@
 import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, createResolver, defineNuxtModule, updateRuntimeConfig, useLogger } from '@nuxt/kit'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
-import { getDeprecationMessage } from 'vue-clerk/internal'
 
 export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'> & {
   /**
@@ -62,6 +61,7 @@ export default defineNuxtModule<ModuleOptions>({
       },
     })
 
+    const { getDeprecationMessage } = await import('vue-clerk/internal')
     logger.warn(getDeprecationMessage())
 
     const resolver = createResolver(import.meta.url)
