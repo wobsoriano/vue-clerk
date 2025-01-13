@@ -1,6 +1,5 @@
-import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, createResolver, defineNuxtModule, updateRuntimeConfig, useLogger } from '@nuxt/kit'
+import { addComponent, addImports, addPlugin, addRouteMiddleware, addServerHandler, createResolver, defineNuxtModule, updateRuntimeConfig } from '@nuxt/kit'
 import type { IsomorphicClerkOptions } from 'vue-clerk'
-import { getDeprecationMessage } from 'vue-clerk/internal'
 
 export type ModuleOptions = Omit<IsomorphicClerkOptions, 'routerPush' | 'routerReplace'> & {
   /**
@@ -33,8 +32,6 @@ export default defineNuxtModule<ModuleOptions>({
     },
   },
   async setup(options, nuxt) {
-    const logger = useLogger('vue-clerk')
-
     updateRuntimeConfig({
       public: {
         clerk: {
@@ -61,8 +58,6 @@ export default defineNuxtModule<ModuleOptions>({
         jwtKey: undefined,
       },
     })
-
-    logger.warn(getDeprecationMessage())
 
     const resolver = createResolver(import.meta.url)
 
