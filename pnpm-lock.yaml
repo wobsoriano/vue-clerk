@@ -36,8 +36,8 @@ importers:
   apps/playground:
     dependencies:
       '@clerk/backend':
-        specifier: ^1.21.6
-        version: 1.21.6(react@18.3.1)
+        specifier: ^1.23.1
+        version: 1.23.1(react@18.3.1)
       '@clerk/localizations':
         specifier: ^3.1.2
         version: 3.1.2
@@ -58,11 +58,11 @@ importers:
   packages/nuxt:
     dependencies:
       '@clerk/backend':
-        specifier: ^1.21.6
-        version: 1.21.6(react@18.3.1)
+        specifier: ^1.23.1
+        version: 1.23.1(react@18.3.1)
       '@clerk/types':
-        specifier: ^4.40.2
-        version: 4.40.2
+        specifier: ^4.41.0
+        version: 4.41.0
       '@nuxt/kit':
         specifier: ^3.13.2
         version: 3.13.2(magicast@0.3.5)(rollup@4.21.2)(webpack-sources@3.2.3)
@@ -98,11 +98,11 @@ importers:
         specifier: ^1.9.0
         version: 1.9.2(react@18.3.1)
       '@clerk/shared':
-        specifier: ^2.20.6
-        version: 2.20.6(react@18.3.1)
+        specifier: ^2.20.8
+        version: 2.20.8(react@18.3.1)
       '@clerk/types':
-        specifier: ^4.40.2
-        version: 4.40.2
+        specifier: ^4.41.0
+        version: 4.41.0
     devDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.4.6
@@ -499,8 +499,8 @@ packages:
     bundledDependencies:
       - is-unicode-supported
 
-  '@clerk/backend@1.21.6':
-    resolution: {integrity: sha512-AvuAsMSGSR1gPv5r5r/7i/4irgll673e522BDhzirEv0sY6jTGQ6xoLLcjwYECMk8GvIFGhb/eaqZ4h9gtm+vg==}
+  '@clerk/backend@1.23.1':
+    resolution: {integrity: sha512-xX1E8N1DD97XVUzOHNeRfUFXA08XclSryxDDgg4L8L3PyGTDa47L1BbVtWz8Q1e9NW9QWI7JWqF2OhYb3F3lgg==}
     engines: {node: '>=18.17.0'}
 
   '@clerk/backend@1.9.2':
@@ -511,8 +511,8 @@ packages:
     resolution: {integrity: sha512-+FQqs83mUbLthb66zM8rmbp5LgkpTaVzN21EvkCcX8wAUJ7oT3W9sFSyUwQZXErwQpQNZRlv92nPPwxNsQZ7Mw==}
     engines: {node: '>=18.17.0'}
 
-  '@clerk/shared@2.20.6':
-    resolution: {integrity: sha512-DnxXbPPUNQQMOlAQFEn0iAiwPtjO4yKVabSgs+qn86VsNWWHnG//uHJzB6nmDk8n5RYGe/vMum73/Lz/Pg1SgQ==}
+  '@clerk/shared@2.20.8':
+    resolution: {integrity: sha512-I94MUUpEKi31KMiK2ZL6hsvNsgRuqqtZ+dQlE8zEUZKW+7hoeGimUQTKf7yr2zQ6XDhpGTt+63Cysx7kIny7yQ==}
     engines: {node: '>=18.17.0'}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0 || ^19.0.0-0
@@ -547,8 +547,8 @@ packages:
     resolution: {integrity: sha512-p2IyJ0q5WF1e976L1pS1J6Mb5ducfkUC31DR1EvMjPwJkrlWJdAMCPc+zqRRAePVy/JBVK2gEKbUVtJ6/jrpag==}
     engines: {node: '>=18.17.0'}
 
-  '@clerk/types@4.40.2':
-    resolution: {integrity: sha512-Jkt8YiqtFSRvCsN+8/MR2V0Cl83xtuqZVuV6ygQ6VJeSbmmFP0q5CSowlJ8mon2bELrlUnWH011dhAjELmvXqg==}
+  '@clerk/types@4.41.0':
+    resolution: {integrity: sha512-pSIDJ6WKmkPLAThzuXABFt/K581iLjsZSOU7e+hDdb1PRElKi11stMJruDU8UjLBNFksZUG5Cfkt0iGrVQmpXw==}
     engines: {node: '>=18.17.0'}
 
   '@cloudflare/kv-asset-handler@0.3.4':
@@ -2453,9 +2453,9 @@ packages:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
 
-  cookie@0.7.0:
-    resolution: {integrity: sha512-qCf+V4dtlNhSRXGAZatc1TasyFO6GjohcOul807YOb5ik3+kQSnb4d7iajeCL8QHaJ4uZEjCgiCJerKXwdRVlQ==}
-    engines: {node: '>= 0.6'}
+  cookie@1.0.2:
+    resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
+    engines: {node: '>=18'}
 
   copy-anything@3.0.5:
     resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
@@ -4970,6 +4970,10 @@ packages:
     resolution: {integrity: sha512-YTywJG93yxwHLgrYLZjlC75moVEX04LZM4FHfihjHe1FCXm+QaLOFfSf535aXOAd0ArVQMWUAe8ZPm4VtWyXaA==}
     engines: {node: '>=12'}
 
+  snakecase-keys@8.0.1:
+    resolution: {integrity: sha512-Sj51kE1zC7zh6TDlNNz0/Jn1n5HiHdoQErxO8jLtnyrkJW/M5PrI7x05uDgY3BO7OUQYKCvmeMurW6BPUdwEOw==}
+    engines: {node: '>=18'}
+
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
@@ -5376,6 +5380,10 @@ packages:
   type-fest@3.13.1:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
+
+  type-fest@4.32.0:
+    resolution: {integrity: sha512-rfgpoi08xagF3JSdtJlCwMq9DGNDE0IMh3Mkpc1wUypg9vPi786AiqeBBKcqvIkq42azsBM85N490fyZjeUftw==}
+    engines: {node: '>=16'}
 
   type-level-regexp@0.1.17:
     resolution: {integrity: sha512-wTk4DH3cxwk196uGLK/E9pE45aLfeKJacKmcEgEOA/q5dnPGNxXt0cfYdFxb57L+sEpf1oJH4Dnx/pnRcku9jg==}
@@ -6512,12 +6520,12 @@ snapshots:
       picocolors: 1.1.0
       sisteransi: 1.0.5
 
-  '@clerk/backend@1.21.6(react@18.3.1)':
+  '@clerk/backend@1.23.1(react@18.3.1)':
     dependencies:
-      '@clerk/shared': 2.20.6(react@18.3.1)
-      '@clerk/types': 4.40.2
-      cookie: 0.7.0
-      snakecase-keys: 5.4.4
+      '@clerk/shared': 2.20.8(react@18.3.1)
+      '@clerk/types': 4.41.0
+      cookie: 1.0.2
+      snakecase-keys: 8.0.1
       tslib: 2.4.1
     transitivePeerDependencies:
       - react
@@ -6538,9 +6546,9 @@ snapshots:
     dependencies:
       '@clerk/types': 4.25.0
 
-  '@clerk/shared@2.20.6(react@18.3.1)':
+  '@clerk/shared@2.20.8(react@18.3.1)':
     dependencies:
-      '@clerk/types': 4.40.2
+      '@clerk/types': 4.41.0
       dequal: 2.0.3
       glob-to-regexp: 0.4.1
       js-cookie: 3.0.5
@@ -6572,7 +6580,7 @@ snapshots:
     dependencies:
       csstype: 3.1.1
 
-  '@clerk/types@4.40.2':
+  '@clerk/types@4.41.0':
     dependencies:
       csstype: 3.1.1
 
@@ -8783,7 +8791,7 @@ snapshots:
 
   cookie@0.5.0: {}
 
-  cookie@0.7.0: {}
+  cookie@1.0.2: {}
 
   copy-anything@3.0.5:
     dependencies:
@@ -11917,6 +11925,12 @@ snapshots:
       snake-case: 3.0.4
       type-fest: 2.19.0
 
+  snakecase-keys@8.0.1:
+    dependencies:
+      map-obj: 4.3.0
+      snake-case: 3.0.4
+      type-fest: 4.32.0
+
   source-map-js@1.2.0: {}
 
   source-map-js@1.2.1: {}
@@ -12297,6 +12311,8 @@ snapshots:
   type-fest@2.19.0: {}
 
   type-fest@3.13.1: {}
+
+  type-fest@4.32.0: {}
 
   type-level-regexp@0.1.17: {}
 
