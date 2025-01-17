@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.1
+
+### Patch Changes
+
+- 3d578cc: Publish migration info to npm
+
 ## 0.10.0
 
 ### Minor Changes
